@@ -1,25 +1,37 @@
-<!-- Start About Banner Area -->
-<div class="about-banner-area">
-    <div class="container">
+@extends('layouts.master')
+
+@section('content')
+
+<!-- Start Banner Area -->
+<div class="banner-area">
+    <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="about-banner-content">
-                    <span class="top-title">Who we are</span>
-                    <h2>Our job is to empower the world through the development of technology through combined knowledge.</h2>
-                    <p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec sollicitudin molestie malesuada pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit. Vivamus magna.</p>
-                    <p>Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
+            <div class="col-lg-6">
+                <div class="banner-content">
+                    <h1>Pify</h1>
+                    <h3>Share & grow the world's <span>knowledge</span>!</h3>
+                    <p>We want to connect with people who will share their knowledge from one person to another.</p>
+                    <a href="user.html" class="default-btn">
+                        Create a free team
+                    </a>
                 </div>
             </div>
 
-            <div class="col-lg-5">
-                <div class="about-banner-img">
-                    <img src="assets/images/banner-img.png" alt="Image">
+            <div class="col-lg-6 pe-0">
+                <div class="banner-img">
+                    <img src="assets/images/banner/banner-img.png" alt="Image">
+                    <img src="assets/images/banner/shape-1.png" alt="Image" class="shape shape-1">
+                    <img src="assets/images/banner/shape-2.png" alt="Image" class="shape shape-2">
+                    <img src="assets/images/banner/shape-3.png" alt="Image" class="shape shape-3">
+                    <img src="assets/images/banner/shape-4.png" alt="Image" class="shape shape-4">
+                    <img src="assets/images/banner/shape-5.png" alt="Image" class="shape shape-5">
+                    <img src="assets/images/banner/shape-6.png" alt="Image" class="shape shape-6">
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- End About Banner Area -->
+<!-- End Banner Area -->
 
 <!-- Start Monthly User Area -->
 <div class="monthly-user-area">
@@ -235,3 +247,5 @@
     </div>
 </div>
 <!-- End team Area -->
+
+@endsection
