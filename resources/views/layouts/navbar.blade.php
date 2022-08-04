@@ -1,5 +1,5 @@
 <!-- Start Navbar Area --> 
-<div class="navbar-area">
+<nav class="navbar-area">
     <div class="mobile-responsive-nav">
         <div class="container">
             <div class="mobile-responsive-menu">
@@ -146,5 +146,5 @@
             </div>
         </div>
     </div>
-</div>
+</nav>
 <!-- End Navbar Area -->
