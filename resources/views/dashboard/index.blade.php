@@ -10,7 +10,32 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3">
-						<div class="sidebar-menu-wrap">
+						<div class="d-flex align-items-start">
+							<ul class="nav flex-column nav-pills me-3" id="myTab" role="tablist">
+								<li class="nav-item" role="presentation">
+									<button class="nav-link active" id="recent-questions-tab" data-bs-toggle="tab" data-bs-target="#recent-questions" type="button" role="tab" aria-controls="recent-questions" aria-selected="true">
+										Recent Questions
+									</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="most-answered-tab" data-bs-toggle="tab" data-bs-target="#most-answered" type="button" role="tab" aria-controls="most-answered" aria-selected="false">
+										Most Answered 
+									</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="unanswered-question-tab" data-bs-toggle="tab" data-bs-target="#unanswered-question" type="button" role="tab" aria-controls="unanswered-question" aria-selected="false">
+										Unanswered Question
+									</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="featured-question-tab" data-bs-toggle="tab" data-bs-target="#featured-question" type="button" role="tab" aria-controls="featured-question" aria-selected="false">
+										Featured Question
+									</button>
+								</li>
+							</ul>
+						</div>
+							
+						{{-- <div class="sidebar-menu-wrap">
 							<div class="sidemenu-wrap d-flex justify-content-between align-items-center">
 								<h3>Pify Sidebar Menu</h3>
 								<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
@@ -186,7 +211,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> --}}
 					</div>
 
 					<div class="col-lg-6">
@@ -208,7 +233,7 @@
 							
 							<form class="aq-form">
 								<i class="ri-search-line"></i>
-								<input type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
+								<input type="text" class="form-control rounded-pill" placeholder="Have a question? Ask or enter a search">
 								<button class="aq-btn">
 									Ask Question
 								</button>
@@ -237,6 +262,7 @@
 								</li>
 							</ul>
 
+							{{-- Content --}}
 							<div class="tab-content" id="myTabContent">
 								<div class="tab-pane fade show active" id="recent-questions" role="tabpanel" aria-labelledby="recent-questions-tab">
 									<div class="single-qa-box like-dislike">
@@ -1813,7 +1839,7 @@
 								<div class="tab-pane fade" id="unanswered-question" role="tabpanel" aria-labelledby="unanswered-question-tab">
 									<div class="single-qa-box like-dislike">
 										<div class="d-flex">
-											<div class="link-unlike flex-shrink-0">
+											{{-- <div class="link-unlike flex-shrink-0">
 												<a href="user.html">
 													<img src="assets/images/user/user-1.jpg" alt="Image">
 												</a>
@@ -1831,13 +1857,18 @@
 														<span>25</span>
 													</button>
 												</div>
-											</div>
+											</div> --}}
 
 											<div class="flex-grow-1 ms-3">
 												<ul class="graphic-design">
 													<li>
-														<a href="user.html">Teresa Klein</a>
+														<a>
+															<img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
+														</a>
 													</li>
+													{{-- <li>
+														<a href="user.html">Teresa Klein</a>
+													</li> --}}
 													<li>
 														<span>Latest Answer: 14 hours ago</span>
 													</li>
@@ -3440,11 +3471,13 @@
 							</div>
 						</div>
 					</div>
+					{{-- End Content --}}
 
+					{{-- Sidebar Right --}}
 					<div class="col-lg-3">
 						<div class="right-siderbar">
 							<div class="right-siderbar-common">
-								<a href="ask-questions.html" class="default-btn">
+								<a href="ask-questions.html" class="default-btn rounded-pill">
 									Ask a question
 								</a>
 							</div>
@@ -3681,6 +3714,8 @@
 							</div>
 						</div>
 					</div>
+					{{-- End sidebar right --}}
+
 				</div>
 			</div>
 		</div>

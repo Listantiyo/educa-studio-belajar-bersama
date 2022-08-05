@@ -62,7 +62,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #f48225;
+  color: #1877f2;
 }
 
 a:focus {
@@ -146,7 +146,7 @@ img {
   -webkit-box-shadow: unset;
           box-shadow: unset;
   outline: 0;
-  border: 1px solid #f48225;
+  border: 1px solid #1877f2;
 }
 
 .form-control:hover:focus, .form-control:focus {
@@ -223,7 +223,7 @@ Default Btn Area Style*/
   display: -ms-inline-grid;
   display: inline-grid;
   padding: 12px 40px;
-  background-color: #f48225;
+  background-color: #1877f2;
   border-radius: 5px;
 }
 
@@ -686,8 +686,8 @@ Navbar Area Style
 }
 
 .desktop-nav .navbar .others-options ul li a.active {
-  background-color: #f48225;
-  border-color: #f48225;
+  background-color: #1877f2;
+  border-color: #1877f2;
 }
 
 .desktop-nav .navbar .others-options ul li a.user-noti {
@@ -786,7 +786,7 @@ Navbar Area Style
 }
 
 .desktop-nav .navbar .others-options ul li .search-box .form-control:focus {
-  border-color: #f48225;
+  border-color: #1877f2;
 }
 
 .desktop-nav .navbar .others-options ul li .search-box .search-btn {
@@ -1545,13 +1545,13 @@ Middull Area Style
 }
 
 .middull-content .aq-form .form-control {
-  background-color: #ffffff;
+  background-color: #e3ebf2;
   border-color: #eeeeee;
   padding-left: 60px;
 }
 
 .middull-content .aq-form .form-control:focus {
-  border-color: #f48225;
+  border-color: #1877f2;
 }
 
 .middull-content .aq-form .aq-btn {
@@ -1559,14 +1559,13 @@ Middull Area Style
   top: 15px;
   right: 20px;
   background-color: transparent;
-  text-decoration: underline;
   font-weight: 500;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
 
 .middull-content .aq-form .aq-btn:hover {
-  color: #f48225;
+  color: #1877f2;
 }
 
 .middull-content .questions-tabs {
@@ -1672,6 +1671,12 @@ Middull Area Style
   font-size: 14px;
 }
 
+/* NYOBA */
+.single-qa-box .graphic-design img {
+  margin-bottom: 10px;
+  border-radius: 50px;
+}
+
 .single-qa-box .graphic-design li:last-child {
   margin-right: 0;
 }
@@ -1683,12 +1688,12 @@ Middull Area Style
 }
 
 .single-qa-box .graphic-design li a.graphic {
-  color: #f48225;
+  color: #1877f2;
   font-size: 14px;
 }
 
 .single-qa-box .graphic-design li a:hover {
-  color: #f48225;
+  color: #1877f2;
 }
 
 .single-qa-box h3 {
@@ -1701,7 +1706,7 @@ Middull Area Style
 }
 
 .single-qa-box h3 a:hover {
-  color: #f48225;
+  color: #0c0d0e;
 }
 
 .single-qa-box p {
@@ -1729,7 +1734,7 @@ Middull Area Style
 }
 
 .single-qa-box .tag-list li a:hover {
-  border-color: #f48225;
+  border-color: #1877f2;
 }
 
 .single-qa-box .anser-list {
@@ -1782,7 +1787,7 @@ Middull Area Style
 }
 
 .single-qa-box .anser-list li .qa-share .share-option span i:hover {
-  color: #f48225;
+  color: #1877f2;
 }
 
 .single-qa-box .anser-list li .qa-share .share-option .social-icon {
@@ -1813,7 +1818,7 @@ Middull Area Style
   height: 30px;
   line-height: 30px;
   text-align: center;
-  background-color: #f48225;
+  background-color: #0c0d0e;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
           box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   display: inline-block;
@@ -1825,7 +1830,7 @@ Middull Area Style
 }
 
 .single-qa-box .anser-list li .qa-share .share-option .social-icon li a:hover i {
-  background-color: #f48225;
+  background-color: #1877f2;
   color: #ffffff;
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
@@ -1847,7 +1852,7 @@ Middull Area Style
 }
 
 .single-qa-box .default-btn:hover {
-  background-color: #f48225;
+  background-color: #1877f2;
 }
 
 .single-qa-box .featured {
@@ -2461,7 +2466,7 @@ Page Title Area Style
   right: -17px;
   width: 1px;
   height: 100%;
-  background-color: #f48225;
+  background-color: #1877f2;
   -webkit-transform: rotate(15deg);
           transform: rotate(15deg);
 }
@@ -2487,7 +2492,7 @@ Page Title Area Style
 }
 
 .page-title-area .page-title-list li:last-child.active {
-  color: #f48225;
+  color: #1877f2;
 }
 
 /*
@@ -4076,7 +4081,7 @@ User Area CSS
 }
 
 .user-form .login-action .form-check a {
-  color: #f48225;
+  color: #1877f2;
 }
 
 .user-form .login-action .forgot-login {
@@ -4145,7 +4150,7 @@ User Area CSS
 }
 
 .user-form .create a {
-  color: #f48225;
+  color: #1877f2;
 }
 
 .user-form .create #remember-2 {
@@ -4154,7 +4159,7 @@ User Area CSS
 }
 
 .user-form .create .form-check-input {
-  border: 1px solid #f48225;
+  border: 1px solid #1877f2;
   border-radius: 0 !important;
 }
 

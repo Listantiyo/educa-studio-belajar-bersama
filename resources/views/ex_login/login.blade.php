@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="{{asset('template/pify/assets/css/editor.css')}}">
 		<link rel="stylesheet" href="{{asset('template/pify/assets/css/style.css')}}">
 		<link rel="stylesheet" href="{{asset('template/pify/assets/css/responsive.css')}}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 		
 		<!-- Favicon -->
 		<link rel="icon" type="image/png" href="assets/images/favicon.png">
@@ -221,12 +222,14 @@
 					<div class="row">
 						<div class="col-lg-6 col-sm-6">
 							<a href="https://www.google.com/" target="_blank" class="or-login google rounded-pill">
+								<i class="bi bi-google"></i>
 								Google
 							</a>
 						</div>
 		
 						<div class="col-lg-6 col-sm-6">
 							<a href="https://www.facebook.com/" target="_blank" class="or-login facebook rounded-pill">
+								<i class="bi bi-facebook"></i>
 								Facebook
 							</a>
 						</div>
@@ -413,13 +416,15 @@
 						<form class="user-form">
 							<div class="row">
 								<div class="col-lg-6 col-sm-6">
-									<a href="https://www.google.com/" target="_blank" class="or-login google">
+									<a href="https://www.google.com/" target="_blank" class="or-login google rounded-pill">
+										<i class="bi bi-google"></i>
 										Google
 									</a>
 								</div>
 		
 								<div class="col-lg-6 col-sm-6">
-									<a href="https://www.facebook.com/" target="_blank" class="or-login facebook">
+									<a href="https://www.facebook.com/" target="_blank" class="or-login facebook rounded-pill">
+										<i class="bi bi-facebook"></i>
 										Facebook
 									</a>
 								</div>
@@ -431,14 +436,14 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label>User name or email</label>
-										<input class="form-control" type="text" name="name">
+										<input class="form-control rounded-pill" type="text" name="name">
 									</div>
 								</div>
 		
 								<div class="col-12">
 									<div class="form-group">
 										<label>Password</label>
-										<input class="form-control" type="password" name="password">
+										<input class="form-control rounded-pill" type="password" name="password">
 									</div>
 								</div>
 		
@@ -451,7 +456,7 @@
 								</div>
 		
 								<div class="col-12">
-									<button class="default-btn" type="submit">
+									<button class="default-btn rounded-pill" type="submit">
 										Log In
 									</button>
 								</div>
@@ -479,13 +484,15 @@
 						<form class="user-form">
 							<div class="row">
 								<div class="col-lg-6 col-sm-6">
-									<a href="https://www.google.com/" target="_blank" class="or-login google">
+									<a href="https://www.google.com/" target="_blank" class="or-login google rounded-pill">
+										<i class="bi bi-google"></i>
 										Google
 									</a>
 								</div>
 		
 								<div class="col-lg-6 col-sm-6">
-									<a href="https://www.facebook.com/" target="_blank" class="or-login facebook">
+									<a href="https://www.facebook.com/" target="_blank" class="or-login facebook rounded-pill">
+										<i class="bi bi-facebook"></i>
 										Facebook
 									</a>
 								</div>
@@ -497,21 +504,21 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label>User name</label>
-										<input class="form-control" type="text" name="name">
+										<input class="form-control rounded-pill" type="text" name="name">
 									</div>
 								</div>
 
 								<div class="col-12">
 									<div class="form-group">
 										<label>Email</label>
-										<input class="form-control" type="email" name="name">
+										<input class="form-control rounded-pill" type="email" name="name">
 									</div>
 								</div>
 		
 								<div class="col-12">
 									<div class="form-group">
 										<label>Password</label>
-										<input class="form-control" type="password" name="password">
+										<input class="form-control rounded-pill" type="password" name="password">
 									</div>
 								</div>
 		
@@ -527,7 +534,7 @@
 								</div>
 		
 								<div class="col-12">
-									<button class="default-btn" type="submit">
+									<button class="default-btn rounded-pill" type="submit">
 										Sign up
 									</button>
 								</div>
