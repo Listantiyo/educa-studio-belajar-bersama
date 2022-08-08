@@ -1569,7 +1569,7 @@ Middull Area Style
 }
 
 .middull-content .questions-tabs {
-  border-bottom: 2px solid #f48225;
+  border-bottom: 2px solid #1877f2;
 }
 
 .middull-content .questions-tabs .nav-item {
@@ -1587,13 +1587,13 @@ Middull Area Style
 }
 
 .middull-content .questions-tabs .nav-item .nav-link:hover {
-  background-color: #f48225;
-  color: #ffffff;
+  background-color: #1877f2;
+  color: #0c0d0e;
 }
 
 .middull-content .questions-tabs .nav-item .nav-link.active {
-  background-color: #f48225;
-  color: #ffffff;
+  background-color: #1877f2;
+  color: #0c0d0e;
 }
 
 .middull-content .unansweredd-list {

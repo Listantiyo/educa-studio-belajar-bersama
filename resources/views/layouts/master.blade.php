@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/meanmenu.min.css')}}">
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/metismenu.min.css')}}">
-    <link rel="stylesheet" href="{{asset('template/pify/assets/css/font-awesome.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('template/pify/assets/css/font-awesome.min.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/editor.css')}}">
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/responsive.css')}}">
@@ -23,9 +23,8 @@
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/responsive.scss')}}">
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/jquerysctipttop.css')}}">
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.css.map')}}">
-    <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.scss')}}">
-
-
+    <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.scss')}}">  
+    <script src="https://kit.fontawesome.com/7f8292fccf.js" crossorigin="anonymous"></script>  
     
 
 </head>
@@ -55,6 +54,7 @@
     <script src="{{asset('template/pify/assets/js/editor.js')}}"></script>
     <script src="{{asset('template/pify/assets/js/like-dislike.min.js')}}"></script>
     <script src="{{asset('template/pify/assets/js/custom.js')}}"></script>
-    <script src="{{asset('template/pify/assets/js/font-awesome-5.js')}}"></script>
+    {{-- <script src="{{asset('template/pify/assets/js/font-awesome-5.js')}}"></script> --}}
+    
 </body>
 </html>
