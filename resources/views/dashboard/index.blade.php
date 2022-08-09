@@ -28,16 +28,23 @@
 
 
 		<!-- Start Mail Content Area -->
-		<div class="main-content-area ptb-100">
+		<div class="main-content-area py-5">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3">
-						<div class="d-flex align-items-start ms-5">
+					<div class="col-lg-2">
+						<div class="align-items-center">
+							<h5 class="d-inline ms-4">Mapel</h5>
+							<a class="d-inline ms-5">
+								<i class="fa-solid fa-gear fs-5"></i>
+							</a>
+						</div>
+						<hr>
+						<div class="d-flex align-items-start ms-1">
 							<ul class="nav flex-column questions-tab nav-pills" id="myTab" role="tablist">
-								<li>
+								{{-- <li>
 									<h4>Mapel</h4>
 									<hr>
-								</li>
+								</li> --}}
 								<li class="nav-item" role="presentation">
 									<button class="nav-link font-bold active" id="recent-questions-tab" data-bs-toggle="tab" data-bs-target="#recent-questions" type="button" role="tab" aria-controls="recent-questions" aria-selected="true">
 										<i class="ri-facebook-fill pe-2"></i>
@@ -251,9 +258,9 @@
 						</div> --}}
 					</div>
 
-					<div class="col-lg-6">
+					<div class="col-lg-7">
 						<div class="middull-content">
-							<ul class="page-nish">
+							{{-- <ul class="page-nish">
 								<li>
 									<a href="index.html">
 										<i class="ri-home-8-line"></i>
@@ -266,17 +273,42 @@
 								<li class="active">
 									All questions
 								</li>
-							</ul>
+							</ul> --}}
 							
-							<form class="aq-form">
+							{{-- <form class="aq-form">
 								<i class="ri-search-line"></i>
 								<input type="text" class="form-control rounded-pill" placeholder="Have a question? Ask or enter a search">
 								<button class="aq-btn">
 									Ask Question
 								</button>
-							</form>
+							</form> --}}
 
-							<ul class="nav nav-tabs questions-tabs d-flex justify-content-between" id="myTab" role="tablist">
+							<div class="card pb-5 pt-4 px-3 mb-4">
+								<div class="card-body">
+									<div class="d-flex">
+										<div class="flex-grow-1 ms-3">
+											<ul class="graphic-design">
+												<li>
+													<a>
+														<img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
+													</a>
+												</li>
+												<li>
+													<span>Mahaguru</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="ms-5">
+										<h1 class="card-title pb-3">
+											Punya Pertanyaan?
+										</h1>
+										<a href="#" class="btn btn-dark fw-bold" style="border-radius: 20px;">TANYA SEKARANG!</a>
+									</div>
+								</div>
+							</div>
+
+							{{-- <ul class="nav nav-tabs questions-tabs d-flex justify-content-between" id="myTab" role="tablist">
 								<li class="nav-item" role="presentation">
 									<button class="nav-link active" id="recent-questions-tab" data-bs-toggle="tab" data-bs-target="#recent-questions" type="button" role="tab" aria-controls="recent-questions" aria-selected="true">
 										Recent Questions
@@ -297,7 +329,7 @@
 										Featured Question
 									</button>
 								</li>
-							</ul>
+							</ul> --}}
 
 							{{-- Content --}}
 							<div class="tab-content" id="myTabContent">
@@ -3536,17 +3568,11 @@
 															<img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
 														</a>
 													</li>
-													{{-- <li>
-														<a href="user.html">Teresa Klein</a>
-													</li> --}}
 													<li>
-														<span>Latest Answer: 14 hours ago</span>
+														<a href="#">Matematika</a>
 													</li>
 													<li>
-														<span>In:</span>
-														<a href="tags.html" class="graphic">
-															Graphic design
-														</a>
+														<span>14 hours ago</span>
 													</li>
 												</ul>
 
@@ -3556,7 +3582,7 @@
 													</a>
 												</h3>
 
-												<ul class="tag-list">
+												{{-- <ul class="tag-list">
 													<li>
 														<a href="tags.html">Discussion</a>
 													</li>
@@ -3566,10 +3592,10 @@
 													<li>
 														<a href="tags.html">Analytics</a>
 													</li>
-												</ul>
+												</ul> --}}
 
-												<div class="d-flex justify-content-between align-items-center">
-													<ul class="anser-list">
+												<div class="d-flex align-items-end flex-column bd-highlight mb-3">
+													{{-- <ul class="anser-list">
 														<li>
 															<a href="polls.html">
 																24 Vote
@@ -3612,9 +3638,9 @@
 																</li>
 															</ul>
 														</li>
-													</ul>
+													</ul> --}}
 
-													<a href="most-answered.html" class="default-btn">
+													<a href="#" class="default-btn mt-3">
 														Answer
 													</a>
 												</div>
@@ -4304,13 +4330,13 @@
 					{{-- Sidebar Right --}}
 					<div class="col-lg-3">
 						<div class="right-siderbar">
-							<div class="right-siderbar-common">
+							{{-- <div class="right-siderbar-common">
 								<a href="ask-questions.html" class="default-btn rounded-pill">
 									Ask a question
 								</a>
-							</div>
+							</div> --}}
 
-							<div class="right-siderbar-common">
+							{{-- <div class="right-siderbar-common">
 								<div class="category">
 									<h3>
 										<i class="ri-list-unordered"></i>
@@ -4323,6 +4349,25 @@
 										<option value="2">Language</option>
 										<option value="3">Analytics</option>
 									</select>
+								</div>
+							</div> --}}
+
+							<div class="right-sidebar-common">
+								<div class="card">
+									<div class="">
+										<div class="card-body d-flex">
+											<div class="d-inline">
+												<img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="rounded-circle me-3" style="width: 100%;">
+											</div>
+											<div class="text-center py-2">
+												<h6 class="card-title fw-bold mb-0">Anonymous</h6>
+												<span class="d-block lencana ms-3">Gemar menyatir</span>
+											</div>
+										</div>
+										<div class="card-footer" style="cursor: pointer">
+											<a href="fb.com"><p>Lihat Selengkapnya</p></a>
+										</div>
+									</div>
 								</div>
 							</div>
 

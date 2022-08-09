@@ -224,7 +224,7 @@ Default Btn Area Style*/
   display: inline-grid;
   padding: 12px 40px;
   background-color: #1877f2;
-  border-radius: 5px;
+  border-radius: 17px;
 }
 
 .default-btn.active-btn {
@@ -1675,6 +1675,8 @@ Middull Area Style
 .single-qa-box .graphic-design img {
   margin-bottom: 10px;
   border-radius: 50px;
+  cursor: pointer;
+  width: 70%;
 }
 
 .single-qa-box .graphic-design li:last-child {
@@ -1866,12 +1868,38 @@ Middull Area Style
   font-size: 13px;
 }
 
+/* TAMBAHAN */
+
+.card-body .graphic-design {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.card-body .graphic-design li {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.card-body .graphic-design img {
+  margin-bottom: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 70%;
+}
+
+.card-body h1 {
+  font-weight: 900; 
+  font-size: 53px;
+}
+
+
 /*
 Right Sidebar Area Style
 ======================================================*/
 .right-siderbar {
   position: -webkit-sticky;
-  position: sticky;
+  position: static;
   top: 120px;
 }
 
@@ -2196,6 +2224,18 @@ Right Sidebar Area Style
 
 .right-siderbar .right-siderbar-common .search-form form .src-btn:hover {
   color: #f48225;
+}
+
+/* TAMBAHAN */
+.lencana {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-left: 7px;
+  padding-right: 7px;
+  color:#000000;
+  font-weight: 500;
+  background-color: #fff3d6;
+  border-radius: 7px;
 }
 
 /*
