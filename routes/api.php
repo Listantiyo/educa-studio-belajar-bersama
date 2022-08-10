@@ -18,6 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/ex', function () {
+    return view('ex_backend.index'); 
+});
+
+Route::get('/data/f','Xample@filter');
 
 Route::get('/data/q','Xample@show_question');
+
 Route::get('/data/a','Xample@show_answer');

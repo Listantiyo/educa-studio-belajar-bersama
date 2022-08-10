@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 
 class Xample extends Controller
 {
+    public function filter(){
+        $filc = Classe::all();
+        $filt = Type::all();
+        $film = Mapel::all();
+
+        // return ($filc ->'class', $filt $film);
+        return compact('filc','film','filt');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,56 +30,47 @@ class Xample extends Controller
     {
         $a = Classe::all();
         $aa = 1;
-        $b = Answer::all();
-        $c = Mapel::all();
+        // $b = Answer::all();
+        // $c = Mapel::all();
         $cc = null;
-        $d = Question::all();
-        $e = Type::all();
+        $question = Question::all();
+        // $e = Type::all();
         $ee = null;
-        $f = User_Detail::all();
+        // $f = User_Detail::all();
 
         if (($aa)!=null) {
             # code...
-            $d = $d->where('id_kelas',$aa);
+            $question = $question->where('id_kelas',$aa);
         }
         if (($cc)!=null) {
             # code...
-            $d = $d->where('id_mapel',$cc);
+            $question = $question->where('id_mapel',$cc);
         }
         if (($ee)!=null) {
             # code...
-            $d = $d->where('id_type',$ee);
+            $question = $question->where('id_type',$ee);
         }
-            return [$a,$d];
+            // return response()->json([$question]);
+        
+            return $question;
         
     }
-    public function show_answer()
-    {
-        $a = Classe::all();
-        $aa = 1;
-        $b = Answer::all();
-        $c = Mapel::all();
-        $cc = null;
-        $d = Question::all();
-        $e = Type::all();
-        $ee = null;
-        $f = User_Detail::all();
+    // public function show_answer()
+    // {
+    //     $a = Classe::all();
+    //     $aa = 1;
+    //     $b = Answer::all();
+    //     $c = Mapel::all();
+    //     $cc = null;
+    //     $question = Question::all();
+    //     $e = Type::all();
+    //     $ee = null;
+    //     $f = User_Detail::all();
 
-        if (($aa)!=null) {
-            # code...
-            $d = $d->where('id_kelas',$aa);
-        }
-        if (($cc)!=null) {
-            # code...
-            $d = $d->where('id_mapel',$cc);
-        }
-        if (($ee)!=null) {
-            # code...
-            $d = $d->where('id_type',$ee);
-        }
-            return [$a,$d];
         
-    }
+    //         return [$a,$question];
+        
+    // }
 
     /**
      * Show the form for creating a new resource.
