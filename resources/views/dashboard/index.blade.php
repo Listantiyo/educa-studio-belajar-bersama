@@ -283,7 +283,7 @@
 								</button>
 							</form> --}}
 
-							<div class="card pb-5 pt-4 px-3 mb-4">
+							<div class="card pb-5 pt-4 px-3">
 								<div class="card-body">
 									<div class="d-flex">
 										<div class="flex-grow-1 ms-3">
@@ -307,6 +307,29 @@
 									</div>
 								</div>
 							</div>
+
+							
+							<div class="container py-3">
+								<div class="row">
+									<div class="col-md-6">
+										<select class="form-select select-rounded" aria-label="Default select example" style="width: 80%;">
+											<option selected>Semua tingkat pendidikan</option>
+											<option value="1">Sekolah Dasar</option>
+											<option value="2">Sekolah Menengah Pertama</option>
+											<option value="3">Sekolah Menengah Atas</option>
+										</select>
+									</div>
+									<div class="col-md-6">
+										<select class="form-select select-rounded" aria-label="Default select example" style="width: 50%;">
+											<option selected>Semua</option>
+											<option value="1">Belum terjawab</option>
+											<option value="2">Terjawab</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						
+
 
 							{{-- <ul class="nav nav-tabs questions-tabs d-flex justify-content-between" id="myTab" role="tablist">
 								<li class="nav-item" role="presentation">
@@ -3539,8 +3562,8 @@
 								</div>
 
 								<div class="tab-pane fade" id="matematika-question" role="tabpanel" aria-labelledby="matematika-question-tab">
-									<div class="single-qa-box like-dislike">
-										<div class="d-flex">
+									<div class="single-qa-box card">
+										<div class="d-flex card-body">
 											{{-- <div class="link-unlike flex-shrink-0">
 												<a href="user.html">
 													<img src="assets/images/user/user-1.jpg" alt="Image">
@@ -3648,261 +3671,20 @@
 										</div>
 									</div>
 
-									<div class="single-qa-box like-dislike">
-										<div class="d-flex">
-											<div class="link-unlike flex-shrink-0">
-												<a href="user.html">
-													<img src="assets/images/user/user-2.jpg" alt="Image">
-												</a>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count like">
-														<i class="ri-thumb-up-fill"></i>
-														<span>774</span>
-													</button>
-												</div>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count dislike">
-													<i class="ri-thumb-down-fill"></i>
-														<span>2</span>
-													</button>
-												</div>
-											</div>
-
+									<div class="single-qa-box card">
+										<div class="d-flex card-body">
 											<div class="flex-grow-1 ms-3">
 												<ul class="graphic-design">
 													<li>
-														<a href="user.html">Adam  Garrison</a>
-													</li>
-													<li>
-														<span>Latest Answer: 15 hours ago</span>
-													</li>
-													<li>
-														<span>In:</span>
-														<a href="tags.html" class="graphic">
-															Programming
+														<a>
+															<img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
 														</a>
 													</li>
-												</ul>
-
-												<h3>
-													<a href="queations-details.html">
-														Teaching high school students various computer systems is a resource for the future
-													</a>
-												</h3>
-
-												<ul class="tag-list">
 													<li>
-														<a href="tags.html">Discussion</a>
+														<a href="#">Matematika</a>
 													</li>
 													<li>
-														<a href="tags.html">Language</a>
-													</li>
-													<li>
-														<a href="tags.html">Analytics</a>
-													</li>
-												</ul>
-
-												<div class="d-flex justify-content-between align-items-center">
-													<ul class="anser-list">
-														<li>
-															<a href="polls.html">
-																2 Vote
-															</a>
-														</li>
-														<li>
-															<a href="most-visited.html">
-																647 Views
-															</a>
-														</li>
-														<li>
-															<ul class="qa-share">
-																<li class="share-option">
-																	<span>
-																		<i class="ri-share-fill"></i>
-																	</span>
-																	
-																	<ul class="social-icon">
-																		<li>
-																			<a href="https://www.facebook.com/" target="_blank">
-																				<i class="ri-facebook-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.twitter.com/" target="_blank">
-																				<i class="ri-twitter-line"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.linkedin.com/" target="_blank">
-																				<i class="ri-linkedin-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.instagram.com/" target="_blank">
-																				<i class="ri-instagram-line"></i>
-																			</a>
-																		</li>
-																	</ul>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<a href="most-answered.html" class="default-btn">
-														Answer
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="single-qa-box like-dislike">
-										<div class="d-flex">
-											<div class="link-unlike flex-shrink-0">
-												<a href="user.html">
-													<img src="assets/images/user/user-3.jpg" alt="Image">
-												</a>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count like">
-														<i class="ri-thumb-up-fill"></i>
-														<span>674</span>
-													</button>
-												</div>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count dislike">
-													<i class="ri-thumb-down-fill"></i>
-														<span>4</span>
-													</button>
-												</div>
-											</div>
-
-											<div class="flex-grow-1 ms-3">
-												<ul class="graphic-design">
-													<li>
-														<a href="user.html">Yvonne Cox</a>
-													</li>
-													<li>
-														<span>Latest Answer: 16 hours ago</span>
-													</li>
-													<li>
-														<span>In:</span>
-														<a href="tags.html" class="graphic">
-															Conversion
-														</a>
-													</li>
-												</ul>
-
-												<h3>
-													<a href="queations-details.html">
-														Here are some examples of how to prevent Kindle ebook text images from expanding from a PDF file.
-													</a>
-												</h3>
-
-												<ul class="tag-list">
-													<li>
-														<a href="tags.html">Discussion</a>
-													</li>
-													<li>
-														<a href="tags.html">Language</a>
-													</li>
-													<li>
-														<a href="tags.html">Analytics</a>
-													</li>
-												</ul>
-
-												<div class="d-flex justify-content-between align-items-center">
-													<ul class="anser-list">
-														<li>
-															<a href="polls.html">
-																24 Vote
-															</a>
-														</li>
-														<li>
-															<a href="most-visited.html">
-																658 Views
-															</a>
-														</li>
-														<li>
-															<ul class="qa-share">
-																<li class="share-option">
-																	<span>
-																		<i class="ri-share-fill"></i>
-																	</span>
-																	
-																	<ul class="social-icon">
-																		<li>
-																			<a href="https://www.facebook.com/" target="_blank">
-																				<i class="ri-facebook-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.twitter.com/" target="_blank">
-																				<i class="ri-twitter-line"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.linkedin.com/" target="_blank">
-																				<i class="ri-linkedin-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.instagram.com/" target="_blank">
-																				<i class="ri-instagram-line"></i>
-																			</a>
-																		</li>
-																	</ul>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<a href="most-answered.html" class="default-btn">
-														Answer
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="single-qa-box like-dislike">
-										<div class="d-flex">
-											<div class="link-unlike flex-shrink-0">
-												<a href="user.html">
-													<img src="assets/images/user/user-4.jpg" alt="Image">
-												</a>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count like">
-														<i class="ri-thumb-up-fill"></i>
-														<span>494</span>
-													</button>
-												</div>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count dislike">
-													<i class="ri-thumb-down-fill"></i>
-														<span>2</span>
-													</button>
-												</div>
-											</div>
-
-											<div class="flex-grow-1 ms-3">
-												<ul class="graphic-design">
-													<li>
-														<a href="user.html">Nelson Koch</a>
-													</li>
-													<li>
-														<span>Latest Answer: 14 hours ago</span>
-													</li>
-													<li>
-														<span>In:</span>
-														<a href="tags.html" class="graphic">
-															Graphic design
-														</a>
+														<span>14 hours ago</span>
 													</li>
 												</ul>
 
@@ -3912,65 +3694,8 @@
 													</a>
 												</h3>
 
-												<ul class="tag-list">
-													<li>
-														<a href="tags.html">Discussion</a>
-													</li>
-													<li>
-														<a href="tags.html">Language</a>
-													</li>
-													<li>
-														<a href="tags.html">Analytics</a>
-													</li>
-												</ul>
-
-												<div class="d-flex justify-content-between align-items-center">
-													<ul class="anser-list">
-														<li>
-															<a href="polls.html">
-																43 Vote
-															</a>
-														</li>
-														<li>
-															<a href="most-visited.html">
-																974 Views
-															</a>
-														</li>
-														<li>
-															<ul class="qa-share">
-																<li class="share-option">
-																	<span>
-																		<i class="ri-share-fill"></i>
-																	</span>
-																	
-																	<ul class="social-icon">
-																		<li>
-																			<a href="https://www.facebook.com/" target="_blank">
-																				<i class="ri-facebook-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.twitter.com/" target="_blank">
-																				<i class="ri-twitter-line"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.linkedin.com/" target="_blank">
-																				<i class="ri-linkedin-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.instagram.com/" target="_blank">
-																				<i class="ri-instagram-line"></i>
-																			</a>
-																		</li>
-																	</ul>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<a href="most-answered.html" class="default-btn">
+												<div class="d-flex align-items-end flex-column bd-highlight mb-3">
+													<a href="#" class="default-btn mt-3">
 														Answer
 													</a>
 												</div>
@@ -3978,109 +3703,31 @@
 										</div>
 									</div>
 
-									<div class="single-qa-box like-dislike">
-										<div class="d-flex">
-											<div class="link-unlike flex-shrink-0">
-												<a href="user.html">
-													<img src="assets/images/user/user-5.jpg" alt="Image">
-												</a>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count like">
-														<i class="ri-thumb-up-fill"></i>
-														<span>974</span>
-													</button>
-												</div>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count dislike">
-													<i class="ri-thumb-down-fill"></i>
-														<span>5</span>
-													</button>
-												</div>
-											</div>
-
+									<div class="single-qa-box card">
+										<div class="d-flex card-body">
 											<div class="flex-grow-1 ms-3">
 												<ul class="graphic-design">
 													<li>
-														<a href="user.html">James Sardina</a>
-													</li>
-													<li>
-														<span>Latest Answer: 19 hours ago</span>
-													</li>
-													<li>
-														<span>In:</span>
-														<a href="tags.html" class="graphic">
-															Language
+														<a>
+															<img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
 														</a>
+													</li>
+													<li>
+														<a href="#">Matematika</a>
+													</li>
+													<li>
+														<span>14 hours ago</span>
 													</li>
 												</ul>
 
 												<h3>
 													<a href="queations-details.html">
-														In the case of a human being, learning how many languages is logical is mentioned
+														If you open Illustrator by dragging the Photoshop file, why it becomes a JPG file
 													</a>
 												</h3>
 
-												<ul class="tag-list">
-													<li>
-														<a href="tags.html">Discussion</a>
-													</li>
-													<li>
-														<a href="tags.html">Language</a>
-													</li>
-													<li>
-														<a href="tags.html">Analytics</a>
-													</li>
-												</ul>
-
-												<div class="d-flex justify-content-between align-items-center">
-													<ul class="anser-list">
-														<li>
-															<a href="polls.html">
-																35 Vote
-															</a>
-														</li>
-														<li>
-															<a href="most-visited.html">
-																735 Views
-															</a>
-														</li>
-														<li>
-															<ul class="qa-share">
-																<li class="share-option">
-																	<span>
-																		<i class="ri-share-fill"></i>
-																	</span>
-																	
-																	<ul class="social-icon">
-																		<li>
-																			<a href="https://www.facebook.com/" target="_blank">
-																				<i class="ri-facebook-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.twitter.com/" target="_blank">
-																				<i class="ri-twitter-line"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.linkedin.com/" target="_blank">
-																				<i class="ri-linkedin-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.instagram.com/" target="_blank">
-																				<i class="ri-instagram-line"></i>
-																			</a>
-																		</li>
-																	</ul>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<a href="most-answered.html" class="default-btn">
+												<div class="d-flex align-items-end flex-column bd-highlight mb-3">
+													<a href="#" class="default-btn mt-3">
 														Answer
 													</a>
 												</div>
@@ -4088,110 +3735,31 @@
 										</div>
 									</div>
 
-									<div class="single-qa-box like-dislike">
-										<div class="d-flex">
-											<div class="link-unlike flex-shrink-0">
-												<a href="user.html">
-													<img src="assets/images/user/user-6.jpg" alt="Image">
-												</a>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count like">
-														<i class="ri-thumb-up-fill"></i>
-														<span>951</span>
-													</button>
-												</div>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count dislike">
-													<i class="ri-thumb-down-fill"></i>
-														<span>2</span>
-													</button>
-												</div>
-											</div>
-
+									<div class="single-qa-box card">
+										<div class="d-flex card-body">
 											<div class="flex-grow-1 ms-3">
 												<ul class="graphic-design">
 													<li>
-														<a href="user.html">Judith Maddox</a>
-													</li>
-													<li>
-														<span>Latest Answer: 14 hours ago</span>
-													</li>
-													<li>
-														<span>In:</span>
-														<a href="tags.html" class="graphic">
-															Graphic design
+														<a>
+															<img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
 														</a>
+													</li>
+													<li>
+														<a href="#">Matematika</a>
+													</li>
+													<li>
+														<span>14 hours ago</span>
 													</li>
 												</ul>
 
 												<h3>
 													<a href="queations-details.html">
-														Why do people of different countries celebrate their New Year in different ways?
+														If you open Illustrator by dragging the Photoshop file, why it becomes a JPG file
 													</a>
 												</h3>
 
-												<ul class="tag-list">
-													<li>
-														<a href="tags.html">Discussion</a>
-													</li>
-													<li>
-														<a href="tags.html">l
-															Language</a>
-													</li>
-													<li>
-														<a href="tags.html">Analytics</a>
-													</li>
-												</ul>
-
-												<div class="d-flex justify-content-between align-items-center">
-													<ul class="anser-list">
-														<li>
-															<a href="polls.html">
-																32 Vote
-															</a>
-														</li>
-														<li>
-															<a href="most-visited.html">
-																374 Views
-															</a>
-														</li>
-														<li>
-															<ul class="qa-share">
-																<li class="share-option">
-																	<span>
-																		<i class="ri-share-fill"></i>
-																	</span>
-																	
-																	<ul class="social-icon">
-																		<li>
-																			<a href="https://www.facebook.com/" target="_blank">
-																				<i class="ri-facebook-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.twitter.com/" target="_blank">
-																				<i class="ri-twitter-line"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.linkedin.com/" target="_blank">
-																				<i class="ri-linkedin-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.instagram.com/" target="_blank">
-																				<i class="ri-instagram-line"></i>
-																			</a>
-																		</li>
-																	</ul>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<a href="most-answered.html" class="default-btn">
+												<div class="d-flex align-items-end flex-column bd-highlight mb-3">
+													<a href="#" class="default-btn mt-3">
 														Answer
 													</a>
 												</div>
@@ -4199,109 +3767,95 @@
 										</div>
 									</div>
 
-									<div class="single-qa-box like-dislike">
-										<div class="d-flex">
-											<div class="link-unlike flex-shrink-0">
-												<a href="user.html">
-													<img src="assets/images/user/user-7.jpg" alt="Image">
-												</a>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count like">
-														<i class="ri-thumb-up-fill"></i>
-														<span>583</span>
-													</button>
-												</div>
-
-												<div class="donet-like-list">
-													<button class="like-unlink-count dislike">
-													<i class="ri-thumb-down-fill"></i>
-														<span>6</span>
-													</button>
-												</div>
-											</div>
-
+									<div class="single-qa-box card">
+										<div class="d-flex card-body">
 											<div class="flex-grow-1 ms-3">
 												<ul class="graphic-design">
 													<li>
-														<a href="user.html">Rick Thrasher</a>
-													</li>
-													<li>
-														<span>Latest Answer: 22 hours ago</span>
-													</li>
-													<li>
-														<span>In:</span>
-														<a href="tags.html" class="graphic">
-															Language
+														<a>
+															<img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
 														</a>
+													</li>
+													<li>
+														<a href="#">Matematika</a>
+													</li>
+													<li>
+														<span>14 hours ago</span>
 													</li>
 												</ul>
 
 												<h3>
 													<a href="queations-details.html">
-														What is the requirement of a student's e-book for conducting educational activities?
+														If you open Illustrator by dragging the Photoshop file, why it becomes a JPG file
 													</a>
 												</h3>
 
-												<ul class="tag-list">
+												<div class="d-flex align-items-end flex-column bd-highlight mb-3">
+													<a href="#" class="default-btn mt-3">
+														Answer
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="single-qa-box card">
+										<div class="d-flex card-body">
+											<div class="flex-grow-1 ms-3">
+												<ul class="graphic-design">
 													<li>
-														<a href="tags.html">Discussion</a>
+														<a>
+															<img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
+														</a>
 													</li>
 													<li>
-														<a href="tags.html">Language</a>
+														<a href="#">Matematika</a>
 													</li>
 													<li>
-														<a href="tags.html">Analytics</a>
+														<span>14 hours ago</span>
 													</li>
 												</ul>
 
-												<div class="d-flex justify-content-between align-items-center">
-													<ul class="anser-list">
-														<li>
-															<a href="polls.html">
-																24 Vote
-															</a>
-														</li>
-														<li>
-															<a href="most-visited.html">
-																658 Views
-															</a>
-														</li>
-														<li>
-															<ul class="qa-share">
-																<li class="share-option">
-																	<span>
-																		<i class="ri-share-fill"></i>
-																	</span>
-																	
-																	<ul class="social-icon">
-																		<li>
-																			<a href="https://www.facebook.com/" target="_blank">
-																				<i class="ri-facebook-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.twitter.com/" target="_blank">
-																				<i class="ri-twitter-line"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.linkedin.com/" target="_blank">
-																				<i class="ri-linkedin-fill"></i>
-																			</a>
-																		</li>
-																		<li>
-																			<a href="https://www.instagram.com/" target="_blank">
-																				<i class="ri-instagram-line"></i>
-																			</a>
-																		</li>
-																	</ul>
-																</li>
-															</ul>
-														</li>
-													</ul>
+												<h3>
+													<a href="queations-details.html">
+														If you open Illustrator by dragging the Photoshop file, why it becomes a JPG file
+													</a>
+												</h3>
 
-													<a href="most-answered.html" class="default-btn">
+												<div class="d-flex align-items-end flex-column bd-highlight mb-3">
+													<a href="#" class="default-btn mt-3">
+														Answer
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="single-qa-box card">
+										<div class="d-flex card-body">
+											<div class="flex-grow-1 ms-3">
+												<ul class="graphic-design">
+													<li>
+														<a>
+															<img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
+														</a>
+													</li>
+													<li>
+														<a href="#">Matematika</a>
+													</li>
+													<li>
+														<span>14 hours ago</span>
+													</li>
+												</ul>
+
+												<h3>
+													<a href="queations-details.html">
+														If you open Illustrator by dragging the Photoshop file, why it becomes a JPG file
+													</a>
+												</h3>
+
+												<div class="d-flex align-items-end flex-column bd-highlight mb-3">
+													<a href="#" class="default-btn mt-3">
 														Answer
 													</a>
 												</div>
@@ -4354,24 +3908,49 @@
 
 							<div class="right-sidebar-common">
 								<div class="card">
-									<div class="">
-										<div class="card-body d-flex">
-											<div class="d-inline">
-												<img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="rounded-circle me-3" style="width: 100%;">
-											</div>
-											<div class="text-center py-2">
-												<h6 class="card-title fw-bold mb-0">Anonymous</h6>
-												<span class="d-block lencana ms-3">Gemar menyatir</span>
-											</div>
+									<div class="container card-body d-flex">
+										<div class="d-inline">
+											<img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="rounded-circle me-3" style="width: 100%;">
 										</div>
-										<div class="card-footer" style="cursor: pointer">
-											<a href="fb.com"><p>Lihat Selengkapnya</p></a>
+										<div class="text-center py-2">
+											<h6 class="card-title fw-bold mb-0">Anonymous</h6>
+											<span class="d-block lencana">Gemar menyatir</span>
 										</div>
+									</div>
+									<div class="container card-body d-flex" style="padding-top: 10px;">
+										<ul class="list-lencana">
+											<li>
+												<span class="lencana">
+													<i class="fa-solid fa-shield-halved"></i>
+													Bintang Briliant
+												</span>
+											</li>
+											<li>
+												<span class="lencana">
+													<i class="fa-solid fa-shield-halved"></i>
+													Gratitude Attitude
+												</span>
+											</li>
+											<li>
+												<a href="#" class="lencana">5+ lebih banyak</a>
+											</li>
+										</ul>
+										{{-- <span class="d-block lencana ms-3">Bintang Briliant</span>
+										<span class="lencana ms-3">Gratitude Attitude</span>
+										<span class="lencana ms-3">5+ lebih banyak</span> --}}
+									</div>
+									<div class="card-footer card-button">
+										<a href="https://www.gamelab.id" class="d-flex align-items-center">
+											<p class="d-inline mb-0">Lihat Selengkapnya</p>
+											<i class="fa-solid fa-chevron-right d-inline" style="padding-left: 40%;"></i>
+										</a>
 									</div>
 								</div>
 							</div>
+									
+									
 
-							<div class="right-siderbar-common">
+							{{-- <div class="right-siderbar-common">
 								<div class="discussions">
 									<h3>
 										<i class="ri-speaker-line"></i>
@@ -4401,7 +3980,7 @@
 										</li>
 									</ul>
 								</div>
-							</div>
+							</div> --}}
 
 							<div class="right-siderbar-common">
 								<div class="answer-count">
@@ -4434,7 +4013,7 @@
 								</div>
 							</div>
 
-							<div class="right-siderbar-common">
+							{{-- <div class="right-siderbar-common">
 								<div class="recent-post">
 									<h3>
 										<i class="ri-discuss-line"></i>
@@ -4468,7 +4047,7 @@
 										</li>
 									</ul>
 								</div>
-							</div>
+							</div> --}}
 
 							<div class="right-siderbar-common">
 								<div class="top-members">
@@ -4479,45 +4058,74 @@
 
 									<ul>
 										<li>
-											<a href="groups.html">
-												<img src="assets/images/user/user-8.jpg" alt="Image">
-												<p>Yong Spears <span>(5k Points)</span></p>
-												<span>99 Questions</span>
+											<a href="groups.html" class="d-flex">
+												<div>
+													<img src="template/pify/assets/images/user/user-8.jpg" alt="Image">
+													<p class="d-inline">1.Yong Spears <span></span></p>
+												</div>
 											</a>
 										</li>
 										<li>
-											<a href="groups.html">
-												<img src="assets/images/user/user-9.jpg" alt="Image">
-												<p>Denise Jones <span>(4k Points)</span></p>
-												<span>85 Questions</span>
+											<a href="groups.html" class="d-flex">
+												<img src="template/pify/assets/images/user/user-9.jpg" alt="Image">
+												<p class="d-inline">2.Denise Jones <span></span></p>
 											</a>
 										</li>
 										<li>
-											<a href="groups.html">
-												<img src="assets/images/user/user-10.jpg" alt="Image">
-												<p>Dennis Rogers <span>(3k Points)</span></p>
-												<span>80 Questions</span>
+											<a href="groups.html" class="d-flex">
+												<img src="template/pify/assets/images/user/user-10.jpg" alt="Image">
+												<p class="d-inline">3.Dennis Rogers <span></span></p>
 											</a>
 										</li>
 										<li>
-											<a href="groups.html">
-												<img src="assets/images/user/user-11.jpg" alt="Image">
-												<p>Naomi Barnett <span>(1k Points)</span></p>
-												<span>60 Questions</span>
+											<a href="groups.html" class="d-flex">
+												<img src="template/pify/assets/images/user/user-11.jpg" alt="Image">
+												<p class="d-inline">4.Naomi Barnett <span></span></p>
 											</a>
 										</li>
 										<li>
-											<a href="groups.html">
-												<img src="assets/images/user/user-12.jpg" alt="Image">
-												<p>Mary Wenger <span>(952 Points)</span></p>
-												<span>50 Questions</span>
+											<a href="groups.html" class="d-flex">
+												<img src="template/pify/assets/images/user/user-12.jpg" alt="Image">
+												<p class="d-inline">5.Mary Wenger <span></span></p>
+											</a>
+										</li>
+										<li>
+											<a href="groups.html" class="collapse" id="collapseExample">
+												<img src="template/pify/assets/images/user/user-8.jpg" alt="Image">
+												<p class="d-inline">6.Yong Spears <span></span></p>
+											</a>
+										</li>
+										<li>
+											<a href="groups.html" class="collapse" id="collapseExample">
+												<img src="template/pify/assets/images/user/user-9.jpg" alt="Image">
+												<p class="d-inline">7.Denise Jones <span></span></p>
+											</a>
+										</li>
+										<li>
+											<a href="groups.html" class="collapse" id="collapseExample">
+												<img src="template/pify/assets/images/user/user-10.jpg" alt="Image">
+												<p class="d-inline">8.Dennis Rogers <span></span></p>
+											</a>
+										</li>
+										<li>
+											<a href="groups.html" class="collapse" id="collapseExample">
+												<img src="template/pify/assets/images/user/user-11.jpg" alt="Image">
+												<p class="d-inline">9.Naomi Barnett <span></span></p>
+											</a>
+										</li>
+										<li>
+											<a href="groups.html" class="collapse" id="collapseExample">
+												<img src="template/pify/assets/images/user/user-12.jpg" alt="Image">
+												<p class="d-inline">10.Mary Wenger <span></span></p>
 											</a>
 										</li>
 									</ul>
 								</div>
 							</div>
-
-							<div class="right-siderbar-common">
+							
+							<button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Tampilkan</button>
+							
+							{{-- <div class="right-siderbar-common">
 								<div class="ads">
 									<a href="queations-details.html">
 										<img src="assets/images/ad.jpg" alt="Image">
@@ -4527,9 +4135,9 @@
 										Learn More
 									</a>
 								</div>
-							</div>
+							</div> --}}
 
-							<div class="right-siderbar-common">
+							{{-- <div class="right-siderbar-common">
 								<div class="trending-tags">
 									<h3>
 										<i class="ri-price-tag-3-line"></i>
@@ -4584,7 +4192,7 @@
 										</li>
 									</ul>
 								</div>
-							</div>
+							</div>p --}}
 						</div>
 					</div>
 					{{-- End sidebar right --}}

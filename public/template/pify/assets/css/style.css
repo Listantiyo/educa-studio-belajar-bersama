@@ -2098,7 +2098,7 @@ Right Sidebar Area Style
 .right-siderbar .right-siderbar-common .top-members ul li {
   position: relative;
   padding-left: 60px;
-  margin-bottom: 15px;
+  margin-bottom: 45px;
 }
 
 .right-siderbar .right-siderbar-common .top-members ul li:last-child {
@@ -2230,12 +2230,38 @@ Right Sidebar Area Style
 .lencana {
   margin-top: 4px;
   margin-bottom: 4px;
+  margin-left: 1rem;
   padding-left: 7px;
   padding-right: 7px;
   color:#000000;
   font-weight: 500;
-  background-color: #fff3d6;
+  background-color: #edf8ff;
   border-radius: 7px;
+  cursor: default;
+}
+
+.list-lencana {
+  list-style: none;
+  padding-left: 0;
+}
+
+.list-lencana li {
+  margin-bottom: 10px;
+}
+
+.select-rounded {
+  border-radius: 20px;
+  background-color: #ebf2f7;
+}
+
+.card-button {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.card-button:hover {
+  background-color: #ebf2f7;
+
 }
 
 /*
