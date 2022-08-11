@@ -30,7 +30,7 @@
 
     <style>
         .carousel-wrap {
-                 width: 1000px;
+                 width: 1180px;
                  margin: auto;
                  position: relative;
              }
@@ -143,7 +143,7 @@
                  items: 3
              },
              1000: {
-                 items: 3
+                 items: 5
              }
          }
      });
