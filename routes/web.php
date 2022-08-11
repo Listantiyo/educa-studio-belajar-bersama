@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('ex_login.login');
 });
 
+Route::get('/ohome', function () {
+    return view('ex_home.index');
+});
+
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/hhome', 'HomeController@index');
 
