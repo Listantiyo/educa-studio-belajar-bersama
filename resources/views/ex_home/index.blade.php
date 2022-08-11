@@ -14,9 +14,10 @@
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <div class="" style="padding-top: 0%">
-                    <h1 style="font-weight: 1000; font-size: 65px; padding-left: 20px" >Dari bertanya jadi <br> mengerti </h1>
-                    <p style="font-size: 16px; padding-left: 20px" >Brainly adalah tempat berbagi ilmu 350 juta siswa dan pakar edukasi, belajar bersama untuk menyelesaikan soal-soal yang paling rumit sekalipun.</p>
+                <div class="" style="padding-top:">
+                    <h1 style="font-weight: 1000; font-size: 65px; padding-left: 20px;" >Dari bertanya jadi</h1>
+                    <h1 style="font-weight: 1000; font-size: 65px; padding-left: 20px; padding-top: 20px;" >mengerti</h1>
+                    <p style="font-size: 16px; padding-left: 20px; padding-top: 25px;" >Brainly adalah tempat berbagi ilmu 350 juta siswa dan pakar edukasi, belajar bersama untuk menyelesaikan soal-soal yang paling rumit sekalipun.</p>
                     <form method="GET" action="/app/asl?entry=hero">
                         <input type="text" class="form-control rounded-pill py-5" style="padding-left: 20px;" class="font-size: 78px;"  id="exampleFormControlInput1" placeholder="Apa pertanyaan mu?" text-size="20psx">
                         <button><i class="fa fa-search " aria-hidden="true" style="position:absolute; left:43%; bottom:26%; font-size: 35px;"></i></button>
