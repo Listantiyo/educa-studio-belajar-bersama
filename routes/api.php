@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/ex', function () {
-    return view('ex_backend.index'); 
+    return view('ex_login.login'); 
 });
 
 Route::get('/data/f','Xample@filter');

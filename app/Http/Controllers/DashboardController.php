@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Dashboard;
 use Illuminate\Http\Request;
 
+use App\Answer;
+use App\Classe;
+use App\Mapel;
+use App\Question;
+use App\Type;
+use App\User_Detail;
+
 class DashboardController extends Controller
 {
     /**
@@ -14,7 +21,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $filc = Classe::all();
+        $filt = Type::all();
+        $film = Mapel::all();
+        return view('dashboard.index',compact('filc','filt','film'));
     }
 
     /**
