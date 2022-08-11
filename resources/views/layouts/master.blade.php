@@ -63,11 +63,13 @@
              }
  
              .owl-carousel .prev-slide{
-                 background: black no-repeat scroll 0 0;
+                 /* background: black no-repeat scroll 0 0; */
+                 padding-top: 15px;
                  left: -33px;
              }
              .owl-carousel .next-slide{
-                 background: black no-repeat scroll -24px 0px;
+                 /* background-image: url(https://assets.pikiran-rakyat.com/crop/0x294:1080x958/x/photo/2021/03/20/1605315083.jpeg); */
+                 padding-top: 15px;
                  right: -33px;
              }
              .owl-carousel .prev-slide:hover{
@@ -134,7 +136,7 @@
          loop:true,
          margin: 10,
          nav: true,
-         navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+         navText:["<div class='fa-solid fa-caret-left nav-btn prev-slide'></div>","<div class='fa-solid fa-caret-right nav-btn next-slide'></div>"],
          responsive: {
              0: {
                  items: 1
