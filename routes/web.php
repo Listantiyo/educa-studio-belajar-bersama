@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('ex_login.login');
 });
 
-Route::get('/ohome', function () {
+Route::get('/oohome', function () {
     return view('ex_home.index');
 });
 
