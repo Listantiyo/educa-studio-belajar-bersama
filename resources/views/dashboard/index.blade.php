@@ -272,7 +272,7 @@
 							</div>
 						
 
-							<div class="right-siderbar-common">
+							{{-- <div class="right-siderbar-common">
 								<div class="answer-count">
 									<ul class="d-flex flex-wrap">
 										<li>
@@ -301,9 +301,9 @@
 										</li>
 									</ul>
 								</div>
-							</div>
+							</div> --}}
 
-							<div class="right-siderbar-common">
+							{{-- <div class="right-siderbar-common">
 								<div id="top-user">
 									<h3>
 										<i class="ri-discuss-line"></i>
@@ -311,7 +311,7 @@
 									</h3>
 									<div class="list-group list-group-flush">
 										<a href="#" class="list-group-item d-flex justify-content-between align-items-center">
-											<img src="template/pify/assets/images/user/user-9.jpg" alt="Image" class="rounded-circle" width="15%">
+											<img src="template/pify/assets/images/user/user-9.jpg" alt="Image">
 											<span>Yong Spears</span>
 											<span class="badge bg-primary rounded-pill">293</span>
 										</a>
@@ -370,7 +370,7 @@
 										</button>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 					</div>
 					{{-- End sidebar right --}}
