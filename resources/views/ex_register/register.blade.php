@@ -16,8 +16,9 @@
 		<link rel="stylesheet" href="{{asset('template/pify/assets/css/metismenu.min.css')}}">
 		<link rel="stylesheet" href="{{asset('template/pify/assets/css/font-awesome.min.css')}}">
 		<link rel="stylesheet" href="{{asset('template/pify/assets/css/editor.css')}}">
-		<link rel="stylesheet" href="{{asset('template/pify/assets/css/style.css')}}">
+		{{-- <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.css')}}"> --}}
 		<link rel="stylesheet" href="{{asset('template/pify/assets/css/responsive.css')}}">
+		<link rel="stylesheet" href="{{asset('template/pify/assets/css/register.css')}}">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 		
 		<!-- Favicon -->
@@ -39,7 +40,7 @@
 		<!-- End Preloader Area -->
 		
 		<!-- Start Navbar Area --> 
-		<div class="navbar-area">
+		{{-- <div class="navbar-area">
 			<div class="mobile-responsive-nav">
 				<div class="container">
 					<div class="mobile-responsive-menu">
@@ -186,11 +187,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<!-- End Navbar Area -->
 
 		<!-- Start Page title Area -->
-		<div class="page-title-area ptb-100">
+		{{-- <div class="page-title-area ptb-100">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-lg-6 col-md-4">
@@ -213,10 +214,10 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<!-- End Page title Area -->
 
-		<div class="login-area ptb-100">
+		<div class="login-area pt-40">
 			<div class="container">
 				<form class="user-form">
 					<div class="row">
@@ -240,33 +241,29 @@
 		
 						<div class="col-12">
 							<div class="form-group">
-								<label>Username</label>
-								<input class="form-control rounded-pill" type="text" name="name">
+								<input class="form-control rounded-pill" type="text" name="name" placeholder="Username">
 							</div>
 						</div>
 
 						<div class="col-12">
 							<div class="form-group">
-								<label>Email</label>
-								<input class="form-control rounded-pill" type="email" name="email">
+								<input class="form-control rounded-pill" type="email" name="email" placeholder="Email">
 							</div>
 						</div>
 		
 						<div class="col-12">
 							<div class="form-group">
-								<label>Password</label>
-								<input class="form-control rounded-pill" type="password" name="password">
+								<input class="form-control rounded-pill" type="password" name="password" placeholder="Password">
 							</div>
 						</div>
 
 						<div class="col-12">
 							<div class="form-group">
-								<label>Confirm Password</label>
-								<input class="form-control rounded-pill" type="password" name="password">
+								<input class="form-control rounded-pill" type="password" name="password" placeholder="Confirm Password">
 							</div>
 						</div>
 		
-                        <div class="col-12">
+                        <div class="col-12 pt-1">
                             <div class="login-action">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -292,7 +289,7 @@
 		</div>
 
 		<!-- Start Footer Area -->
-		<div class="footer-area pt-100 pb-70">
+		{{-- <div class="footer-area pt-100 pb-70">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 col-sm-6">
@@ -393,11 +390,11 @@
 			<div class="footer-shape">
 				<img src="assets/images/footer-shape.png" alt="Image">
 			</div>
-		</div>
+		</div> --}}
 		<!-- End Footer Area -->
 
 		<!-- End Copyright Area -->
-		<div class="copy-right-area">
+		{{-- <div class="copy-right-area">
 			<div class="container">
 				<div class="copy-right-content">
 					<div class="row">
@@ -418,11 +415,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<!-- End Copyright Area -->
 
 		<!-- Start Log In Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		{{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -486,11 +483,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<!-- Enad Log In Modal -->
 
 		<!-- Start Sign Up Modal -->
-		<div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		{{-- <div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -564,11 +561,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<!-- Enad Sign Up Modal -->
 
 		<!-- Start Log In Modal -->
-		<div class="modal fade" id="exampleModal-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		{{-- <div class="modal fade" id="exampleModal-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -630,11 +627,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<!-- Enad Log In Modal -->
 
 		<!-- Start Sign Up Modal -->
-		<div class="modal fade" id="exampleModal-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		{{-- <div class="modal fade" id="exampleModal-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -706,14 +703,14 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<!-- Enad Sign Up Modal -->
 
 		<!-- Start Go Top Area -->
-		<div class="go-top">
+		{{-- <div class="go-top">
 			<i class="ri-arrow-up-s-fill"></i>
 			<i class="ri-arrow-up-s-fill"></i>
-		</div>
+		</div> --}}
 		<!-- End Go Top Area -->
 
         <!-- Links of JS File -->

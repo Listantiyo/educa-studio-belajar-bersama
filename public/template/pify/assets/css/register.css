@@ -112,10 +112,10 @@ img {
 }
 
 .form-control {
-  height: 55px;
+  /* height: 55px; */
   color: #0c0d0e;
   border: 1px solid #ffffff;
-  background-color: #eeeeee;
+  background-color: #ebf2f7;
   font-size: 16px;
   padding: 10px 20px;
   width: 100%;
@@ -187,6 +187,10 @@ textarea.form-control {
   padding-top: 50px;
 }
 
+.pt-40 {
+    padding-top: 40px;
+}
+
 .mt-30 {
   margin-top: 30px;
 }
@@ -222,8 +226,8 @@ Default Btn Area Style*/
   overflow: hidden;
   display: -ms-inline-grid;
   display: inline-grid;
-  padding: 12px 40px;
-  background-color: #1877f2;
+  padding: 10px 40px;
+  background-color: #163bf3;
   border-radius: 17px;
 }
 
@@ -324,10 +328,9 @@ Navbar Area Style
 ======================================================*/
 .navbar-area {
   position: relative;
-  background-color: #fff;
+  background-color: #0c0d0e;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 3px solid #ebf2f7
 }
 
 .navbar-area.is-sticky {
@@ -664,7 +667,7 @@ Navbar Area Style
 }
 
 .desktop-nav .navbar .others-options ul li {
-  margin-right: 0;
+  margin-right: 30px;
   display: inline-block;
 }
 
@@ -672,37 +675,23 @@ Navbar Area Style
   margin-right: 0;
 }
 
-/* .desktop-nav .navbar .others-options ul li a {
+.desktop-nav .navbar .others-options ul li a {
   border: 1px solid #f48225;
   display: inline-block;
   color: #ffffff;
   padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid #878787;
-} */
-
-/* TAMBAHAN */
-.ask-btn {
-  color: #000000;
-  border-radius: 20px;
-  background-color: #fff;
-  padding: 10px 15px;
-  font-weight: 500;
 }
 
-.ask-btn:hover {
-  background-color: #ebf2f7;
-  color: #000000;
-}
-
-/* .desktop-nav .navbar .others-options ul li a:hover {
+.desktop-nav .navbar .others-options ul li a:hover {
   background-color: #f48225;
   border-color: #f48225;
 }
 
 .desktop-nav .navbar .others-options ul li a.active {
   background-color: #1877f2;
-  border-color: #1877f2; */
+  border-color: #1877f2;
 }
 
 .desktop-nav .navbar .others-options ul li a.user-noti {
@@ -793,23 +782,22 @@ Navbar Area Style
 }
 
 .desktop-nav .navbar .others-options ul li .search-box .form-control {
-  width: 800px;
-  border-radius: 20px;
-  background-color: #ebf2f7;
+  border-radius: 5px;
+  background-color: #161C23;
   height: 45.5px;
-  /* border-color: #161C23; */
-  color: #0c0d0e;
+  border-color: #161C23;
+  color: #ffffff;
 }
 
 .desktop-nav .navbar .others-options ul li .search-box .form-control:focus {
-  border: 2px solid #0c0d0e;
+  border-color: #1877f2;
 }
 
 .desktop-nav .navbar .others-options ul li .search-box .search-btn {
   position: absolute;
   top: 12px;
   right: 20px;
-  color: #0c0d0e;
+  color: #ffffff;
   background-color: transparent;
 }
 
@@ -2279,11 +2267,6 @@ Right Sidebar Area Style
   background-color: #ebf2f7;
 
 }
-
-.right-siderbar .right-siderbar-common .container button {
-  background-color: #ebf2f7;
-}
-
 
 /*
 Page Nish Area Style
@@ -4133,11 +4116,11 @@ Main Contact Area Style
 User Area CSS
 =====================================================*/
 .user-form {
-  max-width: 800px;
+  max-width: 600px;
   margin: auto;
   background-color: #ffffff;
-  -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  /* -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05); */
   padding: 30px;
 }
 
@@ -4147,7 +4130,7 @@ User Area CSS
 }
 
 .user-form .form-group {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .user-form .form-group label {
@@ -4213,7 +4196,7 @@ User Area CSS
 .user-form .or-login {
   display: block;
   text-align: center;
-  padding: 15px 30px;
+  padding: 10px 30px;
   margin-bottom: 30px;
   font-size: 15px;
   color: #ffffff;
@@ -4250,7 +4233,7 @@ User Area CSS
   border-radius: 0 !important;
 }
 
-/* .modal-body {
+.modal-body {
   padding: 0;
 }
 
@@ -4265,7 +4248,7 @@ User Area CSS
 
 .modal-content {
   border-radius: 0;
-} */
+}
 
 /* Footer Area Style
 =============================================*/
