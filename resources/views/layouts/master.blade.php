@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.scss')}}">  
     <script src="https://kit.fontawesome.com/7f8292fccf.js" crossorigin="anonymous"></script>  
     
-    
+    @stack('scripts')
 
     <style>
         .carousel-wrap {
