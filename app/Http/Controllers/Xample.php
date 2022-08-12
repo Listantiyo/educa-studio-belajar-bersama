@@ -23,11 +23,12 @@ class Xample extends Controller
     }
     /**
      * Display a listing of the resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show_question()
+    public function show_question(Request $request)
     {
+        dd($request);
         $a = Classe::all();
         $aa = 1;
         // $b = Answer::all();

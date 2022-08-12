@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-  <body>
+  <body id="app">
 
 
     <select name="" class="filter" id="">
       <option value="" disabled selected>Pilihlah</option>
-      <option value=""></option>
+      {{-- <option :value="" v-for="class in filter.filc"></option> --}}
     </select>
     <select name="" class="filter" id="">
       <option value="" disabled selected>Pilihlah</option>
@@ -23,7 +23,8 @@
     </select>
 
 
-      <div id="app">
+
+      <div >
           <p v-for="mapel in filter.film">
             @{{mapel.id}}
             @{{mapel.nama_mapel}}
@@ -32,6 +33,10 @@
           <ul v-for="a in all">
             <p>@{{ a.question }}</p>
           </ul>
+
+          <div>
+            @{{filter.filc}}
+          </div>
       </div>
 
   </body>
