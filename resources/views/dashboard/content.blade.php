@@ -31,7 +31,7 @@
         <div class="container py-3">
             <div class="row">
                 <div class="col-md-6">
-                    <select class="form-select select-rounded" aria-label="Default select example" style="width: 80%;">
+                    <select class="form-select select-rounded filter" id="class" aria-label="Default select example" style="width: 80%;">
                         <option value="" selected>Semua tingkat pendidikan</option>
                         @foreach ($filc as $class)
                         <option value="{{$class->id}}">{{$class->nama_class}}</option>
@@ -39,7 +39,7 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-select select-rounded" aria-label="Default select example" style="width: 50%;">
+                    <select class="form-select select-rounded filter" id="type" aria-label="Default select example" style="width: 50%;">
                         <option value="" selected>Semua</option>
                         @foreach ($filt as $type)
                         <option value="{{$type->id}}">{{$type->nama_type}}</option>
@@ -101,6 +101,5 @@
             </a>
         </div>
         {{-- end pagination --}}
-
     </div>
 </div>

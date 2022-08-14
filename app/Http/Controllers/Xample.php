@@ -28,32 +28,30 @@ class Xample extends Controller
      */
     public function show_question(Request $request)
     {
-        dd($request);
-        $a = Classe::all();
-        $aa = 1;
-        // $b = Answer::all();
-        // $c = Mapel::all();
-        $cc = null;
-        $question = Question::all();
-        // $e = Type::all();
-        $ee = null;
-        // $f = User_Detail::all();
 
-        if (($aa)!=null) {
-            # code...
-            $question = $question->where('id_kelas',$aa);
-        }
-        if (($cc)!=null) {
-            # code...
-            $question = $question->where('id_mapel',$cc);
-        }
-        if (($ee)!=null) {
-            # code...
-            $question = $question->where('id_type',$ee);
-        }
-            // return response()->json([$question]);
+        if (request()->ajax()) {
+
+        $clas = $request->clas;
+        $mapel = $request->mapel;
+        $type = $request->type;
         
+        $question = Question::all();
+
+        if (($clas)!=null) {
+            # code...
+            $question = $question->where('id_kelas',$clas);
+        }
+        if (($mapel)!=null) {
+            # code...
+            $question = $question->where('id_mapel',$mapel);
+        }
+        if (($type)!=null) {
+            # code...
+            $question = $question->where('id_type',$type);
+        }
+
             return $question;
+    }
         
     }
     // public function show_answer()

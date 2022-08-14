@@ -24,7 +24,7 @@
 
 </style>
 
-	<div>
+	<div id="app">
 		<!-- Start Mail Content Area -->
 		<div class="main-content-area py-5">
 			<div class="container">
@@ -50,3 +50,60 @@
 	</div>
 
 @endsection
+
+@push('scripts')
+<script src={{ asset('vue/vue.global.js') }}></script>
+<script>
+    const { createApp } = Vue
+
+    const vues = createApp({
+        data() {
+            return {
+                quest :'',
+                classe :'',
+                type  :'',
+            }
+        },mounted() {
+            
+            var classe ='';
+            var type ='';
+            var dt ='';
+
+            $(document).ready(function (e) {
+            
+                $.ajax({
+                    url: "/api/data/q",
+                    success: function(rsp){
+                        vues.quest = rsp ;
+                    }
+                });
+
+                $("button").click(function (e) {
+                    e.preventDefault(); 
+                        dt = $(this).val();
+
+                        $.get("api/data/q",{mapel:dt,clas:classe,type:type},
+                            function (data) {
+                                vues.quest = data 
+                            },
+                        );
+                });
+
+                $(".filter").change(function (e) { 
+                    e.preventDefault();
+                        classe = $("#class").val();
+                        type = $("#type").val();
+
+                        $.get("api/data/q",{mapel:dt,clas:classe,type:type},
+                        function (data) {
+                            vues.quest = data 
+                        },
+                    );
+                });
+
+        });
+            
+        },
+    }).mount('#app') 
+</script>
+@endpush

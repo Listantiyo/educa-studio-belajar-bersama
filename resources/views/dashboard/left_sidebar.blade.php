@@ -6,7 +6,7 @@
         </a>
     </div>
     <hr>
-    <div id="app" class="d-flex align-items-start ms-1">
+    <div class="d-flex align-items-start ms-1">
         <div class="nav flex-column questions-tab nav-pills" id="myTab" role="tablist" aria-orientation="vertical">
             
             <button class="nav-link active font-bold" id="matematika-question-tab" data-bs-toggle="tab" data-bs-target="#matematika-question" type="button" role="tab" aria-controls="matematika-question" aria-selected="true" value="">
@@ -18,56 +18,8 @@
                     {{$mapel->nama_mapel}}
                 </button>
             @endforeach
-        <div>@{{ma}}</div>
+            @{{quest}}
         </div>
     </div>
 </div>
-@push('scripts')
-<script src="https://unpkg.com/vue@3"></script>
-<script>
-    const { createApp } = Vue
 
-    const vues = createApp({
-        data() {
-            return {
-                ma :'',
-            }
-        },mounted() {
-
-        },
-    }).mount('#app')
-
-    $(document).ready(function(){
-        vues.ma  = $("button").val();
-    });
-    $("button").click(function (e) { 
-        // e.preventDefault();
-        vues.ma = $(this).val();
-
-        $.ajax({
-                url: '/data/q',
-                type: 'post',
-                dataType: 'application/json',
-                data: vues.ma,
-                success: function(rsp) {
-                    console.log(rsp);
-                    if(rsp.status == 200){
-                        console.log("im here?");
-                        appComponent.products.push(rsp.data);
-                    }
-                   console.log(rsp);
-                }
-        });
-    });
-    // $(vues.ma).ready(function(e) {
-    //     //prevent Default functionality
-    //     e.preventDefault();
-
-    //     var data = vues.ma;
-    //     //do your own request an handle the results
-
-    // });
-
-    
-</script>
-@endpush
