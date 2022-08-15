@@ -323,14 +323,14 @@ Section Title Area Style*/
 Navbar Area Style
 ======================================================*/
 .navbar-area {
-  position: relative;
+  position: fixed;
   background-color: #fff;
   padding-top: 15px;
   padding-bottom: 15px;
   border-bottom: 3px solid #ebf2f7
 }
 
-.navbar-area.is-sticky {
+/* .navbar-area.is-sticky {
   top: 0;
   left: 0;
   width: 100%;
@@ -338,7 +338,7 @@ Navbar Area Style
   position: fixed;
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
           animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
-}
+} */
 
 .desktop-nav {
   padding-top: 0;
@@ -4380,22 +4380,25 @@ User Area CSS
 
 /* Copyright Area Style
 =============================================*/
-.copy-right-area {
+
+/* TAMBAHAN */
+.copy-center-area {
   background-color: #161c23;
   border-top: 1px solid #232930;
   padding-top: 20px;
   padding-bottom: 20px;
+  text-align: center;
 }
 
-.copy-right-content p {
+.copy-center-content p {
   color: #898c90;
 }
 
-.copy-right-content p a {
+.copy-center-content p a {
   color: #f48225;
 }
 
-.copy-right-content .language {
+/* .copy-right-content .language {
   position: relative;
   padding-left: 10px;
   float: right;
@@ -4418,7 +4421,7 @@ User Area CSS
   position: absolute;
   top: 7px;
   left: 0;
-}
+} */
 
 /* Copyright Area Style
 =============================================*/
