@@ -51,7 +51,7 @@
 				<div class="container">
 					<nav class="navbar navbar-expand-md navbar-light">
 						<a class="navbar-brand" href="index.html">
-							<img src="template/pify/assets/images/logo.png" alt="logo">
+							<img src="{{asset('template/pify/assets/images/logo.png')}}" alt="logo">
 						</a>
 
                         <div class="others-options d-flex w-100 justify-content-between">
@@ -79,7 +79,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="rounded-circle">
+                                        <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="rounded-circle">
                                     </a>
                                 </li>
                             </ul>
