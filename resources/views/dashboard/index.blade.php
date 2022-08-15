@@ -22,6 +22,10 @@
 		font-weight: 700;
 	}
 
+    .card {
+        position: static !important;
+    }
+
 </style>
 
 	<div id="app">

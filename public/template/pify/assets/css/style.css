@@ -217,8 +217,8 @@ Default Btn Area Style*/
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
   text-align: center;
-  position: relative;
-  z-index: 1;
+  /* position: relative;
+  z-index: 1; */
   overflow: hidden;
   display: -ms-inline-grid;
   display: inline-grid;

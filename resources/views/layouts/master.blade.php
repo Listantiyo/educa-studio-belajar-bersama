@@ -102,7 +102,7 @@
     @include('layouts.navbar')
 
     {{-- Content --}}
-    <div>
+    <div class="pt-5">
         @yield('content')
     </div>
 
