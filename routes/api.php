@@ -19,16 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/ex', function () {
-    return view('ex_backend.index'); 
+    return view('navbar.index'); 
 });
 
 Route::get('/data/f','Xample@filter');
 
 Route::get('/data/q','Xample@show_question');
-Route::get('/data/p',function(){
-    if (request()->ajax()) {
-        return 'ggggggggggggggggggggggggggg';
-    }
-});
 
 Route::get('/data/a','Xample@show_answer');
