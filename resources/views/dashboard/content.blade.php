@@ -1,7 +1,7 @@
 <div class="col-lg-7">
     <div class="middull-content">
         {{-- ask question --}}
-        <div class="card pb-5 pt-4 px-3">
+        <div class="card pb-5 pt-4 px-3" style="border: 1px solid #00000081;">
             <div class="card-body">
                 <div class="d-flex">
                     <div class="flex-grow-1 ms-3">
@@ -52,7 +52,7 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="matematika-question" role="tabpanel" aria-labelledby="matematika-question-tab">
                 <div v-for="qs in quest" class="single-qa-box card">
-                    <div class="d-flex card-body">
+                    <div class="d-flex">
                         <div class="flex-grow-1 ms-3">
                             <ul class="graphic-design">
                                 <li>
@@ -130,5 +130,41 @@
             </a>
         </div> --}}
         {{-- end pagination --}}
+
+        {{-- Start Modal Ajukan Pertanyaan --}}
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Show a second modal and hide this one with the button below.
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Hide this modal and show the first with the button below.
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+        {{-- End Modal Ajukan Pertanyaan --}}
     </div>
 </div>

@@ -102,7 +102,7 @@
     @include('layouts.navbar')
 
     {{-- Content --}}
-    <div class="pt-5">
+    <div style="padding-top: 5%;">
         @yield('content')
     </div>
 

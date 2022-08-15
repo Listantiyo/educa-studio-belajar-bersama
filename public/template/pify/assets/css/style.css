@@ -1626,10 +1626,11 @@ Middull Area Style
 
 .single-qa-box {
   background-color: #ffffff;
-  -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
-  padding: 30px;
-  border-bottom: 5px solid #f5f5f5;
+  /* -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05); */
+  padding: 25px 25px;
+  border: 1px solid #00000081;
+  border-bottom: 3px solid #00000081;
   position: relative;
 }
 

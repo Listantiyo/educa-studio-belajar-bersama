@@ -6,7 +6,7 @@
         </a>
     </div>
     <hr>
-    <div class="d-flex align-items-start ms-1">
+    <div>
         <div class="nav flex-column questions-tab nav-pills" id="myTab" role="tablist" aria-orientation="vertical">
             
             <button class="nav-link active font-bold" id="matematika-question-tab" data-bs-toggle="tab" data-bs-target="#matematika-question" type="button" role="tab" aria-controls="matematika-question" aria-selected="true" value="">
