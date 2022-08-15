@@ -11,14 +11,13 @@
             
             <button class="nav-link active font-bold" id="matematika-question-tab" data-bs-toggle="tab" data-bs-target="#matematika-question" type="button" role="tab" aria-controls="matematika-question" aria-selected="true" value="">
                 <i class="fa-solid fa-calculator pe-2"></i>
-                Matematika
+                All
             </button>
             @foreach ($film as $mapel)              
                 <button class="nav-link" id="question-tab" data-bs-toggle="tab" data-bs-target="#question-data" type="button" role="tab" aria-controls="question-data" aria-selected="false" value="{{$mapel->id}}">
                     {{$mapel->nama_mapel}}
                 </button>
             @endforeach
-            @{{quest}}
         </div>
     </div>
 </div>

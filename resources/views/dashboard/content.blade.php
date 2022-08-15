@@ -30,15 +30,13 @@
         {{-- filter --}}
         <div class="container py-3">
             <div class="row">
-                <div class="col-md-6">
-                    <select class="form-select select-rounded filter" id="class" aria-label="Default select example" style="width: 80%;">
+                <div class="col-md-8 d-flex">
+                    <select class="form-select select-rounded filter me-3" id="class" aria-label="Default select example" style="width: 80%;">
                         <option value="" selected>Semua tingkat pendidikan</option>
                         @foreach ($filc as $class)
                         <option value="{{$class->id}}">{{$class->nama_class}}</option>
                         @endforeach
                     </select>
-                </div>
-                <div class="col-md-6">
                     <select class="form-select select-rounded filter" id="type" aria-label="Default select example" style="width: 50%;">
                         <option value="" selected>Semua</option>
                         @foreach ($filt as $type)
@@ -53,7 +51,7 @@
         {{-- Content Data --}}
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="matematika-question" role="tabpanel" aria-labelledby="matematika-question-tab">
-                <div class="single-qa-box card">
+                <div v-for="qs in quest" class="single-qa-box card">
                     <div class="d-flex card-body">
                         <div class="flex-grow-1 ms-3">
                             <ul class="graphic-design">
@@ -62,8 +60,8 @@
                                         <img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#">Matematika</a>
+                                <li> 
+                                    <a href="#">Mtk</a>
                                 </li>
                                 <li>
                                     <span>14 hours ago</span>
@@ -71,7 +69,7 @@
                             </ul>
                             <h3>
                                 <a href="queations-details.html">
-                                    If you open Illustrator by dragging the Photoshop file, why it becomes a JPG file
+                                    @{{qs.question}}
                                 </a>
                             </h3>
                             <div class="d-flex align-items-end flex-column bd-highlight mb-3">
@@ -83,12 +81,43 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="question-data" role="tabpanel" aria-labelledby="question-data-tab">..3.</div>
+            <div class="tab-pane fade" id="question-data" role="tabpanel" aria-labelledby="question-data-tab" >
+                <div v-for="qs in quest" class="single-qa-box card">
+                    <div class="d-flex card-body">
+                        <div class="flex-grow-1">
+                            <ul class="graphic-design">
+                                <li>
+                                    <a>
+                                        <img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
+                                    </a>
+                                </li>
+                                <li> 
+                                    <a href="#">Mtk</a>
+                                </li>
+                                <li>
+                                    <span>14 hours ago</span>
+                                </li>
+                            </ul>
+                            <h3>
+                                <a href="queations-details.html">
+                                    @{{qs.question}}
+                                </a>
+                            </h3>
+                            <div class="d-flex align-items-end flex-column bd-highlight mb-3">
+                                <a href="#" class="default-btn mt-3">
+                                    Answer
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         {{-- End Content Data --}}
+        {{-- @{{quest}} --}}
 
         {{-- pagination --}}
-        <div class="pagination-area">
+        {{-- <div class="pagination-area">
             <a href="ask-questions.html" class="next page-numbers">
                 <i class="ri-arrow-left-line"></i>
             </a>
@@ -99,7 +128,7 @@
             <a href="ask-questions.html" class="next page-numbers">
                 <i class="ri-arrow-right-line"></i>
             </a>
-        </div>
+        </div> --}}
         {{-- end pagination --}}
     </div>
 </div>

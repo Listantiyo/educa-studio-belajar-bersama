@@ -60,8 +60,8 @@
         data() {
             return {
                 quest :'',
-                classe :'',
-                type  :'',
+                // classe :'',
+                // type  :'',
             }
         },mounted() {
             
