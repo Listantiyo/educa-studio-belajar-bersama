@@ -40,7 +40,7 @@
 					<div class="mobile-responsive-menu">
 						<div class="logo">
 							<a href="index.html">
-								<img src="assets/images/logo.png" alt="logo">
+								<img src="{{asset('assets/images/logo.png')}}" alt="logo">
 							</a>
 						</div>
 					</div>
