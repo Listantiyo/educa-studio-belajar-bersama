@@ -34,7 +34,7 @@
     <body>
 
 		<!-- Start Navbar Area --> 
-		<div class="navbar-area">
+		<div class="navbar-area w-100">
 			<div class="mobile-responsive-nav">
 				<div class="container">
 					<div class="mobile-responsive-menu">
