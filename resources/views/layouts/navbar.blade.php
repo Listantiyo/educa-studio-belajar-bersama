@@ -43,7 +43,10 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" 
+                            onclick="
+                                event.preventDefault();
+                                $('#logout').submit();">
                                 <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="rounded-circle">
                             </a>
                         </li>
@@ -262,3 +265,6 @@
     </div>
 </nav> --}}
 <!-- End Navbar Area -->
+<form style="display:none;" id="logout" action="{{route('logout')}}" method="post">
+    {{ csrf_field() }}
+</form>
