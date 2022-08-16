@@ -696,6 +696,56 @@ Navbar Area Style
   color: #000000;
 }
 
+.answer-btn {
+  padding: 7px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  margin-left: 20px;
+  background-color: white;
+  border: 2px solid black;
+  color: #000000;
+}
+
+.answer-btn:hover {
+  background-color: #ebf2f7;
+  color: #000000;
+}
+
+.lapor-btn {
+  color: #000000;
+}
+
+.lapor-btn:hover {
+  color: #000000;
+}
+
+.comment {
+  background-color: #ebf2f7;
+  border-radius: 25px;
+}
+
+.comment:focus {
+  border: 2px solid #000000
+}
+
+.view-answer {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 20px;
+}
+
+.view-answer:hover {
+  color: #ffffff;
+}
+
+.answer-number {
+  background-color: white;
+  color: #000000;
+  padding: 5px 10px;
+}
+
 /* .desktop-nav .navbar .others-options ul li a:hover {
   background-color: #f48225;
   border-color: #f48225;
@@ -704,7 +754,7 @@ Navbar Area Style
 .desktop-nav .navbar .others-options ul li a.active {
   background-color: #1877f2;
   border-color: #1877f2; */
-}
+/* } */
 
 .desktop-nav .navbar .others-options ul li a.user-noti {
   border: none;
