@@ -26,6 +26,10 @@
         position: static !important;
     }
 
+    .Editor-editor {
+        height: 145px !important;
+    }
+
 </style>
 
 	<div id="app">

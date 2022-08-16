@@ -21,7 +21,7 @@
                     <h1 class="card-title pb-3">
                         Punya Pertanyaan?
                     </h1>
-                    <a href="#" class="btn btn-dark fw-bold" style="border-radius: 20px;">TANYA SEKARANG!</a>
+                    <a href="#" class="btn btn-dark fw-bold" style="border-radius: 20px;" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">TANYA SEKARANG!</a>
                 </div>
             </div>
         </div>
@@ -132,39 +132,95 @@
         {{-- end pagination --}}
 
         {{-- Start Modal Ajukan Pertanyaan --}}
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade py-3" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h6 class="modal-title fw-bold" id="exampleModalToggleLabel">Ajukan Pertanyaan</h6>
+                  <button type="button" class="btn-close" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  Show a second modal and hide this one with the button below.
+                    <div class="form-group" style="height:50%;">
+                        <div id="txtEditor"></div>
+                        <div class="container py-3">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <select class="form-select select-rounded" aria-label="Default select example" style="width: 100%">
+                                        <option selected>Pilih mata pelajaran</option>
+                                        <option value="1">Matematika</option>
+                                        <option value="2">B. Indonesia</option>
+                                        <option value="3">B. Jawa</option>
+                                        <option value="4">IPA</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <select class="form-select select-rounded" aria-label="Default select example" style="width: 30%;">
+                                        <option selected>10</option>
+                                        <option value="1">20</option>
+                                        <option value="2">30</option>
+                                        <option value="3">40</option>
+                                        <option value="4">50</option>
+                                        <option value="5">60</option>
+                                        <option value="6">70</option>
+                                        <option value="7">80</option>
+                                        <option value="8">90</option>
+                                        <option value="9">100</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="container py-3">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <select class="form-select select-rounded" aria-label="Default select example" style="width: 100%">
+                                    <option selected>Pilih mata pelajaran</option>
+                                    <option value="1">Matematika</option>
+                                    <option value="2">B. Indonesia</option>
+                                    <option value="3">B. Jawa</option>
+                                    <option value="4">IPA</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4">
+                                <select class="form-select select-rounded" aria-label="Default select example" style="width: 30%;">
+                                    <option selected>10</option>
+                                    <option value="1">20</option>
+                                    <option value="2">30</option>
+                                    <option value="3">40</option>
+                                    <option value="4">50</option>
+                                    <option value="5">60</option>
+                                    <option value="6">70</option>
+                                    <option value="7">80</option>
+                                    <option value="8">90</option>
+                                    <option value="9">100</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div> --}}
                 </div>
                 <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+                  <button class="btn btn-dark fw-bold" style="border-radius: 20px;">TANYAKAN PERTANYAANMU</button>
                 </div>
               </div>
             </div>
           </div>
           <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  Hide this modal and show the first with the button below.
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
+            <div class="modal-dialog modal-dialog-centered modal-md">
+              <div class="modal-content container p-3 py-4">
+                <div class="modal-body row">
+                    <h5 class="fw-bold">Kamu yakin tidak jadi bertanya?</h5>
+                    <p>Jika kamu keluar, pertanyaanmu tidak akan kami tambahkan</p>
+                    <div class="col-sm-6">
+                        <button class="btn btn-dark" style="border-radius: 20px;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">LANJUT BERTANYA</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-light" style="border-radius: 20px;" data-bs-dismiss="modal" aria-label="Close">TANYAKAN NANTI</button> 
+                    </div>
                 </div>
               </div>
             </div>
           </div>
-          <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+          {{-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> --}}
         {{-- End Modal Ajukan Pertanyaan --}}
     </div>
 </div>

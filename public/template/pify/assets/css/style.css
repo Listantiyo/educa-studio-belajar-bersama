@@ -258,7 +258,7 @@ Section Title Area Style*/
   max-width: 700px;
   margin: -5px auto 50px;
   text-align: center;
-  position: relative;
+  position: static;
 }
 
 .section-title .top-title {
@@ -323,6 +323,7 @@ Section Title Area Style*/
 Navbar Area Style
 ======================================================*/
 .navbar-area {
+  z-index: 2;
   position: fixed;
   background-color: #fff;
   padding-top: 15px;
