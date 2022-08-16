@@ -23,6 +23,7 @@ Route::get('/ex', function () {
 });
 
 Route::get('/data/f','Xample@filter');
+Route::post('/data/store','Xample@store');
 
 Route::get('/data/q','Xample@show_question');
 

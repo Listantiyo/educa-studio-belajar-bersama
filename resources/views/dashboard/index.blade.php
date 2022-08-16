@@ -62,6 +62,28 @@
 @push('scripts')
 <script src={{ asset('vue/vue.global.js') }}></script>
 <script>
+    
+    $(document).ready(function () {
+        $("#tanya").click(function (e) { 
+            e.preventDefault();
+            var text = $(".Editor-editor").html();
+            var cls = $("#sKlas").val();    
+            var typ = $("#sMax").val();    
+            // console.log(typ,text,cls);
+            $.post("api/data/store", {text:text,clas:cls,typ:typ},
+                function (data) {
+                    if (data === "kosong") {
+                        alert("kok kosong")
+                    }else if(data === "kopong"){
+                        alert("idih")
+                    }else{
+                        alert("ah yes")
+                    }
+                },
+            );
+        });
+    });
+    
     const { createApp } = Vue
 
     const vues = createApp({
@@ -86,7 +108,7 @@
                     }
                 });
 
-                $("button").click(function (e) {
+                $(".clasall").click(function (e) {
                     e.preventDefault(); 
                         dt = $(this).val();
 

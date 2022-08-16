@@ -89,7 +89,22 @@ class Xample extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $qs = $request->text;
+        $clas = $request->clas;
+        $typ = $request->typ;
+
+        if ( $qs === null ) {
+            # code...
+            return "kosong";
+        };
+
+        if ( $clas === null ) {
+            # code...
+            return "kopong";
+        };
+
+        return compact('qs','clas','typ');
+
     }
 
     /**

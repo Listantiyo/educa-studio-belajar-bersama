@@ -113,25 +113,6 @@
                 </div>
             </div>
         </div>
-        {{-- End Content Data --}}
-        {{-- @{{quest}} --}}
-
-        {{-- pagination --}}
-        {{-- <div class="pagination-area">
-            <a href="ask-questions.html" class="next page-numbers">
-                <i class="ri-arrow-left-line"></i>
-            </a>
-            <span class="page-numbers current" aria-current="page">1</span>
-            <a href="ask-questions.html" class="page-numbers">2</a>
-            <a href="ask-questions.html" class="page-numbers">3</a>
-            
-            <a href="ask-questions.html" class="next page-numbers">
-                <i class="ri-arrow-right-line"></i>
-            </a>
-        </div> --}}
-        {{-- end pagination --}}
-
-        {{-- Start Modal Ajukan Pertanyaan --}}
         <div class="modal fade py-3" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content">
@@ -145,61 +126,27 @@
                         <div class="container py-3">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <select class="form-select select-rounded" aria-label="Default select example" style="width: 100%">
-                                        <option selected>Pilih mata pelajaran</option>
-                                        <option value="1">Matematika</option>
-                                        <option value="2">B. Indonesia</option>
-                                        <option value="3">B. Jawa</option>
-                                        <option value="4">IPA</option>
+                                    <select class="form-select select-rounded" id="sKlas" aria-label="Default select example" style="width: 100%" required>
+                                        <option selected disabled>Pilih mata pelajaran</option>
+                                        @foreach ($filc as $class)
+                                        <option value="{{$class->id}}">{{$class->nama_class}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-sm-4">
-                                    <select class="form-select select-rounded" aria-label="Default select example" style="width: 30%;">
-                                        <option selected>10</option>
-                                        <option value="1">20</option>
-                                        <option value="2">30</option>
-                                        <option value="3">40</option>
-                                        <option value="4">50</option>
-                                        <option value="5">60</option>
-                                        <option value="6">70</option>
-                                        <option value="7">80</option>
-                                        <option value="8">90</option>
-                                        <option value="9">100</option>
+                                    <select class="form-select select-rounded" id="sMax" aria-label="Default select example" style="width: 40%;">
+                                        <option selected value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
                                     </select>
                                 </div>
+                                <button type="submit" class="btn btn-dark fw-bold col-sm-4" id="tanya" style="border-radius: 20px;">TANYAKAN PERTANYAANMU</button>
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="container py-3">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <select class="form-select select-rounded" aria-label="Default select example" style="width: 100%">
-                                    <option selected>Pilih mata pelajaran</option>
-                                    <option value="1">Matematika</option>
-                                    <option value="2">B. Indonesia</option>
-                                    <option value="3">B. Jawa</option>
-                                    <option value="4">IPA</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-4">
-                                <select class="form-select select-rounded" aria-label="Default select example" style="width: 30%;">
-                                    <option selected>10</option>
-                                    <option value="1">20</option>
-                                    <option value="2">30</option>
-                                    <option value="3">40</option>
-                                    <option value="4">50</option>
-                                    <option value="5">60</option>
-                                    <option value="6">70</option>
-                                    <option value="7">80</option>
-                                    <option value="8">90</option>
-                                    <option value="9">100</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div> --}}
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-dark fw-bold" style="border-radius: 20px;">TANYAKAN PERTANYAANMU</button>
+                    <div class="modal-footer">
+                    </div>
                 </div>
               </div>
             </div>
@@ -220,7 +167,6 @@
               </div>
             </div>
           </div>
-          {{-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> --}}
-        {{-- End Modal Ajukan Pertanyaan --}}
+
     </div>
 </div>
