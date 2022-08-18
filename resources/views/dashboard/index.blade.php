@@ -28,6 +28,7 @@
 
     .Editor-editor {
         height: 145px !important;
+        /* border:0.5px solid rgba(255, 0, 0, 0.235) */
     }
 
 </style>
@@ -37,7 +38,7 @@
 		<div class="main-content-area py-5">
 			<div class="container">
 				<div class="row">
-
+                    {{-- {{ Auth::user()->name }} --}}
 					{{-- left sidebar --}}
 					@include('dashboard.left_sidebar')
 					{{-- end --}}
@@ -62,22 +63,23 @@
 @push('scripts')
 <script src={{ asset('vue/vue.global.js') }}></script>
 <script>
-    
     $(document).ready(function () {
         $("#tanya").click(function (e) { 
             e.preventDefault();
             var text = $(".Editor-editor").html();
-            var cls = $("#sKlas").val();    
-            var typ = $("#sMax").val();    
+            var cls = $("#sClas").val();    
+            var typ = $("#sMpel").val();    
             // console.log(typ,text,cls);
             $.post("api/data/store", {text:text,clas:cls,typ:typ},
                 function (data) {
                     if (data === "kosong") {
-                        alert("kok kosong")
+                        alert("Pertanyaan Masih Kosong")
                     }else if(data === "kopong"){
-                        alert("idih")
+                        alert("Pilih Kelas")
+                    }else if(data === "kopsong"){
+                        alert("Pilih Mata Pelajaran")
                     }else{
-                        alert("ah yes")
+                        $("#exampleModalToggle").hide(speed,callback);
                     }
                 },
             );

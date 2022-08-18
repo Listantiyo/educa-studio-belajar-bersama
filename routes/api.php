@@ -17,12 +17,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::get('/my','Xample@my');
 Route::get('/ex', function () {
     return view('ex_register.register'); 
 });
 
 Route::get('/data/f','Xample@filter');
+
 Route::post('/data/store','Xample@store');
 
 Route::get('/data/q','Xample@show_question');

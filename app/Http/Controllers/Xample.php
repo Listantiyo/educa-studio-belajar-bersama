@@ -8,11 +8,21 @@ use App\Mapel;
 use App\Question;
 use App\Type;
 use App\User_Detail;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
 class Xample extends Controller
 {
+    public function my()
+    {
+        if (Auth::check()) {
+            // The user is logged in...
+            // $user = Auth::id();
+            // dd($user);
+            return "d";
+        }
+    }
     public function filter(){
         $filc = Classe::all();
         $filt = Type::all();
@@ -89,6 +99,7 @@ class Xample extends Controller
      */
     public function store(Request $request)
     {
+        $id = "0";
         $qs = $request->text;
         $clas = $request->clas;
         $typ = $request->typ;
@@ -97,13 +108,30 @@ class Xample extends Controller
             # code...
             return "kosong";
         };
+        
+        if ( $typ === null ) {
+            # code...
+            return "kopsong";
+        };
 
         if ( $clas === null ) {
             # code...
             return "kopong";
         };
+        
+        
+        $quest = new Question;
+        
+        $quest->question = $qs;
+        $quest->id_kelas = $clas;
+        $quest->id_mapel = $typ;
+        $quest->id_user_dil = $id;
+        $quest->id_type = "0";
+        
+        $quest->save();
 
-        return compact('qs','clas','typ');
+        return response()->json("success");
+        // return compact('qs','clas','typ');
 
     }
 

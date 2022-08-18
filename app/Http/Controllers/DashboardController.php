@@ -11,6 +11,7 @@ use App\Mapel;
 use App\Question;
 use App\Type;
 use App\User_Detail;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -34,7 +35,8 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        $r = Auth::user();
+        dd($r);
     }
 
     /**
