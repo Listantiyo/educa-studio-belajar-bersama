@@ -35,6 +35,24 @@
                 height: 270px !important;
             }
 
+            .p-9{
+                padding-top: 9%;
+                padding-bottom: 9%;
+            }
+
+            .img-cmn {
+                border-radius: 50px;
+                width: 60%;
+            }
+
+            .single-qa-box p {
+                margin-bottom: 0 !important;
+            }
+
+            .foto {
+                background-color: grey;
+
+            }
         </style>
 		
 		<!-- Favicon -->
@@ -162,10 +180,10 @@
 		</div>
 		<!-- End Navbar Area -->
 
-        <div class="container ps-5" style="padding-top: 9%;">
+        <div class="container ps-5 p-9">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="single-qa-box card">
+                    <div class="single-qa-box card ms-auto" style="width: 85%;">
                         <div class="d-flex">
                             <div class="flex-grow-1 ms-3">
                                 <ul class="graphic-design">
@@ -182,10 +200,11 @@
                                     </li>
                                 </ul>
                                 <h3>
-                                    <a href="queations-details.html">
-                                        @{{qs.question}}
-                                    </a>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At qui ex dolorem quod quis laborum est reiciendis, iure asperiores assumenda, modi nobis quibusdam expedita exercitationem eos consectetur alias quo beatae.</p>
                                 </h3>
+                                <div class="container">
+                                    
+                                </div>
                                 <div class="d-flex bd-highlight align-items-center py-4">
                                     <a href="#" class="bd-highlight view-answer">
                                         <span><span class="answer-number rounded-circle">1</span> LIHAT JAWABAN</span>
@@ -193,21 +212,41 @@
                                     <a href="#" class="bd-highlight answer-btn" data-bs-toggle="modal" data-bs-target="#answerModalToggle">
                                         <span><i class="fa-solid fa-plus"></i> TAMBAHKAN JAWABAN <span class="text-muted ps-3"> +10 poin </span></span>
                                     </a>
-                                    <a href="#" class="ms-auto bd-highlight lapor-btn">
+                                    <a href="#" class="ms-auto bd-highlight lapor-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Laporkan">
                                         <i class="fa-solid fa-circle-exclamation fs-5"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <hr>
+                        <div class="container my-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <a href="#">
+                                    <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="img-cmn">
+                                </a>
+                                <p>Terima kasih</p>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <a href="#">
+                                    <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="img-cmn">
+                                </a>
+                                <p>Sama-sama</p>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <a href="#">
+                                    <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="img-cmn">
+                                </a>
+                                <p>Ok</p>
+                            </div>
+                        </div>
                         <input type="text" class="form-control comment" placeholder="Komentar">
                     </div>
 
-                    <div class="mt-5">
+                    <div class="mt-5 ms-auto" style="width: 85%;">
                         <h4 class="mb-0">JAWABAN :</h4>
                         <hr>
                     </div>
-                    <div class="single-qa-box card mt-3">
+                    <div class="single-qa-box card mt-3 ms-auto" style="width: 85%;">
                         <div class="d-flex">
                             <div class="flex-grow-1 ms-3">
                                 <ul class="graphic-design">
@@ -224,29 +263,49 @@
                                     </li>
                                 </ul>
                                 <h3>
-                                    <a href="queations-details.html">
-                                        @{{qs.question}}
-                                    </a>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus earum consectetur voluptates sequi pariatur! Distinctio porro deserunt dolorem excepturi. Blanditiis voluptatum voluptas hic, animi culpa nemo molestias minus dolorum incidunt.</p>
                                 </h3>
                                 <div class="d-flex bd-highlight align-items-center py-4">
                                     <a href="#" class="bd-highlight">
                                         <span><i class="fa-solid fa-thumbs-up fs-4"></i> 10 </span>
                                     </a>
-                                    <a href="#" class="bd-highlight ms-5" data-bs-toggle="modal" data-bs-target="#answerModalToggle">
+                                    <a href="#" class="bd-highlight ms-5">
                                         <span><i class="fa-solid fa-thumbs-down fs-4"></i> 10 </span>
                                     </a>
-                                    <a href="#" class="ms-auto bd-highlight lapor-btn">
+                                    <a href="#" class="ms-auto bd-highlight lapor-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Laporkan">
                                         <i class="fa-solid fa-circle-exclamation fs-5"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
+                        <hr>
+                        <div class="container my-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <a href="#">
+                                    <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="img-cmn">
+                                </a>
+                                <p>Terima kasih</p>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <a href="#">
+                                    <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="img-cmn">
+                                </a>
+                                <p>Sama-sama</p>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <a href="#">
+                                    <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="img-cmn">
+                                </a>
+                                <p>Ok</p>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control comment" placeholder="Komentar">
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <div class="right-siderbar">
                         <div class="right-sidebar-common">
-                            <div class="card">
+                            <div class="card me-auto" style="width: 70%;">
                                 <div class="container card-body d-flex">
                                     <div class="d-inline">
                                         <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="rounded-circle me-3" style="width: 100%;">
