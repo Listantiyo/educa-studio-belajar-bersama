@@ -38,7 +38,7 @@ class Xample extends Controller
      */
     public function show_question(Request $request)
     {
-
+        
         if (request()->ajax()) {
 
         $clas = $request->clas;
@@ -99,7 +99,7 @@ class Xample extends Controller
      */
     public function store(Request $request)
     {
-        $id = "0";
+        $id_user = $request->user;
         $qs = $request->text;
         $clas = $request->clas;
         $typ = $request->typ;
@@ -125,13 +125,13 @@ class Xample extends Controller
         $quest->question = $qs;
         $quest->id_kelas = $clas;
         $quest->id_mapel = $typ;
-        $quest->id_user_dil = $id;
+        $quest->id_user_dil = $id_user;
         $quest->id_type = "0";
         
         $quest->save();
 
         return response()->json("success");
-        // return compact('qs','clas','typ');
+        // return compact('qs','clas','typ','id_user','request');
 
     }
 
