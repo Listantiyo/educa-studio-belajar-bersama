@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('/oohome', function () {
-    return view('ex_home.index');
+    return view('ex_navbar.index');
 });
 
 Route::get('/dashboard', 'DashboardController@index');
-Route::get('/hhome', 'HomeController@index');
+Route::get('/menu', 'HomeController@index');
 
 
 Auth::routes();

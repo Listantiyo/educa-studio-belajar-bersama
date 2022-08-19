@@ -696,6 +696,34 @@ Navbar Area Style
   color: #000000;
 }
 
+.masuk-btn {
+  color: #000000;
+  border-radius: 20px;
+  border: 2px solid #000000;
+  background-color: #fff;
+  padding: 10px 15px;
+  font-weight: 500;
+}
+
+.masuk-btn:hover {
+  background-color: #ebf2f7;
+  color: #000000;
+}
+
+.daftar-btn {
+  color: #000000;
+  border-radius: 20px;
+  border: 2px solid #000000;
+  background-color: #fff;
+  padding: 10px 15px;
+  font-weight: 500;
+}
+
+.daftar-btn:hover {
+  background-color: #ebf2f7;
+  color: #000000;
+}
+
 .answer-btn {
   padding: 7px 10px;
   border-radius: 20px;
@@ -1001,7 +1029,7 @@ Others Option For Responsive Area Style
 }
 
 .others-option-for-responsive .dot-menu {
-  padding: 0 10px;
+  padding: 10px;
   height: 30px;
   cursor: pointer;
   z-index: 999;
@@ -1027,11 +1055,11 @@ Others Option For Responsive Area Style
   margin: 0 2px;
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
-  background-color: #ffffff;
+  background-color: #0c0d0e;
 }
 
 .others-option-for-responsive .dot-menu:hover .inner .circle {
-  background-color: #ffffff;
+  background-color: #0c0d0e;
 }
 
 .others-option-for-responsive .container {
@@ -1063,7 +1091,7 @@ Others Option For Responsive Area Style
 }
 
 .others-option-for-responsive .others-options {
-  background-color: #0c0d0e;
+  background-color: #fff;
   padding: 20px;
   text-align: center;
 }
@@ -1088,16 +1116,16 @@ Others Option For Responsive Area Style
 }
 
 .others-option-for-responsive .others-options ul li a {
-  border: 1px solid #f48225;
+  /* border: 1px solid #f48225; */
   display: inline-block;
-  color: #ffffff;
+  color: #0c0d0e;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   margin-right: 10px;
 }
 
 .others-option-for-responsive .others-options ul li a:hover {
-  background-color: #f48225;
+  background-color: #e3ebf2;
 }
 
 .others-option-for-responsive .others-options ul li a.user-noti {
