@@ -81,6 +81,11 @@
                         alert("Pilih Mata Pelajaran")
                     }else{
                         var url = "{{ route('answer') }}";
+
+                        $(".Editor-editor").html(null);
+                        $("#sClas").val(null);    
+                        $("#sMpel").val(null);
+
 	                    location.href = url;
                     }
                 },
