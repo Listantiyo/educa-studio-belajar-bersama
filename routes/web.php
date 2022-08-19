@@ -21,7 +21,7 @@ Route::get('/oohome', function () {
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/menu', 'HomeController@index');
-
+Route::get('/answer','AnswerController@index')->name('answer');
 
 Auth::routes();
 

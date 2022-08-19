@@ -9,6 +9,7 @@ use App\Question;
 use App\Type;
 use App\User_Detail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -45,7 +46,8 @@ class Xample extends Controller
         $mapel = $request->mapel;
         $type = $request->type;
         
-        $question = Question::all();
+        // $question = Question::all();
+        $question = DB::table('questions')->get();
 
         if (($clas)!=null) {
             # code...
@@ -64,20 +66,15 @@ class Xample extends Controller
     }
         
     }
+
     // public function show_answer()
     // {
-    //     $a = Classe::all();
-    //     $aa = 1;
-    //     $b = Answer::all();
-    //     $c = Mapel::all();
-    //     $cc = null;
-    //     $question = Question::all();
-    //     $e = Type::all();
-    //     $ee = null;
-    //     $f = User_Detail::all();
+    //         $q_latest = DB::table('questions')->latest()->first();
 
-        
-    //         return [$a,$question];
+    //         // cek
+    //         // return response()->json($q_latest);
+    //         return response()->json("success");
+
         
     // }
 
@@ -130,7 +127,8 @@ class Xample extends Controller
         
         $quest->save();
 
-        return response()->json("success");
+        return redirect()->route('answer');
+        // return response()->json("success");
         // return compact('qs','clas','typ','id_user','request');
 
     }

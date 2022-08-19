@@ -66,11 +66,12 @@
     $(document).ready(function () {
         $("#tanya").click(function (e) { 
             e.preventDefault();
+            var user = {{Auth::id()}};
             var text = $(".Editor-editor").html();
             var cls = $("#sClas").val();    
             var typ = $("#sMpel").val();    
-            // console.log(typ,text,cls);
-            $.post("api/data/store", {text:text,clas:cls,typ:typ},
+            // console.log(typ,text,cls,user);
+            $.post("api/data/store", {text:text,clas:cls,typ:typ,user:user},
                 function (data) {
                     if (data === "kosong") {
                         alert("Pertanyaan Masih Kosong")
@@ -79,7 +80,8 @@
                     }else if(data === "kopsong"){
                         alert("Pilih Mata Pelajaran")
                     }else{
-                        $("#exampleModalToggle").hide(speed,callback);
+                        var url = "{{ route('answer') }}";
+	                    location.href = url;
                     }
                 },
             );
