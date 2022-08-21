@@ -11,6 +11,7 @@ use App\Mapel;
 use App\Question;
 use App\Type;
 use App\User_Detail;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -26,6 +27,45 @@ class DashboardController extends Controller
         $filt = Type::all();
         $film = Mapel::all();
         return view('dashboard.index',compact('filc','filt','film'));
+    }
+
+    public function filter(){
+        $filc = Classe::all();
+        $filt = Type::all();
+        $film = Mapel::all();
+
+        // return ($filc ->'class', $filt $film);
+        return compact('filc','film','filt');
+    }
+
+    public function show_question(Request $request)
+    {
+        
+        // if (request()->ajax()) {
+
+        $clas = $request->clas;
+        $mapel = $request->mapel;
+        $type = $request->type;
+        
+        // $question = Question::all();
+        $question = DB::table('questions')->orderBy('created_at', 'desc')->get();
+
+        if (($clas)!=null) {
+            # code...
+            $question = $question->where('id_kelas',$clas);
+        }
+        if (($mapel)!=null) {
+            # code...
+            $question = $question->where('id_mapel',$mapel);
+        }
+        if (($type)!=null) {
+            # code...
+            $question = $question->where('id_type',$type);
+        }
+
+            return $question;
+    // }
+        
     }
 
     /**
@@ -47,7 +87,43 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        {
+            $id_user = $request->user;
+            $qs = $request->text;
+            $clas = $request->clas;
+            $typ = $request->typ;
+    
+            if ( $qs === null ) {
+                # code...
+                return "kosong";
+            };
+            
+            if ( $typ === null ) {
+                # code...
+                return "kopsong";
+            };
+    
+            if ( $clas === null ) {
+                # code...
+                return "kopong";
+            };
+            
+            
+            $quest = new Question;
+            
+            $quest->question = $qs;
+            $quest->id_kelas = $clas;
+            $quest->id_mapel = $typ;
+            $quest->id_user_dil = $id_user;
+            $quest->id_type = "0";
+            
+            $quest->save();
+    
+            return redirect()->route('answer');
+            // return response()->json("success");
+            // return compact('qs','clas','typ','id_user','request');
+    
+        }
     }
 
     /**

@@ -79,7 +79,7 @@
               }
           });
           $.ajax({
-              url: "/api/data/f",
+              url: "/api/data/filter",
               success: function(rsp){
                   vues.filter = rsp;
                   // appComponent.products = rsp;

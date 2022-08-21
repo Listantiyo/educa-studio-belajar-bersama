@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Answer;
+use App\Http\Controllers\Controller;
 
-class AnswerController extends Controller
+class ApiDataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,23 +14,9 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        return view('answer.index');
+        //
     }
 
-    public function show_answer()
-    {
-
-            $new['quest'] = DB::table('questions')->latest()->first();
-            // dd($qlatest);
-            $j = Answer::all();
-
-            // cek
-            // return response()->json($q_latest);
-            // return $q_latest;
-            return $new;
-        
-        
-    }
     /**
      * Show the form for creating a new resource.
      *

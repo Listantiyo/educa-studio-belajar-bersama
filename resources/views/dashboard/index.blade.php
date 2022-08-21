@@ -31,6 +31,7 @@
         /* border:0.5px solid rgba(255, 0, 0, 0.235) */
     }
 
+
 </style>
 
 	<div id="app">
@@ -42,7 +43,7 @@
 					{{-- left sidebar --}}
 					@include('dashboard.left_sidebar')
 					{{-- end --}}
-
+                    <button class="btn btn-danger" id="halu">KKK</button>
 					{{-- Start middle content --}}
 					@include('dashboard.content')
 					{{-- End--}}
@@ -50,6 +51,10 @@
 					{{-- Sidebar Right --}}
 					@include('dashboard.right_sidebar')
 					{{-- End sidebar right --}}
+
+                    {{-- Modal --}}
+                    @include('dashboard.modal')
+                    {{-- N Modal --}}
 				</div>
 			</div>
 		</div>
@@ -61,9 +66,17 @@
 @endsection
 
 @push('scripts')
-<script src={{ asset('vue/vue.global.js') }}></script>
 <script>
+
+    const ajax ='';
+
     $(document).ready(function () {
+        $("#halu").click(function (e) { 
+            e.preventDefault();
+            $(document).ajaxStop(function(){
+                window.location.reload();
+            });
+        });
         $("#tanya").click(function (e) { 
             e.preventDefault();
             var user = {{Auth::id()}};
@@ -85,6 +98,11 @@
                         $(".Editor-editor").html(null);
                         $("#sClas").val(null);    
                         $("#sMpel").val(null);
+                        $(document).ready(function () {
+                            $("#btn-close").trigger("click",function(){
+                                ajax;
+                            });
+                        });
 
 	                    location.href = url;
                     }
@@ -110,8 +128,8 @@
 
             $(document).ready(function (e) {
             
-                $.ajax({
-                    url: "/api/data/q",
+                ajax = $.ajax({
+                    url: "/api/data/question",
                     success: function(rsp){
                         vues.quest = rsp ;
                     }
@@ -121,7 +139,7 @@
                     e.preventDefault(); 
                         dt = $(this).val();
 
-                        $.get("api/data/q",{mapel:dt,clas:classe,type:type},
+                        $.get("api/data/question",{mapel:dt,clas:classe,type:type},
                             function (data) {
                                 vues.quest = data 
                             },
@@ -133,7 +151,7 @@
                         classe = $("#class").val();
                         type = $("#type").val();
 
-                        $.get("api/data/q",{mapel:dt,clas:classe,type:type},
+                        $.get("api/data/question",{mapel:dt,clas:classe,type:type},
                         function (data) {
                             vues.quest = data 
                         },

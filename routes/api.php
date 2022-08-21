@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Xample;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 
 /*
@@ -19,14 +19,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/ex', function () {
-    return view('detail_question.index'); 
+    return view('cuba.index'); 
 });
 
-Route::get('/data/f','Xample@filter');
+Route::get('/data/filter','DashboardController@filter');
 
-Route::post('/data/store','Xample@store');
+Route::post('/data/store','DashboardController@store');
 
-Route::get('/data/q','Xample@show_question');
+Route::get('/data/question','DashboardController@show_question');
 
 Route::get('/data/answer','AnswerController@show_answer');
 
@@ -35,5 +35,5 @@ Route::get('/data/answer','AnswerController@show_answer');
 // Route::post('register', 'API\UserController@register');
 // Route::group(['middleware' => 'auth:api'], function(){
 //     Route::post('details', 'API\UserController@details');
-//     Route::get('/my','Xample@my');
+//     Route::get('/my','DashboardController@my');
 // });
