@@ -43,7 +43,6 @@
 					{{-- left sidebar --}}
 					@include('dashboard.left_sidebar')
 					{{-- end --}}
-                    <button class="btn btn-danger" id="halu">KKK</button>
 					{{-- Start middle content --}}
 					@include('dashboard.content')
 					{{-- End--}}

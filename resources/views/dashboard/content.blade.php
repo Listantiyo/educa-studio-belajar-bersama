@@ -53,7 +53,7 @@
             <div class="tab-pane fade show active" id="matematika-question" role="tabpanel" aria-labelledby="matematika-question-tab">
                 <div v-for="qs in quest" class="single-qa-box card">
                     <div class="d-flex">
-                        <tabel class="flex-grow-1 ms-3">
+                        <div class="flex-grow-1 ms-3 container">
                             <ul class="graphic-design">
                                 <li>
                                     <a>
@@ -77,7 +77,7 @@
                                     Answer
                                 </a>
                             </div>
-                        </tabel>
+                        </div>
                     </div>
                 </div>
             </div>
