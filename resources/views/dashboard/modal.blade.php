@@ -14,7 +14,7 @@
 
                 </div>
                 <div class="modal-body">
-                    <div class="form-group" style="height:50%;">
+                    <div id="mdl-body" class="form-group" style="height:50%;">
                         <div id="txtEditor"></div>
                         <div class="container py-3">
                             <div class="row">
