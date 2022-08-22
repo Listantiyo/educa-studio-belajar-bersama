@@ -14,11 +14,8 @@
                     <span>14 hours ago</span>
                 </li>
             </ul>
-            <div>
-                @{{new_quest.answer}}
-            </div>
             <h3>
-                <p v-for="nqs in new_quest.answer" >@{{nqs.id}}</p>
+                <p v-for="nqs in new_quest" >@{{nqs.question}}</p>
             </h3>
             <div class="container">
                 

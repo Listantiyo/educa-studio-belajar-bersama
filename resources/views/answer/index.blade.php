@@ -63,7 +63,7 @@
         data() {
             return {
                 // answer :'',
-                new_quest :'',
+                new_quest :[],
                 // type  :'',
             }
         },mounted() {

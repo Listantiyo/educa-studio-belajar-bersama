@@ -3,9 +3,9 @@
         <h4 class="mb-0">JAWABAN :</h4>
         <hr>
     </div>
-    <div class="single-qa-box card mt-3 ms-auto" style="width: 85%;">
+    <div v-for="ans in new_quest.answer" class="single-qa-box card mt-3 ms-auto" style="width: 85%;">
         <div class="d-flex">
-            <div class="flex-grow-1 ms-3">
+            <div class="flex-grow-1 ms-3 container">
                 <ul class="graphic-design">
                     <li>
                         <a>
@@ -20,7 +20,7 @@
                     </li>
                 </ul>
                 <h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus earum consectetur voluptates sequi pariatur! Distinctio porro deserunt dolorem excepturi. Blanditiis voluptatum voluptas hic, animi culpa nemo molestias minus dolorum incidunt.</p>
+                    <p>@{{ans.answer}}</p>
                 </h3>
                 <div class="d-flex bd-highlight align-items-center py-4">
                     <a href="#" class="bd-highlight">

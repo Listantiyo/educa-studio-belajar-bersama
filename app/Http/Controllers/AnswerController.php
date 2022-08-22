@@ -21,9 +21,9 @@ class AnswerController extends Controller
     public function show_answer()
     {
 
-            $newq['quest'] = DB::table('questions')->latest()->first();
+            $newq = DB::table('questions')->latest()->first();
             // dd($qlatest);
-            $answer['answer']= Answer::all();
+            $answer = Answer::all();
 
             // cek
             // return response()->json($q_latest);

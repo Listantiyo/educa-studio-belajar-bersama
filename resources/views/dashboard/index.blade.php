@@ -66,9 +66,6 @@
 
 @push('scripts')
 <script>
-
-    const ajax ='';
-
     $(document).ready(function () {
         $("#halu").click(function (e) { 
             e.preventDefault();
@@ -97,12 +94,8 @@
                         $(".Editor-editor").html(null);
                         $("#sClas").val(null);    
                         $("#sMpel").val(null);
-                        $(document).ready(function () {
-                            $("#btn-close").trigger("click",function(){
-                                ajax;
-                            });
-                        });
-
+                        $("#btn-close").trigger("click");
+                    
 	                    location.href = url;
                     }
                 },
