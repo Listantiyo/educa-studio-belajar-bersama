@@ -62,7 +62,7 @@
     const vues = createApp({
         data() {
             return {
-                answer :'',
+                // answer :'',
                 new_quest :'',
                 // type  :'',
             }
