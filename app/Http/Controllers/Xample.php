@@ -127,7 +127,7 @@ class Xample extends Controller
         
         $quest->save();
 
-        return redirect()->route('answer');
+        // return redirect()->route('answer');
         // return response()->json("success");
         // return compact('qs','clas','typ','id_user','request');
 

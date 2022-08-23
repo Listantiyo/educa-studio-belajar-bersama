@@ -89,16 +89,16 @@ class DashboardController extends Controller
     {
         {
             $id_user = $request->user;
-            $qs = $request->text;
+            $question = $request->text;
             $clas = $request->clas;
-            $typ = $request->typ;
+            $id_mapel = $request->typ;
     
-            if ( $qs === null ) {
+            if ( $question === null ) {
                 # code...
                 return "kosong";
             };
             
-            if ( $typ === null ) {
+            if ( $id_mapel === null ) {
                 # code...
                 return "kopsong";
             };
@@ -111,17 +111,17 @@ class DashboardController extends Controller
             
             $quest = new Question;
             
-            $quest->question = $qs;
+            $quest->question = $question;
             $quest->id_kelas = $clas;
-            $quest->id_mapel = $typ;
+            $quest->id_mapel = $id_mapel;
             $quest->id_user_dil = $id_user;
             $quest->id_type = "0";
             
             $quest->save();
     
-            return redirect()->route('answer');
+            // return redirect()->route('answer');
             // return response()->json("success");
-            // return compact('qs','clas','typ','id_user','request');
+            return compact('question','clas','id_mapel');
     
         }
     }

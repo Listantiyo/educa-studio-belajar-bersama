@@ -50,7 +50,7 @@
 
         {{-- Content Data --}}
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="matematika-question" role="tabpanel" aria-labelledby="matematika-question-tab">
+            <table class="tab-pane fade show active" id="matematika-question" role="tabpanel" aria-labelledby="matematika-question-tab">
                 <div v-for="qs in quest" class="single-qa-box card">
                     <div class="d-flex">
                         <div class="flex-grow-1 ms-3 container">
@@ -68,7 +68,7 @@
                                 </li>
                             </ul>
                             <h3>
-                                <a href="queations-details.html">
+                                <a href="#" v-on:click="goToanswer(qs.id)">
                                     @{{qs.question}}
                                 </a>
                             </h3>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </table>
             <div class="tab-pane fade" id="question-data" role="tabpanel" aria-labelledby="question-data-tab" >
                 <div v-for="qs in quest" class="single-qa-box card">
                     <div class="d-flex card-body">
@@ -99,7 +99,7 @@
                                 </li>
                             </ul>
                             <h3>
-                                <a href="queations-details.html">
+                                <a href="#" v-on:click="goToanswer(qs.id)">
                                     @{{qs.question}}
                                 </a>
                             </h3>

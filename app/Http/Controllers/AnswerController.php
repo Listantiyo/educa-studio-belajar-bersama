@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Answer;
+use App\Question;
 
 class AnswerController extends Controller
 {
@@ -13,22 +14,30 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('answer.index');
+        if ($id == "null") {
+            # code...
+            $quest = DB::table('questions')->latest()->first();
+        }else{
+            $quest = Question::find($id);
+        }
+        // dd($quest);
+        return view('answer.index',compact('quest'));
     }
 
-    public function show_answer()
+    public function show_answer(Request $request)
     {
 
-            $newq = DB::table('questions')->latest()->first();
-            // dd($qlatest);
-            $answer = Answer::all();
+            $id = $request->id;
+            $answer = Answer::where('id_question',1)->get();
+            // dd($answer);
+
 
             // cek
             // return response()->json($q_latest);
             // return $q_latest;
-            return compact('answer','newq');
+            return response()->json($answer);
         
         
     }

@@ -62,19 +62,22 @@
     const vues = createApp({
         data() {
             return {
-                // answer :'',
-                new_quest :[],
+                answer :'',
+                // new_quest :[],
                 // type  :'',
             }
         },mounted() {
             $(document).ready(function () {
-            
-                $.ajax({
-                    url: "api/data/answer",
-                    success: function (rsp) {
-                        vues.new_quest = rsp
-                    }
-                });
+
+                const id = {{$quest -> id}}
+
+                $.get("\\api/data/answer",{id:id},
+                    function (rsp) {
+                        // alert(rsp);
+                        vues.answer = rsp
+                    },
+                    
+                );
             });
         },
     }).mount('#app') 

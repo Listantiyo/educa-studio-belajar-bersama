@@ -4,7 +4,7 @@
             <div class="card me-auto" style="width: 70%;">
                 <div class="container card-body d-flex">
                     <div class="d-inline">
-                        <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="rounded-circle me-3" style="width: 100%;">
+                        <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="rounded-circle me-3" style="width: 100%;">
                     </div>
                     <div class="text-center py-2">
                         <h6 class="card-title fw-bold mb-0">Anonymous</h6>

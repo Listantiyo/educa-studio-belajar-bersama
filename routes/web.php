@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('ex_login.login');
-});
+    return view('auth.login');
+})->middleware('guest');
 
 Route::get('/oohome', function () {
     return view('ex_navbar.index');
@@ -21,7 +21,7 @@ Route::get('/oohome', function () {
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/menu', 'HomeController@index');
-Route::get('/answer','AnswerController@index')->name('answer');
+Route::get('/answer/{id}','AnswerController@index')->name('answer');
 
 Auth::routes();
 

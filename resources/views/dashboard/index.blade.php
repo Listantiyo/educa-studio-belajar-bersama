@@ -1,3 +1,6 @@
+
+@if (Auth::user()->level == 1)
+
 @extends('layouts.master')   
 
 @section('content')
@@ -39,6 +42,7 @@
 		<div class="main-content-area py-5">
 			<div class="container">
 				<div class="row">
+                    {{-- @{{quest}} --}}
                     {{-- {{ Auth::user()->name }} --}}
 					{{-- left sidebar --}}
 					@include('dashboard.left_sidebar')
@@ -66,64 +70,29 @@
 
 @push('scripts')
 <script>
-    $(document).ready(function () {
-        $("#halu").click(function (e) { 
-            e.preventDefault();
-            $(document).ajaxStop(function(){
-                window.location.reload();
-            });
-        });
-        $("#tanya").click(function (e) { 
-            e.preventDefault();
-            var user = {{Auth::id()}};
-            var text = $(".Editor-editor").html();
-            var cls = $("#sClas").val();    
-            var typ = $("#sMpel").val();    
-            // console.log(typ,text,cls,user);
-            $.post("api/data/store", {text:text,clas:cls,typ:typ,user:user},
-                function (data) {
-                    if (data === "kosong") {
-                        alert("Pertanyaan Masih Kosong")
-                    }else if(data === "kopong"){
-                        alert("Pilih Kelas")
-                    }else if(data === "kopsong"){
-                        alert("Pilih Mata Pelajaran")
-                    }else{
-                        var url = "{{ route('answer') }}";
 
-                        $(".Editor-editor").html(null);
-                        $("#sClas").val(null);    
-                        $("#sMpel").val(null);
-                        $("#btn-close").trigger("click");
-                    
-	                    location.href = url;
-                    }
-                },
-            );
-        });
-    });
-    
     const { createApp } = Vue
 
     const vues = createApp({
         data() {
             return {
-                quest :'',
+                quest :[],
                 // classe :'',
-                // type  :'',
+                type  : [],
             }
         },mounted() {
             
             var classe ='';
             var type ='';
             var dt ='';
-
+            
             $(document).ready(function (e) {
             
                 ajax = $.ajax({
                     url: "/api/data/question",
                     success: function(rsp){
                         vues.quest = rsp ;
+                        vues.type = rsp ;
                     }
                 });
 
@@ -134,6 +103,7 @@
                         $.get("api/data/question",{mapel:dt,clas:classe,type:type},
                             function (data) {
                                 vues.quest = data 
+                                vues.type = data 
                             },
                         );
                 });
@@ -146,13 +116,77 @@
                         $.get("api/data/question",{mapel:dt,clas:classe,type:type},
                         function (data) {
                             vues.quest = data 
+                            vues.type = data 
                         },
                     );
                 });
 
-        });
+                $("#tanya").click(function (e) { 
+                    e.preventDefault();
+                    var user = {{Auth::id()}};
+                    var text = $(".Editor-editor").html();
+                    var cls = $("#sClas").val();    
+                    var typ = $("#sMpel").val();    
+                    // console.log(typ,text,cls,user);
+                    $.post("api/data/store", {text:text,clas:cls,typ:typ,user:user},
+                        function (data) {
+                            if (data === "kosong") {
+                                alert("Pertanyaan Masih Kosong")
+                            }else if(data === "kopong"){
+                                alert("Pilih Kelas")
+                            }else if(data === "kopsong"){
+                                alert("Pilih Mata Pelajaran")
+                            }else{
+                                var url = "{{ route('answer',':id')}}";
+                                url = url.replace(':id',null);
+
+                                $(".Editor-editor").html(null);
+                                $("#sClas").val(null);    
+                                $("#sMpel").val(null);
+                                // vues.type.push(data);
+                                vues.quest.unshift(data);
+                                // console.log(data.qs);
+                                $("#btn-close").trigger("click");
+                            
+                                location.href = url;
+                            }
+                        },
+                    );
+                });
+
+            });
             
+        },methods: {
+            goToanswer(p){
+                
+                var url = "{{ route('answer',':id')}}";
+                url = url.replace(':id',p);
+
+                location.href = url;
+
+            }
         },
     }).mount('#app') 
 </script>
 @endpush
+    
+@else
+
+<div style="display: none;" class="main-content-area py-5">
+    <div class="container">
+    <form action="{{route('home')}}" method="get">
+        <button type="submit" style="display:" id="op" >TRigger</button>
+    </form>
+    </div>
+</div>
+    
+    @push('scripts')
+    <script src="{{asset('template/pify/assets/js/jquery.min.js')}}"></script>
+    <script src="{{asset('template/pify/assets/js/jquery.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#op").trigger("click");
+        });
+    </script>
+
+@endif

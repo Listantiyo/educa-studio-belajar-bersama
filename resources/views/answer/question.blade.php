@@ -4,7 +4,7 @@
             <ul class="graphic-design">
                 <li>
                     <a>
-                        <img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
+                        <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image">
                     </a>
                 </li>
                 <li> 
@@ -15,7 +15,7 @@
                 </li>
             </ul>
             <h3>
-                <p v-for="nqs in new_quest" >@{{nqs.question}}</p>
+                <p>{{$quest -> question}}</p>
             </h3>
             <div class="container">
                 
@@ -37,19 +37,19 @@
     <div class="container my-4">
         <div class="d-flex align-items-center mb-2">
             <a href="#">
-                <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="img-cmn">
+                <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
             </a>
             <p>Terima kasih</p>
         </div>
         <div class="d-flex align-items-center mb-2">
             <a href="#">
-                <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="img-cmn">
+                <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
             </a>
             <p>Sama-sama</p>
         </div>
         <div class="d-flex align-items-center mb-2">
             <a href="#">
-                <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="img-cmn">
+                <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
             </a>
             <p>Ok</p>
         </div>
