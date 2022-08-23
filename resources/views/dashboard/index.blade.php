@@ -92,18 +92,18 @@
                     url: "/api/data/question",
                     success: function(rsp){
                         vues.quest = rsp ;
-                        vues.type = rsp ;
+                        
                     }
                 });
 
                 $(".clasall").click(function (e) {
                     e.preventDefault(); 
                         dt = $(this).val();
-
+                        // alert();
                         $.get("api/data/question",{mapel:dt,clas:classe,type:type},
                             function (data) {
                                 vues.quest = data 
-                                vues.type = data 
+                                
                             },
                         );
                 });
@@ -116,7 +116,7 @@
                         $.get("api/data/question",{mapel:dt,clas:classe,type:type},
                         function (data) {
                             vues.quest = data 
-                            vues.type = data 
+                            
                         },
                     );
                 });

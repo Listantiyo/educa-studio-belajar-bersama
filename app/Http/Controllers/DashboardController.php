@@ -47,6 +47,7 @@ class DashboardController extends Controller
         $mapel = $request->mapel;
         $type = $request->type;
         
+        // $phone = Question::find(2)->mapel;
         // $question = Question::all();
         $question = DB::table('questions')->orderBy('created_at', 'desc')->get();
 

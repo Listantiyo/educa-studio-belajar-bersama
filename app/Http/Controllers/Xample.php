@@ -17,12 +17,8 @@ class Xample extends Controller
 {
     public function my()
     {
-        if (Auth::check()) {
-            // The user is logged in...
-            // $user = Auth::id();
-            // dd($user);
-            return "d";
-        }
+        $phone = Question::get()->mapel;
+        dd($phone);
     }
     public function filter(){
         $filc = Classe::all();

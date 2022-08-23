@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/my','Xample@my');
 Route::get('/ex', function () {
     return view('cuba.index'); 
 });

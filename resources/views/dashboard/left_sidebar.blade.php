@@ -14,7 +14,7 @@
                 All
             </button>
             @foreach ($film as $mapel)              
-                <button class="nav-link" id="question-tab clasall" data-bs-toggle="tab" data-bs-target="#question-data" type="button" role="tab" aria-controls="question-data" aria-selected="false" value="{{$mapel->id}}">
+                <button class="nav-link clasall" id="question-tab" data-bs-toggle="tab" data-bs-target="#question-data" type="button" role="tab" aria-controls="question-data" aria-selected="false" value="{{$mapel->id}}">
                     {{$mapel->nama_mapel}}
                 </button>
             @endforeach
