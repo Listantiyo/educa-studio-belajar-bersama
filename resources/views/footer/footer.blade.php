@@ -21,31 +21,31 @@
 
                     <ul class="import-link">
                         <li>
-                            <a style="text-decoration: none;" href="">Pertanyaan dan jawaban</a>
+                            <a href="">Pertanyaan dan jawaban</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Kunci jawaban dan buku sekolah</a>
+                            <a href="">Kunci jawaban dan buku sekolah</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Tentang kami</a>
+                            <a href="">Tentang kami</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Karir</a>
+                            <a href="">Karir</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Beriklan dibrainly</a>
+                            <a href="">Beriklan dibrainly</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Ketentuan penggunaan</a>
+                            <a href="">Ketentuan penggunaan</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Kebijakan hak cipta</a>
+                            <a href="">Kebijakan hak cipta</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Kebijakan Privasi</a>
+                            <a href="">Kebijakan Privasi</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Prefensi Kuki</a>
+                            <a href="">Prefensi Kuki</a>
                         </li>
                     </ul>
                 </div>
@@ -58,16 +58,16 @@
 
                     <ul class="import-link">
                         <li>
-                            <a style="text-decoration: none;" href="">Daftar</a>
+                            <a href="">Daftar</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Pusat bantuan</a>
+                            <a href="">Pusat bantuan</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Pusat keamanan</a>
+                            <a href="">Pusat keamanan</a>
                         </li>
                         <li>
-                            <a style="text-decoration: none;" href="">Perlindungan konsumen</a>
+                            <a href="">Perlindungan konsumen</a>
                         </li>
                     </ul>
                 </div>

@@ -15,12 +15,12 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="" style="padding-top:">
-                    <h1 style="font-weight: 1000; font-size: 65px; padding-left: 20px;" >Dari bertanya jadi</h1>
-                    <h1 style="font-weight: 1000; font-size: 65px; padding-left: 20px; padding-top: 20px;" >mengerti</h1>
+                    <h1 style="font-weight: 1000; font-size: 73px; padding-left: 20px;" >Dari bertanya jadi</h1>
+                    <h1 style="font-weight: 1000; font-size: 73px; padding-left: 20px; padding-top: 20px;" >mengerti</h1>
                     <p style="font-size: 16px; padding-left: 20px; padding-top: 25px;" >Brainly adalah tempat berbagi ilmu 350 juta siswa dan pakar edukasi, belajar bersama untuk menyelesaikan soal-soal yang paling rumit sekalipun.</p>
                     <form method="GET" action="/app/asl?entry=hero">
-                        <input type="text" class="form-control rounded-pill py-5" style="padding-left: 20px;" class="font-size: 78px;"  id="exampleFormControlInput1" placeholder="Apa pertanyaan mu?" text-size="20psx">
-                        <button><i class="fa fa-search " aria-hidden="true" style="position:absolute; left:43%; bottom:26%; font-size: 35px;"></i></button>
+                        <input type="text" class="form-control rounded-pill py-5" style="padding-left: 20px;" class="font-size: 78px;"  id="exampleFormControlInput1" placeholder="Apa pertanyaanmu?" text-size="20psx">
+                        <button><i class="fa-solid fa-magnifying-glass" aria-hidden="true" style="position:absolute; left:43%; bottom: 10%; font-size: 35px; margin-bottom: 80px;"></i></button>
                         <div class="search--large">
                         </div>
                     </form>
@@ -44,21 +44,26 @@
         
         <div class="item">
             <i class="fa-solid fa-bars-progress text-black"></i>
-            <a class="img-text text-black" style="text-decoration: none;" type="button" href="">All</a>
+            <a class="img-text text-black" style="text-decoration: none;" type="button" href="">Semua</a>
         </div>
   
         <div class="item">
-            <i class="fa-solid fa-book-bookmark text-black"></i>
+            <i class="fa-solid fa-vial text-black"></i>
             <a class="img-text text-black" style="text-decoration: none;" type="button" href="">SBMPTN</a>
         </div>
 
         <div class="item">
-            <i class="fa-solid fa-align-justify text-black"></i>
+            <i class="fa-solid fa-pencil text-black"></i>
             <a class="img-text text-black"style="text-decoration: none;"  type="button" href="">Ujian</a>
         </div>
 
         <div class="item">
-            <i class="fa-solid fa-circle-plus text-black"></i>
+            <i class="fa-solid fa-book-quran text-black"></i>
+            <a class="img-text text-black" style="text-decoration: none;" type="button" href="">Agama Islam</a>
+        </div>
+
+        <div class="item">
+            <i class="fa-solid fa-square-root-variable text-black"></i>
             <a class="img-text text-black" style="text-decoration: none;" type="button" href="">Matematika</a>
         </div>
 
@@ -68,7 +73,7 @@
         </div>
 
         <div class="item">
-            <i class="fa-solid fa-atom text-black"></i>
+            <i class="fa-solid fa-flask text-black"></i>
             <a class="img-text text-black" style="text-decoration: none;" type="button" href="">Kimia</a>
             </a>
         </div>
@@ -89,7 +94,7 @@
         </div>
 
         <div class="item">
-            <i class="fa-solid fa-people-group text-black"></i>
+            <i class="fa-solid fa-campground text-black"></i>
             <a class="img-text text-black" style="text-decoration: none;" type="button" href="">Sejarah</a>
         </div>
 
@@ -99,8 +104,18 @@
         </div>
 
         <div class="item">
-            <i class="fa-solid fa-book-quran text-black"></i>
-            <a class="img-text text-black" style="text-decoration: none;" type="button" href="">Agama Islam</a>
+            <i class="fa-solid fa-microchip text-black"></i>
+            <a class="img-text text-black" style="text-decoration: none;" type="button" href="">IT</a>
+        </div>
+
+        <div class="item">
+            <i class="fa-solid fa-basketball text-black"></i>
+            <a class="img-text text-black" style="text-decoration: none;" type="button" href="">Penjaskes</a>
+        </div>
+
+        <div class="item">
+            <i class="fa-solid fa-lock text-black"></i>
+            <a class="img-text text-black" style="text-decoration: none;" type="button" href="">Wirausaha</a>
         </div>
 
     </div>
@@ -115,7 +130,7 @@
 <div class="team-area pt-100 pb-70">    
         <div class="container">
             <div class="d-flex justify-content-center">
-                <div class="mb-2 bg-primary text-white text-center" style="border-radius: 10px; width: 10%; font-weight: 700;" height=" 56px;" padding=" 28px;" font-size=" 21px;" line-height=" 21px;">Buku terbaru</div>    
+                <div class="mb-2 text-white text-center" style="border-radius: 5px; width: 11%; font-weight: 700; background-color: #014a82;" height=" 56px;" padding=" 28px;" font-size=" 21px;" line-height=" 21px;" >TERBARU DI PIFY</div>    
             </div>
         </div>
     </div>
@@ -185,10 +200,10 @@
 </div>
 
 <div class="team-area pt-100 pb-70">    
-    <div class="container">
+    <div class="container" style="padding-bottom: 20px">
         <div class="d-flex justify-content-center">
                 <a type="button" class="p-3 mb-3 bg-dark text-white text-center" 
-                    style="border-radius: 28px; font-weight: 500; font-size: 20px; text-decoration: none;" \
+                    style="border-radius: 40px; font-weight: 500; font-size: 20px; text-decoration: none;" 
                         height=" 56px;" padding=" 28px;" font-size=" 21px;" line-height=" 21px;" 
                             href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Temukan bukumu</a>
             </div>

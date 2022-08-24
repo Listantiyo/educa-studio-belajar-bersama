@@ -16,8 +16,9 @@ Route::get('/', function () {
 })->middleware('guest');
 
 Route::get('/oohome', function () {
-    return view('ex_navbar.index');
+    return view('ex_home.index');
 });
+
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/menu', 'HomeController@index');
