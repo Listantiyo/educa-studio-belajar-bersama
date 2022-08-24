@@ -85,6 +85,12 @@ class Xample extends Controller
     {
         //
     }
+    public function search(Request $request)
+    {   
+        $data = $request->data;
+        $quest = DB::table('questions')->where('question','like','%'.$data.'%')->get();
+        return $quest;
+    }
 
     /**
      * Store a newly created resource in storage.

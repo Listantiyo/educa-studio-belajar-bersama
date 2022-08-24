@@ -22,13 +22,13 @@
                 <div class="others-options d-flex w-100 justify-content-between">
                     <ul>
                         <li>
-                            <form class="search-box">
-                                <input type="text" name="Search" placeholder="Search for..." class="form-control container-fluid" width="100%">
+                            <div class="search-box">
+                                <input id="searchbar" type="text" name="Search" placeholder="Search for..." class="form-control container-fluid" width="100%">
                         
-                                <button type="submit" class="search-btn">
+                                <button type="button" class="search-btn">
                                     <i class="ri-search-line"></i>
                                 </button>
-                            </form>
+                            </div>
                         </li>
                     </ul>
                     <ul class="me-3">

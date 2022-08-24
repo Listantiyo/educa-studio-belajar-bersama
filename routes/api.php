@@ -23,6 +23,8 @@ Route::get('/ex', function () {
     return view('cuba.index'); 
 });
 
+Route::get('/data/search','Xample@search');
+
 Route::get('/data/filter','DashboardController@filter');
 
 Route::post('/data/store','DashboardController@store');

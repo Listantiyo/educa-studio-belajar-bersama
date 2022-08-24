@@ -70,6 +70,11 @@
 
 @push('scripts')
 <script>
+    $(document).ready(function () {
+
+    });
+ </script>
+<script>
 
     const { createApp } = Vue
 
@@ -95,6 +100,19 @@
                         
                     }
                 });
+                $("#searchbar").keypress(function (e) { 
+            if (e.which == 13) {
+                var data = $("#searchbar").val();
+                
+                $.get("api/data/search", {data:data},
+                    function (data) {
+                        // console.log(data);           
+                        vues.quest = data;
+                    },
+
+                );
+            }
+        });
 
                 $(".clasall").click(function (e) {
                     e.preventDefault(); 
