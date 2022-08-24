@@ -43,12 +43,25 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" 
-                            onclick="
-                                event.preventDefault();
-                                $('#logout').submit();">
-                                <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="rounded-circle">
-                            </a>
+                            <div class="dropdown">
+                                <a href="#" class="btn btn-secondary btn-md" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    User
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa-solid fa-user fs-5 me-2"></i>
+                                            Edit Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" onclick="event.preventDefault(); $('#logout').submit();">
+                                            <i class="fa-solid fa-right-from-bracket fs-5 me-2"></i>
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>
