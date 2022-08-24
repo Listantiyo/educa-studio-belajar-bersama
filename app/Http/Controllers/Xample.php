@@ -17,8 +17,10 @@ class Xample extends Controller
 {
     public function my()
     {
-        $phone = Question::get()->mapel;
-        dd($phone);
+        $id = 1;
+        $mapel = DB::table('mapels')->select('nama_mapel')->where('id',$id)->get();
+        $name_mapel = Question::find(1)->mapel;
+        dd($mapel);
     }
     public function filter(){
         $filc = Classe::all();

@@ -61,7 +61,7 @@
                                     </a>
                                 </li>
                                 <li> 
-                                    <a href="#">Mtk</a>
+                                    <a href="#">@{{qs.mapel}}</a>
                                 </li>
                                 <li>
                                     <span>14 hours ago</span>
@@ -73,7 +73,7 @@
                                 </a>
                             </h3>
                             <div class="d-flex align-items-end flex-column bd-highlight mb-3">
-                                <a href="#" class="default-btn mt-3">
+                                <a href="#" class="default-btn mt-3" v-on:click="goToanswer(qs.id)">
                                     Answer
                                 </a>
                             </div>
@@ -92,7 +92,7 @@
                                     </a>
                                 </li>
                                 <li> 
-                                    <a href="#">Mtk</a>
+                                    <a href="#">@{{qs.mapel}}</a>
                                 </li>
                                 <li>
                                     <span>14 hours ago</span>
@@ -104,7 +104,7 @@
                                 </a>
                             </h3>
                             <div class="d-flex align-items-end flex-column bd-highlight mb-3">
-                                <a href="#" class="default-btn mt-3">
+                                <a href="#" class="default-btn mt-3" v-on:click="goToanswer(qs.id)">
                                     Answer
                                 </a>
                             </div>

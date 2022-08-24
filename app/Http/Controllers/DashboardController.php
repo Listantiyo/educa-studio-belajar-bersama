@@ -44,7 +44,7 @@ class DashboardController extends Controller
         // if (request()->ajax()) {
 
         $clas = $request->clas;
-        $mapel = $request->mapel;
+        $id_mapel = $request->mapel;
         $type = $request->type;
         
         // $phone = Question::find(2)->mapel;
@@ -55,9 +55,9 @@ class DashboardController extends Controller
             # code...
             $question = $question->where('id_kelas',$clas);
         }
-        if (($mapel)!=null) {
+        if (($id_mapel)!=null) {
             # code...
-            $question = $question->where('id_mapel',$mapel);
+            $question = $question->where('id_mapel',$id_mapel);
         }
         if (($type)!=null) {
             # code...
@@ -109,9 +109,14 @@ class DashboardController extends Controller
                 return "kopong";
             };
             
-            
+            $mapel = DB::table('mapels')->select('nama_mapel')->where('id',$id_mapel)->get();
+
             $quest = new Question;
-            
+            foreach ($mapel as $ma) {
+                # code...
+                $mapel = $ma->nama_mapel;
+            }
+            $quest->mapel = $mapel;
             $quest->question = $question;
             $quest->id_kelas = $clas;
             $quest->id_mapel = $id_mapel;
