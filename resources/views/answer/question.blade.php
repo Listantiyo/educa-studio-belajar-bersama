@@ -21,7 +21,7 @@
                 
             </div>
             <div class="d-flex bd-highlight align-items-center py-4">
-                <a href="#" class="bd-highlight view-answer">
+                <a href="#sJawaban" class="bd-highlight view-answer">
                     <span><span class="answer-number rounded-circle">1</span> LIHAT JAWABAN</span>
                 </a>
                 <a href="#" class="bd-highlight answer-btn" data-bs-toggle="modal" data-bs-target="#answerModalToggle">

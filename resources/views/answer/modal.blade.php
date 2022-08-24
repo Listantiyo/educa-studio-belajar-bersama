@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="modal-footer">
-                  <button class="btn btn-dark fw-bold" style="border-radius: 20px;">TAMBAHKAN JAWABAN</button>
+                  <button id="jawab" class="btn btn-dark fw-bold" style="border-radius: 20px;">TAMBAHKAN JAWABAN</button>
                 </div>
               </div>
             </div>

@@ -30,8 +30,8 @@ class AnswerController extends Controller
     {
 
             $id = $request->id;
-            $answer = Answer::where('id_question',1)->get();
-            // dd($answer);
+            $answer = Answer::where('id_question',$id)->get();
+            // dd($id);
 
 
             // cek
@@ -58,8 +58,20 @@ class AnswerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $id = $request->id;
+        $answer = new Answer();
+        $quest = Question::find($id);
+
+        $answer->id_question = $request->id;
+        $answer->answer = $request->text;
+
+        $answer->save();
+
+        $quest->id_type = 1;
+
+        $quest->save();        
+        return "success";
     }
 
     /**

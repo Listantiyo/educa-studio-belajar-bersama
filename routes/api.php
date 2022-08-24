@@ -31,6 +31,7 @@ Route::get('/data/question','DashboardController@show_question');
 
 Route::get('/data/answer','AnswerController@show_answer');
 
+Route::post('/data/store/answer','AnswerController@store');
 
 
 // Route::post('login', 'API\UserController@login');
