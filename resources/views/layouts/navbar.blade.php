@@ -1,5 +1,26 @@
 <!-- Start Navbar Area --> 
-<nav class="navbar-area w-100">
+<style>
+    .llp{
+        padding: 10px 1px !important;
+        margin-right: -10px; 
+    }
+    .pee{
+        margin-right: 8px !important;
+        /* margin-right: -10px;  */
+    }
+    .fs_my{
+        font-size: 92%;
+    }
+    .p_nav{
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    .ask_ks{
+        color: #0d6efd;
+        border-color: #0d6efd;
+    }
+</style>
+<nav class="navbar-area w-100 p_nav">
     <div class="mobile-responsive-nav">
         <div class="container">
             <div class="mobile-responsive-menu">
@@ -15,11 +36,12 @@
     <div class="desktop-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="index.html">
-                    <img src="{{asset('template/pify/assets/images/logo.png')}}" alt="logo">
+                <a class="navbar-brand ms-2" href="index.html">
+                    <img width="80%" height="auto" src="{{asset('template/pify/assets/images/logo.png')}}" alt="logo">
                 </a>
 
                 <div class="others-options d-flex w-100 justify-content-between align-items-center">
+                    @auth
                     <ul>
                         <li>
                             <div class="search-box">
@@ -45,7 +67,7 @@
                         <li>
                             <div class="dropdown">
                                 <a href="#" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle-split" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{Auth::user()->name}}
+                                    {{-- {{Auth::user()->name}} --}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li>
@@ -64,6 +86,42 @@
                             </div>
                         </li>
                     </ul>
+                    @else
+                    <div class="ms-6 others-options d-flex w-100 justify-content-end">
+                        {{-- <ul class="me-3">
+                            <li class="mx-3">
+                                <a href="#" class="masuk-btn">
+                                    MASUK
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="daftar-btn">
+                                    DAFTAR
+                                </a>
+                                <li>
+                                    <a href="#" class="ask-btn">
+                                        AJUKAN PERTANYAAN
+                                    </a>
+                                </li>
+                            </li>
+                        </ul> --}}
+                        <ul class="d-flex justify-content-center">
+                            <div class="mx-3 d-flex ">
+                                <a href="#" class="ask-btn fs_my px-3">
+                                    MASUK
+                                </a>
+                                <a href="#" class="ask-btn fs_my pee">
+                                    DAFTAR
+                                </a>
+                                <a href="#" class="masuk-btn ask_ks py-2 fs_my px-3">
+                                    AJUKAN PERTANYAAN
+                                </a>
+                            </div>
+                            <div>
+                            </div>
+                        </ul>
+                    </div>
+                    @endauth
                 </div>
 
                 {{-- <div class="others-options">

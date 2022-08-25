@@ -8,22 +8,33 @@
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-
+<style>
+    .blue_bg{
+        background-color: #00f7ff;
+    }
+    .m-my{
+        margin-top: 9%;
+        margin-bottom: -6%;
+    }
+    .my-bg{
+        background-color: white;
+    }
+</style>
 <!-- Start Banner Area -->
-<div class="banner-area">
+<div class="banner-area blue_bg">
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="" style="padding-top:">
                     <h1 style="font-weight: 1000; font-size: 73px; padding-left: 20px;" >Dari bertanya jadi</h1>
-                    <h1 style="font-weight: 1000; font-size: 73px; padding-left: 20px; padding-top: 20px;" >mengerti</h1>
+                    <h1 style="font-weight: 1000; font-size: 73px; padding-left: 20px; padding-top: 20px;" >goblok</h1>
                     <p style="font-size: 16px; padding-left: 20px; padding-top: 25px;" >Brainly adalah tempat berbagi ilmu 350 juta siswa dan pakar edukasi, belajar bersama untuk menyelesaikan soal-soal yang paling rumit sekalipun.</p>
-                    <form method="GET" action="/app/asl?entry=hero">
-                        <input type="text" class="form-control rounded-pill py-5" style="padding-left: 20px;" class="font-size: 78px;"  id="exampleFormControlInput1" placeholder="Apa pertanyaanmu?" text-size="20psx">
-                        <button><i class="fa-solid fa-magnifying-glass" aria-hidden="true" style="position:absolute; left:43%; bottom: 10%; font-size: 35px; margin-bottom: 80px;"></i></button>
+                    <div class="ms-3 m-my ">
+                        <input type="text" class="my-bg form-control rounded-pill py-5" style="padding-left: 7%;" class="font-size: 125%;"  id="exampleFormControlInput1" placeholder="Apa pertanyaanmu ?" text-size="20psx">
+                        <button style="position:absolute; left:43%; bottom: 0%; font-size: 35px; margin-bottom: 80px; background:none;"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
                         <div class="search--large">
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
 
@@ -40,7 +51,7 @@
 
 {{-- carousel mata pelajaran --}}
 <div class="carousel-wrap">
-    <div class="owl-carousel" style="font-size: 20px; font-weight: 800; padding-top: 115px;  ">
+    <div class="owl-carousel" style="font-size: 20px; font-weight: 800; padding-top: 5%;  ">
         
         <div class="item">
             <i class="fa-solid fa-bars-progress text-black"></i>
