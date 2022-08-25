@@ -145,6 +145,7 @@
             width: 450
         });
 
+        
 
 
          $('.owl-carousel').owlCarousel({

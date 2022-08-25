@@ -15,7 +15,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="mdl-body" class="form-group" style="height:50%;">
-                        <div id="txtEditor"></div>
+                        <textarea id="txtEditor"></textarea>
                         <div class="container py-3">
                             <div class="row">
                                 <div class="col-sm-4">

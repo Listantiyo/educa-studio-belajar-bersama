@@ -19,7 +19,7 @@
                     <img src="{{asset('template/pify/assets/images/logo.png')}}" alt="logo">
                 </a>
 
-                <div class="others-options d-flex w-100 justify-content-between">
+                <div class="others-options d-flex w-100 justify-content-between align-items-center">
                     <ul>
                         <li>
                             <div class="search-box">
@@ -32,20 +32,20 @@
                         </li>
                     </ul>
                     <ul class="me-3">
-                        <li>
+                        <li class="me-4">
                             <a href="#" class="ask-btn" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
                                 Ajukan Pertanyaan
                             </a>
                         </li>
-                        <li class="mx-4">
+                        {{-- <li class="mx-3">
                             <a href="#">
                                 <i class="fa-solid fa-bell fs-5"></i>
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             <div class="dropdown">
-                                <a href="#" class="btn btn-secondary btn-md" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{-- {{Auth::user()->name}} --}}
+                                <a href="#" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle-split" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{Auth::user()->name}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li>
