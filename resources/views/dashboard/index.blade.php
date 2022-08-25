@@ -168,10 +168,10 @@
                 $("#tanya").click(function (e) { 
                     e.preventDefault();
                     var user = {{Auth::id()}};
-                    var text = $(".Editor-editor").html();
+                    var text = $("#tiny").text();
                     var cls = $("#sClas").val();    
                     var typ = $("#sMpel").val();    
-                    // console.log(typ,text,cls,user);
+                    console.log(typ,text,cls,user);
                     $.post("api/data/store", {text:text,clas:cls,typ:typ,user:user},
                         function (data) {
                             if (data === "kosong") {
@@ -184,7 +184,7 @@
                                 var url = "{{ route('answer',':id')}}";
                                 url = url.replace(':id',null);
 
-                                $(".Editor-editor").html(null);
+                                $("#tiny").html(null);
                                 $("#sClas").val(null);    
                                 $("#sMpel").val(null);
                                 // vues.type.push(data);

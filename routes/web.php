@@ -20,6 +20,7 @@ Route::get('/oohome', function () {
 });
 
 
+Route::get('/profile', 'ProfileController@index')->middleware('auth')->name('profile');
 Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
 Route::get('/menu', 'HomeController@index');
 Route::get('/answer/{id}','AnswerController@index')->name('answer');

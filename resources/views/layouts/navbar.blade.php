@@ -63,15 +63,21 @@
                             <a href="#">
                                 <i class="fa-solid fa-bell fs-5"></i>
                             </a>
-                        </li> --}}
+                                </li> --}}
                         <li>
                             <div class="dropdown">
-                                <a href="#" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle-split" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{-- {{Auth::user()->name}} --}}
+                                <a href="#" class="btn btn-light btn-sm dropdown-toggle dropdown-toggle-split" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span style="font-size: 110%">{{Auth::user()->name}}</span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{route('profile')}}">
+                                            <i class="fa-solid fa-home fs-5 me-2"></i>
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{route('profile')}}">
                                             <i class="fa-solid fa-user fs-5 me-2"></i>
                                             Edit Profile
                                         </a>
@@ -104,7 +110,7 @@
                                     </a>
                                 </li>
                             </li>
-                        </ul> --}}
+                                </ul> --}}
                         <ul class="d-flex justify-content-center">
                             <div class="mx-3 d-flex ">
                                 <a href="{{route('login')}}" class="ask-btn fs_my px-3">
@@ -123,7 +129,6 @@
                     </div>
                     @endauth
                 </div>
-
                 {{-- <div class="others-options">
                     <ul>
                         <li>
@@ -142,7 +147,7 @@
                             </a>
                         </li>
                     </ul>
-                </div> --}}
+                            </div> --}}
             </nav>
         </div>
     </div>
@@ -187,6 +192,10 @@
         </div>
     </div>
 </nav>
+
+<form style="display:none;" id="logout" action="{{route('logout')}}" method="post">
+    {{ csrf_field() }}
+</form>
 {{-- <nav class="navbar-area">
     <div class="mobile-responsive-nav">
         <div class="container">
@@ -336,6 +345,3 @@
     </div>
 </nav> --}}
 <!-- End Navbar Area -->
-<form style="display:none;" id="logout" action="{{route('logout')}}" method="post">
-    {{ csrf_field() }}
-</form>

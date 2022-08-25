@@ -9,14 +9,14 @@
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
 <style>
     .single-qa-box {
-        border: 1px solid #00000081 !important;
+        border: none !important;
     }
 </style>
 
 <!-- Blue banner -->
 
 <div>
-    <img src="https://brainly.co.id/app/img/profile/wallpaper_others.svg" class="sg-animation-fade-in-slow" style="height: 140px;"></div> 
+    <img src="https://brainly.co.id/app/img/profile/wallpaper_others.svg" class="sg-animation-fade-in-slow" ></div> 
 </div>
     {{-- Nama profile dan lencana --}}
 <div class="container py-4">
@@ -27,7 +27,7 @@
                     <i class="fa-solid fa-circle-user" style="font-size: 80px;"></i>
                 </div>
                 <div class="pt-3 ms-4">
-                    <h5 class="fw-bold">ay8400628</h5>
+                    <h5 class="fw-bold">{{Auth::user()->name}}</h5>
                     <span class="d-block lencana">Ambisius</span>
                 </div>
             </div>
@@ -55,7 +55,7 @@
             </div>
             <div class="container card-body d-flex" style="padding-top: 40px;">
                 <ul class="list-lencana">
-                    <li>
+                    {{-- <li>
                         <span class="lencana">
                             <i class="fa-solid fa-shield-halved"></i>
                             Bintang Briliant
@@ -126,9 +126,9 @@
                             <i class="fa-solid fa-shield-halved"></i>
                             Geography Student
                         </span>
-                    </li>
-                    <li>
-                        <a href="#" class="lencana">5+ lebih banyak</a>
+                        <li>
+                            <a href="#" class="lencana">5+ lebih banyak</a>
+                        </li> --}}
                     </li>
                     <a href="#" class="btn text-white" style="background-color: rgb(105, 105, 105); border-radius: 30px; padding-left: 5px; margin-top: 20px; margin-left: 10px; width: 300px;">
                         <i class="fa fa-pen"></i>
@@ -140,18 +140,19 @@
                             <i class="fa-solid fa-graduation-cap"></i>
                                 Tingkat sekolah : <b> Sekolah Menengah Atas</b>
                         </div>
-                        <div style="font-size: 12px; padding-top: 10px;">
+                        {{-- <div style="font-size: 12px; padding-top: 10px;">
                             <i class="fa-solid fa-calendar-days"></i>
                                 Bergabung : <b> 17 November 2021</b>
                         </div>
                             <div style="font-size: 12px; padding-top: 10px;">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
                                 Peringatan : <b> 1 </b> (hanya kamu yang dapat melihat)
-                        </div>
+                        </div> --}}
                 </ul>
             </div>
         </div>
         {{-- Opsi jawaban,pertanyaan,penghargaan,teman --}}
+        {{-- TABs --}}
         <div class="col-md-8">
             <ul class="nav nav-tabs justify-content-center" style="border-bottom: 0px" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -169,8 +170,8 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="jawaban" role="tabpanel" aria-labelledby="home-tab">
-                    <div class="single-qa-box card">
-                        <div class="d-flex">
+                    <div class=" card">
+                        <div class="d-flex single-qa-box">
                             <div class="flex-grow-1 ms-3">
                                 <ul class="graphic-design">
                                     <li>
@@ -203,8 +204,8 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pertanyaan" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="single-qa-box card">
-                        <div class="d-flex">
+                    <div class=" card">
+                        <div class="single-qa-box d-flex">
                             <div class="flex-grow-1 ms-3">
                                 <ul class="graphic-design">
                                     <li>
@@ -248,14 +249,14 @@
                         <div class="text-warning" style="font-size: 35px; position: absolute; padding-top: 50px;">
                             <i class="fa-solid fa-trophy"></i>
                         </div>
-                        <p style="font-size: 15px; font-weight: 1000; position: absolute; padding-top: 65px; padding-left: 50px;">26/258 pencapaian terbuka</p>
+                        <p style="font-size: 15px; font-weight: 1000; position: absolute; padding-top: 65px; padding-left: 50px;">buka pencapaian</p>
                         <p style="font-size: 15px; font-weight: 500; position: absolute; padding-top: 160px; padding-left: 50px;">Sedang Berjalan</p>
                     </div>
                     
                     
                 <div class="tab-pane fade" id="teman" role="tabpanel" aria-labelledby="contact-tab">
-                    <div class="single-qa-box card">
-                        <div class="d-flex">
+                    <div class="card">
+                        <div class="single-qa-box d-flex">
                             <div class="flex-grow-1 ms-3">
                                 <ul class="graphic-design">
                                     <li>

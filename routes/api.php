@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/my','Xample@my');
 Route::get('/ex', function () {
-    return view('ex_navbar.index'); 
+    return view('ex_profile.index'); 
 });
 
 Route::get('/data/search','Xample@search');

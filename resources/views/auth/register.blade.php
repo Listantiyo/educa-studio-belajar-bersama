@@ -29,14 +29,14 @@
 
     <body>
 		<!-- Start Preloader Area -->
-		<div class="preloader" id="loader-style">
+		{{-- <div class="preloader" id="loader-style">
 			<div class="preloader-wrap">
 				<span></span>
 				<span></span>
 				<span></span>
 				<span></span>
 			</div>
-		</div>
+		</div> --}}
 
 		<div class="login-area pt-40">
 			<div class="container">

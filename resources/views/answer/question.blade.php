@@ -15,7 +15,7 @@
                 </li>
             </ul>
             <h3>
-                <p>{{$quest -> question}}</p>
+                {{$quest -> question}}
             </h3>
             <div class="container">
                 

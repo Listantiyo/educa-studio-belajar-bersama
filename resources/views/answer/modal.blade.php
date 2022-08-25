@@ -4,7 +4,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title fw-bold" id="exampleModalToggleLabel">Ajukan Pertanyaan</h5>
-                  <button type="button" class="btn-close" data-bs-target="#answerModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body row">
                     <div class="col-md-5">
@@ -26,20 +26,23 @@
               </div>
             </div>
           </div>
-          <div class="modal fade" id="answerModalToggle2" aria-hidden="true" aria-labelledby="answerModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-md">
-              <div class="modal-content container p-3 py-4">
-                <div class="modal-body row">
-                    <h6 class="fw-bold">Kamu yakin ingin berhenti menjawab pertanyaan ini ?</h6>
-                    <p>Ketika kamu berhenti, orang lain dapat menjawab pertanyaan ini!</p>
-                    <div class="col-sm-6">
-                        <button class="btn btn-dark" style="border-radius: 20px;" data-bs-target="#answerModalToggle" data-bs-toggle="modal">LANJUT MENJAWAB</button>
+          {{-- sc modal 2 --}}
+          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg" style="width:45%">
+            <div class="modal-content container py-4">
+                <div class="modal-body row ">
+                    <div class="col-sm-12 mb-3 align-items-center">
+                        <h6 class="fw-bold">Kamu yakin tidak jadi bertanya?</h6>
+                        <p>Jika kamu keluar, pertanyaanmu tidak akan kami tambahkan</p>
                     </div>
                     <div class="col-sm-6">
-                        <button class="btn btn-light" style="border-radius: 20px;" data-bs-dismiss="modal" aria-label="Close">TANYAKAN NANTI</button> 
+                        <button class="btn btn-dark" style="border-radius: 20px; width: 105%;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">LANJUT BERTANYA</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-light" style="border-radius: 20px; width: 105%;" data-bs-dismiss="modal" aria-label="Close">TANYAKAN NANTI</button> 
                     </div>
                 </div>
-              </div>
             </div>
-          </div>
+            </div>
+        </div>
         {{-- End Modal Answer --}}
