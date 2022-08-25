@@ -45,7 +45,7 @@
                         <li>
                             <div class="dropdown">
                                 <a href="#" class="btn btn-secondary btn-md" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                    User
+                                    {{-- {{Auth::user()->name}} --}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li>
