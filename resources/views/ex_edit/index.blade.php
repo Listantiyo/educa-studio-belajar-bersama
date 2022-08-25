@@ -5,6 +5,7 @@
     <!-- Accordion Start -->
 
 
+    {{-- accordion preferensi --}}
     <div class="container my-5" style="padding-top: 60px;">
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 90%; border-radius: 20px;">
@@ -98,6 +99,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- accordion kirim info --}}
                         <div class="accordion-item" style="width: 90%; border-radius: 20px;">
                             <h2 class="accordion-header" id="flush-headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -108,11 +110,14 @@
                             </h2>
                             <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
+                                <div class="accordion-body">
+                                    Placeholder content for this accordion, which is intended to
                                     demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
-                                    body. Let's imagine this being filled with some actual content.</div>
+                                    body. Let's imagine this being filled with some actual content.
+                                </div>
                             </div>
                         </div>
+                        {{-- accodion kata sandi --}}
                         <div class="accordion-item" style="width: 90%; border-radius: 20px;">
                             <h2 class="accordion-header" id="flush-headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -154,6 +159,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- accordion email --}}
                         <div class="accordion-item" style="width: 90%; border-radius: 20px;">
                             <h2 class="accordion-header" id="flush-headingFour">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -198,6 +204,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- accordion profile --}}
                         <div class="accordion-item" style="width: 90%; border-radius: 20px;">
                             <h2 class="accordion-header" id="flush-headingFive">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -233,6 +240,7 @@
 
                     {{-- Accordion end --}}
 
+                    {{-- ID Card --}}
                     <div class="col-md-5">
                         <div class="card"
                             style="width: 14rem; padding-right: 20px; margin-right: 30px; margin: auto; width: 400px; background-color:#ffc56f">
@@ -243,7 +251,7 @@
                                 <div class="card-body d-flex">
                                     <p class="card-text">Halo ay8400628! <a class="text-primary" type="button"
                                             style="font-size: 15px; font-weight: 600; text-decoration: none;"
-                                            href="https://33.ahmadyasin4.repl.co"> Edit profile! </a> :) </p>
+                                            href="https://33.ahmadyasin4.repl.co"> Edit profile! </a> </p>
                                 </div>
                             </div>
                         </div>
@@ -257,7 +265,7 @@
                             <p class="text-black" style="font-size: 15px; font-weight: 500;"> Teman yang Online </p>
                             <hr>
                             <p class="text-black" style="font-size: 10px; font-weight: 400;"> Tidak ada yang online,
-                                karena gapunya temen </p>
+                                karena gapunya temen :v</p>
                             <hr>
                         
                           </div>
