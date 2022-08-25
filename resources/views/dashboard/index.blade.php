@@ -34,6 +34,9 @@
         /* border:0.5px solid rgba(255, 0, 0, 0.235) */
     }
 
+    .tox-notifications-container {
+        display: none;
+    }
 
 </style>
 

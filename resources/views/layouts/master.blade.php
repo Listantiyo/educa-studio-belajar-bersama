@@ -135,34 +135,7 @@
      {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> --}}
 
      <script>
-        // tinymce.init({
-        //     selector: "#mytextarea",
-        //     plugins: "emoticons",
-        //     toolbar: "emoticons",
-        //     toolbar_location: "bottom",
-        //     menubar: false
-        // });
 
-        // tinymce.init({
-        //     /* … */
-        //     height: 450,
-        //     width: 450
-        // });
-
-        // $('textarea#tiny').tinymce({
-        //       height: 500,
-        //       menubar: false,
-        //       plugins: [
-        //         'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-        //         'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-        //         'insertdatetime', 'media', 'table', 'help', 'wordcount'
-        //         ],
-        //         toolbar: 'undo redo | blocks | ' +
-        //         'bold italic backcolor | alignleft aligncenter ' +
-        //         'alignright alignjustify | bullist numlist outdent indent | ' +
-        //         'removeformat | help',
-        //         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-        //     });
 
          $('.owl-carousel').owlCarousel({
          loop:true,

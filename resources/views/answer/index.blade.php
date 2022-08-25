@@ -28,6 +28,10 @@
                 background-color: grey;
 
             }
+
+            .tox-notifications-container {
+                display: none;
+            }
         </style>
 		
         <div id="app" class="container pt-1 mt-5 ps-5 p-9">

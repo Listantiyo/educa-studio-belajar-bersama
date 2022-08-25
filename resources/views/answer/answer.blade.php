@@ -1,6 +1,6 @@
 <div>
     <div id="sJawaban" class="pt-5">
-        <div class=" ms-auto" style="width: 85%;">
+        <div class=" ms-auto" style="width: 85%; margin-top: 30px;">
             <h4 class="mb-0">JAWABAN :</h4>
             <hr>
         </div>
