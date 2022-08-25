@@ -107,10 +107,10 @@
                         </ul> --}}
                         <ul class="d-flex justify-content-center">
                             <div class="mx-3 d-flex ">
-                                <a href="#" class="ask-btn fs_my px-3">
+                                <a href="{{route('login')}}" class="ask-btn fs_my px-3">
                                     MASUK
                                 </a>
-                                <a href="#" class="ask-btn fs_my pee">
+                                <a href="{{route('register')}}" class="ask-btn fs_my pee">
                                     DAFTAR
                                 </a>
                                 <a href="#" class="masuk-btn ask_ks py-2 fs_my px-3">
