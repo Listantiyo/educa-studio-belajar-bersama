@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- Links Of CSS File -->
-        <link rel="stylesheet" href="{{asset('template/pify/assets/css/bootstrap.min.css')}}">
+        {{-- <link rel="stylesheet" href="{{asset('template/pify/assets/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/owl.theme.default.min.css')}}">
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/owl.carousel.min.css')}}">
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/flaticon.css')}}">
@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/meanmenu.min.css')}}">
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/animate.min.css')}}">
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/metismenu.min.css')}}">
-        {{-- <link rel="stylesheet" href="{{asset('template/pify/assets/css/font-awesome.min.css')}}"> --}}
+        <link rel="stylesheet" href="{{asset('template/pify/assets/css/font-awesome.min.css')}}">
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/editor.css')}}">
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.css')}}">
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/responsive.css')}}">
@@ -22,8 +22,8 @@
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/responsive.scss')}}">
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/jquerysctipttop.css')}}">
         <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.css.map')}}">
-        <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.scss')}}">  
-        <script src="https://kit.fontawesome.com/7f8292fccf.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.scss')}}">   --}}
+        {{-- <script src="https://kit.fontawesome.com/7f8292fccf.js" crossorigin="anonymous"></script> --}}
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
         <script src="{{asset('tinymce/js/tinymce/tiny.min.js')}}"></script>
@@ -98,7 +98,7 @@
           </script>
 
         <!-- Links of JS File -->
-        <script src="{{asset('template/pify/assets/js/jquery.min.js')}}"></script>
+        {{-- <script src="{{asset('template/pify/assets/js/jquery.min.js')}}"></script>
         <script src="{{asset('template/pify/assets/js/jquery.js')}}"></script>
         <script src="{{asset('template/pify/assets/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('template/pify/assets/js/meanmenu.min.js')}}"></script>
@@ -109,6 +109,6 @@
         <script src="{{asset('template/pify/assets/js/metismenu.js')}}"></script>
         <script src="{{asset('template/pify/assets/js/editor.js')}}"></script>
         <script src="{{asset('template/pify/assets/js/like-dislike.min.js')}}"></script>
-        <script src="{{asset('template/pify/assets/js/custom.js')}}"></script>
+        <script src="{{asset('template/pify/assets/js/custom.js')}}"></script> --}}
     </body>
 </html>

@@ -56,7 +56,30 @@
 @endsection
 
 @push('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
+        <script src="{{asset('tinymce/js/tinymce/tiny.min.js')}}"></script>
+        <script src="{{asset('tinymce/js/tinymce/tinymce-jquery.min.js')}}"></script>
+            <script>
+                $('textarea#tiny').tinymce({
+                    height: 400,
+                    menubar: false,
+                    plugins: [
+                    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                    'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                    'insertdatetime', 'media', 'table', 'help', 'wordcount'
+                    ],
+                    toolbar: 'undo redo | blocks | ' +
+                    'bold italic backcolor | alignleft aligncenter ' +
+                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                    'removeformat | help',
+                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+                });
+            </script>
+
 <script>
+
+    
     const { createApp } = Vue
 
     const vues = createApp({
