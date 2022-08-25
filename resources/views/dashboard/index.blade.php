@@ -42,6 +42,13 @@
 		<div class="main-content-area py-5">
 			<div class="container">
 				<div class="row">
+                    {{-- @php
+                        echo dd($id);
+                    @endphp --}}
+                    {{-- @foreach ($data as $item)
+                        {{$item}}
+                    @endforeach --}}
+                    {{-- {{$data}} --}}
                     {{-- @{{quest}} --}}
                     {{-- {{ Auth::user()->name }} --}}
 					{{-- left sidebar --}}
@@ -71,9 +78,10 @@
 @push('scripts')
 <script>
     $(document).ready(function () {
+        
 
     });
- </script>
+</script>
 <script>
 
     const { createApp } = Vue
@@ -86,7 +94,7 @@
                 type  : [],
             }
         },mounted() {
-            
+
             var classe ='';
             var type ='';
             var dt ='';
@@ -100,19 +108,34 @@
                         
                     }
                 });
-                $("#searchbar").keypress(function (e) { 
-            if (e.which == 13) {
-                var data = $("#searchbar").val();
-                
-                $.get("api/data/search", {data:data},
-                    function (data) {
-                        // console.log(data);           
-                        vues.quest = data;
-                    },
+
+                var input_new = "{{session()->get('data')}}";
+        
+                    console.log(input_new);
+                    $.get("api/data/search", {data:input_new},
+                        function (data) {
+                            console.log(data);           
+                            vues.quest = data;
+                            $("#searchbar").val(null);
+                        },
 
                 );
-            }
-        });
+                
+                // SearchBar
+                $("#searchbar").keypress(function (e) { 
+                    if (e.which == 13) {
+                        var input = $("#searchbar").val();
+                        console.log(input);
+                        $.get("api/data/search", {data:input},
+                            function (data) {
+                                console.log(data);           
+                                vues.quest = data;
+                                $("#searchbar").val(null);
+                            },
+
+                        );
+                    }
+                });
 
                 $(".clasall").click(function (e) {
                     e.preventDefault(); 

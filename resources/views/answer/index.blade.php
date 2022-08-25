@@ -78,6 +78,24 @@
                     },
                     
                 );
+                // SearcbarInAnswer
+                $("#searchbar").keypress(function (e) { 
+                    if (e.which == 13) {
+                        var data = $("#searchbar").val();
+                        
+                        var url = "{{ route('answer.search',':data')}}";
+                            url = url.replace(':data',data);
+                            // console.log(url);
+                            location.href = url;
+                        // $.get("api/data/search", {data:data},
+                        //     function (data) {
+                        //         console.log(data);           
+                        //         vues.quest = data;
+                        //     },
+
+                        // );
+                    }
+                });
 
                 $("#jawab").click(function (e) { 
                     e.preventDefault();
