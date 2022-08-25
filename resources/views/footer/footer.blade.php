@@ -8,7 +8,7 @@
                     {{-- <a href="index.html"> --}}
                         <h1 class="text-white"   style="font-weight: 600; font-size: 25px;">MENJADI YANG <br>PALING TAHU</h1>
                         {{-- <img src="{{asset('template/pify/assets/images/logo.png')}}" alt="Image" class="my-4"> --}}
-                        <a href="https://www.youtube.com/channel/UCv18AaBm88u5xwkL2tGoUgA">
+                        <a href="https://www.youtube.com/c/BrainlyIndonesia">
                         <img src="https://www.logo.wine/a/logo/YouTube/YouTube-Icon-Full-Color-Logo.wine.svg" style="width: 50px; height: 30px;">
                         </a>
                     <p>Situs ini menggunakan cookie. Tentukan preferensi dan pelajari kebijakan selengkapnya di sini.</p>

@@ -13,12 +13,12 @@
     }
 </style>
 
-<!-- Image -->
+<!-- Blue banner -->
 
 <div>
     <img src="https://brainly.co.id/app/img/profile/wallpaper_others.svg" class="sg-animation-fade-in-slow" style="height: 140px;"></div> 
 </div>
-    
+    {{-- Nama profile dan lencana --}}
 <div class="container py-4">
     <div class="row">
         <div class="col-md-4">
@@ -151,7 +151,7 @@
                 </ul>
             </div>
         </div>
-        
+        {{-- Opsi jawaban,pertanyaan,penghargaan,teman --}}
         <div class="col-md-8">
             <ul class="nav nav-tabs justify-content-center" style="border-bottom: 0px" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -279,18 +279,5 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-                    
-<!-- End Banner Area -->
-
-{{-- carousel mata pelajaran --}}
-
-<!-- Daftar buku -->
 
 @endsection
