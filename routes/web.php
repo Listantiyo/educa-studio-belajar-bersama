@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('ex_home.index');
 })->middleware('guest');
 
 Route::get('/oohome', function () {
@@ -20,7 +20,7 @@ Route::get('/oohome', function () {
 });
 
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
 Route::get('/menu', 'HomeController@index');
 Route::get('/answer/{id}','AnswerController@index')->name('answer');
 Route::get('/quest/{data}','AnswerController@goToquest')->name('answer.search');
