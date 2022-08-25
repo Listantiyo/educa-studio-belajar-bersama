@@ -54,7 +54,7 @@
                  position: absolute;
                  width: 26px;
                  cursor: pointer;
-                 top: 100px !important;
+                 top: 41% !important;
              }
  
              .owl-carousel .owl-prev.disabled,
