@@ -68,7 +68,7 @@ class AnswerController extends Controller
 
         $answer->save();
 
-        $quest->id_type = 1;
+        $quest->id_type = 2;
 
         $quest->save();        
         return "success";
@@ -117,5 +117,11 @@ class AnswerController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function goToquest($data)
+    {
+        $input = $data;
+        // dd($dnew);
+        return redirect('/dashboard')->with([ 'data' => $input ]);
     }
 }

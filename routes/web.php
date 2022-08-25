@@ -23,6 +23,7 @@ Route::get('/oohome', function () {
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/menu', 'HomeController@index');
 Route::get('/answer/{id}','AnswerController@index')->name('answer');
+Route::get('/quest/{data}','AnswerController@goToquest')->name('answer.search');
 
 Auth::routes();
 
