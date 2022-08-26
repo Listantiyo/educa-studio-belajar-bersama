@@ -23,7 +23,10 @@
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/responsive.scss')}}">
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/jquerysctipttop.css')}}">
     <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.css.map')}}">
-    <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.scss')}}">  
+    <link rel="stylesheet" href="{{asset('template/pify/assets/css/style.scss')}}">
+    <link rel="stylesheet" href="{{asset('richtexteditor/rte_theme_default.css')}}"/>
+    <script type="text/javascript" src="{{asset('richtexteditor/rte.js')}}"></script>
+    <script type="text/javascript" src="{{asset('richtexteditor/plugins/all_plugins.js')}}"></script>
     <script src="https://kit.fontawesome.com/7f8292fccf.js" crossorigin="anonymous"></script>  
     {{-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> --}}
     <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
@@ -136,6 +139,7 @@
 
      <script>
 
+        var editor1 = new RichTextEditor("#tiny", { editorResizeMode: "none" });
 
          $('.owl-carousel').owlCarousel({
          loop:true,
