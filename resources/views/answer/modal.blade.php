@@ -5,6 +5,9 @@
                 <div class="modal-header">
                   <h5 class="modal-title fw-bold" id="exampleModalToggleLabel">Ajukan Pertanyaan</h5>
                   <button type="button" class="btn-close" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                            {{--hidden close button trigger --}}
+                            <button id="btn-close" data-bs-dismiss="modal" style="display: none;"></button>
+                            {{-- end --}}
                 </div>
                 <div class="modal-body row">
                     <div class="col-md-5">

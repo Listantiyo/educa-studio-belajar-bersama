@@ -174,6 +174,7 @@
                     console.log(typ,text,cls,user);
                     $.post("api/data/store", {text:text,clas:cls,typ:typ,user:user},
                         function (data) {
+                            console.log(data);
                             if (data === "kosong") {
                                 alert("Pertanyaan Masih Kosong")
                             }else if(data === "kopong"){
@@ -192,7 +193,7 @@
                                 // console.log(data.qs);
                                 $("#btn-close").trigger("click");
                             
-                                location.href = url;
+                                // location.href = url;
                             }
                         },
                     );

@@ -62,16 +62,22 @@ class AnswerController extends Controller
         $id = $request->id;
         $answer = new Answer();
         $quest = Question::find($id);
+        $input_answer = $request->text;
+
+        if ( $input_answer === null ) {
+            # code...
+            return "kosong";
+        };
 
         $answer->id_question = $request->id;
-        $answer->answer = $request->text;
+        $answer->answer = $input_answer;
 
         $answer->save();
 
         $quest->id_type = 2;
 
         $quest->save();        
-        return "success";
+        return response()->json(['answer'=> $input_answer]);
     }
 
     /**

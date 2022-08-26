@@ -25,7 +25,7 @@
         <div class="container">
             <div class="mobile-responsive-menu">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="{{route('dashboard')}}">
                         <img src="{{asset('assets/images/logo.png')}}" alt="logo">
                     </a>
                 </div>
@@ -36,7 +36,7 @@
     <div class="desktop-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand ms-2" href="index.html">
+                <a class="navbar-brand ms-2" href="{{route('dashboard')}}">
                     <img width="80%" height="auto" src="{{asset('template/pify/assets/images/logo.png')}}" alt="logo">
                 </a>
 
@@ -71,7 +71,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li>
-                                        <a class="dropdown-item" href="{{route('profile')}}">
+                                        <a class="dropdown-item" href="{{route('menu')}}">
                                             <i class="fa-solid fa-home fs-5 me-2"></i>
                                             Home
                                         </a>
