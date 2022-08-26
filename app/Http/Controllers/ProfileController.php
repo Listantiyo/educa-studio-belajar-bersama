@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Question;
 
 class ProfileController extends Controller
 {
@@ -32,6 +33,14 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function showQuest(Request $request)
+    {
+        
+        $quest = Question::where('id_user_dil',$request->id)->paginate(3);
+        return $quest;
+
+    }
+
     public function store(Request $request)
     {
         //

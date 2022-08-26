@@ -25,6 +25,8 @@ Route::get('/ex', function () {
 
 Route::get('/data/search','Xample@search');
 
+Route::get('/data/profile/question','ProfileController@showQuest');
+
 Route::get('/data/filter','DashboardController@filter');
 
 Route::post('/data/store','DashboardController@store');
