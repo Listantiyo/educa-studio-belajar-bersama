@@ -52,7 +52,11 @@
                         {{$item}}
                     @endforeach --}}
                     {{-- {{$data}} --}}
-                    {{-- @{{quest}} --}}
+                    {{-- <div v-for="qs in quest.data">
+                        <div>
+                            @{{qs.question}}
+                        </div>
+                    </div> --}}
                     {{-- {{ Auth::user()->name }} --}}
 					{{-- left sidebar --}}
 					@include('dashboard.left_sidebar')
@@ -79,12 +83,7 @@
 @endsection
 
 @push('scripts')
-<script>
-    $(document).ready(function () {
-        
 
-    });
-</script>
 <script>
 
     const { createApp } = Vue
@@ -113,16 +112,17 @@
                 });
 
                 var input_new = "{{session()->get('data')}}";
-        
-                    console.log(input_new);
+                console.log(input_new);
+                
+                if (input_new != "") {
                     $.get("api/data/search", {data:input_new},
                         function (data) {
                             console.log(data);           
                             vues.quest = data;
                             $("#searchbar").val(null);
                         },
-
-                );
+                    );
+                }
                 
                 // SearchBar
                 $("#searchbar").keypress(function (e) { 
@@ -193,7 +193,7 @@
                                 // console.log(data.qs);
                                 $("#btn-close").trigger("click");
                             
-                                // location.href = url;
+                                location.href = url;
                             }
                         },
                     );
@@ -214,25 +214,25 @@
     }).mount('#app') 
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
-        <script src="{{asset('tinymce/js/tinymce/tiny.min.js')}}"></script>
-        <script src="{{asset('tinymce/js/tinymce/tinymce-jquery.min.js')}}"></script>
-            <script>
-                $('textarea#tiny').tinymce({
-                    height: 290,
-                    menubar: false,
-                    plugins: [
-                    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-                    'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                    'insertdatetime', 'media', 'table', 'help', 'wordcount'
-                    ],
-                    toolbar: 'undo redo | blocks | ' +
-                    'bold italic backcolor | alignleft aligncenter ' +
-                    'alignright alignjustify | bullist numlist outdent indent | ' +
-                    'removeformat | help',
-                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-                });
-            </script>
+<script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
+<script src="{{asset('tinymce/js/tinymce/tiny.min.js')}}"></script>
+<script src="{{asset('tinymce/js/tinymce/tinymce-jquery.min.js')}}"></script>
+    <script>
+        $('textarea#tiny').tinymce({
+            height: 290,
+            menubar: false,
+            plugins: [
+            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+            'insertdatetime', 'media', 'table', 'help', 'wordcount'
+            ],
+            toolbar: 'undo redo | blocks | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+        });
+    </script>
 
 @endpush
     

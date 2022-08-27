@@ -17,7 +17,7 @@
         <div class="tab-pane fade show active" id="jawaban" role="tabpanel" aria-labelledby="home-tab">
             <button class="btn btn-white" style="position: absolute;bottom: -54%;
             left: 93%; z-index:1;">NEXT</button>
-            <div v-for="qs in quest.data" class=" card container">
+            <div v-for="qs in answer.data" class=" card container">
                 <div class="d-flex single-qa-box">
                     <div class="flex-grow-1 ms-3">
                         <ul class="graphic-design">
@@ -35,7 +35,7 @@
                         </ul>
                         <h3>
                             <a  style="text-decoration: none;" href="queations-details.html">
-                                @{{qs.question}}
+                                @{{qs.answer}}
                             </a>
                         </h3>
                         <a style="text-decoration: none;" href="#" class="ms-auto bd-highlight lapor-btn">
@@ -48,10 +48,13 @@
                     </div>                                    
                 </div>
             </div>
+            <div class="container row pt-4">
+                <button class="btn btn-primary col-3" style="z-index:1;">BACK</button>
+                <div class="col-6"></div>
+                <button class="btn btn-primary col-3" style="z-index:1;">NEXT</button>
+            </div>
         </div>
         <div class="tab-pane fade" id="pertanyaan" role="tabpanel" aria-labelledby="profile-tab">
-            <button class="btn btn-white" style="position: absolute;bottom: -46%;
-            left: 93%; z-index:1;">NEXT</button>
             <div v-for="qs in quest.data" class=" card container">
                 <div  class="single-qa-box d-flex">
                     <div class="flex-grow-1 ms-3">
@@ -78,7 +81,11 @@
                         </a>
                     </div>
                 </div>
-                
+            </div>
+            <div class="container row pt-4">
+                <button class="btn btn-primary col-3" style="z-index:1;">BACK</button>
+                <div class="col-6"></div>
+                <button class="btn btn-primary col-3" style="z-index:1;">NEXT</button>
             </div>
         </div>
         <div class="tab-pane fade" id="pencapaian" role="tabpanel" aria-labelledby="contact-tab">

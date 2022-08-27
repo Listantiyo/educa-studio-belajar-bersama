@@ -13,13 +13,13 @@
             <div class="col" style="border-right: 2px solid black;">
                 <div class="text-center">
                     <p class="mb-0">Jawaban</p>
-                    <span class="fs-4" style="font-weight: 600; font-size: 10px;">10</span>
+                    <span class="fs-4" style="font-weight: 600; font-size: 10px;">@{{ta}}</span>
                 </div>
             </div>
             <div class="col" style="border-right: 2px solid black;">
                 <div class="text-center">
-                    <p class="mb-0">Tercerdas</p>
-                    <span class="fs-4" style="font-weight: 600; font-size: 10px;">10</span>
+                    <p class="mb-0">Pertanyaan</p>
+                    <span class="fs-4" style="font-weight: 600; font-size: 10px;">@{{tq}}</span>
                 </div>
             </div>
             <div class="col">
@@ -110,7 +110,7 @@
                 </li> 
         --}}
             </li>
-            <a href="#" class="btn text-white" style="background-color: rgb(105, 105, 105); border-radius: 30px; padding-left: 5px; margin-top: 20px; margin-left: 10px; width: 300px;">
+            <a href="{{route('edit.profile')}}" class="btn text-white" style="background-color: rgb(105, 105, 105); border-radius: 5px; margin-top: 20px;  width: 120%;">
                 <i class="fa fa-pen"></i>
                 Edit profile
             </a>

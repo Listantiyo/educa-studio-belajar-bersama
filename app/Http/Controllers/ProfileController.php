@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use Illuminate\Http\Request;
 use App\Question;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -15,6 +18,10 @@ class ProfileController extends Controller
     public function index()
     {
         return view('ex_profile.index');
+    }
+    public function editShow()
+    {
+        return view('ex_edit.index');
     }
 
     /**
@@ -35,9 +42,12 @@ class ProfileController extends Controller
      */
     public function showQuest(Request $request)
     {
-        
-        $quest = Question::where('id_user_dil',$request->id)->paginate(3);
-        return $quest;
+        $quest = DB::table('questions')->where('id_user_dil',$request->id)->paginate(3);
+        $answer = DB::table('answers')->where('id_user_dil',$request->id)->paginate(3);
+        $count_quest = DB::table('questions')->where('id_user_dil',$request->id)-> count();
+        $count_answer = DB::table('answers')->where('id_user_dil',$request->id)-> count();
+        // dd($answer);
+        return compact('quest','count_quest','answer','count_answer');
 
     }
 

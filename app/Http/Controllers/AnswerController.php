@@ -70,6 +70,7 @@ class AnswerController extends Controller
         };
 
         $answer->id_question = $request->id;
+        $answer->id_user_dil = $request->user;
         $answer->answer = $input_answer;
 
         $answer->save();

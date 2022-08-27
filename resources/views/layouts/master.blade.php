@@ -113,7 +113,9 @@
     </div>
 
     {{-- Footer --}}
-    @include('layouts.footer')
+    <div>
+        @include('layouts.footer')
+    </div>
 
     <!-- Links of JS File -->
     <script src="{{asset('vue/vue.global.js') }}"></script>

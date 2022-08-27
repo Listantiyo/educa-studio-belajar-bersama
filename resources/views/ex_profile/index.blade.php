@@ -15,14 +15,14 @@
 
 <!-- Blue banner -->
 <div id="app">
-        <div>
+        <div class="container">
             <img src="https://brainly.co.id/app/img/profile/wallpaper_others.svg" class="sg-animation-fade-in-slow" >
         </div> 
         {{-- <div >
             <p></p>
         </div> --}}
         {{-- Nama profile dan lencana --}}
-    <div class="container py-4">
+    <div class="container pb-0 pt-4">
         <div class="row">
             {{-- Profile --}}
             @include('ex_profile.profile')
@@ -43,8 +43,9 @@
             data() {
                 return {
                     quest :[],
-                    clas :'class',
-                    // type  : [],
+                    tq :'',
+                    answer  : [],
+                    ta :'',
                 }
             },mounted() {
                 $(document).ready(function () {
@@ -56,7 +57,10 @@
                         url: "api/data/profile/question",
                         success: function (rsp) {
                             console.log(rsp);
-                            vues.quest = rsp;
+                            vues.quest = rsp.quest;
+                            vues.tq = rsp.count_quest;
+                            vues.answer = rsp.answer;
+                            vues.ta = rsp.count_answer;
                         }
                     });
                 });

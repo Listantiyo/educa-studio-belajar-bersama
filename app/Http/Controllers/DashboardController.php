@@ -23,16 +23,16 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $filc = Classe::all();
-        $filt = Type::all();
-        $film = Mapel::all();
+        $filc = DB::table('classes')->get();
+        $filt = DB::table('types')->get();
+        $film = DB::table('mapels')->get();
         return view('dashboard.index',compact('filc','filt','film'));
     }
 
     public function filter(){
-        $filc = Classe::all();
-        $filt = Type::all();
-        $film = Mapel::all();
+        $filc = DB::table('classes')->all();
+        $filt = DB::table('types')->all();
+        $film = DB::table('mapels')->all();
 
         // return ($filc ->'class', $filt $film);
         return compact('filc','film','filt');

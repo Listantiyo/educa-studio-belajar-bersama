@@ -20,7 +20,7 @@
         border-color: #0d6efd;
     }
 </style>
-<nav class="navbar-area w-100 p_nav">
+<nav class="navbar-area w-100 p_nav" style="z-index: 1000">
     <div class="mobile-responsive-nav">
         <div class="container">
             <div class="mobile-responsive-menu">
@@ -71,15 +71,15 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li>
-                                        <a class="dropdown-item" href="{{route('menu')}}">
+                                        <a class="dropdown-item" href="{{route('dashboard')}}">
                                             <i class="fa-solid fa-home fs-5 me-2"></i>
-                                            Home
+                                            Dashboard
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{route('profile')}}">
                                             <i class="fa-solid fa-user fs-5 me-2"></i>
-                                            Edit Profile
+                                            Profile
                                         </a>
                                     </li>
                                     <li>
