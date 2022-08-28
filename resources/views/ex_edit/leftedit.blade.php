@@ -2,15 +2,15 @@
     <div class="accordion-item" style="width: 90%; border-radius: 20px;">
         <h2 class="accordion-header" id="flush-headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseOne" aria-expanded="true"
-                aria-controls="flush-collapseOne">
-                Preferensi
-            </button>
-        </h2>
-        {{-- First Acordion --}}
-        <div id="flush-collapseOne" class="accordion-collapse collapse"
-            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            
+            data-bs-target="#flush-collapseOne" aria-expanded="true"
+            aria-controls="flush-collapseOne">
+            Preferensi
+        </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse"
+    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+    
+    {{-- First Acordion --}}
             <div class="accordion-body">
                 <h6 class="card-title" style="font-size: 15px; font-weight: 400">
                     Perubahan data dasar
@@ -26,8 +26,6 @@
                             <option value="Perempuan">Perempuan</option>
                         </select>
                     </div>
-
-
                     <div class="form-group row my-4 " >
                         <label for="colFormLabelSm" class="col-4 col-form-label col-form-label-sm"
                             style=" font-size: 15px; font-weight: 400;">Nama</label>
@@ -49,50 +47,17 @@
                             <option value="Sekolah menengah atas">Sekolah menengah atas </option>
                         </select>
                     </div>
-                                    {{-- <h6 class="card-title" style="font-size: 20px; font-weight: 400; padding-top: 20px;">
-                    Privasi
-                </h6> --}}
                 <hr>
-                {{-- 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                            checked>
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Tampilkan peringkatku
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                            checked>
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Terima komentar dari orang asing
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                            checked>
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Aku ingin menerima permintaan pertemanan
-                        </label>
-                    </div> 
-                --}}
 
                 <div class="container px-0">
                     <div class="" >
-                        <button id="btn-profile " class="me-2 btn btn-lg text-white" style="background-color:       #FFA51F;border-radius : 10px;" type="submit" >
+                        <button id="btn-profile" class="me-2 btn btn-lg text-white" style="background-color:#FFA51F;border-radius : 10px;" type="submit" >
                             Simpan
                         </button>
                         <button class="ms-2 btn btn-lg text-white float-end" style="background-color: #9e9e9e;border-radius : 10px;" onclick="">
                             Batal
                         </button>
                     </div>
-                    {{-- 
-                        <div class="d-inline ms-3" style="padding-top: 100px;">
-                            <a class="default-btn"
-                                style="font-weight: 900; font-size: 10px; height: 70px; margin: 20px; text-decoration: none; background-color: #cfcfcf;"
-                                href="">Aku ingin menghapus akun ku</a>
-                        </div> 
-                    --}}
                 </div>
                 </form>
             </div>
@@ -153,9 +118,9 @@
                     <hr>
                     <div class="container px-0">
                         <div class="" >
-                            <button id="btn-profile " class="me-2 btn btn-lg text-white" style="background-color: #FFA51F;border-radius : 10px;"
+                            <button id="" class="me-2 btn btn-lg text-white" style="background-color: #FFA51F;border-radius : 10px;"
                                 type="submit" >Simpan</button>
-                            <button class="ms-2 btn btn-lg text-white" style="background-color: #9e9e9e;border-radius : 10px;"
+                            <button class="ms-2 btn btn-lg text-white float-end" style="background-color: #9e9e9e;border-radius : 10px;"
                                 onclick="">Batal</button>
                         </div>
                     </div>
@@ -201,7 +166,7 @@
                                 <button id="btn-profile " class="me-2 btn btn-lg text-white" style="background-color: #FFA51F;border-radius : 10px;" type="submit" >
                                     Simpan
                                 </button>
-                                <button class="ms-2 btn btn-lg text-white" style="background-color: #9e9e9e;border-radius : 10px;" onclick="">
+                                <button class="ms-2 btn btn-lg text-white float-end" style="background-color: #9e9e9e;border-radius : 10px;" onclick="">
                                     Batal
                                 </button>
                             </div>
@@ -211,7 +176,7 @@
             </div>
         </div>
     </div>
-    {{-- accordion profile --}}
+    {{-- accordion profile avatar --}}
     <div class="accordion-item" style="width: 90%; border-radius: 20px;">
         <h2 class="accordion-header" id="flush-headingFive">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -233,7 +198,7 @@
                     <hr>
                     <div class="container px-0">
                         <div class="" >
-                            <button id="btn-profile " class="me-2 btn btn-lg text-white" style="background-color: #FFA51F;border-radius : 10px;"
+                            <button id="" class="me-2 btn btn-lg text-white" style="background-color: #FFA51F;border-radius : 10px;"
                                 type="submit" >Simpan</button>
                             <button class="ms-2 btn btn-lg text-white float-end" style="background-color: #9e9e9e;border-radius : 10px;"
                                 onclick="">Batal</button>

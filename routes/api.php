@@ -23,11 +23,13 @@ Route::get('/ex', function () {
     return view('ex_edit.index'); 
 });
 
+// Route::get('/data/filter','DashboardController@filter');
+
 Route::get('/data/search','Xample@search');
 
 Route::get('/data/profile/question','ProfileController@showQuest');
 
-Route::get('/data/filter','DashboardController@filter');
+Route::post('/data/profile/store','ProfileController@storeProfile');
 
 Route::post('/data/store','DashboardController@store');
 

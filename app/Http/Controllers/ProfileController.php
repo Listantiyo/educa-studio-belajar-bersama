@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Answer;
 use Illuminate\Http\Request;
 use App\Question;
+use App\User_Detail;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -51,9 +53,96 @@ class ProfileController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function storeProfile(Request $request)
     {
-        //
+
+        $id = $request->id;
+        $nama = $request->nama;
+        $gender = $request->gender;
+        $kelas = $request->kelas;
+
+        $nama_new = User::find($id);
+        $cek = User_Detail::where('id_user',$id)->first();
+        
+        if ($cek == null) {
+            $profile_new = new User_Detail();
+
+            
+                # code...
+                if ($gender != null) {
+                    # code...
+                    
+                    $profile_new->gender = $gender;
+                    
+                }
+                if ($kelas != null) {
+                    # code...
+                    
+                    $profile_new->kelas = $kelas;
+                    
+                }
+
+
+                $profile_new->id_user = $id;
+            
+
+            $profile_new->save();
+            
+            if ($nama != null) {
+                # code...
+                $nama_new->name = $nama;
+                $nama_new->save();
+                
+            }
+
+            return "success";
+
+        }else{
+
+                $nama_user = User::find($id);
+                $idn = User_Detail::where('id_user',$id)->pluck('id');
+                foreach ($idn as $idn ) {
+                    # code...
+                }
+        
+                $profile_update = User_Detail::find($idn);
+
+                if ($gender != null) {
+                    # code...
+                    
+                    $profile_update->gender = $gender;
+                    
+                }
+                if ($kelas != null) {
+                    # code...
+                    
+                    $profile_update->kelas = $kelas;
+                    
+                }
+
+
+                $profile_update->save();
+
+                
+
+                if ($nama != null) {
+                    # code...
+
+                    // $nama = "Joko";
+                    $nama_user->name = $nama;
+                    $nama_user->save();
+                    
+                }
+            
+                
+            
+            return "faild";
+
+        }
+
+
+
+        return $request;
     }
 
     /**

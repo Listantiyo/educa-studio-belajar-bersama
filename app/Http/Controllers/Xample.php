@@ -8,6 +8,7 @@ use App\Mapel;
 use App\Question;
 use App\Type;
 use App\User_Detail;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -18,9 +19,32 @@ class Xample extends Controller
     public function my()
     {
         $id = 1;
-        $mapel = DB::table('mapels')->select('nama_mapel')->where('id',$id)->get();
-        $name_mapel = Question::find(1)->mapel;
-        dd($mapel);
+        // $kelas = "s";
+        // $getid = DB::table('user_details')->where('id_user',$i)->get();
+        // $id = User_Detail::where('id_user',$i)->pluck('id');
+
+        // foreach ($id as $id ) {
+        //     # code...
+        // }
+        $all = bcrypt("admin123");
+        // $all = User::find($id);
+                
+        // if ($gender != null) {
+        //     # code...
+            
+        //     $all = $gender;
+            
+        // }
+        // if ($kelas != null) {
+        //     # code...
+            
+        //     $all = $kelas;
+            
+        // }
+        
+        // return $all;
+        // $name_mapel = Question::find(1)->mapel;
+        dd($all);
     }
     public function filter(){
         $filc = Classe::all();

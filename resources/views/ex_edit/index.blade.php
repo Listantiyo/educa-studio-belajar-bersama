@@ -34,7 +34,16 @@
 
             $("#form-profile").submit(function (e) { 
                 e.preventDefault();
-                console.log( $( this ).serialize() );
+                let id = {{Auth::id()}}     
+                let profile = $( this ).serialize()
+                console.log( profile );
+
+                $.post("\\api/data/profile/store",profile + "&id="+id,
+                    function (data) {
+                        console.log(data);
+                    },
+                );
+
             });
         });
     </script>
