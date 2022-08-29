@@ -1,14 +1,14 @@
 <div class="col-lg-3">
     <div class="right-siderbar">
         <div class="right-sidebar-common">
-            <div class="card">
-                <div class="container card-body d-flex">
+            <div class="card" style="border: 1px solid white">
+                <div class="container card-body d-flex" >
                     <div class="d-inline">
                         <img src="template/pify/assets/images/user/user-1.jpg" alt="Image" class="rounded-circle me-3" style="width: 100%;">
                     </div>
                     <div class="text-center py-2">
-                        <h6 class="card-title fw-bold mb-0">Anonymous</h6>
-                        <span class="d-block lencana">Gemar menyatir</span>
+                        <h6 class="card-title fw-bold mb-0">{{Auth::user()->name}}</h6>
+                        <span class="d-block lencana">{{Auth::user()->email}}</span>
                     </div>
                 </div>
                 <div class="container card-body d-flex" style="padding-top: 10px;">
@@ -30,12 +30,12 @@
                         </li>
                     </ul>
                 </div>
-                <div class="card-footer card-button">
+                {{-- <div class="card-footer card-button">
                     <a href="https://www.gamelab.id" class="d-flex align-items-center">
                         <p class="d-inline mb-0">Lihat Selengkapnya</p>
                         <i class="fa-solid fa-chevron-right d-inline" style="padding-left: 40%;"></i>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     

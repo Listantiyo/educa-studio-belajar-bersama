@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Answer;
 use App\Question;
+use App\Answer_Comment;
 
 class AnswerController extends Controller
 {
@@ -31,13 +32,14 @@ class AnswerController extends Controller
 
             $id = $request->id;
             $answer = Answer::where('id_question',$id)->get();
+            $comment = Answer_Comment::where('id_answer',$id)->get();
             // dd($id);
 
 
             // cek
             // return response()->json($q_latest);
             // return $q_latest;
-            return response()->json($answer);
+            return compact('answer','comment');
         
         
     }
@@ -75,7 +77,7 @@ class AnswerController extends Controller
 
         $answer->save();
 
-        $quest->id_type = 2;
+        $quest->id_type = 1;
 
         $quest->save();        
         return response()->json(['answer'=> $input_answer]);
@@ -94,7 +96,20 @@ class AnswerController extends Controller
     }
     public function storeComent(Request $request)
     {
-        return $request;
+        $id = $request->id;
+        $id_asnwer = $request->id_asnwer;
+        $comment = $request->comment;
+
+        $ans_comment = new Answer_Comment();
+
+        $ans_comment->id_user = $id;
+        $ans_comment->id_answer = $id_asnwer;
+        $ans_comment->comment = $comment;
+
+        $ans_comment->save();
+
+
+        return "success";
     }
 
     /**

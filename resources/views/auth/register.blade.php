@@ -43,7 +43,7 @@
 				<form class="user-form" method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}
 					<div class="row">
-						<div class="col-lg-6 col-sm-6">
+						{{-- <div class="col-lg-6 col-sm-6">
 							<a href="https://www.google.com/" target="_blank" class="or-login google rounded-pill">
 								<i class="bi bi-google"></i>
 								Google
@@ -59,7 +59,7 @@
 		
 						<div class="col-12">
 							<span class="or">Or</span>
-						</div>
+						</div> --}}
 		
 						<div class="col-12">
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

@@ -121,7 +121,7 @@ class DashboardController extends Controller
             $quest->id_kelas = $clas;
             $quest->id_mapel = $id_mapel;
             $quest->id_user_dil = $id_user;
-            $quest->id_type = "0";
+            $quest->id_type = "2";
             
             $quest->save();
     

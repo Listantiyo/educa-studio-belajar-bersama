@@ -112,7 +112,7 @@ class Xample extends Controller
     public function search(Request $request)
     {   
         $data = $request->data;
-        $quest = DB::table('questions')->where('question','like','%'.$data.'%')->paginate(7);
+        $quest = DB::table('questions')->where('question','like','%'.$data.'%')->get();
         // dd($quest);
         return $quest;
     }

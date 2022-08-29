@@ -159,13 +159,14 @@
         methods: {
             greet(event) {
                 
+                let id_user = {{Auth::id()}}
                 var data = $("#comment").serialize();
-                // alert(data)
-                $.post("\\api/data/store/coment",data, //AnswerController@storeComent
+                alert(data)
+                $.post("\\api/data/store/coment",data + "&id_asnwer="+event + "&id="+ id_user, //AnswerController@storeComent
                     function (data) {
-                        alert(data);
+                        // alert(data);
+                        console.log(data);
                     },
-                    "dataType"
                 );
 
             }

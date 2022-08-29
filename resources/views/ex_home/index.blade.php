@@ -27,11 +27,11 @@
             <div class="col-lg-6">
                 <div class="" style="padding-top:">
                     <h1 style="font-weight: 1000; font-size: 73px; padding-left: 20px;" >Dari bertanya jadi</h1>
-                    <h1 style="font-weight: 1000; font-size: 73px; padding-left: 20px; padding-top: 20px;" >goblok</h1>
+                    <h1 style="font-weight: 1000; font-size: 73px; padding-left: 20px; padding-top: 20px;" >bisa</h1>
                     <p style="font-size: 16px; padding-left: 20px; padding-top: 25px;" >Brainly adalah tempat berbagi ilmu 350 juta siswa dan pakar edukasi, belajar bersama untuk menyelesaikan soal-soal yang paling rumit sekalipun.</p>
                     <div class="ms-3 m-my ">
-                        <input type="text" class="my-bg form-control rounded-pill py-5" style="padding-left: 7%;" class="font-size: 125%;"  id="exampleFormControlInput1" placeholder="Apa pertanyaanmu ?" text-size="20psx">
-                        <button style="position:absolute; left:43%; bottom: 0%; font-size: 35px; margin-bottom: 80px; background:none;"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                        <input type="text"  class="my-bg form-control rounded-pill py-5" style="padding-left: 7%;" class="font-size: 125%;"  id="exampleFormControlInput1" placeholder="Apa pertanyaanmu ?" text-size="20psx">
+                        <button onclick="location.href = '/login'" style="position:absolute; left:43%; bottom: 0%; font-size: 35px; margin-bottom: 80px; background:none;"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
                         <div class="search--large">
                         </div>
                     </div>

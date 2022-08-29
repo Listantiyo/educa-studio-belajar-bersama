@@ -44,20 +44,9 @@
                     </a>
                     <p>Terima kasih</p>
                 </div>
-                <div class="d-flex align-items-center mb-2">
-                    <a href="#">
-                        <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
-                    </a>
-                    <p>Sama-sama</p>
-                </div>
-                <div class="d-flex align-items-center mb-2">
-                    <a href="#">
-                        <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
-                    </a>
-                    <p>Ok</p>
                 </div>
             </div>
-            <input id="comment" name="comment" @keyup.enter="greet()" type="text" class="form-control comment" placeholder="Komentar">
+            <input id="comment" name="comment" @keyup.enter="greet(ans.id)" type="text" class="form-control comment" placeholder="Komentar">
         </div>
     </div>
 </div>
