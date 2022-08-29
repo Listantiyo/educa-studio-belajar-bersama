@@ -39,6 +39,7 @@ Route::get('/data/answer','AnswerController@show_answer');
 
 Route::post('/data/store/answer','AnswerController@store');
 
+Route::post('/data/store/coment','AnswerController@storeComent');
 
 // Route::post('login', 'API\UserController@login');
 // Route::post('register', 'API\UserController@register');

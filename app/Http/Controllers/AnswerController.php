@@ -23,7 +23,7 @@ class AnswerController extends Controller
             $quest = Question::find($id);
         }
         // dd($quest);
-        return view('answer.index',compact('quest'));
+        return view('answer.index',compact('quest','id'));
     }
 
     public function show_answer(Request $request)
@@ -90,6 +90,11 @@ class AnswerController extends Controller
     public function show($id)
     {
         //
+
+    }
+    public function storeComent(Request $request)
+    {
+        return $request;
     }
 
     /**

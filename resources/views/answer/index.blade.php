@@ -60,6 +60,9 @@
 @endsection
 
 @push('scripts')
+<script>
+
+</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
         <script src="{{asset('tinymce/js/tinymce/tiny.min.js')}}"></script>
@@ -109,11 +112,15 @@
                 $("#searchbar").keypress(function (e) { 
                     if (e.which == 13) {
                         var data = $("#searchbar").val();
-                        
-                        var url = "{{ route('answer.search',':data')}}";
-                            url = url.replace(':data',data);
-                            // console.log(url);
-                            location.href = url;
+                        console.log(data);
+                        if (data != "") {
+                            var url = "{{ route('answer.search',':data')}}";
+                                url = url.replace(':data',data);
+                                // console.log(url);
+                                location.href = url;       
+                        }else{
+                            console.log(data);
+                        }
                         // $.get("api/data/search", {data:data},
                         //     function (data) {
                         //         console.log(data);           
@@ -123,6 +130,7 @@
                         // );
                     }
                 });
+
 
                 $("#jawab").click(function (e) { 
                     e.preventDefault();
@@ -148,6 +156,20 @@
                 });
             });
         },
+        methods: {
+            greet(event) {
+                
+                var data = $("#comment").serialize();
+                // alert(data)
+                $.post("\\api/data/store/coment",data, //AnswerController@storeComent
+                    function (data) {
+                        alert(data);
+                    },
+                    "dataType"
+                );
+
+            }
+        }
     }).mount('#app') 
 </script>
 @endpush

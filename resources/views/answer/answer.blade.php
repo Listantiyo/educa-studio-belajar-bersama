@@ -57,7 +57,7 @@
                     <p>Ok</p>
                 </div>
             </div>
-            <input type="text" class="form-control comment" placeholder="Komentar">
+            <input id="comment" name="comment" @keyup.enter="greet()" type="text" class="form-control comment" placeholder="Komentar">
         </div>
     </div>
 </div>
