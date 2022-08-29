@@ -93,6 +93,7 @@
         data() {
             return {
                 answer :'',
+                comment:'',
                 // new_quest :[],
                 // type  :'',
             }
@@ -100,13 +101,19 @@
             $(document).ready(function () {
 
                 const id = {{$quest -> id}}
+                let ans='';
 
                 $.get("\\api/data/answer",{id:id},
                     function (rsp) {
                         console.log(rsp);
-                        vues.answer = rsp
+                        ans = rsp.answer
+                        vues.answer = rsp.answer
+                        vues.comment = rsp.comment
+                        // alert(vues.answer);
+                        for (let answer of ans) {
+                            console.log(answer.id)
+                        }
                     },
-                    
                 );
                 // SearcbarInAnswer
                 $("#searchbar").keypress(function (e) { 
@@ -130,6 +137,7 @@
                         // );
                     }
                 });
+                
 
 
                 $("#jawab").click(function (e) { 
@@ -169,7 +177,7 @@
                     },
                 );
 
-            }
+            },
         }
     }).mount('#app') 
 </script>

@@ -37,14 +37,16 @@
                 </div>
             </div>
             <hr>
-            <div class="container my-4">
-                <div class="d-flex align-items-center mb-2">
-                    <a href="#">
-                        <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
-                    </a>
-                    <p>Terima kasih</p>
+            <div v-for="c in comment" class="container my-2">
+                <div v-if="ans.id == c.id_answer">
+                <div  class="d-flex align-items-center mb-2">
+                        <a href="#">
+                            <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
+                        </a>
+                        <p>@{{c}}</p>
+                    </div>
                 </div>
-                </div>
+                <div v-else style="display: none;"></div>
             </div>
             <input id="comment" name="comment" @keyup.enter="greet(ans.id)" type="text" class="form-control comment" placeholder="Komentar">
         </div>

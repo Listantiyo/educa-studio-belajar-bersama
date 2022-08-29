@@ -32,7 +32,8 @@ class AnswerController extends Controller
 
             $id = $request->id;
             $answer = Answer::where('id_question',$id)->get();
-            $comment = Answer_Comment::where('id_answer',$id)->get();
+            $comment = Answer_Comment::all();
+            
             // dd($id);
 
 
