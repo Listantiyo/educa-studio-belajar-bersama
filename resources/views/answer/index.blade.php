@@ -110,9 +110,9 @@
                         vues.answer = rsp.answer
                         vues.comment = rsp.comment
                         // alert(vues.answer);
-                        for (let answer of ans) {
-                            console.log(answer.id)
-                        }
+                        // for (let answer of ans) {
+                        //     console.log(answer.id)
+                        // }
                     },
                 );
                 // SearcbarInAnswer
@@ -128,6 +128,7 @@
                         }else{
                             console.log(data);
                         }
+
                         // $.get("api/data/search", {data:data},
                         //     function (data) {
                         //         console.log(data);           
@@ -168,14 +169,16 @@
             greet(event) {
                 
                 let id_user = {{Auth::id()}}
-                var data = $("#comment").serialize();
+                var data = $("#comment" + event).serialize();
                 alert(data)
-                $.post("\\api/data/store/coment",data + "&id_asnwer="+event + "&id="+ id_user, //AnswerController@storeComent
-                    function (data) {
-                        // alert(data);
-                        console.log(data);
-                    },
-                );
+                console.log(data,event);
+                $("#comment" + event).val(null);
+                // $.post("\\api/data/store/coment",data + "&id_asnwer="+event + "&id="+ id_user, //AnswerController@storeComent
+                //     function (data) {
+                //         // alert(data);
+                //         console.log(data);
+                //     },
+                // );
 
             },
         }
