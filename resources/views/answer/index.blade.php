@@ -93,7 +93,7 @@
         data() {
             return {
                 answer :'',
-                comment:'',
+                comment:[],
                 // new_quest :[],
                 // type  :'',
             }
@@ -108,7 +108,7 @@
                         console.log(rsp);
                         ans = rsp.answer
                         vues.answer = rsp.answer
-                        vues.comment = rsp.comment
+                        // vues.comment = rsp.comment
                         // alert(vues.answer);
                         // for (let answer of ans) {
                         //     console.log(answer.id)
@@ -167,22 +167,40 @@
         },
         methods: {
             greet(event) {
-                
+                //AnswerController@storeComent
+                const idq = {{$quest -> id}}
                 let id_user = {{Auth::id()}}
                 var data = $("#comment" + event).serialize();
-                alert(data)
+                // alert(data)
                 console.log(data,event);
-                $("#comment" + event).val(null);
-                // $.post("\\api/data/store/coment",data + "&id_asnwer="+event + "&id="+ id_user, //AnswerController@storeComent
-                //     function (data) {
-                //         // alert(data);
-                //         console.log(data);
-                //     },
-                // );
+                $.post("\\api/data/store/coment",data + "&id_asnwer="+event + "&id="+ id_user + "&id_quest="+ idq, 
+                function (data) {
+                    // alert(data);
+                    console.log(data);
+                    $("#comment" + event).val(null)
+                    },
+                );
 
             },
+            showComnt(id){
+                $("#loading" + id).css("display", "inherit");
+                $("#comment" + id).css("display", "none");
+                const idq = {{$quest -> id}}
+                console.log(id,idq);
+                $.ajax({
+                    type: "post",
+                    url: "\\api/data/show/coment",
+                    data: {id_quest:idq,id_answer:id},
+                    dataType: "json",
+                    success: function (rsp) {
+                        $("#loading" + id).css("display", "none");   
+                        $("#comment" + id).css("display", "inherit");
+                        vues.comment = rsp
+                        console.log(rsp);
+                    }
+                });
+            }
         }
     }).mount('#app') 
 </script>
 @endpush
-

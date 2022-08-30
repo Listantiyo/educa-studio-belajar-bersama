@@ -98,19 +98,20 @@ class AnswerController extends Controller
     public function storeComent(Request $request)
     {
         $id = $request->id;
+        $id_quest = $request->id_quest;
         $id_asnwer = $request->id_asnwer;
         $comment = $request->comment;
 
         $ans_comment = new Answer_Comment();
 
         $ans_comment->id_user = $id;
+        $ans_comment->id_question = $id_quest;
         $ans_comment->id_answer = $id_asnwer;
         $ans_comment->comment = $comment;
 
         $ans_comment->save();
 
-
-        return "success";
+        return $request ;
     }
 
     /**
@@ -131,6 +132,13 @@ class AnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function showComment(Request $request)
+    {
+        $id_answer = $request->id_answer;
+        $id_quest = $request->id_quest;
+        $comment = Answer_Comment::where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+        return $comment;
+    }
     public function update(Request $request, $id)
     {
         //

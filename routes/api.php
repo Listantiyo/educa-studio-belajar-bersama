@@ -41,6 +41,8 @@ Route::post('/data/store/answer','AnswerController@store');
 
 Route::post('/data/store/coment','AnswerController@storeComent');
 
+Route::post('/data/show/coment','AnswerController@showComment');
+
 // Route::post('login', 'API\UserController@login');
 // Route::post('register', 'API\UserController@register');
 // Route::group(['middleware' => 'auth:api'], function(){

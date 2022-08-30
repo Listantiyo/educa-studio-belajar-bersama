@@ -23,10 +23,12 @@ class Xample extends Controller
         // $getid = DB::table('user_details')->where('id_user',$i)->get();
         // $id = User_Detail::where('id_user',$i)->pluck('id');
 
-        // foreach ($id as $id ) {
-        //     # code...
-        // }
-        $all = bcrypt("admin123");
+        $id = DB::table('users')->latest()->limit(1)->pluck('id');
+
+        foreach ($id as $all ) {
+            # code...
+        }
+        
         // $all = User::find($id);
                 
         // if ($gender != null) {
