@@ -93,9 +93,9 @@
         data() {
             return {
                 answer :'',
-                comment:[],
-                // new_quest :[],
-                // type  :'',
+                comment_qs:'',
+                comment:'',
+                btn_id:'',
             }
         },mounted() {
             $(document).ready(function () {
@@ -128,14 +128,6 @@
                         }else{
                             console.log(data);
                         }
-
-                        // $.get("api/data/search", {data:data},
-                        //     function (data) {
-                        //         console.log(data);           
-                        //         vues.quest = data;
-                        //     },
-
-                        // );
                     }
                 });
                 
@@ -168,37 +160,54 @@
         methods: {
             greet(event) {
                 //AnswerController@storeComent
-                const idq = {{$quest -> id}}
-                let id_user = {{Auth::id()}}
-                var data = $("#comment" + event).serialize();
-                // alert(data)
-                console.log(data,event);
-                $.post("\\api/data/store/coment",data + "&id_asnwer="+event + "&id="+ id_user + "&id_quest="+ idq, 
+                let id = event;
+                let idq = {{$quest -> id}};
+                let id_user = {{Auth::id()}};
+                var data = $("#komen"+event).val();
+                var data_qs = $("#komenquest").val();
+                // alert(data_qs)
+                console.log(data_qs);
+                $.post("\\api/data/store/coment",{id:id,id_quest:idq,id_user:id_user,comment:data,commnet_quest:data_qs},
                 function (data) {
-                    // alert(data);
-                    console.log(data);
-                    $("#comment" + event).val(null)
+                    console.log(data); /* cek */
+                    if (data.cek == "qus") {
+                        // alert("qus");  /* cek */
+                        vues.comment_qs = data.comment
+                        $("#komenquest").val(null)
+                    } else {   
+                        // alert("ans"); /*   cek */                  
+                        vues.comment = data
+                        // console.log(data);
+                        $("#komen" + event).val(null)
+                    }
                     },
                 );
 
             },
             showComnt(id){
-                $("#loading" + id).css("display", "inherit");
-                $("#comment" + id).css("display", "none");
+                let id_user = {{Auth::id()}};
                 const idq = {{$quest -> id}}
-                console.log(id,idq);
-                $.ajax({
-                    type: "post",
-                    url: "\\api/data/show/coment",
-                    data: {id_quest:idq,id_answer:id},
-                    dataType: "json",
-                    success: function (rsp) {
-                        $("#loading" + id).css("display", "none");   
-                        $("#comment" + id).css("display", "inherit");
-                        vues.comment = rsp
-                        console.log(rsp);
-                    }
-                });
+                // if (id != null) {                    
+                    
+                    console.log(id,idq);
+                    $.ajax({
+                        type: "post",
+                        url: "\\api/data/show/coment",
+                        data: {id_quest:idq,id_answer:id,id_user:id_user},
+                        dataType: "json",
+                        success: function (rsp) {
+                            if (rsp.cek == "one") {
+                                // alert("one");
+                                vues.comment_qs = rsp.comment
+                            } else {                                
+                                // alert("two")
+                                // console.log(rsp);
+                                vues.comment = rsp.comment
+                                vues.btn_id = rsp.id_answer
+                            }
+                        }
+                    });
+                
             }
         }
     }).mount('#app') 

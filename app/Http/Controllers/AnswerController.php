@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Answer;
 use App\Question;
 use App\Answer_Comment;
+use App\Question_Comment;
 
 class AnswerController extends Controller
 {
@@ -97,21 +98,44 @@ class AnswerController extends Controller
     }
     public function storeComent(Request $request)
     {
-        $id = $request->id;
+
+        $commnet_quest = $request->commnet_quest;
+        $id_user = $request->id;
         $id_quest = $request->id_quest;
-        $id_asnwer = $request->id_asnwer;
+        $id_answer = $request->id;
         $comment = $request->comment;
 
-        $ans_comment = new Answer_Comment();
+        if ($commnet_quest != null) {
+            
+            $qus_comment = new Question_Comment();
 
-        $ans_comment->id_user = $id;
-        $ans_comment->id_question = $id_quest;
-        $ans_comment->id_answer = $id_asnwer;
-        $ans_comment->comment = $comment;
+            $qus_comment->id_user = $request->id_user;
+            $qus_comment->comment = $commnet_quest;
+            $qus_comment->id_question = $id_quest;
+            $qus_comment->save();
 
-        $ans_comment->save();
+            $cek = "qus";
+            $comment = Question_Comment::where('id_question',$id_quest)->get();
 
-        return $request ;
+            return compact('comment','cek');
+            // return ;
+
+        }else{
+            $ans_comment = new Answer_Comment();
+    
+            $ans_comment->id_user = $id_user;
+            $ans_comment->id_question = $id_quest;
+            $ans_comment->id_answer = $id_answer;
+            $ans_comment->comment = $comment;
+    
+            $ans_comment->save();
+    
+            $comment = Answer_Comment::where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+            
+            
+            return $comment ;
+
+        }
     }
 
     /**
@@ -134,10 +158,21 @@ class AnswerController extends Controller
      */
     public function showComment(Request $request)
     {
+        $id_user = $request->id_user;
         $id_answer = $request->id_answer;
         $id_quest = $request->id_quest;
-        $comment = Answer_Comment::where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
-        return $comment;
+        if ($id_answer == null) {
+            # code...
+            $comment = Question_Comment::where('id_user',$id_user)->where('id_question',$id_quest)->get();
+            $cek = "one";
+            return  compact('cek','comment');
+        } else {
+            # code...
+            $comment = Answer_Comment::where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+            $cek = "two";
+            return compact('comment','id_answer','cek');
+        }
+        
     }
     public function update(Request $request, $id)
     {

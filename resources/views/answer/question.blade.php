@@ -34,25 +34,31 @@
         </div>
     </div>
     <hr>
-    <div class="container my-4">
-        <div class="d-flex align-items-center mb-2">
+
+
+    <button style="border-radius:0px ;" class="btn btn-outline-warning mb-3" type="button" @click="showComnt()" >
+        Komentar
+    </button>
+    
+      <div  v-for="c in comment_qs">
+          <div class="container">
+              <div  class="d-flex align-items-center mb-2">
+                  <a href="#">
+                      <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
+                  </a>
+                  <p>@{{c.comment}}</p>
+              </div>
+          </div>
+      </div>
+
+
+    {{-- <div class="container my-4">
+        <div v-for="c in comment_qs" class="d-flex align-items-center mb-2">
             <a href="#">
                 <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
             </a>
-            <p>Terima kasih</p>
+            <p>@{{c.comment}}</p>
         </div>
-        <div class="d-flex align-items-center mb-2">
-            <a href="#">
-                <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
-            </a>
-            <p>Sama-sama</p>
-        </div>
-        <div class="d-flex align-items-center mb-2">
-            <a href="#">
-                <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="img-cmn">
-            </a>
-            <p>Ok</p>
-        </div>
-    </div>
-    <input type="text" class="form-control comment" placeholder="Komentar">
+    </div> --}}
+    <input name="commentqs" id="komenquest"  @keypress.enter="greet()" type="text" class="form-control comment" placeholder="Komentar">
 </div>

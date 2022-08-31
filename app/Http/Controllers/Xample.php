@@ -9,6 +9,8 @@ use App\Question;
 use App\Type;
 use App\User_Detail;
 use App\User;
+use App\Answer_Comment;
+use App\Question_Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -23,11 +25,11 @@ class Xample extends Controller
         // $getid = DB::table('user_details')->where('id_user',$i)->get();
         // $id = User_Detail::where('id_user',$i)->pluck('id');
 
-        $id = DB::table('users')->latest()->limit(1)->pluck('id');
+        // $id = DB::table('users')->orderBy('level', 'desc')->limit(1)->pluck('level');
 
-        foreach ($id as $all ) {
-            # code...
-        }
+        // foreach ($id as $all ) {
+        //     # code...
+        // }
         
         // $all = User::find($id);
                 
@@ -44,6 +46,7 @@ class Xample extends Controller
             
         // }
         
+        $all = Answer_Comment::where('id_answer',18)->where('id_question',44)->get();
         // return $all;
         // $name_mapel = Question::find(1)->mapel;
         dd($all);

@@ -7,8 +7,8 @@
                         <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="rounded-circle me-3" style="width: 100%;">
                     </div>
                     <div class="text-center py-2">
-                        <h6 class="card-title fw-bold mb-0">Anonymous</h6>
-                        <span class="d-block lencana">Gemar menyatir</span>
+                        <h6 class="card-title fw-bold mb-0">{{Auth::user()->name}}</h6>
+                        <span class="d-block lencana">{{Auth::user()->email}}</span>
                     </div>
                 </div>
                 <div class="container card-body d-flex" style="padding-top: 10px;">
