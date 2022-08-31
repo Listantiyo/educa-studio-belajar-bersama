@@ -30,3 +30,16 @@ Route::get('/quest/{data}','AnswerController@goToquest')->name('answer.search');
 Auth::routes();
 
 Route::get('/home', 'AuthController@index')->name('home');
+
+// ADMIN
+Route::get('/admindashboard','AdminDashboardController@index')->name('admindashboard');
+Route::get('/adminquestion','AdminQuestionController@index')->name('adminquest');
+
+// Kelas
+Route::get('/adminkelas','AdminKelasController@index')->name('kelas');
+
+// Mapel
+Route::get('/adminmapel','AdminMapelController@index')->name('matapelajaran');
+
+// User
+Route::get('/adminuser','AdminUserController@index')->name('user');
