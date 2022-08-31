@@ -28,7 +28,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <table id="myTable" class="display table table-bordered">
+            <table id="table" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
@@ -36,7 +36,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                {{-- <tbody>
                     @foreach ( $classes as $kelas)
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
@@ -53,7 +53,7 @@
                             </td>
                         </tr>
                     @endforeach
-                </tbody>
+                </tbody> --}}
             </table>
         </div>
     </div>
@@ -86,7 +86,16 @@
 @push('script')
 <script>
     $(document).ready( function () {
-      $('#myTable').DataTable();
+      $('#table').DataTable({
+        ajax: {
+                url: 'api/data/admin/kelas',
+            },
+            columns: [
+                {data: 'DT_RowIndex', searchable: false, sortable: false},
+                {data: 'nama_class'},
+                {data: 'aksi', searchable: false, sortable: false},
+            ]
+      });
   } );
   </script>
 @endpush

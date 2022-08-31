@@ -28,7 +28,7 @@
             </a>
         </div>
         <div class="card-body">
-            <table id="myTable" class="display table table-bordered table-striped">
+            <table id="table" class="display table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
@@ -64,7 +64,16 @@
 @push('script')
 <script>
     $(document).ready( function () {
-      $('#myTable').DataTable();
+      $('#table').DataTable({
+        ajax: {
+                url: 'api/data/admin/mapel',
+            },
+            columns: [
+                {data: 'DT_RowIndex', searchable: false, sortable: false},
+                {data: 'nama_mapel'},
+                {data: 'aksi', searchable: false, sortable: false},
+            ]
+      });
   } );
   </script>
 @endpush

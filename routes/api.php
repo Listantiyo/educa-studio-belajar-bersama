@@ -27,21 +27,27 @@ Route::get('/ex', function () {
 
 Route::get('/data/search','Xample@search');
 
+// API Profile
 Route::get('/data/profile/question','ProfileController@showQuest');
-
 Route::post('/data/profile/store','ProfileController@storeProfile');
-
+// API Dashboard
 Route::post('/data/store','DashboardController@store');
-
 Route::get('/data/question','DashboardController@show_question');
-
+// API Answer
 Route::get('/data/answer','AnswerController@show_answer');
-
 Route::post('/data/store/answer','AnswerController@store');
-
 Route::post('/data/store/coment','AnswerController@storeComent');
-
 Route::post('/data/show/coment','AnswerController@showComment');
+
+// ADMIN
+
+// Question
+Route::get('/data/admin/quest','AdminQuestionController@showQuest');
+// Mapel
+Route::get('/data/admin/mapel','AdminMapelController@showMapel');
+// Kelas
+Route::get('/data/admin/kelas','AdminKelasController@showKelas');
+
 
 // Route::post('login', 'API\UserController@login');
 // Route::post('register', 'API\UserController@register');

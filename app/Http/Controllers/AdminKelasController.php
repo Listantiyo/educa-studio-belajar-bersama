@@ -23,6 +23,23 @@ class AdminKelasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function showKelas()
+    {
+        $classes = Classe::all();
+        return datatables()
+        ->of($classes)
+        ->addIndexColumn()
+        ->addColumn('aksi', function ($classes) {
+            return '
+            <div class="btn-group">
+                <button onclick="" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                <button onclick="" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+            </div>
+            ';
+        })
+        ->rawColumns(['aksi'])
+        ->make(true);
+    }
     public function create()
     {
         //

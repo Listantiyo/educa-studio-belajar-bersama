@@ -34,6 +34,24 @@ class AdminQuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function showQuest()
+    {
+        $questions = Question::all();
+
+        return datatables()
+        ->of($questions)
+        ->addIndexColumn()
+        ->addColumn('aksi', function ($questions) {
+            return '
+            <div class="btn-group">
+                <button onclick="" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                <button onclick="" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+            </div>
+            ';
+        })
+        ->rawColumns(['aksi'])
+        ->make(true);
+    }
     public function store(Request $request)
     {
         //

@@ -22,7 +22,7 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <table id="myTable" class="display table table-bordered">
+            <table id="table" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>
@@ -35,7 +35,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                {{-- <tbody>
                     @foreach ($questions as $q)
                       <tr>
                         <td>{{ $loop->index + 1 }}</td>
@@ -57,7 +57,7 @@
                       </td>
                       </tr>
                     @endforeach
-                </tbody>
+                </tbody> --}}
             </table>
         </div>
     </div>
@@ -68,7 +68,21 @@
 @push('script')
 <script>
     $(document).ready( function () {
-      $('#myTable').DataTable();
+      $('#table').DataTable({
+        ajax: {
+                url: 'api/data/admin/quest',
+            },
+            columns: [
+                {data: 'DT_RowIndex', searchable: false, sortable: false},
+                {data: 'id_user_dil'},
+                {data: 'id_type'},
+                {data: 'id_kelas'},
+                {data: 'id_mapel'},
+                {data: 'question'},
+                {data: 'path_qst_img'},
+                {data: 'aksi', searchable: false, sortable: false},
+            ]
+      });
   } );
   </script>
 @endpush
