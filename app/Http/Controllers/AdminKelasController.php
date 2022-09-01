@@ -33,7 +33,7 @@ class AdminKelasController extends Controller
             return '
             <div class="btn-group">
                 <button onclick="" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                <button onclick="" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                <button onclick="deleteData(`'.  $classes->id .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
             </div>
             ';
         })
@@ -98,6 +98,9 @@ class AdminKelasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kelas = Classe::find($id);
+        $kelas->delete();
+        
+        return $id;
     }
 }

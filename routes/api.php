@@ -43,10 +43,13 @@ Route::post('/data/show/coment','AnswerController@showComment');
 
 // Question
 Route::get('/data/admin/quest','AdminQuestionController@showQuest');
+Route::delete('/data/admin/quest/{id}','AdminQuestionController@destroy');
 // Mapel
 Route::get('/data/admin/mapel','AdminMapelController@showMapel');
+Route::delete('/data/admin/mapel/{id}','AdminMapelController@destroy');
 // Kelas
 Route::get('/data/admin/kelas','AdminKelasController@showKelas');
+Route::delete('/data/admin/kelas/{id}','AdminKelasController@destroy');
 
 
 // Route::post('login', 'API\UserController@login');

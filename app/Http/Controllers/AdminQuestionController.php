@@ -14,8 +14,9 @@ class AdminQuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::all();
-        return view('Admin.question.index',compact('questions'));
+        // $questions = Question::all();
+        // return view('Admin.question.index',compact('questions'));
+        return view('Admin.question.index');
     }
 
     /**
@@ -44,8 +45,8 @@ class AdminQuestionController extends Controller
         ->addColumn('aksi', function ($questions) {
             return '
             <div class="btn-group">
-                <button onclick="" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                <button onclick="" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                <button onclick="editData(`'. $questions->id .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                <button onclick="deleteData(`'.  $questions->id .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
             </div>
             ';
         })
@@ -99,6 +100,9 @@ class AdminQuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $questions = Question::find($id);
+        $questions->delete();
+        
+        return $id;
     }
 }

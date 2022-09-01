@@ -84,9 +84,14 @@
 @endsection
 
 @push('script')
+
+
 <script>
+
+  let table; 
+
     $(document).ready( function () {
-      $('#table').DataTable({
+      table =  $('#table').DataTable({
         ajax: {
                 url: 'api/data/admin/kelas',
             },
@@ -97,5 +102,15 @@
             ]
       });
   } );
+
+  function deleteData(id){
+      alert(id)
+      $.post("api/data/admin/kelas/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+        function (data) {
+          alert(data);
+          table.ajax.reload();
+        },
+      );
+    }
   </script>
 @endpush

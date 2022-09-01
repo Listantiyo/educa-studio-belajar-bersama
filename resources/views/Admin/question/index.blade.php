@@ -67,8 +67,11 @@
 
 @push('script')
 <script>
+
+  let table;
+
     $(document).ready( function () {
-      $('#table').DataTable({
+      table = $('#table').DataTable({
         ajax: {
                 url: 'api/data/admin/quest',
             },
@@ -83,6 +86,18 @@
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });
-  } );
+
+    } );
+
+    function deleteData(id){
+      alert(id)
+      $.post("api/data/admin/quest/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+        function (data) {
+          alert(data);
+          table.ajax.reload();
+        },
+      );
+    }
+
   </script>
 @endpush
