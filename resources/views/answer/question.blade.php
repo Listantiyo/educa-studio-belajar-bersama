@@ -14,9 +14,9 @@
                     <span>14 hours ago</span>
                 </li>
             </ul>
-            <h3>
-                {{$quest -> question}}
-            </h3>
+            <h5>
+                <pre style="font-family:Arial, Helvetica, sans-serif;line-height:0.8;overflow:inherit;">{{$quest -> question}}</pre>
+            </h5>
             <div class="container">
                 
             </div>
@@ -24,12 +24,12 @@
                 <a href="#sJawaban" class="bd-highlight view-answer">
                     <span><span class="answer-number rounded-circle">1</span> LIHAT JAWABAN</span>
                 </a>
+                @if ( $quest -> id_user_dil != Auth::id())                    
                 <a href="#" class="bd-highlight answer-btn" data-bs-toggle="modal" data-bs-target="#answerModalToggle">
                     <span><i class="fa-solid fa-plus"></i> TAMBAHKAN JAWABAN <span class="text-muted ps-3"> +10 poin </span></span>
                 </a>
-                <a href="#" class="ms-auto bd-highlight lapor-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Laporkan">
-                    <i class="fa-solid fa-circle-exclamation fs-5"></i>
-                </a>
+                @endif
+
             </div>
         </div>
     </div>

@@ -3,8 +3,8 @@
         <div class="right-sidebar-common">
             <div class="card me-auto" style="width: 70%;">
                 <div class="container card-body d-flex">
-                    <div class="d-inline">
-                        <img src="{{asset('template/pify/assets/images/user/user-1.jpg')}}" alt="Image" class="rounded-circle me-3" style="width: 100%;">
+                    <div class="d-inline" >
+                        <img src="{{ Avatar::create(Auth::user()->name)->setDimension(55)->setFontSize(15) }}"  alt="Image" class="me-3">
                     </div>
                     <div class="text-center py-2">
                         <h6 class="card-title fw-bold mb-0">{{Auth::user()->name}}</h6>

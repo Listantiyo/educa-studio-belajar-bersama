@@ -37,6 +37,10 @@
     .tox-notifications-container {
         display: none;
     }
+    .single-qa-box:last-child {
+    border-bottom: inherit;
+    }
+
 
 </style>
 

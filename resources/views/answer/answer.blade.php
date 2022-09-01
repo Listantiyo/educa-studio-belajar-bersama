@@ -21,7 +21,7 @@
                         </li>
                     </ul>
                     <h3>
-                        <p>@{{ans.answer}}</p>
+                        <pre style="font-family:Arial, Helvetica, sans-serif;">@{{ans.answer}}</pre>
                     </h3>
                     <div class="d-flex bd-highlight align-items-center py-4">
                         <a href="#" class="bd-highlight">

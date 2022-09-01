@@ -57,7 +57,7 @@
                             <ul class="graphic-design">
                                 <li>
                                     <a>
-                                        <img src="template/pify/assets/images/user/user-1.jpg" alt="Image">
+                                        <img src="{{ Avatar::create( "X" )->setDimension(55)->setFontSize(15) }}" alt="Image">
                                     </a>
                                 </li>
                                 <li> 
@@ -69,7 +69,7 @@
                             </ul>
                             <h3>
                                 <a href="#" v-on:click="goToanswer(qs.id)">
-                                    @{{qs.question}}
+                                    <pre style="font-family:Arial, Helvetica, sans-serif;">@{{qs.question}}</pre>
                                 </a>
                             </h3>
                             <div class="d-flex align-items-end flex-column bd-highlight mb-3">
