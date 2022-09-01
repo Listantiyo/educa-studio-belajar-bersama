@@ -21,7 +21,7 @@
   <!-- /.content-header -->
 <div class="container">
     <div class="d-flex justify-content-end mb-3">
-        <a href="#" class="btn btn-success" role="button" data-toggle="modal" data-target="#exampleModalCenter">
+        <a href="#" class="btn btn-success" role="button" data-toggle="modal" data-target="#tambahKelas">
             <i class="nav-icon fa-solid fa-plus"></i>
             Tambah
         </a>
@@ -96,5 +96,9 @@
     function editData(id){
       $('#kelasModal').modal('show');
     }
+
+    // function tambahData(){
+    //   $('#tambahModal').modal('show');
+    // }
   </script>
 @endpush

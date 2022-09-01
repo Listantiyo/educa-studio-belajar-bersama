@@ -22,7 +22,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header d-flex justify-content-end">
-            <a href="#" class="btn btn-success">
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#tambahMapel">
                 <i class="nav-icon fa-solid fa-plus"></i>
                 Tambah
             </a>

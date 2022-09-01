@@ -23,8 +23,8 @@
 
   <div class="container">
     <div class="card">
-      <div class="card-body" style="background-color: #0093E9; background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);">
-        <h4>{{ Auth::user() }}</h4>
+      <div class="card-body rounded" style="background-color: #0093E9; background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);">
+        <h4>Selamat Datang, Tod</h4>
       </div>
     </div>
   </div>
