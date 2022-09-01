@@ -45,8 +45,9 @@ class AdminQuestionController extends Controller
         ->addColumn('aksi', function ($questions) {
             return '
             <div class="btn-group">
-                <button onclick="editData(`'. $questions->id .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                <button onclick="deleteData(`'.  $questions->id .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                <button onclick="detailData(`'. $questions->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                <button onclick="editData(`'. $questions->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
+                <button onclick="deleteData(`'.  $questions->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </div>
             ';
         })

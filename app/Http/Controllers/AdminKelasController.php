@@ -31,10 +31,8 @@ class AdminKelasController extends Controller
         ->addIndexColumn()
         ->addColumn('aksi', function ($classes) {
             return '
-            <div class="btn-group">
-                <button onclick="" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                <button onclick="deleteData(`'.  $classes->id .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
-            </div>
+                <button onclick="editData(`'. $classes->id .'`)" class="btn btn-sm btn-info"><i class="fa fa-pencil"></i></button>
+                <button onclick="deleteData(`'.  $classes->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             ';
         })
         ->rawColumns(['aksi'])

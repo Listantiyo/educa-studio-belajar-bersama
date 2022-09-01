@@ -59,6 +59,8 @@
     </div>
 </div>
 
+@include('Admin.mapel.modal')
+
 @endsection
 
 @push('script')
@@ -88,5 +90,10 @@
         },
       );
     }
+
+    function editData(id){
+      $('#mapelModal').modal('show');
+    }
+    
   </script>
 @endpush

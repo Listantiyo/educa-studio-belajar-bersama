@@ -63,6 +63,8 @@
     </div>
 </div>
 
+@include('Admin.question.modal')
+
 @endsection
 
 @push('script')
@@ -97,6 +99,14 @@
           table.ajax.reload();
         },
       );
+    }
+
+    function editData(id){
+      $('#askModal').modal('show');
+    }
+
+    function detailData(id){
+      $('#detailModal').modal('show');
     }
 
   </script>

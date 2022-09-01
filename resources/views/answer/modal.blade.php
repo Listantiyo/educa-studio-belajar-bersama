@@ -35,8 +35,8 @@
             <div class="modal-content container py-4">
                 <div class="modal-body row ">
                     <div class="col-sm-12 mb-3 align-items-center">
-                        <h6 class="fw-bold">Kamu yakin tidak jadi bertanya?</h6>
-                        <p>Jika kamu keluar, pertanyaanmu tidak akan kami tambahkan</p>
+                        <h6 class="fw-bold">Kamu yakin tidak jadi menjawab?</h6>
+                        <p>Jika kamu keluar, jawabanmu tidak akan kami tambahkan</p>
                     </div>
                     <div class="col-sm-6">
                         <button class="btn btn-dark" style="border-radius: 20px; width: 105%;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">LANJUT BERTANYA</button>

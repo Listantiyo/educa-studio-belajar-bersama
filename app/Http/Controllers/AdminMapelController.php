@@ -36,7 +36,7 @@ class AdminMapelController extends Controller
         ->addColumn('aksi', function ($mapels) {
             return '
             <div class="btn-group">
-                <button onclick="" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                <button onclick="editData(`'. $mapels->id .'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
                 <button onclick="deleteData(`'.  $mapels->id .'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
             </div>
             ';
