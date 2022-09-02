@@ -35,6 +35,13 @@ class AdminQuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function editQuest($id)
+    {
+        $qs = Question::find()->pluck('question');
+        return "ssssssss";
+
+
+    }
     public function showQuest()
     {
         $questions = Question::all();

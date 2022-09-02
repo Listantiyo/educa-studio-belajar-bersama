@@ -43,6 +43,7 @@ Route::post('/data/show/coment','AnswerController@showComment');
 
 // Question
 Route::get('/data/admin/quest','AdminQuestionController@showQuest');
+Route::post('/data/admin/edit/{id}','AdminQuestionController@editQuest');
 Route::delete('/data/admin/quest/{id}','AdminQuestionController@destroy');
 // Mapel
 Route::get('/data/admin/mapel','AdminMapelController@showMapel');

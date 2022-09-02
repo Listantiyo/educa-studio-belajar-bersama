@@ -15,7 +15,7 @@
                 <textarea class="form-control" name="" id="" rows="3"></textarea>
             </div>
             <div class="form-group">
-                <input type="file" class="form-control-file" name="" id="">
+                <input type="file" class="form-control-file" name="" id="edit-quest">
             </div>
           </form>
         </div>
@@ -39,8 +39,7 @@
         </div>
         <div class="modal-body">
             <div class="container">
-                <h4>Pertanyaan :</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magnam vitae magni similique dolorem nulla quod quas distinctio, neque totam repellat illum dolore laboriosam fuga repudiandae earum dolores ullam! Est!</p>
+                <p>No Record</p>
             </div>
         </div>
       </div>

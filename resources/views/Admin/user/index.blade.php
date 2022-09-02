@@ -34,7 +34,7 @@
                         <th>Id</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Password</th>
+                        <th>Level</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -44,7 +44,7 @@
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->password }}</td>
+                            <td>{{ $user->level }}</td>
                             <td class="d-flex justify-content-center">
                                 <a href="#" class="btn btn-sm btn-warning mr-2">
                                     <i class="nav-icon fa-solid fa-pen-to-square"></i>

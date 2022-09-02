@@ -1,5 +1,5 @@
 
-@if (Auth::user()->level == 1)
+@if (Auth::user()->level == 1 )
 
 @extends('layouts.master')   
 

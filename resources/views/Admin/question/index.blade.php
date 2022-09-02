@@ -103,6 +103,13 @@
 
     function editData(id){
       $('#askModal').modal('show');
+      // $.get("/data/admin/edit/"+ id, {id:id},
+      //   function (data) {
+          
+      //   },
+      //   "dataType"
+      // );
+      // edit-quest
     }
 
     function detailData(id){

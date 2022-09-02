@@ -119,7 +119,7 @@
                                 <a href="{{route('register')}}" class="ask-btn fs_my pee">
                                     DAFTAR
                                 </a>
-                                <a href="#" class="masuk-btn ask_ks py-2 fs_my px-3">
+                                <a href="{{route('login')}}" class="masuk-btn ask_ks py-2 fs_my px-3">
                                     AJUKAN PERTANYAAN
                                 </a>
                             </div>
