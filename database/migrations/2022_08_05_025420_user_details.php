@@ -16,6 +16,8 @@ class UserDetails extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user');
+            $table->string('gender');
+            $table->string('kelas');
             $table->timestamps();
         });
     }
