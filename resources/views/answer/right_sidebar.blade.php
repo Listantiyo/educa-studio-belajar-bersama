@@ -31,7 +31,7 @@
                     </ul>
                 </div>
                 <div class="card-footer card-button">
-                    <a href="https://www.gamelab.id" class="d-flex align-items-center">
+                    <a href="{{route('profile')}}" class="d-flex align-items-center">
                         <p class="d-inline mb-0">Lihat Selengkapnya</p>
                         <i class="fa-solid fa-chevron-right d-inline" style="padding-left: 40%;"></i>
                     </a>

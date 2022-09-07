@@ -22,11 +22,11 @@
             </div>
             <div class="d-flex bd-highlight align-items-center py-4">
                 <a href="#sJawaban" class="bd-highlight view-answer">
-                    <span><span class="answer-number rounded-circle">1</span> LIHAT JAWABAN</span>
+                    <span> LIHAT JAWABAN</span>
                 </a>
                 @if ( $quest -> id_user_dil != Auth::id())                    
                 <a href="#" class="bd-highlight answer-btn" data-bs-toggle="modal" data-bs-target="#answerModalToggle">
-                    <span><i class="fa-solid fa-plus"></i> TAMBAHKAN JAWABAN <span class="text-muted ps-3"> +10 poin </span></span>
+                    <span><i class="fa-solid fa-plus"></i> TAMBAHKAN JAWABAN <span class="text-muted ps-3"></span></span>
                 </a>
                 @endif
 

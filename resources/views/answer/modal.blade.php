@@ -13,7 +13,9 @@
                     <div class="col-md-5">
                         <div class="container">
                             <h4 class="fw-bold">Pertanyaan :</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur placeat ullam ducimus eum ad nulla eaque quod esse molestiae molestias mollitia odio qui, tempora sit rem tempore cupiditate repellendus voluptas?</p>
+                            <h6>
+                                {{$quest -> question}}
+                            </h6>
                         </div>
                     </div>
                     <div class="col-md-7">
@@ -39,10 +41,10 @@
                         <p>Jika kamu keluar, jawabanmu tidak akan kami tambahkan</p>
                     </div>
                     <div class="col-sm-6">
-                        <button class="btn btn-dark" style="border-radius: 20px; width: 105%;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">LANJUT BERTANYA</button>
+                        <button class="btn btn-dark" style="border-radius: 20px; width: 105%;" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">LANJUT MENJAWAB</button>
                     </div>
                     <div class="col-sm-6">
-                        <button class="btn btn-light" style="border-radius: 20px; width: 105%;" data-bs-dismiss="modal" aria-label="Close">TANYAKAN NANTI</button> 
+                        <button class="btn btn-light" style="border-radius: 20px; width: 105%;" data-bs-dismiss="modal" aria-label="Close">JAWAB NANTI</button> 
                     </div>
                 </div>
             </div>

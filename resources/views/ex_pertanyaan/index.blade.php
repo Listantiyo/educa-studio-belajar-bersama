@@ -50,7 +50,7 @@
             </div>
           </div>
           <div class="col-md-5">
-            <h5 class="text-success display-5 fw-bold">80% PERTANYAAN TIDAK DI JAWAB</h5>
+            <h5 class="text-success display-5 fw-bold">80% PERTANYAAN DAPAT DI JAWAB</h5>
           </div>
         </div>
       </div>
