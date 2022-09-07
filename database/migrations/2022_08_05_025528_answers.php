@@ -13,7 +13,7 @@ class Answers extends Migration
      */
     public function up()
     {
-        Schema::create('answers', function (Blueprint $table) {
+        Schema::create('tbl_answers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user_dil');
             $table->integer('id_question');
@@ -30,6 +30,6 @@ class Answers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answers');
+        Schema::dropIfExists('tbl_answers');
     }
 }

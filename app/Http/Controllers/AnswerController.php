@@ -20,7 +20,7 @@ class AnswerController extends Controller
     {
         if ($id == "null") {
             # code...
-            $quest = DB::table('questions')->latest()->first();
+            $quest = DB::table('tbl_questions')->latest()->first();
         }else{
             $quest = Question::find($id);
         }

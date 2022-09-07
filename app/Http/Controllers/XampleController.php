@@ -22,7 +22,7 @@ class Xample extends Controller
     {
         $id = 1;
         // $kelas = "s";
-        // $getid = DB::table('user_details')->where('id_user',$i)->get();
+        // $getid = DB::table('tbl_user_details')->where('id_user',$i)->get();
         // $id = User_Detail::where('id_user',$i)->pluck('id');
 
         // $id = DB::table('users')->orderBy('level', 'desc')->limit(1)->pluck('level');
@@ -74,7 +74,7 @@ class Xample extends Controller
         $type = $request->type;
         
         // $question = Question::all();
-        $question = DB::table('questions')->get();
+        $question = DB::table('tbl_questions')->get();
 
         if (($clas)!=null) {
             # code...
@@ -96,7 +96,7 @@ class Xample extends Controller
 
     // public function show_answer()
     // {
-    //         $q_latest = DB::table('questions')->latest()->first();
+    //         $q_latest = DB::table('tbl_questions')->latest()->first();
 
     //         // cek
     //         // return response()->json($q_latest);
@@ -117,7 +117,7 @@ class Xample extends Controller
     public function search(Request $request)
     {   
         $data = $request->data;
-        $quest = DB::table('questions')->where('question','like','%'.$data.'%')->get();
+        $quest = DB::table('tbl_questions')->where('question','like','%'.$data.'%')->get();
         // dd($quest);
         return $quest;
     }

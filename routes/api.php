@@ -18,14 +18,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/my','Xample@my');
+Route::get('/my','XampleController@my');
 Route::get('/ex', function () {
     return view('ex_edit.index'); 
 });
 
 // Route::get('/data/filter','DashboardController@filter');
 
-Route::get('/data/search','Xample@search');
+Route::get('/data/search','XampleController@search');
 
 // API Profile
 Route::get('/data/profile/question','ProfileController@showQuest');

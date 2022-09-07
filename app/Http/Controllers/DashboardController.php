@@ -23,16 +23,16 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $filc = DB::table('classes')->get();
-        $filt = DB::table('types')->get();
-        $film = DB::table('mapels')->get();
+        $filc = DB::table('tbl_classes')->get();
+        $filt = DB::table('tbl_types')->get();
+        $film = DB::table('tbl_mapels')->get();
         return view('dashboard.index',compact('filc','filt','film'));
     }
 
     public function filter(){
-        $filc = DB::table('classes')->all();
-        $filt = DB::table('types')->all();
-        $film = DB::table('mapels')->all();
+        $filc = DB::table('tbl_classes')->all();
+        $filt = DB::table('tbl_types')->all();
+        $film = DB::table('tbl_mapels')->all();
 
         // return ($filc ->'class', $filt $film);
         return compact('filc','film','filt');
@@ -49,7 +49,7 @@ class DashboardController extends Controller
         
         // $phone = Question::find(2)->mapel;
         // $question = Question::all();
-        $question = DB::table('questions')->orderBy('created_at', 'desc')->get();
+        $question = DB::table('tbl_questions')->orderBy('created_at', 'desc')->get();
 
         if (($clas)!=null) {
             # code...
@@ -109,7 +109,7 @@ class DashboardController extends Controller
                 return "kopong";
             };
             
-            $mapel = DB::table('mapels')->select('nama_mapel')->where('id',$id_mapel)->get();
+            $mapel = DB::table('tbl_mapels')->select('nama_mapel')->where('id',$id_mapel)->get();
 
             $quest = new Question;
             foreach ($mapel as $ma) {

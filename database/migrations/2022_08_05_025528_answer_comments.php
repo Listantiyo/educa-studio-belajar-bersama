@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Answers extends Migration
+class AnswerComments extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Answers extends Migration
      */
     public function up()
     {
-        Schema::create('answer_comments', function (Blueprint $table) {
+        Schema::create('tbl_answer_comments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user');
             $table->integer('id_question');
@@ -30,6 +30,6 @@ class Answers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answer_comments');
+        Schema::dropIfExists('tbl_answer_comments');
     }
 }

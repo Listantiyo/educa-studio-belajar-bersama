@@ -13,7 +13,7 @@ class UserDetails extends Migration
      */
     public function up()
     {
-        Schema::create('user_details', function (Blueprint $table) {
+        Schema::create('tbl_user_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user');
             $table->string('gender');
@@ -29,6 +29,6 @@ class UserDetails extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_details');
+        Schema::dropIfExists('tbl_user_details');
     }
 }

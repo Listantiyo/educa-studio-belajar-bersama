@@ -13,7 +13,7 @@ class Types extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
+        Schema::create('tbl_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_type')->unique();
             $table->timestamps();
@@ -27,6 +27,6 @@ class Types extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('types');
+        Schema::dropIfExists('tbl_types');
     }
 }

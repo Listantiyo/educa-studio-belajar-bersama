@@ -13,7 +13,7 @@ class Mapels extends Migration
      */
     public function up()
     {
-        Schema::create('mapels', function (Blueprint $table) {
+        Schema::create('tbl_mapels', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_mapel')->unique();
             $table->timestamps();
@@ -27,6 +27,6 @@ class Mapels extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mapels');
+        Schema::dropIfExists('tbl_mapels');
     }
 }

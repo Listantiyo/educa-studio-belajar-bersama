@@ -31,7 +31,7 @@ class LoginController extends Controller
     protected function redirectTo()
 {   
     $level = Auth::user()->level;
-    if ($level == 1 || null) {
+    if ($level == 1) {
         return '/dashboard';
     }else{
         return '/admindashboard';

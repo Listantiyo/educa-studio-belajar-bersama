@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Questions extends Migration
+class QuestionsComments extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Questions extends Migration
      */
     public function up()
     {
-        Schema::create('question_comments', function (Blueprint $table) {
+        Schema::create('tbl_question_comments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user');
             $table->integer('id_question');
@@ -29,6 +29,6 @@ class Questions extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_comments');
+        Schema::dropIfExists('tbl_question_comments');
     }
 }
