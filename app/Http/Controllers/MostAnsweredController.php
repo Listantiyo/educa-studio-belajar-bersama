@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class QuestionController extends Controller
+class MostAnsweredController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,12 +13,12 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return view('question.index');
+        return view('most_answered.index');
     }
     
     public function detail()
     {
-        return view('question.detail.index');
+        return view('most_answered.detail.index');
     }
     /**
      * Show the form for creating a new resource.

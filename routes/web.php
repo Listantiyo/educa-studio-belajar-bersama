@@ -21,7 +21,26 @@ Route::get('/oohome', function () {
 
 
 Route::get('/menu', 'HomeController@index')->name('menu');
+
 Route::get('/question', 'QuestionController@index')->name('question');
+Route::get('/queations-details', 'QuestionController@detail')->name('queations-details');
+
+Route::get('/communities', 'CommunitiesController@index')->name('communities');
+
+Route::get('/most-answered', 'MostAnsweredController@index')->name('most-answered');
+Route::get('/most-answered-details', 'MostAnsweredController@detail')->name('most-answered-details');
+
+Route::get('/unanswered', 'UnansweredController@index')->name('unanswered');
+
+Route::get('/most-visited', 'MostVisitedController@index')->name('most-visited');
+
+Route::get('/polls', 'PollsController@index')->name('polls');
+
+Route::get('/faq', 'FaqController@index')->name('faq');
+
+Route::get('/groups', 'GroupsController@index')->name('groups');
+
+// ------------------------------------------------------------
 
 Route::get('/profile/edit', 'ProfileController@editShow')->name('edit.profile');
 Route::get('/profile', 'ProfileController@index')->name('profile');

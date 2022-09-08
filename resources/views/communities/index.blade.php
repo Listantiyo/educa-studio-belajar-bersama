@@ -1,7 +1,7 @@
 {{-- Mid Content --}}
-@extends('ARemake.layouts.master')
+@extends('layouts.master')
 
-@section()
+@section('content')
     
 <div class="col-lg-6">
     <div class="middull-content">

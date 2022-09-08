@@ -1,4 +1,4 @@
-@extends('ARemake.layouts.master')
+@extends('layouts.master')
 
 @section('content')
 <div class="col-lg-6">
