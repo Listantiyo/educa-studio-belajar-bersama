@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('ex_home.index');
-})->middleware('guest');
+    return view('question.index');
+});
 
 Route::get('/oohome', function () {
-    return view('ex_home.index');
+    return view('question.index');
 });
 
 
@@ -43,3 +43,4 @@ Route::get('/adminmapel','AdminMapelController@index')->name('matapelajaran');
 
 // User
 Route::get('/adminuser','AdminUserController@index')->name('user');
+
