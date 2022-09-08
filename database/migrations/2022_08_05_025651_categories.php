@@ -13,9 +13,9 @@ class Classes extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_classes', function (Blueprint $table) {
+        Schema::create('tbl_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_class')->unique();
+            $table->string('category')->unique();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class Classes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_classes');
+        Schema::dropIfExists('tbl_categories');
     }
 }

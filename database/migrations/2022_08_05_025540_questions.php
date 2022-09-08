@@ -17,9 +17,13 @@ class Questions extends Migration
             $table->increments('id');
             $table->integer('id_user_dil');
             $table->integer('id_type');
-            $table->integer('id_kelas');
-            $table->integer('id_mapel');
+            $table->integer('id_kategori');
+            $table->integer('id_tags');
+            $table->string('title');
             $table->string('question');
+            $table->integer('like');
+            $table->integer('dislike');
+            $table->integer('votes');
             $table->string('path_qst_img')->nullable();
             $table->timestamps();
         });

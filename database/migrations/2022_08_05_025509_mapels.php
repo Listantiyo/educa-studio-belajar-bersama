@@ -13,9 +13,9 @@ class Mapels extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_mapels', function (Blueprint $table) {
+        Schema::create('tbl_tags', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_mapel')->unique();
+            $table->string('tag')->unique();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class Mapels extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_mapels');
+        Schema::dropIfExists('tbl_tags');
     }
 }
