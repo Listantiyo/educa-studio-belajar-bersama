@@ -20,10 +20,12 @@ Route::get('/oohome', function () {
 });
 
 
+Route::get('/menu', 'HomeController@index')->name('menu');
+Route::get('/question', 'QuestionController@index')->name('question');
+
 Route::get('/profile/edit', 'ProfileController@editShow')->name('edit.profile');
-Route::get('/profile', 'ProfileController@index')->middleware('auth')->name('profile');
-Route::get('/dashboard', 'DashboardController@index')->middleware('auth')->name('dashboard');
-Route::get('/menu', 'HomeController@index')->middleware('guest')->name('menu');
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/answer/{id}','AnswerController@index')->name('answer');
 Route::get('/quest/{data}','AnswerController@goToquest')->name('answer.search');
 

@@ -40,9 +40,19 @@
 		<!-- Start Navbar Area --> 
         @include('layouts.navbar')
 		<!-- End Navbar Area -->
+		@yield('banner')
 
-		<!-- Start Mail Content Area -->
-        @yield('content')
+		<div id="app">
+			<div class="main-content-area ptb-100">
+				<div class="container">
+					<div class="row">
+						@include('layouts.left_sidebar')
+       					@yield('content')		
+						@include('layouts.right_sidebar')				
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- End Mail Content Area -->
 
 		<!-- Start Footer Area -->
