@@ -1,4 +1,6 @@
-<!-- Start Footer Area -->
+<div class="footer-area pt-100 pb-70">
+    <div class="container">
+        <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <div class="single-footer-widget style-two">
                     <a href="index.html">
@@ -98,9 +100,7 @@
         <img src="assets/images/footer-shape.png" alt="Image">
     </div>
 </div>
-<!-- End Footer Area -->
 
-<!-- End Copyright Area -->
 <div class="copy-right-area">
     <div class="container">
         <div class="copy-right-content">
@@ -123,4 +123,3 @@
         </div>
     </div>
 </div>
-<!-- End Copyright Area -->

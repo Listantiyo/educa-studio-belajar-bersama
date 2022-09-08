@@ -1,5 +1,3 @@
-{{-- Left sidebar --}}
-
 <div class="col-lg-3">
     <div class="sidebar-menu-wrap">
         <div class="sidemenu-wrap d-flex justify-content-between align-items-center">
@@ -179,5 +177,3 @@
         </div>
     </div>
 </div>
-
-{{-- Left sidebar end --}}

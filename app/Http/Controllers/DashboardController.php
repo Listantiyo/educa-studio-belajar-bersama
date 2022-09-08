@@ -26,7 +26,7 @@ class DashboardController extends Controller
         $filc = DB::table('tbl_classes')->get();
         $filt = DB::table('tbl_types')->get();
         $film = DB::table('tbl_mapels')->get();
-        return view('dashboard.index',compact('filc','filt','film'));
+        return view('home.index',compact('filc','filt','film'));
     }
 
     public function filter(){

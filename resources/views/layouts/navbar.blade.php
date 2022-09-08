@@ -1,4 +1,3 @@
-<!-- Start Navbar Area --> 
 <div class="navbar-area">
     <div class="mobile-responsive-nav">
         <div class="container">
@@ -22,7 +21,7 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link">
+                            <a href="index.html" class="nav-link active">
                                 Home 
                             </a>
                         </li>
@@ -147,4 +146,3 @@
         </div>
     </div>
 </div>
-<!-- End Navbar Area -->
