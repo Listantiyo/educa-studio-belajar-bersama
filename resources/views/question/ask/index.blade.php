@@ -3,22 +3,20 @@
 @section('content')
 <div class="col-lg-6">
     <div class="middull-content">
-        <form class="your-answer-form">
+        <form id="ask" class="your-answer-form">
             <div class="form-group">
                 <h3>Create a questions</h3>
             </div>
             <div class="form-group">
                 <label>Title</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="title">
             </div>
             <div class="form-group">
                 <label>Category</label>
 
-                <select class="form-select form-control" aria-label="Default select example">
+                <select name="category" class="form-select form-control" aria-label="Default select example">
                     <option selected>Selete cagegory</option>
                     <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
                 </select>
             </div>
             <div class="form-group accordions">
@@ -33,7 +31,7 @@
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body d-flex row mx-0">
                             <div class="custom-control custom-checkbox col-3 pt-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck5">
+                                <input type="checkbox" name="tag" class="custom-control-input" id="customCheck5" value="ck1">
                                 <label class="custom-control-label" for="customCheck5">checkbox</label>
                             </div>
                         </div>
@@ -60,3 +58,20 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $(".upload").click(function (e) { 
+                e.preventDefault();
+                $("#file-2").trigger('click');
+            });
+
+            $("#ask").submit(function (e) { 
+                e.preventDefault();
+                let data = $(this).serialize();
+                console.log(data);
+            });
+        });
+    </script>
+@endpush
