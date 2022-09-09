@@ -14,8 +14,8 @@ class AdminMapelController extends Controller
      */
     public function index()
     {
-        $mapels = Mapel::all();
-        return view('Admin.mapel.index', compact('mapels'));
+        // $mapels = Mapel::all();
+        // return view('Admin.mapel.index', compact('mapels'));
     }
 
     /**
