@@ -50,7 +50,7 @@
 @push('script')
 
 
-{{-- <script>
+<script>
 
   let table; 
 
@@ -61,7 +61,7 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'nama_class'},
+                {data: 'nama_komunitas'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });
@@ -86,4 +86,4 @@
     // }
   </script>
 
-@endpush --}}
+@endpush

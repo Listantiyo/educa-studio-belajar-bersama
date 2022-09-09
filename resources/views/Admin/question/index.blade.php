@@ -57,7 +57,9 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'nama_class'},
+                {data: 'id_user'},
+                {data: 'nama_kategori'},
+                {data: 'pertanyaan'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });

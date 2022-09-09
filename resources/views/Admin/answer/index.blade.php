@@ -44,7 +44,7 @@
 @push('script')
 
 
-{{-- <script>
+<script>
 
   let table; 
 
@@ -55,7 +55,9 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'nama_class'},
+                {data: 'nama_kategori'},
+                {data: 'pertanyaan'},
+                {data: 'jawaban'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });
@@ -80,4 +82,4 @@
     // }
   </script>
 
-@endpush --}}
+@endpush
