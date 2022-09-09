@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Question;
 
 class QuestionController extends Controller
 {
@@ -43,7 +44,16 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024'
+           ]);
+        $name = $request->file('image')->getClientOriginalName();
+        
+        $path = $request->file('image')->store('public/photos');
+
+        $quest = new Question();
+        
+        return $quest;
     }
 
     /**

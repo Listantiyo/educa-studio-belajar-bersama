@@ -24,7 +24,8 @@ class Questions extends Migration
             $table->integer('like');
             $table->integer('dislike');
             $table->integer('votes');
-            $table->string('path_qst_img')->nullable();
+            $table->string('images')->nullable();
+            $table->string('path_img')->nullable();
             $table->timestamps();
         });
     }

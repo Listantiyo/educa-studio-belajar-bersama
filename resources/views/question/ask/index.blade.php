@@ -25,15 +25,26 @@
 
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <button v-if="tags == ''" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             Chose tags
+                        </button>
+                        <button v-else class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <div v-for="tags in tags">@{{tags+';'}}</div>
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body d-flex row mx-0">
                             <div class="custom-control custom-checkbox col-3 pt-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck5" name="tag" value="ck1">
+                                <input type="checkbox" class="custom-control-input single-checkbox" id="customCheck5" name="tag" value="ck1" v-model="tags">
                                 <label class="custom-control-label" for="customCheck5">checkbox</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 pt-2">
+                                <input type="checkbox" class="custom-control-input single-checkbox" id="customCheck4" name="tag" value="ck2" v-model="tags">
+                                <label class="custom-control-label" for="customCheck4">checkbox</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 pt-2">
+                                <input type="checkbox" class="custom-control-input single-checkbox" id="customCheck2" name="tag" value="ck3" v-model="tags">
+                                <label class="custom-control-label" for="customCheck2">checkbox</label>
                             </div>
                         </div>
                     </div>
@@ -47,7 +58,7 @@
 
             <div class="form-group">
                 <div class="file-upload-account-info">
-                    <input type="file" name="file" id="file-2" class="inputfile">
+                    <input type="file" name="image" id="file-2" class="inputfile">
                     <label class="upload">
                         <i class="ri-link"></i>
                         Upload Photo
@@ -65,20 +76,48 @@
 
 @push('scripts')
     <script>
+        const { createApp } = Vue
+        const vues = createApp({
+            data() {
+                return {
+                    tags :[],
+                }
+            }
+        }).mount("#app")
+    </script>
+    <script>
         $(document).ready(function () {
             $(".upload").click(function (e) { 
                 e.preventDefault();
                 $("#file-2").trigger('click');
             });
 
+            // var limit = 2;
+            // $('input.single-checkbox').on('change', function(evt) {
+            // if($(".single-checkbox").siblings(':checked').length > limit) {
+            //     this.checked = false;
+            //     alert("max 3")
+            // }
+            // });
+
             $("#ask").submit(function (e) { 
                 e.preventDefault();
-                let data = new FormData(this)
                 let text = $(".Editor-editor").html();
-                console.log(data);
-                for (var pair of data.entries()) {
-                    console.log(pair[0]+ ', ' + pair[1],text); 
-                }
+                let data = new FormData(this)
+                data.append('text', text);
+            
+                $.ajax({
+                    type: "POST",
+                    url: "api/quest/store",
+                    data: data,
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function (rsp) {
+                        alert(rsp)
+                        console.log(rsp);
+                    }
+                });
             });
         });
     </script>

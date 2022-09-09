@@ -28,6 +28,11 @@ Route::get('menu/show','HomeController@show');
 Route::post('menu/store','HomeController@store');
 Route::put('menu/update','HomeController@update');
 Route::delete('menu/delete','HomeController@delete');
+// API Question
+Route::get('quest/show','QuestionController@show');
+Route::post('quest/store','QuestionController@store');
+Route::put('quest/update','QuestionController@update');
+Route::delete('quest/delete','QuestionController@delete');
 
 // ----------------------------------------------------------
 
