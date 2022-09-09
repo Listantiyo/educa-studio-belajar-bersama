@@ -7,12 +7,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Kelas</h1>
+          <h1 class="m-0">Pertanyaan</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Kelas</li>
+            <li class="breadcrumb-item active">Pertanyaan</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -32,28 +32,13 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
-                        <th>Nama Kelas</th>
+                        <th>Nama kategori</th>
+                        <th>Pertanyaan</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                {{-- <tbody>
-                    @foreach ( $classes as $kelas)
-                        <tr>
-                            <td>{{ $loop->index + 1 }}</td>
-                            <td>{{ $kelas->nama_class }}</td>
-                            <td class="d-flex justify-content-center">
-                                <a href="#" class="btn btn-sm btn-warning mr-2">
-                                    <i class="nav-icon fa-solid fa-pen-to-square"></i>
-                                    Edit
-                                </a>
-                                <a href="#" class="btn btn-sm btn-danger">
-                                    <i class="nav-icon fa-solid fa-trash"></i>
-                                    Hapus
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody> --}}
+                
             </table>
         </div>
     </div>
@@ -67,7 +52,7 @@
 @push('script')
 
 
-<script>
+{{-- <script>
 
   let table; 
 
@@ -103,4 +88,4 @@
     // }
   </script>
 
-@endpush
+@endpush --}}

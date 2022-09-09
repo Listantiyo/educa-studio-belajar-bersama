@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin | Dashboard</title>
+  <title>AdminLTE 3 | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('Admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
@@ -26,42 +26,35 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('Admin/plugins/summernote/summernote-bs4.min.css')}}">
   <link rel="stylesheet" href="{{asset('Admin/dist/css/jquery.dataTables.min.css')}}">
-  <script src="https://kit.fontawesome.com/7f8292fccf.js" crossorigin="anonymous"></script>  
-
-  {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"> --}}
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{asset('Admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
-  {{-- Navbar --}}
+  <!-- Navbar -->
   @include('Admin.layouts.navbar')
+  <!-- /.navbar -->
 
-  {{-- Sidebar --}}
+  <!-- Main Sidebar Container -->
   @include('Admin.layouts.sidebar')
 
-  {{-- Content --}}
-  <div class="content-wrapper">
-    @yield('content')
-  </div>
-
-  {{-- Footer --}}
+  <!-- Content Wrapper. Contains page content -->
+  @yield('content')
+  <!-- /.content-wrapper -->
   @include('Admin.layouts.footer')
 
-
-
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
-<script>
-  $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-</script>
 <!-- jQuery -->
 <script src="{{asset('Admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -93,7 +86,8 @@
 <!-- AdminLTE App -->
 <script src="{{asset('Admin/dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-{{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script><!-- AdminLTE dashboard demo (This is only for demo purposes) --> --}}
+{{-- <script src="{{asset('Admin/dist/js/demo.js')}}"></script> --}}
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('Admin/dist/js/pages/dashboard.js')}}"></script>
 <script src="{{asset('Admin/dist/js/jquery.dataTables.min.js')}}"></script>
 @stack('script')
