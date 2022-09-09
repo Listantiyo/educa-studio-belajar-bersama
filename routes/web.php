@@ -24,6 +24,7 @@ Route::get('/menu', 'HomeController@index')->name('menu');
 
 Route::get('/question', 'QuestionController@index')->name('questions');
 Route::get('/queations-details', 'QuestionController@detail')->name('queations-details');
+Route::get('/ask-questions', 'QuestionController@ask')->name('ask-questions');
 
 Route::get('/communities', 'CommunitiesController@index')->name('communities');
 

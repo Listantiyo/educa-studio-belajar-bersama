@@ -20,6 +20,11 @@ class QuestionController extends Controller
     {
         return view('question.detail.index');
     }
+
+    public function ask()
+    {
+        return view('question.ask.index');
+    }
     /**
      * Show the form for creating a new resource.
      *

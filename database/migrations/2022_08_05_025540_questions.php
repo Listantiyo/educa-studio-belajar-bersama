@@ -18,9 +18,9 @@ class Questions extends Migration
             $table->integer('id_user_dil');
             $table->integer('id_type');
             $table->integer('id_kategori');
-            $table->integer('id_tags');
             $table->string('title');
             $table->string('question');
+            $table->string('tags');
             $table->integer('like');
             $table->integer('dislike');
             $table->integer('votes');

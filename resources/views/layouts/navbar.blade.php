@@ -4,7 +4,7 @@
             <div class="mobile-responsive-menu">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="assets/images/logo.png" alt="logo">
+                        <img src="{{asset('pify/assets/images/logo.png')}}" alt="logo">
                     </a>
                 </div>
             </div>
@@ -14,7 +14,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/logo.png" alt="logo">
+                    <img src="{{asset('pify/assets/images/logo.png')}}" alt="logo">
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">

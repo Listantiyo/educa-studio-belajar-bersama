@@ -38,7 +38,7 @@
                     <div class="d-flex">
                         <div class="link-unlike flex-shrink-0">
                             <a href="user.html">
-                                <img src="assets/images/user/user-1.jpg" alt="Image">
+                                <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
                             </a>
 
                             <div class="donet-like-list">
@@ -170,7 +170,7 @@
                     <div class="d-flex">
                         <div class="link-unlike flex-shrink-0">
                             <a href="user.html">
-                                <img src="assets/images/user/user-1.jpg" alt="Image">
+                                <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
                             </a>
                         </div>
 
@@ -288,7 +288,7 @@
                     <div class="d-flex">
                         <div class="link-unlike flex-shrink-0">
                             <a href="user.html">
-                                <img src="assets/images/user/user-1.jpg" alt="Image">
+                                <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
                             </a>
 
                             <div class="donet-like-list">
@@ -413,7 +413,7 @@
                     <div class="d-flex">
                         <div class="link-unlike flex-shrink-0">
                             <a href="user.html">
-                                <img src="assets/images/user/user-1.jpg" alt="Image">
+                                <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
                             </a>
 
                             <div class="donet-like-list">

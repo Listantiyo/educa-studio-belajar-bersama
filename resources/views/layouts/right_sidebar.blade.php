@@ -1,7 +1,7 @@
 <div class="col-lg-3">
     <div class="right-siderbar">
         <div class="right-siderbar-common">
-            <a href="ask-questions.html" class="default-btn">
+            <a href="{{route('ask-questions')}}" class="default-btn">
                 Ask a question
             </a>
         </div>
