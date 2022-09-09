@@ -17,7 +17,7 @@
                     <nav class="sidebar-nav" data-simplebar>
                         <ul id="sidebar-menu" class="sidebar-menu">
                             <li>
-                                <a href="index.html" class="box-style active">
+                                <a href="{{route('menu')}}" class="box-style active">
                                     <span class="menu-title">
                                         <i class="ri-home-8-line"></i>
                                         Home
@@ -33,19 +33,19 @@
                                 </a>
                                 <ul class="sidemenu-nav-second-level">
                                     <li>
-                                        <a href="all-queations.html">
+                                        <a href="{{route('questions')}}">
                                             <span class="menu-title">All questions</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="queations-details.html">
+                                        <a href="{{route('queations-details')}}">
                                             <span class="menu-title">questions details</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="communities.html" class="box-style">
+                                <a href="{{route('communities')}}" class="box-style">
                                     <span class="menu-title">
                                         <i class="ri-links-line"></i>
                                         Communities
@@ -61,19 +61,19 @@
                                 </a>
                                 <ul class="sidemenu-nav-second-level">
                                     <li>
-                                        <a href="most-answered.html">
+                                        <a href="{{route('most-answered')}}">
                                             <span class="menu-title">Most answered</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="most-answered-details.html">
+                                        <a href="{{route('most-answered-details')}}">
                                             <span class="menu-title">Most answered details</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="unanswered.html" class="box-style">
+                                <a href="{{route('unanswered')}}" class="box-style">
                                     <span class="menu-title">
                                         <i class="ri-checkbox-circle-line"></i>
                                         Unanswered
@@ -81,7 +81,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="most-visited.html" class="box-style">
+                                <a href="{{route('most-visited')}}" class="box-style">
                                     <span class="menu-title">
                                         <i class="ri-eye-line"></i>
                                         Most visited 
@@ -89,7 +89,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="polls.html" class="box-style">
+                                <a href="{{route('polls')}}" class="box-style">
                                     <span class="menu-title">
                                         <i class="ri-bar-chart-fill"></i>
                                         Polls
@@ -97,7 +97,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="faq.html" class="box-style">
+                                <a href="{{route('faq')}}" class="box-style">
                                     <span class="menu-title">
                                         <i class="ri-hq-line"></i>
                                         FAQs
@@ -105,31 +105,31 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="groups.html" class="box-style">
+                                <a href="{{route('groups')}}" class="box-style">
                                     <span class="menu-title">
                                         <i class="ri-group-2-line"></i>
                                         Groups
                                     </span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="education.html" class="box-style">
+                            {{-- <li>
+                                <a href="education" class="box-style">
                                     <span class="menu-title">
                                         <i class="ri-book-line"></i>
                                         Education
                                     </span>
                                 </a>
-                            </li>
-                            <li>
+                            </li> --}}
+                            {{-- <li>
                                 <a href="technology.html" class="box-style">
                                     <span class="menu-title">
                                         <i class="ri-file-shield-2-line"></i>
                                         Technology
                                     </span>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="tags.html" class="box-style">
+                            </li> --}}
+                            {{-- <li>
+                                <a href="{{route('tags')}}" class="box-style">
                                     <span class="menu-title">
                                         <i class="ri-price-tag-line"></i>
                                         Tags
@@ -137,13 +137,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="badges.html" class="box-style">
+                                <a href="{{route('badges')}}" class="box-style">
                                     <span class="menu-title">
                                         <i class="ri-award-line"></i>
                                         Badges
                                     </span>
                                 </a>
-                            </li>
+                            </li> --}}
 
                             <li>
                                 <a href="#" class="has-arrow box-style">

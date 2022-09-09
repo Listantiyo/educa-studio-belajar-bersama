@@ -22,7 +22,7 @@ Route::get('/oohome', function () {
 
 Route::get('/menu', 'HomeController@index')->name('menu');
 
-Route::get('/question', 'QuestionController@index')->name('question');
+Route::get('/question', 'QuestionController@index')->name('questions');
 Route::get('/queations-details', 'QuestionController@detail')->name('queations-details');
 
 Route::get('/communities', 'CommunitiesController@index')->name('communities');
