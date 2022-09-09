@@ -7,12 +7,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Status</h1>
+          <h1 class="m-0">Comunitty</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{ route ('admindashboard') }} ">Home</a></li>
-            <li class="breadcrumb-item active">Status</li>
+            <li class="breadcrumb-item active">Comunitty</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -20,15 +20,19 @@
   </div>
   <!-- /.content-header -->
 <div class="container">
+    <div class="d-flex justify-content-end mb-3">
+        <a href="#" class="btn btn-success" role="button" data-toggle="modal" data-target="#comunittyModal">
+            <i class="nav-icon fa-solid fa-plus"></i>
+            Tambah
+        </a>
+    </div>
     <div class="card">
         <div class="card-body">
             <table id="table" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
-                        <th>Nama kategori</th>
-                        <th>Status</th>
-                        <th>Pertanyaan</th>
+                        <th>Comunitty name</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -36,17 +40,17 @@
             </table>
         </div>
     </div>
-    </div>
+</div>
 </div>
 
-@include('Admin.status.modal')
+@include('Admin.comunitty.modal')
 
 @endsection
 
 @push('script')
 
 
-<script>
+{{-- <script>
 
   let table; 
 
@@ -82,4 +86,4 @@
     // }
   </script>
 
-@endpush
+@endpush --}}

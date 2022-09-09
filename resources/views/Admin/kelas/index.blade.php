@@ -11,7 +11,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route ('admindashboard') }} ">Home</a></li>
             <li class="breadcrumb-item active">Kelas</li>
           </ol>
         </div><!-- /.col -->
@@ -20,6 +20,7 @@
   </div>
   <!-- /.content-header -->
 <div class="container">
+  <div class="card">
     <div class="d-flex justify-content-end mb-3">
         <a href="#" class="btn btn-success" role="button" data-toggle="modal" data-target="#tambahKelas">
             <i class="nav-icon fa-solid fa-plus"></i>
@@ -57,7 +58,7 @@
             </table>
         </div>
     </div>
-</div>
+  </div>
 </div>
 
 @include('Admin.kelas.modal')
@@ -67,7 +68,7 @@
 @push('script')
 
 
-<script>
+{{-- <script>
 
   let table; 
 
@@ -103,4 +104,4 @@
     // }
   </script>
 
-@endpush
+@endpush --}}

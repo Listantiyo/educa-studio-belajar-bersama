@@ -11,7 +11,15 @@
         <div class="modal-body">
           <form action="" method="POST">
             <div class="form-group">
-                <label for="">Nama Mata Pelajaran*</label>
+                <label for="">Id</label>
+                <input type="text" class="form-control">
+            </div>
+          </form>
+        </div>
+        <div class="modal-body">
+          <form action="" method="POST">
+            <div class="form-group">
+                <label for="">Nama Mapel</label>
                 <input type="text" class="form-control">
             </div>
           </form>

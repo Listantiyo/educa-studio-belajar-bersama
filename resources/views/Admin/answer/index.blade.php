@@ -7,12 +7,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Status</h1>
+          <h1 class="m-0">Jawaban</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{ route ('admindashboard') }} ">Home</a></li>
-            <li class="breadcrumb-item active">Status</li>
+            <li class="breadcrumb-item active">Jawaban</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -27,8 +27,8 @@
                     <tr>
                         <th>Id</th>
                         <th>Nama kategori</th>
-                        <th>Status</th>
                         <th>Pertanyaan</th>
+                        <th>Jawaban</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -36,17 +36,15 @@
             </table>
         </div>
     </div>
-    </div>
 </div>
-
-@include('Admin.status.modal')
+</div>
 
 @endsection
 
 @push('script')
 
 
-<script>
+{{-- <script>
 
   let table; 
 
@@ -82,4 +80,4 @@
     // }
   </script>
 
-@endpush
+@endpush --}}

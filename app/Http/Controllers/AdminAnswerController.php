@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminStatusController extends Controller
+class AdminAnswerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class AdminStatusController extends Controller
      */
     public function index()
     {
-        return view('Admin.status.index',compact('status'));
+        return view('Admin.answer.index',compact('answer'));
     }
 
     /**

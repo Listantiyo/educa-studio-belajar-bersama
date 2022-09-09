@@ -67,7 +67,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('kelas') }} " class="nav-link">
+          <a href="{{ route ('status') }} " class="nav-link">
             <i class="nav-icon fas fa-shield-alt"></i>
             <p>
               Status
@@ -75,7 +75,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="pages/widgets.html" class="nav-link">
+          <a href="{{ route ('answer') }} " class="nav-link">
             <i class="nav-icon fas fa-voicemail"></i>
             <p>
               Jawaban
@@ -83,7 +83,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="pages/widgets.html" class="nav-link">
+          <a href="{{ route ('comunitty') }} " class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
               Comunity

@@ -65,3 +65,12 @@ Route::get('/adminmapel','AdminMapelController@index')->name('matapelajaran');
 // User
 Route::get('/adminuser','AdminUserController@index')->name('user');
 
+// Status
+Route::get('/adminstatus','AdminStatusController@index')->name('status');
+
+// Comunitty
+Route::get('/admincomunitty','AdminComunittyController@index')->name('comunitty');
+
+// Answer
+Route::get('/adminanswer','AdminAnswerController@index')->name('answer');
+

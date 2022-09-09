@@ -11,7 +11,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route ('admindashboard') }} ">Home</a></li>
             <li class="breadcrumb-item active">Mapel</li>
           </ol>
         </div><!-- /.col -->
@@ -22,7 +22,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header d-flex justify-content-end">
-            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#tambahMapel">
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#mapelModal">
                 <i class="nav-icon fa-solid fa-plus"></i>
                 Tambah
             </a>

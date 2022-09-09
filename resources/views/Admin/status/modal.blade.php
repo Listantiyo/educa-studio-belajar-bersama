@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="askModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -19,7 +19,7 @@
         <div class="modal-body">
           <form action="" method="POST">
             <div class="form-group">
-                <label for="">Id user</label>
+                <label for="">Id</label>
                 <input type="text" class="form-control" name="" id="" rows="3"></textarea>
             </div>
           </form>
@@ -35,11 +35,19 @@
         <div class="modal-body">
           <form action="" method="POST">
             <div class="form-group">
-                <label for="">Pertanyaan</label>
+                <label for="">Status</label>
                 <input type="text" class="form-control" name="" id="" rows="3"></textarea>
             </div>
           </form>
         </div>
+        <div class="modal-body">
+            <form action="" method="POST">
+              <div class="form-group">
+                  <label for="">Pertanyaan</label>
+                  <input type="text" class="form-control" name="" id="" rows="3"></textarea>
+              </div>
+            </form>
+          </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>

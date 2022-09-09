@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="askModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -19,7 +19,7 @@
         <div class="modal-body">
           <form action="" method="POST">
             <div class="form-group">
-                <label for="">Id user</label>
+                <label for="">Nama</label>
                 <input type="text" class="form-control" name="" id="" rows="3"></textarea>
             </div>
           </form>
@@ -27,7 +27,7 @@
         <div class="modal-body">
           <form action="" method="POST">
             <div class="form-group">
-                <label for="">Nama kategori</label>
+                <label for="">Email</label>
                 <input type="text" class="form-control" name="" id="" rows="3"></textarea>
             </div>
           </form>
@@ -35,7 +35,7 @@
         <div class="modal-body">
           <form action="" method="POST">
             <div class="form-group">
-                <label for="">Pertanyaan</label>
+                <label for="">Level</label>
                 <input type="text" class="form-control" name="" id="" rows="3"></textarea>
             </div>
           </form>
