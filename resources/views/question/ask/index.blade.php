@@ -30,24 +30,12 @@
                             Chose tags
                         </button>
                     </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse row" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body col">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">checkbox</label>
-                              </div>
-                        </div>
-                        <div class="accordion-body col">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">checkbox</label>
-                              </div>
-                        </div>
-                        <div class="accordion-body col">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">checkbox</label>
-                              </div>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body d-flex row mx-0">
+                            <div class="custom-control custom-checkbox col-3 pt-2">
+                                <input type="checkbox" class="custom-control-input" id="customCheck5">
+                                <label class="custom-control-label" for="customCheck5">checkbox</label>
+                            </div>
                         </div>
                     </div>
                 </div>
