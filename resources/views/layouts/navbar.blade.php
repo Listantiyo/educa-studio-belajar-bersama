@@ -10,7 +10,6 @@
             </div>
         </div>
     </div>
-
     <div class="desktop-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
@@ -130,12 +129,12 @@
                                 </form>
                             </li>
                             <li>
-                                <a href="log-in.html" data-bs-toggle="modal" data-bs-target="#exampleModal-3" class="active">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-3" class="active">
                                     Log in	
                                 </a>
                             </li>
                             <li>
-                                <a href="sign-up.html" data-bs-toggle="modal" data-bs-target="#exampleModal-4">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-4">
                                     Sign up
                                 </a>
                             </li>
@@ -146,3 +145,6 @@
         </div>
     </div>
 </div>
+
+@include('auth.login')
+@include('auth.register')

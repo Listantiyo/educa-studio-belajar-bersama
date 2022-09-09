@@ -18,14 +18,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/my','XampleController@my');
+// Route::get('/my','XampleController@my');
 Route::get('/ex', function () {
     return view('ex_edit.index'); 
 });
 
+// API Menu
+Route::get('menu/show','HomeController@show');
+Route::post('menu/store','HomeController@store');
+Route::put('menu/update','HomeController@update');
+Route::delete('menu/delete','HomeController@delete');
+
+// ----------------------------------------------------------
+
 // Route::get('/data/filter','DashboardController@filter');
 
-Route::get('/data/search','XampleController@search');
+// Route::get('/data/search','XampleController@search');
 
 // API Profile
 Route::get('/data/profile/question','ProfileController@showQuest');

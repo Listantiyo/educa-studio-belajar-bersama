@@ -44,14 +44,14 @@
                             <div class="donet-like-list">
                                 <button class="like-unlink-count like">
                                     <i class="ri-thumb-up-fill"></i>
-                                    <span>50</span>
+                                    <span>@{{quest.like}}</span>
                                 </button>
                             </div>
 
                             <div class="donet-like-list">
                                 <button class="like-unlink-count dislike">
                                 <i class="ri-thumb-down-fill"></i>
-                                    <span>25</span>
+                                    <span>@{{quest.dislike}}</span>
                                 </button>
                             </div>
                         </div>
@@ -74,11 +74,11 @@
 
                             <h3>
                                 <a href="queations-details.html">
-                                    @{{quest.question}}
+                                    @{{quest.title}}
                                 </a>
                             </h3>
 
-                            <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
+                            <p>@{{quest.question.length < 100 ? quest.question : quest.question.substring(0.10)+"..." }}</p>
 
                             <ul class="tag-list">
                                 <li>
@@ -192,11 +192,11 @@
 
                             <h3>
                                 <a href="queations-details.html">
-                                    @{{questmo.question}}
+                                    @{{questmo.title}}
                                 </a>
                             </h3>
 
-                            <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
+                            <p>@{{questmo.question.length < 100 ? questmo.question : questmo.question.substring(0.10)+"..." }}</p>
 
                             <ul class="tag-list">
                                 <li>
@@ -324,7 +324,7 @@
 
                             <h3>
                                 <a href="queations-details.html">
-                                    @{{questun.question}}
+                                    @{{questun.title}}
                                 </a>
                             </h3>
 
@@ -409,7 +409,7 @@
             </div>
 
             <div class="tab-pane fade" id="featured-question" role="tabpanel" aria-labelledby="featured-question-tab">
-                <div class="single-qa-box like-dislike">
+                <div v-for="questfe in quest_featur" class="single-qa-box like-dislike">
                     <div class="d-flex">
                         <div class="link-unlike flex-shrink-0">
                             <a href="user.html">
@@ -449,11 +449,11 @@
 
                             <h3>
                                 <a href="queations-details.html">
-                                    If you open Illustrator by dragging the Photoshop file, why it becomes a JPG file
+                                    @{{questfe.title}}
                                 </a>
                             </h3>
 
-                            <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
+                            <p> @{{questfe.question.length < 100 ? questfe.question : questfe.question.substring(0.10)+"..." }}</p>
 
                             <ul class="tag-list">
                                 <li>

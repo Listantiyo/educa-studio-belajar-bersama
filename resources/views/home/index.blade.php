@@ -10,7 +10,7 @@
 							<h1>Pify</h1>
 							<h3>Share & grow the world's <span>knowledge</span>!</h3>
 							<p>We want to connect with people who will share their knowledge from one person to another.</p>
-							<a href="user.html" class="default-btn">
+							<a {{-- href="user.html" --}} class="default-btn">
 								Create a free team
 							</a>
 						</div>
@@ -48,15 +48,6 @@
 @endsection
 
 @push('scripts')
-  
-<script>
-	$(document).ready(function () {
-		$("#btnn").click(function (e) { 
-		e.preventDefault();
-		alert()
-	});
-	});
-</script>
 
 <script>
 	const { createApp } = Vue
@@ -78,10 +69,11 @@
             var dt ='';
             
             $(document).ready(function (e) {
-            
+				// load all question
                 ajax = $.ajax({
-                    url: "/api/data/question",
+                    url: "/api/menu/show",
                     success: function(rsp){
+						
                         vues.quest = rsp.question_all ;
                         vues.quest_most = rsp.question_most ;
                         vues.quest_unans = rsp.question_unans ;

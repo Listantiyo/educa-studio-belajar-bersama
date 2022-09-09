@@ -67,6 +67,7 @@
 		<!-- End Go Top Area -->
 
         <!-- Links of JS File -->
+		<script src="{{asset('vue/vue.global.js') }}"></script>
         <script src="{{asset('pify/assets/js/jquery.min.js')}}"></script>
         <script src="{{asset('pify/assets/js/bootstrap.bundle.min.js')}}"></script>
 		<script src="{{asset('pify/assets/js/meanmenu.min.js')}}"></script>
@@ -78,5 +79,7 @@
 		<script src="{{asset('pify/assets/js/editor.js')}}"></script>
 		<script src="{{asset('pify/assets/js/like-dislike.min.js')}}"></script>
 		<script src="{{asset('pify/assets/js/custom.js')}}"></script>
+
+		@stack('scripts')
     </body>
 </html>

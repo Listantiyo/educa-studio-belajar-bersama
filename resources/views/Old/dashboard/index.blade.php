@@ -108,7 +108,7 @@
             $(document).ready(function (e) {
             
                 ajax = $.ajax({
-                    url: "/api/data/question",
+                    url: "{{route('menu.show')}}",
                     success: function(rsp){
                         vues.quest = rsp ;
                         
