@@ -53,7 +53,7 @@ class QuestionController extends Controller
 
         $quest = new Question();
         
-        return $quest;
+        return $path;
     }
 
     /**
