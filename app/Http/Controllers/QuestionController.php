@@ -49,11 +49,23 @@ class QuestionController extends Controller
            ]);
         $name = $request->file('image')->getClientOriginalName();
         
-        $path = $request->file('image')->store('public/photos');
+        $path = $request->file('image')->store('photos');
 
         $quest = new Question();
-        
-        return $path;
+
+        $quest->id_user_dil = 1;
+        // $quest->id_user_dil = $request->user_id;
+        // $quest->id_type = $request->type;
+        $quest->id_category = $request->category;
+        $quest->title = $request->title;
+        $quest->question = $request->text;
+        $quest->tags = $request->tag;
+        $quest->image = $name;
+        $quest->path_img = $path;
+
+        $quest -> save();
+
+        return "success";
     }
 
     /**

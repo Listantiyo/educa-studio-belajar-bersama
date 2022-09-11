@@ -16,15 +16,15 @@ class Questions extends Migration
         Schema::create('tbl_questions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user_dil');
-            $table->integer('id_type');
-            $table->integer('id_kategori');
+            $table->integer('id_type')->default(1);
+            $table->integer('id_category');
             $table->string('title');
-            $table->string('question');
+            $table->text('question');
             $table->string('tags');
-            $table->integer('like');
-            $table->integer('dislike');
-            $table->integer('votes');
-            $table->string('images')->nullable();
+            $table->integer('like')->default(0);
+            $table->integer('dislike')->default(0);
+            $table->integer('votes')->default(0);
+            $table->string('image')->nullable();
             $table->string('path_img')->nullable();
             $table->timestamps();
         });

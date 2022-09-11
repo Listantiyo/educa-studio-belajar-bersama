@@ -88,16 +88,115 @@
                                     </button>
                                 </form>
                             </li>
-                            <li>
-                                <a href="log-in.html" data-bs-toggle="modal" data-bs-target="#exampleModal" class="active">
-                                    Log in	
-                                </a>
-                            </li>
-                            <li>
-                                <a href="sign-up.html" data-bs-toggle="modal" data-bs-target="#exampleModal-2">
-                                    Sign up
-                                </a>
-                            </li>
+
+                            @auth
+                                <li>
+                                    <a href="faq.html" class="user-noti">
+                                        <i class="ri-question-line"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="dropdown">
+                                        <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="user-notif">
+                                            <i class="ri-notification-3-fill"></i>
+                                            <span>3</span>
+                                        </button>
+                                        <ul class="dropdown-menu notif" aria-labelledby="dropdownMenuButton1">
+                                            <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ri-mail-line"></i>
+                                                    Check your mail
+                                                </a>
+                                                <p>Lorem, ipsum dolor sit amet</p>
+                                            </li>
+                                            <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ri-skype-line"></i>
+                                                    Check your skype
+                                                </a>
+                                                <p>Lorem, ipsum dolor sit amet</p>
+                                            </li>
+                                            <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ri-refresh-line"></i>
+                                                    Update your profile
+                                                </a>
+                                                <p>Lorem, ipsum dolor sit amet</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dropdown">
+                                        <button type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="assets/images/user/user-48.jpg" alt="Image">
+                                            <span>Rosemary</span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                            <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ri-user-line"></i>
+                                                    User profile
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="edit-profile.html">
+                                                    <i class="ri-settings-2-line"></i>
+                                                    Setting
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="activity.html">
+                                                    <i class="ri-lightbulb-line"></i>
+                                                    Activity
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="user-groups.html">
+                                                    <i class="ri-group-line"></i>
+                                                    Group
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="user-ask-questions.html">
+                                                    <i class="ri-questionnaire-line"></i>
+                                                    Ask questions
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="best-answered.html">
+                                                    <i class="ri-question-answer-line"></i>
+                                                    Best Answers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="referrals.html">
+                                                    <i class="ri-restart-line"></i>
+                                                    Referrals
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="index.html">
+                                                    <i class="ri-logout-box-r-line"></i>
+                                                    Log out
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            @else                        
+                                <li>
+                                    <a href="log-in.html" data-bs-toggle="modal" data-bs-target="#exampleModal" class="active">
+                                        Log in	
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="sign-up.html" data-bs-toggle="modal" data-bs-target="#exampleModal-2">
+                                        Sign up
+                                    </a>
+                                </li>
+                            @endauth
+
                         </ul>
                     </div>
                 </div>

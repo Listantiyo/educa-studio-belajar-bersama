@@ -67,21 +67,21 @@
 @endsection
 
 @push('scripts')
-<script>
-    $(document).ready(() => {
-        $("#file-2").change(function () {
-            const file = this.files[0];
-            if (file) {
-                let reader = new FileReader();
-                reader.onload = function (event) {
-                    $("#imgPreview")
-                      .attr("src", event.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
+    <script>
+        $(document).ready(() => {
+            $("#file-2").change(function () {
+                const file = this.files[0];
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function (event) {
+                        $("#imgPreview")
+                        .attr("src", event.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
         });
-    });
-</script>
+    </script>
     <script>
         const { createApp } = Vue
         const vues = createApp({
