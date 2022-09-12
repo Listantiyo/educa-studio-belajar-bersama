@@ -78,6 +78,7 @@
                         vues.quest_most = rsp.question_most ;
                         vues.quest_unans = rsp.question_unans ;
                         vues.quest_featur = rsp.question_feature ;
+						vues.id = rsp.id ;
                         
                     }
                  }); 
@@ -96,6 +97,7 @@
                         vues.quest_most = rsp.question_most ;
                         vues.quest_unans = rsp.question_unans ;
                         vues.quest_featur = rsp.question_feature ;
+                        vues.id = rsp.id ;
                         
                     }
                  }); 

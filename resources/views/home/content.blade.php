@@ -77,7 +77,7 @@
                                 </a>
                             </h3>
 
-                            <p>@{{quest.question.length < 100 ? quest.question : quest.question.substring(0.10)+"..." }}</p>
+                            <p>@{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }}</p>
 
                             <ul class="tag-list">
                                 <li>
@@ -195,7 +195,7 @@
                                 </a>
                             </h3>
 
-                            <p>@{{questmo.question.length < 100 ? questmo.question : questmo.question.substring(0.10)+"..." }}</p>
+                            <p>@{{questmo.question.length < 100 ? questmo.question : questmo.question.substring(0,250)+"..." }}</p>
 
                             <ul class="tag-list">
                                 <li>
@@ -452,7 +452,7 @@
                                 </a>
                             </h3>
 
-                            <p> @{{questfe.question.length < 100 ? questfe.question : questfe.question.substring(0.10)+"..." }}</p>
+                            <p> @{{questfe.question.length < 100 ? questfe.question : questfe.question.substring(0,250)+"..." }}</p>
 
                             <ul class="tag-list">
                                 <li>
