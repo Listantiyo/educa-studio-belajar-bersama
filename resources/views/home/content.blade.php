@@ -5,7 +5,7 @@
             <input type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
             <button class="aq-btn">
                 Ask Question
-            </button>
+            </button>       
         </form>
 
         <ul class="nav nav-tabs questions-tabs d-flex justify-content-between" id="myTab" role="tablist">
