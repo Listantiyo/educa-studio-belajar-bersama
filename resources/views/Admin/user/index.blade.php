@@ -28,6 +28,7 @@
                         <th>Id</th>
                         <th>Nama</th>
                         <th>Email</th>
+                        <th>Password</th>
                         <th>Level</th>
                         <th>Aksi</th>
                     </tr>
@@ -38,15 +39,14 @@
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->password }}</td>
                             <td>{{ $user->level }}</td>
                             <td class="d-flex justify-content-center">
-                                <a href="#" class="btn btn-sm btn-warning mr-2">
+                                <a href="#" class="btn btn-sm btn-warning mr-2" data-myname="{{ $user->name }}" data-myemail="{{ $user->email }}" data-mypw="{{ $user->password }}" data-toggle="modal" data-target="#editUser">
                                     <i class="nav-icon fa-solid fa-pen-to-square"></i>
-                                    Edit
                                 </a>
                                 <a href="#" class="btn btn-sm btn-danger">
                                     <i class="nav-icon fa-solid fa-trash"></i>
-                                    Hapus
                                 </a>
                             </td>
                         </tr>

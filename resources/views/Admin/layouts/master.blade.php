@@ -90,6 +90,9 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('Admin/dist/js/pages/dashboard.js')}}"></script>
 <script src="{{asset('Admin/dist/js/jquery.dataTables.min.js')}}"></script>
+<script src="https://kit.fontawesome.com/7f8292fccf.js" crossorigin="anonymous"></script>
+
+
 @stack('script')
 </body>
 </html>

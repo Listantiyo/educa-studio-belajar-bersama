@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comunities;
 
 class AdminComunittyController extends Controller
 {
@@ -13,7 +14,7 @@ class AdminComunittyController extends Controller
      */
     public function index()
     {
-        return view('Admin.comunitty.index',compact('comunitty'));
+        return view('Admin.comunitty.index',compact('Comunities'));
     }
 
     /**

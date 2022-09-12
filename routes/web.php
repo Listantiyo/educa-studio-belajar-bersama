@@ -57,14 +57,19 @@ Route::get('/home', 'AuthController@index')->name('home');
 Route::get('/admindashboard','AdminDashboardController@index')->name('admindashboard');
 Route::get('/adminquestion','AdminQuestionController@index')->name('adminquest');
 
-// Kelas
-Route::get('/adminkelas','AdminKelasController@index')->name('kelas');
+// // Kelas
+// Route::get('/adminkelas','AdminKelasController@index')->name('kelas');
 
-// Mapel
-Route::get('/adminmapel','AdminMapelController@index')->name('matapelajaran');
+// // Mapel
+// Route::get('/adminmapel','AdminMapelController@index')->name('matapelajaran');
+
+// Category
+Route::get('/admincategory','AdminCategoryController@index')->name('category');
 
 // User
 Route::get('/adminuser','AdminUserController@index')->name('user');
+Route::get('/adminuser/{adminuser}/edit','AdminUserController@edit')->name('editUser');
+Route::put('/adminuser/update/','AdminUserController@update');
 
 // Status
 Route::get('/adminstatus','AdminStatusController@index')->name('status');

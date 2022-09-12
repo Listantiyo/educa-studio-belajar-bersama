@@ -51,7 +51,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('matapelajaran') }}" class="nav-link">
+          <a href="{{ route ('category') }}" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Category
