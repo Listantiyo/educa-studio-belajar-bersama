@@ -55,11 +55,11 @@
                             </div>
 						</div>
 
-						{{-- <div class="col-12">
+						<div class="col-12">
                             <div class="form-group">
-                                <input id="password-confirm" type="password" class="form-control rounded-pill" name="password_confirmation" placeholder="Confirm Password" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
                             </div>
-						</div> --}}
+						</div>
 		
 						<div class="col-12">
 							<div class="login-action">

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Categories extends Migration
+class Communities extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class Categories extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_categories', function (Blueprint $table) {
+        Schema::create('tbl_communities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('category')->unique();
+            $table->string('community')->unique();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class Categories extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_categories');
+        Schema::dropIfExists('tbl_communities');
     }
 }

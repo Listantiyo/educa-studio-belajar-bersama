@@ -7,14 +7,14 @@
         </div>
 
         <div class="right-siderbar-common">
-            <div class="category">
+            <div class="category-communities">
                 <h3>
                     <i class="ri-list-unordered"></i>
-                    Categories
+                    Communities
                 </h3>
 
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Select category</option>
+                    <option selected>Select Communities</option>
                     <option value="1">Discussion</option>
                     <option value="2">Language</option>
                     <option value="3">Analytics</option>

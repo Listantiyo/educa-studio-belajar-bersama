@@ -45,21 +45,28 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024'
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:1024'
            ]);
-        $name = $request->file('image')->getClientOriginalName();
-        
-        $path = $request->file('image')->store('photos');
 
+        if ($request->hasFile('image')) {
+
+            $name = $request->file('image')->getClientOriginalName();
+            
+            $path = $request->file('image')->store('photos');
+        }else{
+            $name=null;
+            $path=null;
+        }
+            
         $quest = new Question();
 
         $quest->id_user_dil = 1;
         // $quest->id_user_dil = $request->user_id;
         // $quest->id_type = $request->type;
-        $quest->id_category = $request->category;
+        $quest->id_comunity = $request->community;
         $quest->title = $request->title;
         $quest->question = $request->text;
-        $quest->tags = $request->tag;
+        $quest->tags = $request->tag.',';
         $quest->image = $name;
         $quest->path_img = $path;
 

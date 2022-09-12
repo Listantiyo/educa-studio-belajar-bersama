@@ -10,22 +10,22 @@
 
         <ul class="nav nav-tabs questions-tabs d-flex justify-content-between" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="recent-questions-tab" data-bs-toggle="tab" data-bs-target="#recent-questions" type="button" role="tab" aria-controls="recent-questions" aria-selected="true">
+                <button class="nav-link active" @click="filterQuest(1)" id="recent-questions-tab" data-bs-toggle="tab" data-bs-target="#recent-questions" type="button" role="tab" aria-controls="recent-questions" aria-selected="true">
                     Recent Questions
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="most-answered-tab" data-bs-toggle="tab" data-bs-target="#most-answered" type="button" role="tab" aria-controls="most-answered" aria-selected="false">
+                <button class="nav-link" @click="filterQuest(2)" id="most-answered-tab" data-bs-toggle="tab" data-bs-target="#most-answered" type="button" role="tab" aria-controls="most-answered" aria-selected="false">
                     Most Answered 
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="unanswered-question-tab" data-bs-toggle="tab" data-bs-target="#unanswered-question" type="button" role="tab" aria-controls="unanswered-question" aria-selected="false">
+                <button class="nav-link" @click="filterQuest(3)" id="unanswered-question-tab" data-bs-toggle="tab" data-bs-target="#unanswered-question" type="button" role="tab" aria-controls="unanswered-question" aria-selected="false">
                     Unanswered Question
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="featured-question-tab" data-bs-toggle="tab" data-bs-target="#featured-question" type="button" role="tab" aria-controls="featured-question" aria-selected="false">
+                <button class="nav-link" @click="filterQuest(4)" id="featured-question-tab" data-bs-toggle="tab" data-bs-target="#featured-question" type="button" role="tab" aria-controls="featured-question" aria-selected="false">
                     Featured Question
                 </button>
             </li>

@@ -23,6 +23,13 @@
 		<link rel="icon" type="image/png" href="assets/images/favicon.png">
 		<!-- Title -->
 		<title>Pify - Social Questions & Answers HTML Template</title>
+
+		<style>
+			.global-radius{
+				border-radius:0.2rem !important; 
+			}
+		</style>
+
     </head>
 
     <body>

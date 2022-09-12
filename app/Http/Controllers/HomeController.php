@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Home;
+use App\Homes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -45,11 +45,11 @@ class HomeController extends Controller
      * @param  \App\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function show(Home $home)
+    public function show(Request $request)
     {
         $question_all = DB::table('tbl_questions')->get();    
-        $question_most = DB::table('tbl_questions')->where('id_type',1)->get();    
-        $question_unans = DB::table('tbl_questions')->where('id_type',2)->get();    
+        $question_most = DB::table('tbl_questions')->where('id_type',2)->get();    
+        $question_unans = DB::table('tbl_questions')->where('id_type',1)->get();    
         $question_feature = DB::table('tbl_questions')->where('like','>', 1)->get();    
 
         return compact('question_all','question_most','question_unans','question_feature');

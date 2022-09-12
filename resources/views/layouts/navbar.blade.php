@@ -176,7 +176,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="index.html">
+                                                <a href="" onclick="event.preventDefault(); $('#logout').submit();">
                                                     <i class="ri-logout-box-r-line"></i>
                                                     Log out
                                                 </a>
@@ -314,7 +314,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="index.html">
+                                                <a href="" onclick="event.preventDefault(); $('#logout').submit();">
                                                     <i class="ri-logout-box-r-line"></i>
                                                     Log out
                                                 </a>
@@ -355,3 +355,7 @@
 
 @include('auth.login')
 @include('auth.register')
+
+<form style="display:none;" id="logout" action="{{route('logout')}}" method="post">
+    {{ csrf_field() }}
+</form>

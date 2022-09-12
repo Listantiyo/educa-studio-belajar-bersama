@@ -85,8 +85,9 @@
             });
             
         },methods: {
-
-
+			filterQuest(id){
+				alert(id)
+			}
         },
     }).mount('#app') 
 </script>

@@ -9,15 +9,20 @@
             </div>
             <div class="form-group">
                 <label>Title</label>
-                <input type="text" class="form-control" name="title">
+                <input type="text" class="form-control global-radius" name="title">
             </div>
             <div class="form-group">
-                <label>Category</label>
+                <label>Communities</label>
 
-                <select class="form-select form-control" name="category" aria-label="Default select example">
-                    <option selected disabled>Selete cagegory</option>
-                    <option value="1">One</option>
-                </select>
+                <div class="input-group mb-3">
+                    {{-- <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"> --}}
+                    <select class="form-select form-select-md" name="community" aria-label="Default select example">
+                        <option selected disabled>Select Communities</option>
+                        <option value="1">Public</option>
+                        <option value="1">One</option>
+                    </select>
+                    <a href="{{route('communities')}}" class="input-group-text" id="basic-addon2">Go To Comunities</a>
+                </div>
             </div>
 
             <div class="form-group accordions">
@@ -59,7 +64,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="default-btn">Post your answer</button>
+                <button type="submit" class="default-btn global-radius">Post your answer</button>
             </div>
         </form>
     </div>
@@ -114,10 +119,9 @@
 
             $("#ask").submit(function (e) { 
                 e.preventDefault();
-                let text = $(".Editor-editor").html();
+                let text = $("#txtEditor").Editor("getText"); 
                 let data = new FormData(this)
                 data.append('text', text);
-            
                 $.ajax({
                     type: "POST",
                     url: "api/quest/store",

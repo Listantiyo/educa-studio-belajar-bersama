@@ -126,7 +126,28 @@
 
 	// TxtEditor JS
 	$(document).ready(function() {
-		$("#txtEditor").Editor();    
+		$("#txtEditor").Editor({
+			'insert_img':false,
+			'justify':false,
+			'insert_link':false,
+			'unlink':false,
+			'insert_table':false,
+			'insertoptions' :false,
+			'advancedoptions' :false,
+			'print':false,
+			'select_all':false,
+			'rm_format':false,
+			'strikeout':false,
+			'hr_line':false,
+			'aligneffects':false,
+			'c_align':false,
+			'r_align':false,
+			'l_align':false,
+			'indent':false,
+			'outdent':false,
+			'block_quote':false,
+			'source':false,
+		});    
 	});
 
 	// Partner Slide JS
