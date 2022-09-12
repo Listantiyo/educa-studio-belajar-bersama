@@ -59,8 +59,7 @@
                 quest_most :'',
                 quest_unans :'',
                 quest_featur :'',
-                classe :'dfgh',
-                type  : [],
+                id  : '',
             }
         },mounted() {
 
@@ -72,6 +71,7 @@
 				// load all question
                 ajax = $.ajax({
                     url: "/api/menu/show",
+					data: 'id='+1,
                     success: function(rsp){
 						
                         vues.quest = rsp.question_all ;
@@ -87,6 +87,18 @@
         },methods: {
 			filterQuest(id){
 				alert(id)
+				$.ajax({
+                    url: "/api/menu/show",
+					data:{id:id},
+                    success: function(rsp){
+						
+                        vues.quest = rsp.question_all ;
+                        vues.quest_most = rsp.question_most ;
+                        vues.quest_unans = rsp.question_unans ;
+                        vues.quest_featur = rsp.question_feature ;
+                        
+                    }
+                 }); 
 			}
         },
     }).mount('#app') 

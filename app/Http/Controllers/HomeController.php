@@ -47,12 +47,21 @@ class HomeController extends Controller
      */
     public function show(Request $request)
     {
-        $question_all = DB::table('tbl_questions')->get();    
-        $question_most = DB::table('tbl_questions')->where('id_type',2)->get();    
-        $question_unans = DB::table('tbl_questions')->where('id_type',1)->get();    
-        $question_feature = DB::table('tbl_questions')->where('like','>', 1)->get();    
+        $id = $request->id;
+        if ($id == 1) {
+            $question_all = DB::table('tbl_questions')->get(); 
+        }
+        if ($id == 2) {
+            $question_most = DB::table('tbl_questions')->where('id_type',2)->get();    
+        }
+        if ($id == 3) {
+            $question_unans = DB::table('tbl_questions')->where('id_type',1)->get();   
+        }
+        if ($id == 4) {
+            $question_feature = DB::table('tbl_questions')->where('like','>', 1)->get();  
+        }
 
-        return compact('question_all','question_most','question_unans','question_feature');
+        return compact('question_all','question_most','question_unans','question_feature','id');
     }
 
     /**
