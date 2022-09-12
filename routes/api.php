@@ -53,6 +53,7 @@ Route::post('/data/store/coment','AnswerController@storeComent');
 Route::post('/data/show/coment','AnswerController@showComment');
 
 // ADMIN
+Route::post('/adminuser/update/','AdminUserController@update');
 
 // Question
 Route::get('/data/admin/quest','AdminQuestionController@showQuest');

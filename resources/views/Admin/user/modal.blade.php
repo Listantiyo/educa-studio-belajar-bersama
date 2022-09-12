@@ -13,15 +13,11 @@
           <div class="modal-body">
             <div class="form-group">
                 <label>Nama :</label>
-                <input type="text" class="form-control" id="name" required>
+                <input type="text" name="nama" class="form-control" id="name" required>
             </div>
             <div class="form-group">
                 <label>Email :</label>
-                <input type="email" class="form-control" id="email" required>
-            </div>
-            <div class="form-group">
-              <label for="">Password :</label>
-              <input type="text" class="form-control" id="pass" required>
+                <input type="email" name="email" class="form-control" id="email" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -35,25 +31,30 @@
 
 @push('script')
   <script>
+    var id;
     $('#editUser').on('show.bs.modal', function (event) {
 
       console.log('Modal open');
     var button = $(event.relatedTarget)
     var name = button.data('myname') 
     var email = button.data('myemail')
-    var password = button.data('mypw')
+        id = button.data('id')
 
     var modal = $(this)
     modal.find('.modal-body #name').val(name);
     modal.find('.modal-body #email').val(email);
-    modal.find('.modal-body #pass').val(password);
   })
 
   $(document).ready(function () {
     $("#form").submit(function (e) { 
       e.preventDefault();
-      let data = $(this).serialize();
-      console.log(data);
+      let inpu = $(this).serialize();
+      // console.log(inpu+'&id='+id);
+      $.post("api/adminuser/update/", inpu+'&id='+id,
+        function (data) {
+          alert(data)
+        },
+      );
 
     });
   });

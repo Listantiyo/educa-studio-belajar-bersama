@@ -70,7 +70,17 @@ class AdminUserController extends Controller
      */
     public function update(Request $request)
     {
-        dd($request->all());
+        $id = $request->id;
+        $nama = $request->nama;
+        $email = $request->email;
+
+
+        $user = User::find($id);
+        $user->name = $nama;
+        $user->email = $email;
+
+        $user->update();
+        return "success";
     }
 
     /**

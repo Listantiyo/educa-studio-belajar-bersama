@@ -69,7 +69,6 @@ Route::get('/admincategory','AdminCategoryController@index')->name('category');
 // User
 Route::get('/adminuser','AdminUserController@index')->name('user');
 Route::get('/adminuser/{adminuser}/edit','AdminUserController@edit')->name('editUser');
-Route::put('/adminuser/update/','AdminUserController@update');
 
 // Status
 Route::get('/adminstatus','AdminStatusController@index')->name('status');
