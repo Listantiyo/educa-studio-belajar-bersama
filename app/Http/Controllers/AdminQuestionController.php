@@ -14,9 +14,9 @@ class AdminQuestionController extends Controller
      */
     public function index()
     {
-        // $questions = Question::all();
-        // return view('Admin.question.index',compact('questions'));
-        return view('Admin.question.index');
+        $questions = Question::all();
+        return view('Admin.question.index',compact('questions'));
+        // return view('Admin.question.index');
     }
 
     /**
@@ -95,9 +95,21 @@ class AdminQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $title = $request->title;
+        $question = $request->question;
+        $tags = $request->tags;
+        $id = $request->id;
+
+
+        $quest = Question::find($id);
+        $quest->title = $title;
+        $quest->question = $question;
+        $quest->tags = $tags;
+
+        $quest->update();
+        return "success";
     }
 
     /**

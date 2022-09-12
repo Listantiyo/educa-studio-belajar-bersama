@@ -27,61 +27,64 @@
                     <tr>
                         <th>Id</th>
                         <th>Id user</th>
-                        <th>Nama kategori</th>
+                        <th>Title</th>
                         <th>Pertanyaan</th>
+                        <th>Tags</th>
+                        <th>Like</th>
+                        <th>Dislike</th>
+                        <th>Vote</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                
+                <tbody>
+                  @foreach ( $questions as $quest)
+                      <tr>
+                          <td>{{ $loop->index + 1 }}</td>
+                          <td>{{ $quest->id_user_dil }}</td>
+                          <td>{{ $quest->title }}</td>
+                          <td>{{ $quest->question }}</td>
+                          <td>{{ $quest->tags }}</td>
+                          <td>{{ $quest->like }}</td>
+                          <td>{{ $quest->dislike }}</td>
+                          <td>{{ $quest->votes }}</td>
+                          <td class="d-flex justify-content-center">
+                              <a href="#" class="btn btn-sm btn-warning mr-2" data-id="{{ $quest->id }}" data-user="{{ $quest->id_user_dil }}" data-title="{{ $quest->title }}" data-quest="{{ $quest->question }}" data-tags="{{ $quest->tags }}" data-like="{{ $quest->like }}" data-dislike="{{ $quest->dislike }}"data-vote="{{ $quest->vote }}" data-toggle="modal" data-target="#editQuest">
+                                  <i class="nav-icon fa-solid fa-pen-to-square"></i>
+                              </a>
+                              <a onclick="deleteData({{$quest->id}})" href="#" class="btn btn-sm btn-danger">
+                                  <i class="nav-icon fa-solid fa-trash"></i>
+                              </a>
+                          </td>
+                      </tr>
+                  @endforeach
+              </tbody>
             </table>
-        </div>
-    </div>
-</div>
-</div>
+          </div>
+      </div>
+      </div>
+  </div>
+  
+  @include('Admin.question.modal')
+  
+  
+  @endsection
+  
+  
+  @push('script')
+  <script>
 
-@include('Admin.question.modal')
-
-@endsection
-
-@push('script')
-
-
-<script>
-
-  let table; 
-
-    $(document).ready( function () {
-      table =  $('#table').DataTable({
-        ajax: {
-                url: 'api/data/admin/kelas',
-            },
-            columns: [
-                {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id_user'},
-                {data: 'nama_kategori'},
-                {data: 'pertanyaan'},
-                {data: 'aksi', searchable: false, sortable: false},
-            ]
-      });
-  } );
-
-  function deleteData(id){
+    function deleteData(id){
       alert(id)
-      $.post("api/data/admin/kelas/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+      $.post("api/data/admin/quest/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
         function (data) {
           alert(data);
           table.ajax.reload();
-        },
+        }, 
       );
     }
-
-    function editData(id){
-      $('#kelasModal').modal('show');
-    }
-
-    // function tambahData(){
-    //   $('#tambahModal').modal('show');
-    // }
-  </script>
-
-@endpush
+    
+      $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );  
+    </script>
+  @endpush
