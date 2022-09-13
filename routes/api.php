@@ -58,7 +58,8 @@ Route::post('/data/show/coment','AnswerController@showComment');
 // User
 Route::get('/data/admin/user','AdminUserController@showUser');
 Route::get('/data/admin/edit','AdminUserController@dataEdit');
-Route::post('data/admin/user/update/','AdminUserController@update');
+Route::post('data/admin/user/update','AdminUserController@update');
+Route::delete('data/admin/user/delete/{id}','AdminUserController@destroy');
 
 // Question
 Route::get('/data/admin/quest','AdminQuestionController@showQuest');
