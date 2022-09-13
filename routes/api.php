@@ -63,7 +63,7 @@ Route::post('/data/admin/edit/{id}','AdminQuestionController@editQuest');
 Route::delete('/data/admin/quest/{id}','AdminQuestionController@destroy');
 
 // Answer
-Route::get('/data/admin/answer','AdminAnswerController@showQuest');
+Route::get('/data/admin/answer','AdminAnswerController@showAnswer');
 Route::post('/data/admin/edit/{id}','AdminAnswerController@editQuest');
 Route::delete('/data/admin/answer/{id}','AdminAnswerController@destroy');
 
