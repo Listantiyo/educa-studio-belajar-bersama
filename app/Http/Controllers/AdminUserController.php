@@ -45,9 +45,25 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showUser()
     {
-        //
+        $users = User::all();
+
+        return datatables()
+        ->of ($users)
+        ->addIndexColumn()
+        ->addColumn('aksi', function($users) {
+            return  '
+            <button onclick="editData(`'. $users->id .'`)" class="btn btn-sm btn-warning mr-2">
+                <i class="nav-icon fa-solid fa-pen-to-square"></i>
+            </button>
+            <button onclick="deleteData(`'. $users->id .'`)" class="btn btn-sm btn-danger">
+                <i class="nav-icon fa-solid fa-trash"></i>
+            </button>
+            ';
+        })
+        ->rawColumns(['aksi'])
+        ->make(true);
     }
 
     /**
@@ -56,9 +72,14 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function dataEdit(Request $request )
     {
-        //
+        $id = $request->user_id;
+
+        $data = User::find($id);
+
+        return $data;
+    
     }
 
     /**
@@ -91,6 +112,6 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id)->delete();
     }
 }

@@ -28,35 +28,3 @@
       </div>
     </div>
 </div>
-
-@push('script')
-  <script>
-    var id;
-    $('#editUser').on('show.bs.modal', function (event) {
-
-      console.log('Modal open');
-    var button = $(event.relatedTarget)
-    var name = button.data('myname') 
-    var email = button.data('myemail')
-        id = button.data('id')
-
-    var modal = $(this)
-    modal.find('.modal-body #name').val(name);
-    modal.find('.modal-body #email').val(email);
-  })
-
-  $(document).ready(function () {
-    $("#form").submit(function (e) { 
-      e.preventDefault();
-      let inpu = $(this).serialize();
-      // console.log(inpu+'&id='+id);
-      $.post("api/adminuser/update/", inpu+'&id='+id,
-        function (data) {
-          alert(data)
-        },
-      );
-
-    });
-  });
-  </script>
-@endpush

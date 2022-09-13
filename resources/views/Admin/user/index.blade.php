@@ -32,7 +32,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                {{-- <tbody>
                     @foreach ( $users as $user)
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
@@ -49,7 +49,7 @@
                             </td>
                         </tr>
                     @endforeach
-                </tbody>
+                </tbody> --}}
             </table>
         </div>
     </div>
@@ -64,8 +64,52 @@
 
 @push('script')
 <script>
-    $(document).ready( function () {
-      $('#myTable').DataTable();
-  } );
+    let table; /* global var */
+
+    table = $(document).ready( function () {
+        table = $('#myTable').DataTable({
+          ajax: {
+            url: 'api/data/admin/user',
+          },
+          columns: [
+            {data: 'DT_RowIndex', searchable:false, sortable:false},
+            {data: 'name'},
+            {data: 'email'},
+            {data: 'level'},
+            {data: 'aksi', searchable:false, sortable:false}
+          ]
+        });
+    } );
+
+  function editData(id){
+    $('#editUser').modal('show');
+
+    $.get("api/data/admin/edit", {'user_id':id},
+      function (data) {
+        $("input[name='nama']").val(data.name);
+        $("input[name='email']").val(data.email);
+      },
+    );
+
+    $("#form").submit(function (e) { 
+      e.preventDefault();
+      let input = $(this).serialize();
+      $.post("api/data/admin/user/update/", input+'&id='+id,
+        function (data) {
+          table.ajax.reload();
+          $('#editUser').modal('hide');
+        },
+      );
+
+    });
+  }
+
+  function deleteData(id){
+      $.post("api/data/admin/user/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+        function (data) {
+          table.ajax.reload();
+        },
+      );
+    }
   </script>
 @endpush

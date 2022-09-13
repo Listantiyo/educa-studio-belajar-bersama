@@ -72,7 +72,7 @@ class AdminQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function dataEdit($id)
     {
         //
     }
@@ -85,7 +85,7 @@ class AdminQuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
