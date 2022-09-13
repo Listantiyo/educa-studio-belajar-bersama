@@ -36,8 +36,8 @@ class AdminTagController extends Controller
      */
     public function editTag($id)
     {
-        $qs = Tags::find()->pluck('tags');
-        return "ssssssss";
+        // $qs = Tags::find()->pluck('tags');
+        // return "ssssssss";
 
 
     }
@@ -71,6 +71,16 @@ class AdminTagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function dataEdit(Request $request )
+    {
+        $id = $request->tag_id;
+
+        $data = Tags::find($id);
+
+        return $data;
+    
+    }
+    ///////////////////////////
     public function show($id)
     {
         //
@@ -94,9 +104,16 @@ class AdminTagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->id;
+        $joko = $request->tags;
+
+        $tags = Tags::find($id);
+        $tags->tag = $joko;
+
+        $tags->update();
+        return "success";
     }
 
     /**

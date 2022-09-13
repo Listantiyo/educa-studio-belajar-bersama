@@ -64,7 +64,30 @@
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });
-  } );
+    }
+  );
+
+  function editData(id){
+    $('#comunittyModal').modal('show');
+
+    $.get("api/data/admin/commu", {'id':id},
+      function (data) {
+        $("input[name='commu']").val(data.comunitty);
+      },
+    );
+
+  $("#form").submit(function (e) { 
+      e.preventDefault();
+      let input = $(this).serialize();
+      $.post("api/data/admin/commu/update/", input+'&id='+id,
+        function (data) {
+          table.ajax.reload();
+          $('#comunittyModal').modal('hide');
+        },
+      );
+
+    });
+  }
 
   function deleteData(id){
       alert(id)
@@ -76,13 +99,6 @@
       );
     }
 
-    function editData(id){
-      $('#kelasModal').modal('show');
-    }
-
-    // function tambahData(){
-    //   $('#tambahModal').modal('show');
-    // }
   </script>
 
 @endpush

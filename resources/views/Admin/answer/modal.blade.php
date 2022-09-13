@@ -12,7 +12,7 @@
           {{ csrf_field() }}
           <div class="modal-body">
             <div class="form-group">
-                <label></label>
+                <label>Title </label>
                 <input type="text" name="title" class="form-control" id="title" required>
             </div>
             <div class="form-group">
@@ -32,11 +32,12 @@
       </div>
     </div>
   </div>
+
   
-  @push('script')
+  {{-- @push('script')
   <script>
     var id;
-    $('#editQuest').on('show.bs.modal', function (event) {
+    $('#editAnswer').on('show.bs.modal', function (event) {
   
       console.log('Modal open');
     var button = $(event.relatedTarget)
@@ -64,4 +65,4 @@
     });
   });
   </script>
-  @endpush
+  @endpush --}}

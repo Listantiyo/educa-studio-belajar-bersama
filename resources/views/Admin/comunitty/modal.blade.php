@@ -12,7 +12,7 @@
             <div class="modal-body">
               <div class="form-group">
                   <label for="">Comunittty name</label>
-                  <input type="text" class="form-control">
+                  <input type="text" name="commu" class="form-control">
               </div>
             </div>
           <div class="modal-footer">

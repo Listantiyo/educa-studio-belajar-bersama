@@ -21,7 +21,7 @@
   <!-- /.content-header -->
 <div class="container">
     <div class="d-flex justify-content-end mb-3">
-        <a href="#" class="btn btn-success" role="button" data-toggle="modal" data-target="#comunittyModal">
+        <a href="#" class="btn btn-success" role="button" data-toggle="modal" data-target="#tagModal">
             <i class="nav-icon fa-solid fa-plus"></i>
             Add
         </a>
@@ -56,7 +56,7 @@
     $(document).ready( function () {
       table =  $('#table').DataTable({
         ajax: {
-                url: 'api/data/admin/tags',
+                url: 'api/data/admin/tag',
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
@@ -66,23 +66,40 @@
       });
   } );
 
+  
+  function editData(id){
+
+    $('#editTag').modal('show');
+
+    $.get("api/data/admin/edit/tag", {'tag_id':id},
+      function (data) {
+        $("input[name='tags']").val(data.tag);
+      },
+    );
+
+    $("#form").submit(function (e) { 
+      e.preventDefault();
+      let input = $(this).serialize();
+      console.log(input+'&id='+id);
+      $.post("api/data/admin/tag/update", input+'&id='+id,
+        function (data) {
+          table.ajax.reload();
+          $('#editTag').modal('hide');
+        },
+      );
+
+    });
+  }
+
   function deleteData(id){
       alert(id)
-      $.post("api/data/admin/tags/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+      $.post("api/data/admin/tag/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
         function (data) {
           alert(data);
           table.ajax.reload();
         },
       );
     }
-
-    function editData(id){
-      $('#kelasModal').modal('show');
-    }
-
-    // function tambahData(){
-    //   $('#tambahModal').modal('show');
-    // }
   </script>
 
 @endpush

@@ -61,9 +61,14 @@ class AdminComunittyController extends Controller
         ->make(true);
     }
     ////////////////////////////////
-    public function store(Request $request)
+    public function dataEdit(Request $request )
     {
-        //
+        $id = $request->id;
+
+        $data = Comunities::find($id);
+
+        return $data;
+    
     }
 
     /**
@@ -95,9 +100,19 @@ class AdminComunittyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->id;
+        $comunities = $request->commu;
+
+
+
+        $comunities = Comunities::find($id);
+        $comunities->name = $comunities;
+
+
+        $comunities->update();
+        return "success";
     }
 
     /**

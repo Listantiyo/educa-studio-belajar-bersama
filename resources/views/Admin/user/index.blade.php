@@ -84,7 +84,7 @@
   function editData(id){
     $('#editUser').modal('show');
 
-    $.get("api/data/admin/edit", {'user_id':id},
+    $.get("api/data/admin/edit/user", {'user_id':id},
       function (data) {
         $("input[name='nama']").val(data.name);
         $("input[name='email']").val(data.email);
