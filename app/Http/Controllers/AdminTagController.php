@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Comunities;
+use App\Tags;
 
-class AdminComunittyController extends Controller
+class AdminTagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class AdminComunittyController extends Controller
      */
     public function index()
     {
-        $comunities = Comunities::all();
-        return view('Admin.comunitty.index',compact('comunities'));
+        $tags = Tags::all();
+        return view('Admin.tags.index',compact('tags'));
     }
 
     /**
@@ -34,33 +34,32 @@ class AdminComunittyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function editCommunites($id)
+    public function editTag($id)
     {
-        $qs = Question::find()->pluck('communiti');
+        $qs = Tags::find()->pluck('tags');
         return "ssssssss";
 
 
     }
-    public function showCommunities()
+    public function showTag()
     {
-        $communities = Comunities::all();
+        $tags = Tags::all();
 
         return datatables()
-        ->of($communities)
+        ->of($tags)
         ->addIndexColumn()
-        ->addColumn('aksi', function ($communities) {
+        ->addColumn('aksi', function ($tags) {
             return '
             <div class="btn-group">
-                <button onclick="detailData(`'. $communities->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-                <button onclick="editData(`'. $communities->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
-                <button onclick="deleteData(`'.  $communities->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                <button onclick="detailData(`'. $tags->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                <button onclick="editData(`'. $tags->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
+                <button onclick="deleteData(`'.  $tags->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </div>
             ';
         })
         ->rawColumns(['aksi'])
         ->make(true);
     }
-    ////////////////////////////////
     public function store(Request $request)
     {
         //

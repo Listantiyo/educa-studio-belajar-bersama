@@ -51,14 +51,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('category') }}" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-              Category
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
           <a href="{{ route ('user') }} " class="nav-link">
             <i class="nav-icon fa fa-user"></i>
             <p>
@@ -87,6 +79,14 @@
             <i class="nav-icon fas fa-users"></i>
             <p>
               Community
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route ('tag') }} " class="nav-link">
+            <i class="nav-icon fa-solid fa-hashtag"></i>
+            <p>
+              Tag
             </p>
           </a>
         </li>

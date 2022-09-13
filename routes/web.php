@@ -79,3 +79,6 @@ Route::get('/admincomunitty','AdminComunittyController@index')->name('comunitty'
 // Answer
 Route::get('/adminanswer','AdminAnswerController@index')->name('answer');
 
+// Tag
+Route::get('/admintag','AdminTagController@index')->name('tag');
+

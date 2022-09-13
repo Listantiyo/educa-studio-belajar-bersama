@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Answer;
 
 class AdminAnswerController extends Controller
 {
@@ -13,7 +14,8 @@ class AdminAnswerController extends Controller
      */
     public function index()
     {
-        return view('Admin.answer.index',compact('answer'));
+        $answers = Answer::all();
+        return view('Admin.answer.index',compact('answers'));
     }
 
     /**
@@ -32,6 +34,33 @@ class AdminAnswerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function editAnswer($id)
+    {
+        $qs = Question::find()->pluck('answer');
+        return "ssssssss";
+
+
+    }
+    public function showAnswer()
+    {
+        $answers = Answer::all();
+
+        return datatables()
+        ->of($answers)
+        ->addIndexColumn()
+        ->addColumn('aksi', function ($answers) {
+            return '
+            <div class="btn-group">
+                <button onclick="detailData(`'. $answers->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                <button onclick="editData(`'. $answers->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
+                <button onclick="deleteData(`'.  $answers->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            </div>
+            ';
+        })
+        ->rawColumns(['aksi'])
+        ->make(true);
+    }
+    ///////////////////////////////////////////////
     public function store(Request $request)
     {
         //

@@ -26,19 +26,17 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
-                        <th>Nama kategori</th>
-                        <th>Pertanyaan</th>
-                        <th>Jawaban</th>
+                        <th>Id user</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Image</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                
             </table>
         </div>
     </div>
 </div>
-</div>
-
 @endsection
 
 @push('script')
@@ -51,13 +49,14 @@
     $(document).ready( function () {
       table =  $('#table').DataTable({
         ajax: {
-                url: 'api/data/admin/kelas',
+                url: 'api/data/admin/answer',
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'nama_kategori'},
-                {data: 'pertanyaan'},
-                {data: 'jawaban'},
+                {data: 'id_user_dil'},
+                {data: 'id_question'},
+                {data: 'answer'},
+                {data: 'path_answ_img'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });
@@ -65,7 +64,7 @@
 
   function deleteData(id){
       alert(id)
-      $.post("api/data/admin/kelas/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+      $.post("api/data/admin/answer/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
         function (data) {
           alert(data);
           table.ajax.reload();

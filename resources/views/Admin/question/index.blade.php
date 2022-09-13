@@ -33,6 +33,7 @@
                         <th>Like</th>
                         <th>Dislike</th>
                         <th>Vote</th>
+                        <th>Image</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -47,8 +48,9 @@
                           <td>{{ $quest->like }}</td>
                           <td>{{ $quest->dislike }}</td>
                           <td>{{ $quest->votes }}</td>
+                          <td>{{ $quest->image }}</td>
                           <td class="d-flex justify-content-center">
-                              <a href="#" class="btn btn-sm btn-warning mr-2" data-id="{{ $quest->id }}" data-user="{{ $quest->id_user_dil }}" data-title="{{ $quest->title }}" data-quest="{{ $quest->question }}" data-tags="{{ $quest->tags }}" data-like="{{ $quest->like }}" data-dislike="{{ $quest->dislike }}"data-vote="{{ $quest->vote }}" data-toggle="modal" data-target="#editQuest">
+                              <a href="#" class="btn btn-sm btn-warning mr-2" data-id="{{ $quest->id }}" data-user="{{ $quest->id_user_dil }}" data-title="{{ $quest->title }}" data-quest="{{ $quest->question }}" data-tags="{{ $quest->tags }}" data-like="{{ $quest->like }}" data-dislike="{{ $quest->dislike }}" data-vote="{{ $quest->vote }}" data-image="{{ $quest->image }}" data-toggle="modal" data-target="#editQuest">
                                   <i class="nav-icon fa-solid fa-pen-to-square"></i>
                               </a>
                               <a onclick="deleteData({{$quest->id}})" href="#" class="btn btn-sm btn-danger">
