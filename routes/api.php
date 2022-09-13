@@ -61,6 +61,12 @@ Route::post('/adminquestion/update','AdminQuestionController@update');
 Route::get('/data/admin/quest','AdminQuestionController@showQuest');
 Route::post('/data/admin/edit/{id}','AdminQuestionController@editQuest');
 Route::delete('/data/admin/quest/{id}','AdminQuestionController@destroy');
+
+// Answer
+Route::get('/data/admin/answer','AdminAnswerController@showQuest');
+Route::post('/data/admin/edit/{id}','AdminAnswerController@editQuest');
+Route::delete('/data/admin/answer/{id}','AdminAnswerController@destroy');
+
 // Mapel
 Route::get('/data/admin/mapel','AdminMapelController@showMapel');
 Route::delete('/data/admin/mapel/{id}','AdminMapelController@destroy');
