@@ -70,6 +70,12 @@ Route::delete('/data/admin/answer/{id}','AdminAnswerController@destroy');
 // Mapel
 Route::get('/data/admin/mapel','AdminMapelController@showMapel');
 Route::delete('/data/admin/mapel/{id}','AdminMapelController@destroy');
+
+// Communites
+Route::get('/data/admin/commu','AdminComunittyController@showCommunities');
+Route::post('/data/admin/edit/{id}','AdminComunittyController@editCommunities');
+Route::delete('/data/admin/commu/{id}','AdminComunittyController@destroy');
+
 // Kelas
 Route::get('/data/admin/kelas','AdminKelasController@showKelas');
 Route::delete('/data/admin/kelas/{id}','AdminKelasController@destroy');
