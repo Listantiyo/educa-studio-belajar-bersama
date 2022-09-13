@@ -30,6 +30,7 @@ Route::put('menu/update','HomeController@update');
 Route::delete('menu/delete','HomeController@delete');
 // API Question
 Route::get('quest/show','QuestionController@show');
+Route::get('quest/search','QuestionController@search');
 Route::post('quest/store','QuestionController@store');
 Route::put('quest/update','QuestionController@update');
 Route::delete('quest/delete','QuestionController@delete');
