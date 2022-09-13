@@ -326,7 +326,7 @@
 
                         <div style="max-width: 100%">
                             <h3 style="word-wrap:break-word">
-                                <a href @click="toAnswer(questun.id)">
+                                <a href="" @click="toAnswer(questun.id)">
                                     @{{questun.title}}
                                 </a>
                             </h3>

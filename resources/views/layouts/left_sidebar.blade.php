@@ -37,11 +37,11 @@
                                             <span class="menu-title">All questions</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="{{route('queations-details')}}">
+                                    {{-- <li>
+                                        <a href="{{route('questions-details')}}">
                                             <span class="menu-title">questions details</span>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </li>
                             <li>

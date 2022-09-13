@@ -19,9 +19,10 @@ class QuestionController extends Controller
         return view('question.index');
     }
     
-    public function detail()
+    public function detail($id)
     {
-        return view('question.detail.index');
+        $question = Question::find($id);
+        return view('question.detail.index',compact('question'));
     }
 
     public function ask()

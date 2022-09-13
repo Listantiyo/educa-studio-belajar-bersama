@@ -137,8 +137,13 @@
                  }); 
 			},
             toAnswer(id){
-                let url = "{{route('questions-details')}}"
-                location.href = url+id
+                $(document).ready(function () {
+                    
+                    let url = "{{route('questions-details',':id')}}"
+                    url = url.replace(':id',id)
+                    alert(url)
+                    location.href = url;
+                });
             },
         },
     }).mount('#app') 
