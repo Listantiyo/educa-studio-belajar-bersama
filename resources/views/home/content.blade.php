@@ -2,8 +2,8 @@
     <div class="middull-content">
         <form class="aq-form">
             <i class="ri-search-line"></i>
-            <input type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
-            <button class="aq-btn">
+            <input id="searchbar" type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
+            <button id="search-button" class="aq-btn">
                 Ask Question
             </button>       
         </form>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-grow-1 ms-3">
+                        <div class="flex-grow-1 ms-3" style="max-width: 80%">
                             <ul class="graphic-design">
                                 <li>
                                     <a href="user.html">Teresa Klein</a>
@@ -70,14 +70,16 @@
                                     </a>
                                 </li>
                             </ul>
+                            
+                            <div style="max-width: 100%">
+                                <h3 style="word-wrap:break-word">
+                                    <a href="queations-details.html">
+                                        @{{quest.title}}
+                                    </a>
+                                </h3>
 
-                            <h3>
-                                <a href="queations-details.html">
-                                    @{{quest.title}}
-                                </a>
-                            </h3>
-
-                            <p>@{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }}</p>
+                                <p style="word-wrap:break-word" v-html="quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+'...'">{{-- @{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }} --}}</p>
+                            </div>
 
                             <ul class="tag-list">
                                 <li>
@@ -173,7 +175,7 @@
                             </a>
                         </div>
 
-                        <div class="flex-grow-1 ms-3">
+                        <div class="flex-grow-1 ms-3" style="max-width: 80%">
                             <ul class="graphic-design">
                                 <li>
                                     <a href="user.html">Teresa Klein</a>
@@ -189,14 +191,15 @@
                                 </li>
                             </ul>
 
-                            <h3>
-                                <a href="queations-details.html">
-                                    @{{questmo.title}}
-                                </a>
-                            </h3>
+                            <div style="max-width: 100%">
+                                <h3 style="word-wrap:break-word">
+                                    <a href="queations-details.html">
+                                        @{{questmo.title}}
+                                    </a>
+                                </h3>
 
-                            <p>@{{questmo.question.length < 100 ? questmo.question : questmo.question.substring(0,250)+"..." }}</p>
-
+                                <p style="word-wrap:break-word" v-html="questmo.question.length < 100 ? questmo.question : questmo.question.substring(0,250)+'...'">{{-- @{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }} --}}</p>
+                            </div>
                             <ul class="tag-list">
                                 <li>
                                     <a href="tags.html">Discussion</a>
@@ -305,7 +308,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-grow-1 ms-3">
+                        <div class="flex-grow-1 ms-3" style="max-width: 80%">
                             <ul class="graphic-design">
                                 <li>
                                     <a href="user.html">Teresa Klein</a>
@@ -321,11 +324,13 @@
                                 </li>
                             </ul>
 
-                            <h3>
-                                <a href="queations-details.html">
-                                    @{{questun.title}}
-                                </a>
-                            </h3>
+                            <div style="max-width: 100%">
+                                <h3 style="word-wrap:break-word">
+                                    <a href="queations-details.html">
+                                        @{{questun.title}}
+                                    </a>
+                                </h3>
+                            </div>
 
                             <ul class="tag-list">
                                 <li>
@@ -430,7 +435,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-grow-1 ms-3">
+                        <div class="flex-grow-1 ms-3" style="max-width: 80%">
                             <ul class="graphic-design">
                                 <li>
                                     <a href="user.html">Teresa Klein</a>
@@ -446,14 +451,16 @@
                                 </li>
                             </ul>
 
-                            <h3>
-                                <a href="queations-details.html">
-                                    @{{questfe.title}}
-                                </a>
-                            </h3>
+                            <div style="max-width: 100%">
+                                <h3 style="word-wrap:break-word">
+                                    <a href="queations-details.html">
+                                        @{{questfe.title}}
+                                    </a>
+                                </h3>
 
-                            <p> @{{questfe.question.length < 100 ? questfe.question : questfe.question.substring(0,250)+"..." }}</p>
-
+                                <p style="word-wrap:break-word" v-html="questfe.question.length < 100 ? questfe.question : questfe.question.substring(0,250)+'...'">{{-- @{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }} --}}</p>
+                            </div>
+                            
                             <ul class="tag-list">
                                 <li>
                                     <a href="tags.html">Discussion</a>

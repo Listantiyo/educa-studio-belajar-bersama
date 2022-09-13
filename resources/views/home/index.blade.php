@@ -70,7 +70,7 @@
             $(document).ready(function (e) {
 				// load all question
                 ajax = $.ajax({
-                    url: "/api/menu/show",
+                    url: "/api/quest/show",
 					data: 'id='+1,
                     success: function(rsp){
 						
@@ -83,13 +83,57 @@
                     }
                  }); 
 
+                 // SearchBar
+
+				$("#searchbar").keypress(function (e) { 
+                    
+                    if (e.which == 13) {
+						e.preventDefault(); 
+                        
+                        var input = $("#searchbar").val();
+                        var id = vues.id;
+                        $.get("/api/quest/search", {data:input,id:id},
+                            function (data) {           
+
+                                vues.quest = data.question_all ;
+                                vues.quest_most = data.question_most ;
+                                vues.quest_unans = data.question_unans ;
+                                vues.quest_featur = data.question_feature ;
+                                $("#searchbar").val(null);
+
+                            },
+
+                        );
+                    }
+                });
+
+                $("#search-button").click(function (e) { 
+                    e.preventDefault();
+
+                    var input = $("#searchbar").val();
+                        var id = vues.id;
+                        $.get("/api/quest/search", {data:input,id:id},
+                            function (data) {           
+
+                                vues.quest = data.question_all ;
+                                vues.quest_most = data.question_most ;
+                                vues.quest_unans = data.question_unans ;
+                                vues.quest_featur = data.question_feature ;
+                                $("#searchbar").val(null);
+
+                            },
+
+                        );
+                    
+                 });
+
             });
             
         },methods: {
 			filterQuest(id){
-				alert(id)
+				// alert(id)
 				$.ajax({
-                    url: "/api/menu/show",
+                    url: "/api/quest/show",
 					data:{id:id},
                     success: function(rsp){
 						

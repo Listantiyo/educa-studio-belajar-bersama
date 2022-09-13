@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use Illuminate\Foundation\Console\Presets\React;
+use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
@@ -34,6 +36,29 @@ class QuestionController extends Controller
     public function create()
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        $data = $request->data;
+        $id = $request->id;
+        $quest = DB::table('tbl_questions')->where('title','like','%'.$data.'%')->get();
+
+        $id = $request->id;
+        if ($id == 1) {
+            $question_all = $quest;
+        }
+        if ($id == 2) {
+            $question_most = $quest->where('id_type',2);    
+        }
+        if ($id == 3) {
+            $question_unans = $quest->where('id_type',1);   
+        }
+        if ($id == 4) {
+            $question_feature = $quest->where('like','>', 1);  
+        }
+        
+        return compact('question_all','question_most','question_unans','question_feature','id');
     }
 
     /**
@@ -81,9 +106,23 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $id = $request->id;
+        if ($id == 1) {
+            $question_all = DB::table('tbl_questions')->get(); 
+        }
+        if ($id == 2) {
+            $question_most = DB::table('tbl_questions')->where('id_type',2)->get();    
+        }
+        if ($id == 3) {
+            $question_unans = DB::table('tbl_questions')->where('id_type',1)->get();   
+        }
+        if ($id == 4) {
+            $question_feature = DB::table('tbl_questions')->where('like','>', 1)->get();  
+        }
+
+        return compact('question_all','question_most','question_unans','question_feature','id');
     }
 
     /**
