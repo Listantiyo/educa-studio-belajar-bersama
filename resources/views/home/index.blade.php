@@ -137,7 +137,8 @@
                  }); 
 			},
             toAnswer(id){
-                let url = "{{route('queations-details')}}"
+                let url = "{{route('questions-details')}}"
+                location.href = url+id
             },
         },
     }).mount('#app') 
