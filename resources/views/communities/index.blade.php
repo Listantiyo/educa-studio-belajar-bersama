@@ -3,7 +3,6 @@
 
 @section('content')
     
-<div class="col-lg-6">
     <div class="middull-content">
         <ul class="page-nish">
             <li>
@@ -252,7 +251,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 {{-- Mid Content End --}}
 @endsection

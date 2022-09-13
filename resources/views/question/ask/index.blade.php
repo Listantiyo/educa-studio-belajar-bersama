@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="col-lg-6">
+
     <div class="middull-content">
         <form id="ask" class="your-answer-form">
             <div class="form-group">
@@ -68,7 +68,7 @@
             </div>
         </form>
     </div>
-</div>
+
 @endsection
 
 @push('scripts')
@@ -131,7 +131,9 @@
                     processData:false,
                     success: function (rsp) {
                         alert(rsp)
-                        console.log(rsp);
+                        
+                        let url = "{{route('questions')}}"
+                        location.href = url
                     }
                 });
             });

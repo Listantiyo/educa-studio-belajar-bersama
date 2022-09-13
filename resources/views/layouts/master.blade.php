@@ -49,12 +49,16 @@
 		<!-- End Navbar Area -->
 		@yield('banner')
 
-		<div id="app">
+		<div>
 			<div class="main-content-area ptb-100">
 				<div class="container">
 					<div class="row">
 						@include('layouts.left_sidebar')
-       					@yield('content')		
+
+						<div class="col-lg-6" id="app">
+       						@yield('content')		
+						</div>
+
 						@include('layouts.right_sidebar')				
 					</div>
 				</div>

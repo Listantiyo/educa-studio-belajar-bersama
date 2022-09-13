@@ -17,7 +17,7 @@
                     <nav class="sidebar-nav" data-simplebar>
                         <ul id="sidebar-menu" class="sidebar-menu">
                             <li>
-                                <a href="{{route('menu')}}" class="box-style active">
+                                <a href="{{route('menu')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-home-8-line"></i>
                                         Home
@@ -25,7 +25,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="has-arrow box-style">
+                                <a href="#" class="has-arrow box-style aside">
                                     <i class="ri-question-line"></i>
                                     <span class="menu-title">
                                         Questions
@@ -45,7 +45,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{route('communities')}}" class="box-style">
+                                <a href="{{route('communities')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-links-line"></i>
                                         Communities
@@ -53,7 +53,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="has-arrow box-style">
+                                <a href="#" class="has-arrow box-style aside">
                                     <i class="ri-question-answer-fill"></i>
                                     <span class="menu-title">
                                         Most answered
@@ -73,7 +73,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{route('unanswered')}}" class="box-style">
+                                <a href="{{route('unanswered')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-checkbox-circle-line"></i>
                                         Unanswered
@@ -81,7 +81,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('most-visited')}}" class="box-style">
+                                <a href="{{route('most-visited')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-eye-line"></i>
                                         Most visited 
@@ -89,7 +89,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('polls')}}" class="box-style">
+                                <a href="{{route('polls')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-bar-chart-fill"></i>
                                         Polls
@@ -97,7 +97,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('faq')}}" class="box-style">
+                                <a href="{{route('faq')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-hq-line"></i>
                                         FAQs
@@ -105,7 +105,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('groups')}}" class="box-style">
+                                <a href="{{route('groups')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-group-2-line"></i>
                                         Groups
@@ -113,7 +113,7 @@
                                 </a>
                             </li>
                             {{-- <li>
-                                <a href="education" class="box-style">
+                                <a href="education" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-book-line"></i>
                                         Education
@@ -121,7 +121,7 @@
                                 </a>
                             </li> --}}
                             {{-- <li>
-                                <a href="technology.html" class="box-style">
+                                <a href="technology.html" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-file-shield-2-line"></i>
                                         Technology
@@ -129,7 +129,7 @@
                                 </a>
                             </li> --}}
                             {{-- <li>
-                                <a href="{{route('tags')}}" class="box-style">
+                                <a href="{{route('tags')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-price-tag-line"></i>
                                         Tags
@@ -137,7 +137,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('badges')}}" class="box-style">
+                                <a href="{{route('badges')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-award-line"></i>
                                         Badges
@@ -146,7 +146,7 @@
                             </li> --}}
 
                             <li>
-                                <a href="#" class="has-arrow box-style">
+                                <a href="#" class="has-arrow box-style aside">
                                     <i class="ri-user-line"></i>
                                     <span class="menu-title">
                                         User

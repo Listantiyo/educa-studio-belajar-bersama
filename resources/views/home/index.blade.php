@@ -10,7 +10,7 @@
 							<h1>Pify</h1>
 							<h3>Share & grow the world's <span>knowledge</span>!</h3>
 							<p>We want to connect with people who will share their knowledge from one person to another.</p>
-							<a {{-- href="user.html" --}} class="default-btn">
+							<a href="user.html" class="default-btn">
 								Create a free team
 							</a>
 						</div>
@@ -38,13 +38,7 @@
 		{{-- content --}}
 		@include('home.content')
 		{{-- content end --}}
-
-		<!-- Start Go Top Area -->
-		<div class="go-top">
-			<i class="ri-arrow-up-s-fill"></i>
-			<i class="ri-arrow-up-s-fill"></i>
-		</div>
-		<!-- End Go Top Area -->
+        
 @endsection
 
 @push('scripts')
@@ -62,10 +56,6 @@
                 id  : '',
             }
         },mounted() {
-
-            var classe ='';
-            var type ='';
-            var dt ='';
             
             $(document).ready(function (e) {
 				// load all question
@@ -145,7 +135,10 @@
                         
                     }
                  }); 
-			}
+			},
+            toAnswer(id){
+                let url = "{{route('queations-details')}}"
+            },
         },
     }).mount('#app') 
 </script>
