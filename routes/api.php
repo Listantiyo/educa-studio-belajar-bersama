@@ -54,8 +54,8 @@ Route::post('/data/store/coment','AnswerController@storeComent');
 Route::post('/data/show/coment','AnswerController@showComment');
 
 // ADMIN
-Route::post('/adminuser/update/','AdminUserController@update');
-Route::post('/adminquestion/update','AdminQuestionController@update');
+Route::get('/data/admin/user','AdminUserController@showUser');
+Route::post('data/admin/user/update/','AdminUserController@update');
 
 // Question
 Route::get('/data/admin/quest','AdminQuestionController@showQuest');
