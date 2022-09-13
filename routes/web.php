@@ -23,7 +23,7 @@ Route::get('/oohome', function () {
 Route::get('/menu', 'HomeController@index')->name('menu');
 
 Route::get('/question', 'QuestionController@index')->name('questions');
-Route::get('/queations-details/{id}', 'QuestionController@detail')->name('questions-details');
+Route::get('/questions-details/{id}', 'QuestionController@detail')->name('questions-details');
 Route::get('/ask-questions', 'QuestionController@ask')->name('ask-questions');
 
 Route::get('/communities', 'CommunitiesController@index')->name('communities');
