@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Comunities;
+use App\Communities;
+use App\Tags;
 
-class AdminComunittyController extends Controller
+class AdminCommunityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class AdminComunittyController extends Controller
      */
     public function index()
     {
-        $comunities = Comunities::all();
+        $comunities = Communities::all();
         return view('Admin.comunitty.index',compact('comunities'));
     }
 
@@ -43,7 +44,7 @@ class AdminComunittyController extends Controller
     }
     public function showCommunities()
     {
-        $communities = Comunities::all();
+        $communities = Communities::all();
 
         return datatables()
         ->of($communities)
@@ -65,7 +66,7 @@ class AdminComunittyController extends Controller
     {
         $id = $request->id;
 
-        $data = Comunities::find($id);
+        $data = Communities::find($id);
 
         return $data;
     
