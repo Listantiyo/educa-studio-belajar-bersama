@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
-class Xample extends Controller
+class XampleController extends Controller
 {
     public function my()
     {
@@ -45,11 +45,24 @@ class Xample extends Controller
         //     $all = $kelas;
             
         // }
-        
-        $all = Answer_Comment::where('id_answer',18)->where('id_question',44)->get();
+        // $a = Question::pluck('tags');
+        $a = Question::join('tbl_tags', function ($join) {
+        $join->on(DB::raw('find_in_set(json_decode(tbl_questions.tags), tbl_tags.id)'), DB::raw(''), DB::raw(''));
+    })
+    ->get(); 
+        // foreach ($a as $a) {
+        //     $all =  json_decode($a);
+        //     // $all1 = $al[0];
+        //     // $all2 = $al[1];
+        //     // $all3 = $al[2];
+        //     // $all4 = $al[3];
+        //     // $all5 = $al[4];
+        // }
+        // $all = Answer_Comment::where('id_answer',18)->where('id_question',44)->get();
         // return $all;
         // $name_mapel = Question::find(1)->mapel;
-        dd($all);
+        // dd($all1.$all2.$all3.$all4.$all5);
+        dd($a);
     }
     public function filter(){
         $filc = Classe::all();

@@ -76,17 +76,9 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $tag_array = $request->input('tag');
-
-        $tag1 = array_get($tag_array,'0');
-        $tag2 = array_get($tag_array,'1');
-        $tag3 = array_get($tag_array,'2');
-        $tag4 = array_get($tag_array,'3');
-        $tag5 = array_get($tag_array,'4');
-
-        dd( $tag1. $tag2. $tag3. $tag4. $tag5);
-
-        $validation = $request->validate([
+        $tags = json_encode($request->input('tag')); /* serialize != unserialize */
+        
+        $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:1024'
            ]);
 
@@ -96,8 +88,8 @@ class QuestionController extends Controller
             
             $path = $request->file('image')->store('photos');
         }else{
-            $name=null;
-            $path=null;
+            $name = null;
+            $path = null;
         }
             
         $quest = new Question();
@@ -108,7 +100,7 @@ class QuestionController extends Controller
         $quest->id_comunity = $request->community;
         $quest->title = $request->title;
         $quest->question = $request->text;
-        $quest->tags = $request->tag.',';
+        $quest->tags = $tags;
         $quest->image = $name;
         $quest->path_img = $path;
 
