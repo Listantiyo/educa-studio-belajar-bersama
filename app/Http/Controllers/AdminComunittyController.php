@@ -106,9 +106,9 @@ class AdminComunittyController extends Controller
         $comunitty = $request->commu;
 
         $tags = Tags::find($id);
-        $commu->tag = $comunitty;
+        $commu->commu = $comunitty;
 
-        $tags->update();
+        $comunitty->update();
         return "success";
     }
 

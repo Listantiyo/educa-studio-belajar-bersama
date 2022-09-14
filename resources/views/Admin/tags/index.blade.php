@@ -66,8 +66,9 @@
       });
   } );
 
-  
   function editData(id){
+
+    id_up = id;
 
     $('#editTag').modal('show');
 
@@ -76,12 +77,15 @@
         $("input[name='tags']").val(data.tag);
       },
     );
+  }
 
+  let id_up;
+  
     $("#form").submit(function (e) { 
       e.preventDefault();
       let input = $(this).serialize();
-      console.log(input+'&id='+id);
-      $.post("api/data/admin/tag/update", input+'&id='+id,
+      console.log(input+'&id='+id_up);
+      $.post("api/data/admin/tag/update", input+'&id='+id_up,
         function (data) {
           table.ajax.reload();
           $('#editTag').modal('hide');
@@ -89,7 +93,6 @@
       );
 
     });
-  }
 
   function deleteData(id){
       alert(id)

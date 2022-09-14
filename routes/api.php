@@ -83,8 +83,9 @@ Route::delete('/data/admin/mapel/{id}','AdminMapelController@destroy');
 
 // Communites
 Route::get('/data/admin/commu','AdminComunittyController@showCommunities');
-Route::post('/data/admin/edit/communities','AdminComunittyController@editCommunities');
-Route::delete('/data/admin/commu/{id}','AdminComunittyController@destroy');
+Route::get('/data/admin/edit/commu','AdminComunittyController@dataEdit');
+Route::post('data/admin/commu/update','AdminComunittyController@update');
+Route::delete('data/admin/commu/delete/{id}','AdminComunittyController@destroy');
 
 // Kelas
 Route::get('/data/admin/kelas','AdminKelasController@showKelas');

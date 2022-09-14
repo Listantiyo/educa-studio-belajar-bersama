@@ -3,12 +3,13 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add cominities</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Edit cominities</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="" method="POST">
+        <form id="form">
+          {{ csrf_field() }}
             <div class="modal-body">
               <div class="form-group">
                   <label for="">Comunittty name</label>
@@ -17,7 +18,7 @@
             </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
           </form>
         </div>
       </div>
