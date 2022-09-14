@@ -103,15 +103,12 @@ class AdminComunittyController extends Controller
     public function update(Request $request)
     {
         $id = $request->id;
-        $comunities = $request->commu;
+        $comunitty = $request->commu;
 
+        $tags = Tags::find($id);
+        $commu->tag = $comunitty;
 
-
-        $comunities = Comunities::find($id);
-        $comunities->name = $comunities;
-
-
-        $comunities->update();
+        $tags->update();
         return "success";
     }
 
