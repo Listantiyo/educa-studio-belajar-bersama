@@ -75,6 +75,7 @@ Route::delete('/data/admin/answer/{id}','AdminAnswerController@destroy');
 Route::get('/data/admin/tag','AdminTagController@showTag');
 Route::get('/data/admin/edit/tag','AdminTagController@dataEdit');
 Route::post('data/admin/tag/update','AdminTagController@update');
+Route::get('/data/admin/create/tag','AdminTagController@create');
 Route::delete('data/admin/tag/delete/{id}','AdminTagController@destroy');
 
 // Mapel
@@ -82,10 +83,10 @@ Route::get('/data/admin/mapel','AdminMapelController@showMapel');
 Route::delete('/data/admin/mapel/{id}','AdminMapelController@destroy');
 
 // Communites
-Route::get('/data/admin/commu','AdminCommunityController@showCommunities');
-Route::get('/data/admin/edit/commu','AdminCommunityController@dataEdit');
-Route::post('data/admin/commu/update','AdminCommunityController@update');
-Route::delete('data/admin/commu/delete/{id}','AdminCommunityController@destroy');
+Route::get('/data/admin/commu','AdminComunittyController@showCommunities');
+Route::get('/data/admin/edit/commu','AdminComunittyController@dataEdit');
+Route::post('data/admin/commu/update','AdminComunittyController@update');
+Route::delete('data/admin/commu/delete/{id}','AdminComunittyController@destroy');
 
 // Kelas
 Route::get('/data/admin/kelas','AdminKelasController@showKelas');
