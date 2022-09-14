@@ -82,12 +82,27 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('comunitty') }} " class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
               Community
+              <i class="right fas fa-angle-left"></i>
             </p>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('communities')}}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                List Community
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-plus"></i>
+                Tambah Community
+              </a>
+            </li>
+          </ul>
         </li>
 
             </li>

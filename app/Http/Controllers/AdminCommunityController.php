@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Communities;
-use App\Tags;
 
 class AdminCommunityController extends Controller
 {
@@ -16,7 +15,7 @@ class AdminCommunityController extends Controller
     public function index()
     {
         $comunities = Communities::all();
-        return view('Admin.comunitty.index',compact('comunities'));
+        return view('Admin.community.index',compact('comunities'));
     }
 
     /**
@@ -35,13 +34,20 @@ class AdminCommunityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function editCommunites($id)
+    public function store(Request $request)
     {
-        $qs = Question::find()->pluck('communiti');
-        return "ssssssss";
+        $id = $request->id;
+        $com_name = $request->commu;
 
+        $community = new Communities;
 
+        $community->community = $com_name;
+        $community->image = "jj";
+        $community->path_img = "hh";
+        $community->save();
+        return "success";
     }
+
     public function showCommunities()
     {
         $communities = Communities::all();
@@ -106,10 +112,10 @@ class AdminCommunityController extends Controller
         $id = $request->id;
         $comunitty = $request->commu;
 
-        $tags = Tags::find($id);
-        $commu->commu = $comunitty;
+        $commu = Communities::find($id);
+        $commu->community = $comunitty;
 
-        $comunitty->update();
+        $commu->update();
         return "success";
     }
 
@@ -121,6 +127,6 @@ class AdminCommunityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $community = Communities::find($id)->delete();
     }
 }

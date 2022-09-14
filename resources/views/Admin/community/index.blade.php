@@ -21,7 +21,7 @@
   <!-- /.content-header -->
 <div class="container">
     <div class="d-flex justify-content-end mb-3">
-        <a href="#" class="btn btn-success" role="button" data-toggle="modal" data-target="#comunittyModal">
+        <a href="#" onclick="addData()" class="btn btn-success">
             <i class="nav-icon fa-solid fa-plus"></i>
             Tambah
         </a>
@@ -32,7 +32,9 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
+                        <th>Image</th>
                         <th>Comunitty name</th>
+                        <th>Followers</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -42,7 +44,7 @@
 </div>
 </div>
 
-@include('Admin.comunitty.modal')
+@include('Admin.community.modal')
 
 @endsection
 
@@ -60,40 +62,64 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
+                {data:'path_img'},
                 {data: 'community'},
+                {data:'followers'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });
     }
   );
 
-  function editData(id){
-    $('#comunittyModal').modal('show');
+  function addData(){
+    $('.modal-title').text('Add Community');
+    $('#modalCommunity form')[0].reset(); 
+    $('#modalCommunity').modal('show'); 
 
-    $.get("api/data/admin/commu", {'id':id},
-      function (data) {
-        $("input[name='commu']").val(data.comunitty);
-      },
-    );
-
-  $("#form").submit(function (e) { 
-      e.preventDefault();
-      let input = $(this).serialize();
-      $.post("api/data/admin/commu/update/", input+'&id='+id,
-        function (data) {
-          table.ajax.reload();
-          $('#comunittyModal').modal('hide');
-        },
-      );
-
-    });
+    $("#form").submit(function (e) { 
+        e.preventDefault();
+        let input = $(this).serialize();
+        $.post("api/data/admin/commu/store", input,
+          function (data) {
+            table.ajax.reload();
+            $('#modalCommunity').modal('hide');
+          },
+        );
+  
+      });
   }
 
+  function editData(id){
+
+    id_up = id;
+    // alert(id)
+    $('.modal-title').text('Edit Community');
+    $('#modalCommunity').modal('show');
+
+    $.get("api/data/admin/commu/edit", {'id':id},
+      function (data) {
+        $("input[name='commu']").val(data.community);
+      },
+    );
+  }
+  
+  let id_up;
+    $("#form").submit(function (e) { 
+        e.preventDefault();
+        let input = $(this).serialize();
+        $.post("api/data/admin/commu/update", input+'&id='+id_up,
+          function (data) {
+            table.ajax.reload();
+            $('#modalCommunity').modal('hide');
+          },
+        );
+  
+      });
+
   function deleteData(id){
-      alert(id)
-      $.post("api/data/admin/commu/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+      $.post("api/data/admin/commu/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
         function (data) {
-          alert(data);
+          // alert(data);
           table.ajax.reload();
         },
       );
