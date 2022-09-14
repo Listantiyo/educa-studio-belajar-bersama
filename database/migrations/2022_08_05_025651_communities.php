@@ -16,6 +16,9 @@ class Communities extends Migration
         Schema::create('tbl_communities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('community')->unique();
+            $table->integer('followers')->default(0);
+            $table->string('image');
+            $table->string('path_img');
             $table->timestamps();
         });
     }
