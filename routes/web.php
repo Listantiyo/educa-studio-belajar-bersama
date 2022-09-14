@@ -74,7 +74,7 @@ Route::get('/adminuser/{adminuser}/edit','AdminUserController@edit')->name('edit
 Route::get('/adminstatus','AdminStatusController@index')->name('status');
 
 // Comunitty
-Route::get('/admincommunities','AdminCommunityController@index')->name('communities');
+Route::get('/admincomunitty','AdminCommunityController@index')->name('communities');
 
 // Answer
 Route::get('/adminanswer','AdminAnswerController@index')->name('answer');
