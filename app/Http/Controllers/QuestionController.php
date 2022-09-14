@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Foundation\Console\Presets\React;
 use Illuminate\Support\Facades\DB;
+use App\Communities;
+use App\Tags;
 
 class QuestionController extends Controller
 {
@@ -26,8 +28,12 @@ class QuestionController extends Controller
     }
 
     public function ask()
-    {
-        return view('question.ask.index');
+    {   
+
+        $communities = Communities::all();
+        $tags = Tags::all();
+
+        return view('question.ask.index',compact('communities','tags'));
     }
     /**
      * Show the form for creating a new resource.
