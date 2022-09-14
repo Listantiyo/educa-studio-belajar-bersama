@@ -32,7 +32,7 @@ class LoginController extends Controller
 {   
     $level = Auth::user()->level;
     if ($level == 1) {
-        return '/dashboard';
+        return '/menu';
     }else{
         return '/admindashboard';
     }
