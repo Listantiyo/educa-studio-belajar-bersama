@@ -82,6 +82,9 @@
     } );
 
   function editData(id){
+
+    id_up = id;
+
     $('#editUser').modal('show');
 
     $.get("api/data/admin/edit/user", {'user_id':id},
@@ -91,18 +94,23 @@
       },
     );
 
-    $("#form").submit(function (e) { 
-      e.preventDefault();
-      let input = $(this).serialize();
-      $.post("api/data/admin/user/update/", input+'&id='+id,
-        function (data) {
-          table.ajax.reload();
-          $('#editUser').modal('hide');
-        },
-      );
 
-    });
+
   }
+
+  let id_up;
+
+  $("#form").submit(function (e) { 
+    e.preventDefault();
+    let input = $(this).serialize();
+    $.post("api/data/admin/user/update/", input+'&id='+id_up,
+      function (data) {
+        table.ajax.reload();
+        $('#editUser').modal('hide');
+      },
+    );
+
+  });
 
   function deleteData(id){
       $.post("api/data/admin/user/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
