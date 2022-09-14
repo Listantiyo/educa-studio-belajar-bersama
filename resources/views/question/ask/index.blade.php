@@ -19,9 +19,11 @@
                     <select class="form-select form-select-md" name="community" aria-label="Default select example">
                         <option selected disabled>Select Communities</option>
                         <option value="0">Public</option>
-                        <option value="0">Public</option>
+                        @foreach ($communities as $item) 
+                            <option value="{{$item->id}}">{{$item->community}}</option>
+                        @endforeach
                     </select>
-                    <a href="{{route('communities')}}" class="input-group-text" id="basic-addon2">Go To Comunities</a>
+                    <a href="{{route('communities')}}" class="input-group-text" id="basic-addon2">Add More Comunities</a>
                 </div>
             </div>
 
@@ -37,7 +39,9 @@
                 </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body d-flex  row mx-0">
-                            <input class="single-checkbox col-1 my-1" id="ip" type="checkbox" name="tag" value="1"><label id="var" class="col-2 px-0 my-1">Lelaaaakkkkkk</label>
+                            @foreach ($tags as $item) 
+                                <input class="single-checkbox col-1 my-1" id="ip{{$item->id}}" type="checkbox" name="tag[]" value="{{$item->id}}"> <label onclick="nameTagclick({{$item->id}})" id="var{{$item->id}}" class="col-2 px-0 my-1">{{$item->tag}}</label>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -72,6 +76,7 @@
 @endsection
 
 @push('scripts')
+{{-- img preview --}}
     <script>
         $(document).ready(() => {
             $("#file-2").change(function () {
@@ -87,6 +92,7 @@
             });
         });
     </script>
+{{-- vue --}}
     <script>
         const { createApp } = Vue
         const vues = createApp({
@@ -97,18 +103,16 @@
             }
         }).mount("#app")
     </script>
+{{-- other --}}
     <script>
         $(document).ready(function () {
+            // upload image
             $(".upload").click(function (e) { 
                 e.preventDefault();
                 $("#file-2").trigger('click');
             });
 
-            $("#var").click(function (e) { 
-                e.preventDefault();
-                $("#ip").trigger('click');
-            });
-
+            // limit tag
             var limit = 5;
                 $('input.single-checkbox').on('change', function(evt) {
                 if($(this).siblings(':checked').length >= limit) {
@@ -116,7 +120,7 @@
                     alert("Maximum 5 tags")
                 }
                 });
-
+            // post data
             $("#ask").submit(function (e) { 
                 e.preventDefault();
                 let text = $("#txtEditor").Editor("getText"); 
@@ -138,5 +142,14 @@
                 });
             });
         });
+    </script>
+{{-- jq function --}}
+    <script>
+        // tag name click func
+        function nameTagclick(id){
+            id_tag = id;
+            $("#ip"+id).trigger('click');
+        }
+        
     </script>
 @endpush

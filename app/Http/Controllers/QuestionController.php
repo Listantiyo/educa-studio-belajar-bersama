@@ -76,6 +76,16 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+        $tag_array = $request->input('tag');
+
+        $tag1 = array_get($tag_array,'0');
+        $tag2 = array_get($tag_array,'1');
+        $tag3 = array_get($tag_array,'2');
+        $tag4 = array_get($tag_array,'3');
+        $tag5 = array_get($tag_array,'4');
+
+        dd( $tag1. $tag2. $tag3. $tag4. $tag5);
+
         $validation = $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:1024'
            ]);
