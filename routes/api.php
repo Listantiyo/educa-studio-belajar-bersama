@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/my','XampleController@my');
+// Route::get('/my','XampleController@my');
 Route::get('/ex', function () {
     return view('ex_edit.index'); 
 });
@@ -75,7 +75,9 @@ Route::delete('/data/admin/answer/{id}','AdminAnswerController@destroy');
 Route::get('/data/admin/tag','AdminTagController@showTag');
 Route::get('/data/admin/edit/tag','AdminTagController@dataEdit');
 Route::post('data/admin/tag/update','AdminTagController@update');
+Route::post('data/admin/tag/store','AdminTagController@store');
 Route::get('/data/admin/create/tag','AdminTagController@create');
+
 Route::delete('data/admin/tag/delete/{id}','AdminTagController@destroy');
 
 // Mapel
@@ -84,8 +86,7 @@ Route::delete('/data/admin/mapel/{id}','AdminMapelController@destroy');
 
 // Communites
 Route::get('/data/admin/commu','AdminCommunityController@showCommunities');
-Route::post('/data/admin/commu/store','AdminCommunityController@store');
-Route::get('/data/admin/commu/edit','AdminCommunityController@dataEdit');
+Route::get('/data/admin/edit/commu','AdminCommunityController@dataEdit');
 Route::post('data/admin/commu/update','AdminCommunityController@update');
 Route::delete('data/admin/commu/delete/{id}','AdminCommunityController@destroy');
 

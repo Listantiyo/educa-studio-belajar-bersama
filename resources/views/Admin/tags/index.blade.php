@@ -21,7 +21,7 @@
   <!-- /.content-header -->
 <div class="container">
     <div class="d-flex justify-content-end mb-3">
-        <a href="#" class="btn btn-success" role="button" data-toggle="modal" data-target="#tagModal">
+        <a href="#" onclick="addData()" class="btn btn-success">
             <i class="nav-icon fa-solid fa-plus"></i>
             Add
         </a>
@@ -64,13 +64,33 @@
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });
-  } );
+    }
+    
+  );
+
+  function addData(){
+    $('.modal-title').text('Add Tag');
+    $('#tagModal form')[0].reset();
+    $('#tagModal').modal('show');
+
+    $("#form").submit(function (e) {
+      e.preventDefault();
+      let input = $(this).serialize();
+      $.post("api/data/admin/tag/store", input,
+      function (data) {
+        table.ajax.reload();
+        $('#addTag').modal('hide');
+      },
+    )
+
+    });
+}
 
   function editData(id){
 
     id_up = id;
 
-    $('#editTag').modal('show');
+    $('#tagModal').modal('show');
 
     $.get("api/data/admin/edit/tag", {'tag_id':id},
       function (data) {
@@ -79,8 +99,21 @@
     );
   }
 
+    function create(id){
+
+    id_up = id;
+
+    $('#addTag').modal('show');
+
+    $.get("api/data/admin/create/tag", {'tag_id':id},
+      function (data) {
+        $("input[name='tags']").val(data.tag);
+      },
+    );
+  }
+
   let id_up;
-  
+
     $("#form").submit(function (e) { 
       e.preventDefault();
       let input = $(this).serialize();

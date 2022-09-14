@@ -26,9 +26,10 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
-                        <th>Nama kategori</th>
+                        <th>Id user</th>
                         <th>Pertanyaan</th>
                         <th>Jawaban</th>
+                        <th>Image</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -51,13 +52,14 @@
     $(document).ready( function () {
       table =  $('#table').DataTable({
         ajax: {
-                url: 'api/data/admin/kelas',/* api route */
+                url: 'api/data/admin/answer',/* api route */
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'nama_kategori'},/* sesuai di database */
-                {data: 'pertanyaan'},
-                {data: 'jawaban'},
+                {data: 'id_user_dil'},/* sesuai di database */
+                {data: 'id_question'},
+                {data: 'answer'},
+                {data: 'path_answ_img'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });
@@ -65,7 +67,7 @@
 
   function deleteData(id){
       alert(id)
-      $.post("api/data/admin/kelas/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+      $.post("api/data/admin/answer/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
         function (data) {
           alert(data);
           table.ajax.reload();
@@ -76,10 +78,6 @@
     function editData(id){
       $('#kelasModal').modal('show');
     }
-
-    // function tambahData(){
-    //   $('#tambahModal').modal('show');
-    // }
   </script>
 
 @endpush

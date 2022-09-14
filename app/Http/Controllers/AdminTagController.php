@@ -25,7 +25,11 @@ class AdminTagController extends Controller
      */
     public function create()
     {
-        //
+        $id = $request->tag_id;
+
+        $data = Tags::find($id);
+
+        return $data;
     }
 
     /**
@@ -62,7 +66,14 @@ class AdminTagController extends Controller
     }
     public function store(Request $request)
     {
-        //
+        $id = $request->id;
+        $tags_name = $request->tags;
+
+        $tags = new Tags;
+
+        $tags->tags = $tags_name;
+        $tags->save();
+        return "success";
     }
 
     /**
@@ -83,7 +94,7 @@ class AdminTagController extends Controller
     ///////////////////////////
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -124,6 +135,6 @@ class AdminTagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tags = Tags::find($id)->delete();
     }
 }
