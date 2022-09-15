@@ -76,9 +76,6 @@ Route::get('/data/admin/tag','AdminTagController@showTag');
 Route::get('/data/admin/edit/tag','AdminTagController@dataEdit');
 Route::post('data/admin/tag/update','AdminTagController@update');
 Route::post('data/admin/tag/store','AdminTagController@store');
-Route::delete('data/admin/tag/delete/{id}','AdminCommunityController@destroy');
-
-
 Route::delete('data/admin/tag/delete/{id}','AdminTagController@destroy');
 
 // Mapel
@@ -91,6 +88,13 @@ Route::post('/data/admin/commu/store','AdminCommunityController@store');
 Route::get('/data/admin/commu/edit','AdminCommunityController@dataEdit');
 Route::post('data/admin/commu/update','AdminCommunityController@update');
 Route::delete('data/admin/commu/delete/{id}','AdminCommunityController@destroy');
+
+// Type
+Route::get('/data/admin/type','AdminTypeController@showType');
+Route::post('/data/admin/type/store','AdminTypeController@store');
+Route::get('/data/admin/type/edit','AdminTypeController@dataEdit');
+Route::post('data/admin/type/update','AdminTypeController@update');
+Route::delete('data/admin/type/delete/{id}','AdminTypeController@destroy');
 
 // Kelas
 Route::get('/data/admin/kelas','AdminKelasController@showKelas');
