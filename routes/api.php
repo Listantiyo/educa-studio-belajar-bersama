@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('/my','XampleController@my');
+Route::get('/my','XampleController@my');
 Route::get('/ex', function () {
     return view('ex_edit.index'); 
 });
