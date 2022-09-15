@@ -26,9 +26,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
-                        <th>Nama kategori</th>
-                        <th>Status</th>
-                        <th>Pertanyaan</th>
+                        <th>Type</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -39,7 +37,7 @@
     </div>
 </div>
 
-@include('Admin.status.modal')
+@include('Admin.type.modal')
 
 @endsection
 
@@ -53,21 +51,18 @@
     $(document).ready( function () {
       table =  $('#table').DataTable({
         ajax: {
-                url: 'api/data/admin/kelas',
+                url: 'api/data/admin/type',
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'nama_kategori'},
-                {data: 'status'},
-                {data: 'pertanyaan'},
+                {data: 'nama_type'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });
   } );
 
   function deleteData(id){
-      alert(id)
-      $.post("api/data/admin/kelas/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+      $.post("api/data/admin/type/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
         function (data) {
           alert(data);
           table.ajax.reload();
@@ -76,7 +71,7 @@
     }
 
     function editData(id){
-      $('#kelasModal').modal('show');
+      $('#typesModal').modal('show');
     }
 
     // function tambahData(){

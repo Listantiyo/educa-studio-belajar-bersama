@@ -70,42 +70,29 @@
 
   function addData(){
     $('.modal-title').text('Add Tag');
-    $('#tagModal form')[0].reset();
-    $('#tagModal').modal('show');
+    $('#tagModal form')[0].reset(); 
+    $('#tagModal').modal('show'); 
 
-    $("#form").submit(function (e) {
-      e.preventDefault();
-      let input = $(this).serialize();
-      $.post("api/data/admin/tag/store", input,
-      function (data) {
-        table.ajax.reload();
-        $('#addTag').modal('hide');
-      },
-    )
-
-    });
-}
+    $("#form").submit(function (e) { 
+        e.preventDefault();
+        let input = $(this).serialize();
+        $.post("api/data/admin/tag/store", input,
+          function (data) {
+            table.ajax.reload();
+            $('#tagModal').modal('hide');
+          },
+        );
+  
+      });
+  }
 
   function editData(id){
 
     id_up = id;
-
+    $('.modal-title').text('Edit Tag');
     $('#tagModal').modal('show');
 
     $.get("api/data/admin/edit/tag", {'tag_id':id},
-      function (data) {
-        $("input[name='tags']").val(data.tag);
-      },
-    );
-  }
-
-    function create(id){
-
-    id_up = id;
-
-    $('#addTag').modal('show');
-
-    $.get("api/data/admin/create/tag", {'tag_id':id},
       function (data) {
         $("input[name='tags']").val(data.tag);
       },
@@ -121,15 +108,14 @@
       $.post("api/data/admin/tag/update", input+'&id='+id_up,
         function (data) {
           table.ajax.reload();
-          $('#editTag').modal('hide');
+          $('#tagModal').modal('hide');
         },
       );
 
     });
 
   function deleteData(id){
-      alert(id)
-      $.post("api/data/admin/tag/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+      $.post("api/data/admin/tag/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
         function (data) {
           alert(data);
           table.ajax.reload();

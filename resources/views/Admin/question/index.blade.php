@@ -84,6 +84,10 @@
         }, 
       );
     }
+
+    function editData(id){
+      $('#typesModal').modal('show');
+    }
     
       $(document).ready( function () {
         $('#myTable').DataTable();

@@ -67,12 +67,12 @@ class AdminTagController extends Controller
     public function store(Request $request)
     {
         $id = $request->id;
-        $tags_name = $request->tags;
+        $tag_name = $request->tags;
 
-        $tags = new Tags;
+        $name_tag = new Tags;
 
-        $tags->tags = $tags_name;
-        $tags->save();
+        $name_tag->tag = $tag_name;
+        $name_tag->save();
         return "success";
     }
 
@@ -135,6 +135,6 @@ class AdminTagController extends Controller
      */
     public function destroy($id)
     {
-        $tags = Tags::find($id)->delete();
+        $tag = Tags::find($id)->delete();
     }
 }
