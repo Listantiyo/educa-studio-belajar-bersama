@@ -81,15 +81,9 @@
                             <p style="word-wrap:break-word" v-html="quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+'...'">{{-- @{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }} --}}</p>
                         </div>
 
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Photoshop</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
+                        <ul class="tag-list row">
+                            <li v-for="tag in quest.tag" class="col-2">
+                                <a href="tags.html">@{{tag.tag}}</a>
                             </li>
                         </ul>
 

@@ -108,8 +108,6 @@ class QuestionController extends Controller
         $quest -> save();
         
         $quest->quest_tag()->attach($request->tag);
-        
-        dd($quest);
 
         return "success";
     }
@@ -124,7 +122,7 @@ class QuestionController extends Controller
     {
         $id = $request->id;
         if ($id == 1) {
-            $question_all = DB::table('tbl_questions')->get(); 
+            $question_all = Question::with('tag')->get(); 
         }
         if ($id == 2) {
             $question_most = DB::table('tbl_questions')->where('id_type',2)->get();    

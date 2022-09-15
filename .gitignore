@@ -1,7 +1,8 @@
 /node_modules
 /public/hot
-/public/storage
+public/storage/photos/*
 /storage/*.key
+storage/*.key
 /vendor
 /.idea
 /.vagrant

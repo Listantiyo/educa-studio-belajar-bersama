@@ -14,6 +14,7 @@ use App\Question_Comment;
 use App\Question_Tags;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
@@ -66,12 +67,16 @@ class XampleController extends Controller
         // $a = $al->quest_tag;
         // $a = Question_Tags::fild(1);
         // $a->save();
-        $al = Question::find(17)->quest_tag;
-        dd($al);
-        foreach ($al as $it) {
-            # code...
-        }
-        $all = $al;
+        // $al = /* Question::with('tag')->get(); */DB::table('tbl_questions')->with('tag')->get();
+        
+        // foreach ($al as $it) {
+        //     # code...
+        //     $sit = $it->tag;
+        // }
+        // dd($al);
+        // $all = $al;
+
+        $al = Question::find(24)->pluck('path_img');
         
         // return "success";
     }

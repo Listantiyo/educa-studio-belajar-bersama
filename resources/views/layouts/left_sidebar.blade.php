@@ -128,7 +128,7 @@
                                     </span>
                                 </a>
                             </li> --}}
-                            {{-- <li>
+                            <li>
                                 <a href="{{route('tags')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-price-tag-line"></i>
@@ -136,7 +136,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="{{route('badges')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-award-line"></i>
