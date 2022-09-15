@@ -76,7 +76,8 @@ Route::get('/data/admin/tag','AdminTagController@showTag');
 Route::get('/data/admin/edit/tag','AdminTagController@dataEdit');
 Route::post('data/admin/tag/update','AdminTagController@update');
 Route::post('data/admin/tag/store','AdminTagController@store');
-Route::get('/data/admin/create/tag','AdminTagController@create');
+Route::delete('data/admin/tag/delete/{id}','AdminCommunityController@destroy');
+
 
 Route::delete('data/admin/tag/delete/{id}','AdminTagController@destroy');
 
