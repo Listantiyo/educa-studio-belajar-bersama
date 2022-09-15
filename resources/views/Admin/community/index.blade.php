@@ -62,7 +62,7 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data:'path_img'},
+                {data:'show_image'},
                 {data: 'community'},
                 {data:'followers'},
                 {data: 'aksi', searchable: false, sortable: false},
@@ -78,13 +78,23 @@
 
     $("#form").submit(function (e) { 
         e.preventDefault();
-        let input = $(this).serialize();
-        $.post("api/data/admin/commu/store", input,
-          function (data) {
-            table.ajax.reload();
+        let input = new FormData(this);
+        $.ajax({
+          type: "post",
+          url: "api/data/admin/commu/store",
+          data: input,
+          contentType: false,
+          cache: false,
+          processData:false,
+          success: function (rsp) {
+            table.ajax.reload(rsp);
             $('#modalCommunity').modal('hide');
-          },
-        );
+          }
+        });
+        // $.post("api/data/admin/commu/store", input,
+        //   function (data) {
+        //   },
+        // );
   
       });
   }
@@ -106,13 +116,23 @@
   let id_up;
     $("#form").submit(function (e) { 
         e.preventDefault();
-        let input = $(this).serialize();
-        $.post("api/data/admin/commu/update", input+'&id='+id_up,
-          function (data) {
+        let input = new FormData(this);
+        $.ajax({
+          type: "post",
+          url: "api/data/admin/commu/update",
+          data: input,
+          contentType: false,
+          cache: false,
+          processData:false,
+          success: function (rsp) {
             table.ajax.reload();
             $('#modalCommunity').modal('hide');
-          },
-        );
+          }
+        });
+        // $.post("api/data/admin/commu/update", input+'&id='+id_up,
+        //   function (data) {
+        //   },
+        // );
   
       });
 

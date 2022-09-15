@@ -25,7 +25,7 @@ class AdminCommunityController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.community.create');
     }
 
     /**
@@ -39,11 +39,23 @@ class AdminCommunityController extends Controller
         $id = $request->id;
         $com_name = $request->commu;
 
+        $request->validate([
+            'image' => 'image|mimes:png,jpg,jpeg,gif|max:1024'
+        ]);
+
+        if($request->hasFile('image')) {
+            $gmbr = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->store('photos');
+        } else {
+            $gmbr = null;
+            $path = null;
+        }
+
         $community = new Communities;
 
         $community->community = $com_name;
-        $community->image = "jj";
-        $community->path_img = "hh";
+        $community->image = $gmbr;
+        $community->path_img = $path;
         $community->save();
         return "success";
     }
@@ -55,16 +67,20 @@ class AdminCommunityController extends Controller
         return datatables()
         ->of($communities)
         ->addIndexColumn()
+        ->addColumn('show_image', function($communities){
+            if($communities->path_img == null){
+                return "No Image";
+            }else{
+                return '<img src="/storage/'.$communities->path_img.'" style="width: 70%;" alt="" srcset="">';
+            }
+        })
         ->addColumn('aksi', function ($communities) {
             return '
-            <div class="btn-group">
-                <button onclick="detailData(`'. $communities->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                 <button onclick="editData(`'. $communities->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
                 <button onclick="deleteData(`'.  $communities->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-            </div>
             ';
         })
-        ->rawColumns(['aksi'])
+        ->rawColumns(['show_image','aksi'])
         ->make(true);
     }
     ////////////////////////////////
@@ -112,8 +128,23 @@ class AdminCommunityController extends Controller
         $id = $request->id;
         $comunitty = $request->commu;
 
+        $request->validate([
+            'image' => 'image|mimes:png,jpg,jpeg,gif|max:1024'
+        ]);
+
+        if($request->hasFile('image')) {
+            $gmbr = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->store('photos');
+        } else {
+            $gmbr = null;
+            $path = null;
+        }
+
         $commu = Communities::find($id);
         $commu->community = $comunitty;
+        $commu->image = $gmbr;
+        $commu->path_img = $path;
+
 
         $commu->update();
         return "success";
