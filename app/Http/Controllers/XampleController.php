@@ -11,6 +11,7 @@ use App\User_Detail;
 use App\User;
 use App\Answer_Comment;
 use App\Question_Comment;
+use App\Question_Tags;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -46,10 +47,10 @@ class XampleController extends Controller
             
         // }
         // $a = Question::pluck('tags');
-        $a = Question::join('tbl_tags', function ($join) {
-        $join->on(DB::raw('find_in_set(json_decode(tbl_questions.tags), tbl_tags.id)'), DB::raw(''), DB::raw(''));
-    })
-    ->get(); 
+    //     $a = Question::join('tbl_tags', function ($join) {
+    //     $join->on(DB::raw('find_in_set(json_decode(tbl_questions.tags), tbl_tags.id)'), DB::raw(''), DB::raw(''));
+    // })
+    // ->get(); 
         // foreach ($a as $a) {
         //     $all =  json_decode($a);
         //     // $all1 = $al[0];
@@ -62,7 +63,17 @@ class XampleController extends Controller
         // return $all;
         // $name_mapel = Question::find(1)->mapel;
         // dd($all1.$all2.$all3.$all4.$all5);
-        dd($a);
+        // $a = $al->quest_tag;
+        // $a = Question_Tags::fild(1);
+        // $a->save();
+        $al = Question::find(17)->quest_tag;
+        dd($al);
+        foreach ($al as $it) {
+            # code...
+        }
+        $all = $al;
+        
+        // return "success";
     }
     public function filter(){
         $filc = Classe::all();

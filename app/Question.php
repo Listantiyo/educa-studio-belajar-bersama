@@ -9,9 +9,10 @@ class Question extends Model
     protected $table = 'tbl_questions';
     
     
-    public function mapel()
+    public function quest_tag()
     {
-        return $this->hasOne(Mapel::class, 'id');
+        return $this->belongsToMany(Question_Tags::class,'tbl_question_tags','id_tag','id_quest')
+                    ->withTimestamps();
     }
 
 }

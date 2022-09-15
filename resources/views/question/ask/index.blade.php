@@ -150,6 +150,5 @@
             id_tag = id;
             $("#ip"+id).trigger('click');
         }
-        
     </script>
 @endpush

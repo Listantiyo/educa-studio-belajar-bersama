@@ -77,6 +77,7 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $tags = json_encode($request->input('tag')); /* serialize != unserialize */
+        // dd($request->input('tag'));
         
         $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:1024'
@@ -100,11 +101,15 @@ class QuestionController extends Controller
         $quest->id_comunity = $request->community;
         $quest->title = $request->title;
         $quest->question = $request->text;
-        $quest->tags = $tags;
         $quest->image = $name;
+        $quest->tags = $tags;
         $quest->path_img = $path;
-
+        
         $quest -> save();
+        
+        $quest->quest_tag()->attach($request->tag);
+        
+        dd($quest);
 
         return "success";
     }
