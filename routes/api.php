@@ -86,6 +86,7 @@ Route::delete('/data/admin/mapel/{id}','AdminMapelController@destroy');
 
 // Communites
 Route::get('/data/admin/commu','AdminCommunityController@showCommunities');
+Route::post('/data/admin/commu/store','AdminCommunityController@store');
 Route::get('/data/admin/commu/edit','AdminCommunityController@dataEdit');
 Route::post('data/admin/commu/update','AdminCommunityController@update');
 Route::delete('data/admin/commu/delete/{id}','AdminCommunityController@destroy');
