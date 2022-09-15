@@ -55,7 +55,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 ms-3" style="max-width: 80%">
+                    <div class="flex-grow-1 ms-3" style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
                                 <a href="user.html">Teresa Klein</a>
@@ -81,12 +81,11 @@
                             <p style="word-wrap:break-word" v-html="quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+'...'">{{-- @{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }} --}}</p>
                         </div>
 
-                        <ul class="tag-list row">
-                            <li v-for="tag in quest.tag" class="col-2">
-                                <a href="tags.html">@{{tag.tag}}</a>
-                            </li>
-                        </ul>
-
+                        <div class="row" style="max-width: 90%">
+                                <a href="" v-for="tag in quest.tag" style="font-size: 80%; width: 50%;"  class="text-center border col mt-2  px-2">
+                                    <i class="">#@{{tag.tag}}</i>
+                                </a>
+                        </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="anser-list">
                                 <li>
@@ -169,7 +168,7 @@
                         </a>
                     </div>
 
-                    <div class="flex-grow-1 ms-3" style="max-width: 80%">
+                    <div class="flex-grow-1 ms-3" style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
                                 <a href="user.html">Teresa Klein</a>
@@ -302,7 +301,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 ms-3" style="max-width: 80%">
+                    <div class="flex-grow-1 ms-3" style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
                                 <a href="user.html">Teresa Klein</a>
@@ -429,7 +428,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 ms-3" style="max-width: 80%">
+                    <div class="flex-grow-1 ms-3" style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
                                 <a href="user.html">Teresa Klein</a>
