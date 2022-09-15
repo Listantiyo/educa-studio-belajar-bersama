@@ -19,26 +19,37 @@ Route::get('/oohome', function () {
     return view('question.index');
 });
 
-
+// Home
 Route::get('/menu', 'HomeController@index')->name('menu');
 
+// Question
 Route::get('/question', 'QuestionController@index')->name('questions');
 Route::get('/questions-details/{id}', 'QuestionController@detail')->name('questions-details');
 Route::get('/ask-questions', 'QuestionController@ask')->name('ask-questions');
 
+// Tags
+Route::get('/tags', 'TagController@index')->name('tags');
+
+// Communities
 Route::get('/communities', 'CommunitiesController@index')->name('communities');
 
+// Most Answered Qs
 Route::get('/most-answered', 'MostAnsweredController@index')->name('most-answered');
 Route::get('/most-answered-details', 'MostAnsweredController@detail')->name('most-answered-details');
 
+// Unasnwered Qs
 Route::get('/unanswered', 'UnansweredController@index')->name('unanswered');
 
+// MostVisited Qs
 Route::get('/most-visited', 'MostVisitedController@index')->name('most-visited');
 
+// Polls
 Route::get('/polls', 'PollsController@index')->name('polls');
 
+// FAQ
 Route::get('/faq', 'FaqController@index')->name('faq');
 
+// Groups
 Route::get('/groups', 'GroupsController@index')->name('groups');
 
 // ------------------------------------------------------------
