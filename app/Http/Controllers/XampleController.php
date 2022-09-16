@@ -22,7 +22,8 @@ class XampleController extends Controller
 {
     public function my()
     {
-        $id = 1;
+        dd(DB::table('tbl_tags')->paginate(10));
+        // $id = 1;
         // $kelas = "s";
         // $getid = DB::table('tbl_user_details')->where('id_user',$i)->get();
         // $id = User_Detail::where('id_user',$i)->pluck('id');
@@ -76,7 +77,7 @@ class XampleController extends Controller
         // dd($al);
         // $all = $al;
 
-        $al = Question::find(24)->pluck('path_img');
+        // $al = Question::find(24)->pluck('path_img');
         
         // return "success";
     }

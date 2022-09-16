@@ -15,7 +15,6 @@
                 <label>Communities</label>
 
                 <div class="input-group mb-3">
-                    {{-- <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"> --}}
                     <select class="form-select form-select-md" name="community" aria-label="Default select example">
                         <option selected disabled>Select Communities</option>
                         <option value="0">Public</option>
