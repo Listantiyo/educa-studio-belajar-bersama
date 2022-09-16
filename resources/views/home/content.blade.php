@@ -55,7 +55,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 ms-3" style="max-width: 100%">
+                    <div class="flex-grow-1 ms-4 text-md-left " style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
                                 <a href="user.html">Teresa Klein</a>
@@ -71,7 +71,7 @@
                             </li>
                         </ul>
                         
-                        <div style="max-width: 100%">
+                        <div>
                             <h3 style="word-wrap:break-word">
                                 <a href @click="toAnswer(quest.id)">
                                     @{{quest.title}}
@@ -81,7 +81,7 @@
                             <p style="word-wrap:break-word" v-html="quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+'...'">{{-- @{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }} --}}</p>
                         </div>
 
-                        <div class="row mb-4" style="max-width: 90%; margin-left: 1%;">
+                        <div class="row mb-4 px-3" style="max-width: 100%;">
                                 <a href="" v-for="tag in quest.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
                                     <i class="">#@{{tag.tag}}</i>
                                 </a>

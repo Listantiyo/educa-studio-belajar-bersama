@@ -21,8 +21,9 @@ use Illuminate\Http\Request;
 class XampleController extends Controller
 {
     public function my()
-    {
-        dd(DB::table('tbl_tags')->paginate(10));
+    {   
+        Storage::disk('public')->delete('photos/qGp7Q0rMgnfuA0pNSGsFaBJF4HgplHh4qgUnZTUS.png');
+        return Storage::files('photos');
         // $id = 1;
         // $kelas = "s";
         // $getid = DB::table('tbl_user_details')->where('id_user',$i)->get();
