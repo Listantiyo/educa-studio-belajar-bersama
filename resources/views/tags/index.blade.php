@@ -48,26 +48,51 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-12 text-center mb-2"> <p>@{{current_page}} of @{{last_page}}</p> </div>
+            {{-- pagginate --}}
             <div class="col-12 px-5">
                 <div class="pagination-area mt-0 row">
-                    <a href="tags.html" style="border: 1px solid #eeeeee;height:2rem ;padding: 0.25rem!important;" class="col-2 text-center">
+                    <a 
+                        href="#"  
+                        class="col-2 text-center" 
+                        style="border: 1px solid #eeeeee;height:2rem ;padding: 0.25rem!important;"
+                        @click="pagginate(first_page_url)"
+                    >
                         First
                     </a>
 
-                    <a href="tags.html" style="border: 1px solid #eeeeee;height:2rem ;padding: 0.25rem!important;" class="col-1 ms-1 text-center" >
+                    <a 
+                        href="#" 
+                        class="col-1 ms-1 text-center" 
+                        style="border: 1px solid #eeeeee;height:2rem ;padding: 0.25rem!important;"
+                        @click="pagginate(prev_page_url)"
+                        >
                         <i class="ri-arrow-left-line"></i>
                     </a>
 
                     <div class="col d-flex">
-                        <input type="text" class="" style="border: 1px solid #eeeeee; height:2rem; width:auto;" :placeholder="">
-                        <button type="text" class="" style="border: 1px solid #eeeeee; height:2rem; width:100%;" ><b>GO</b></button>
+                        <input type="text" id="search-pagginate" class="text-center" :placeholder="current_page +' of '+ last_page" 
+                            style="border: 1px solid #eeeeee; height:2rem; width:auto;">
+                        <button 
+                            @click="searchPagginate(path)"
+                            type="text" class="" style="border: 1px solid #eeeeee; height:2rem; width:100%;" >
+                            <b>GO</b>
+                        </button>
                     </div>
 
-                    <a href="tags.html" style="border: 1px solid #eeeeee;height:2rem;padding: 0.25rem!important;" class="col-1 me-1 text-center">
+                    <a 
+                        href="#"  
+                        class="col-1 me-1 text-center"
+                        style="border: 1px solid #eeeeee;height:2rem;padding: 0.25rem!important;"
+                        @click="pagginate(next_page_url)"
+                        >
                         <i class="ri-arrow-right-line"></i>
                     </a>
-                    <a href="tags.html" style="border: 1px solid #eeeeee;height:2rem;padding: 0.25rem!important;" class="col-2 text-center">
+                    <a 
+                        href="#" 
+                        class="col-2 text-center"
+                        style="border: 1px solid #eeeeee;height:2rem;padding: 0.25rem!important;"
+                        @click="pagginate(last_page_url)"
+                        >
                         Last
                     </a>
                 </div>
@@ -79,7 +104,10 @@
 
 @push('scripts')
 <script>
-
+        
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+    }
 
     const vues = Vue.createApp({
         data() {
@@ -91,6 +119,7 @@
                 next_page_url:'',
                 last_page:'',
                 current_page:'',
+                path:'',
             }
         },mounted() {
             $(document).ready(function () {
@@ -109,10 +138,71 @@
                         vues.prev_page_url = rsp.prev_page_url
                         vues.next_page_url = rsp.next_page_url
                         vues.current_page = rsp.current_page
+                        vues.path = rsp.path
                     }
                 });
 
             });
+        },methods: {
+            // pagginate button
+            pagginate(url){
+                console.log(url);
+                $.ajax({
+                    type: "GET",
+                    contentType: "application/json",
+                    dataType: "json",
+                    url: url,
+                    success: function (rsp) {
+                        console.log(rsp);   
+                        vues.tags = rsp.data
+                        vues.first_page_url = rsp.first_page_url
+                        vues.last_page_url = rsp.last_page_url
+                        vues.last_page = rsp.last_page
+                        vues.prev_page_url = rsp.prev_page_url
+                        vues.next_page_url = rsp.next_page_url
+                        vues.current_page = rsp.current_page
+                        vues.path = rsp.path
+                    }
+                });
+            },
+            // search-pagginate
+            searchPagginate(url){
+                var url = url+'?pages='
+                console.log(url);
+                let num = $("#search-pagginate").val();
+
+                if (num == '') {
+
+                    $("#search-pagginate").val(null);
+                    alert("please input number of page")
+
+                }else if(num > vues.last_page){
+
+                    $("#search-pagginate").val(null);
+                    alert("your input out of range, the last page is " + vues.last_page)
+
+                }else{                    
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json",
+                        dataType: "json",
+                        url: url+num,
+                        success: function (rsp) {
+                            scrollToTop() 
+                            console.log(rsp);   
+                            vues.tags = rsp.data
+                            vues.first_page_url = rsp.first_page_url
+                            vues.last_page_url = rsp.last_page_url
+                            vues.last_page = rsp.last_page
+                            vues.prev_page_url = rsp.prev_page_url
+                            vues.next_page_url = rsp.next_page_url
+                            vues.current_page = rsp.current_page
+                            vues.path = rsp.path
+                            $("#search-pagginate").val(null);
+                        }
+                    });
+                }
+            },
         },
     }).mount('#app')
 </script>
