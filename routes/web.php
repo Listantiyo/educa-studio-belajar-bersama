@@ -75,21 +75,21 @@ Route::get('/adminquestion','AdminQuestionController@index')->name('adminquest')
 // Route::get('/adminmapel','AdminMapelController@index')->name('matapelajaran');
 
 // Category
-Route::get('/admincategory','AdminCategoryController@index')->name('category');
+Route::get('/admincategory','AdminCategoryController@index')->name('category-admin');
 
 // User
-Route::get('/adminuser','AdminUserController@index')->name('user');
-Route::get('/adminuser/{adminuser}/edit','AdminUserController@edit')->name('editUser');
+Route::get('/adminuser','AdminUserController@index')->name('user-admin');
+Route::get('/adminuser/{adminuser}/edit','AdminUserController@edit')->name('editUser-admin');
 
 // Status
-Route::get('/adminstatus','AdminStatusController@index')->name('status');
+Route::get('/adminstatus','AdminStatusController@index')->name('status-admin');
 
 // Comunitty
-Route::get('/admincomunitty','AdminCommunityController@index')->name('communities');
+Route::get('/admincomunitty','AdminCommunityController@index')->name('communities-admin');
 
 // Answer
-Route::get('/adminanswer','AdminAnswerController@index')->name('answer');
+Route::get('/adminanswer','AdminAnswerController@index')->name('answer-admin');
 
 // Tag
-Route::get('/admintag','AdminTagController@index')->name('tag');
+Route::get('/admintag','AdminTagController@index')->name('tag-admin');
 
