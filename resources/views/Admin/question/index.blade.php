@@ -25,8 +25,11 @@
             <table id="table" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
+                        {{-- <th>#</th> --}}
                         <th>Id</th>
-                        <th>Id user</th>
+                        <th>user</th>
+                        <th>Type</th>
+                        <th>Community</th>
                         <th>Title</th>
                         <th>Pertanyaan</th>
                         <th>Tags</th>
@@ -37,7 +40,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                {{-- <tbody>
                   @foreach ( $questions as $quest)
                       <tr>
                           <td>{{ $loop->index + 1 }}</td>
@@ -59,7 +62,7 @@
                           </td>
                       </tr>
                   @endforeach
-              </tbody>
+              </tbody> --}}
             </table>
           </div>
       </div>
@@ -74,6 +77,31 @@
   
   @push('script')
   <script>
+
+    let table;
+
+    $(document).ready(function () {
+      table = $('#table').DataTable({
+        ajax: {
+          url: 'api/data/admin/quest',
+        },
+        columns: [
+          // {data: 'DT_RowIndex', searchable:false, sortable:false},
+          {data: 'id'},
+          {data: 'id_user_dil'},
+          {data: 'id_type'},
+          {data: 'id_comunity'},
+          {data: 'title'},
+          {data: 'question'},
+          {data: 'tags'},
+          {data: 'like'},
+          {data: 'dislike'},
+          {data: 'votes'},
+          {data: 'image'},
+          {data: 'aksi', searchable:false, sortable:false}
+        ]
+      });
+    });
 
     function deleteData(id){
       alert(id)

@@ -97,7 +97,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('commuCreate')}}" class="nav-link">
+              <a href="#" class="nav-link">
                 <i class="nav-icon fa-solid fa-plus"></i>
                 Tambah Community
               </a>

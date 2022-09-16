@@ -125,29 +125,37 @@ class AdminCommunityController extends Controller
      */
     public function update(Request $request)
     {
+        // $id = $request->id;
+        // $comunitty = $request->commu;
+
+        // $request->validate([
+        //     'image' => 'image|mimes:png,jpg,jpeg,gif|max:1024'
+        // ]);
+
+        // if($request->hasFile('image')) {
+        //     $gmbr = $request->file('image')->getClientOriginalName();
+        //     $path = $request->file('image')->store('photos');
+        // } else {
+        //     $gmbr = null;
+        //     $path = null;
+        // }
+
         $id = $request->id;
-        $comunitty = $request->commu;
-
-        $request->validate([
-            'image' => 'image|mimes:png,jpg,jpeg,gif|max:1024'
-        ]);
-
-        if($request->hasFile('image')) {
-            $gmbr = $request->file('image')->getClientOriginalName();
-            $path = $request->file('image')->store('photos');
-        } else {
-            $gmbr = null;
-            $path = null;
-        }
 
         $commu = Communities::find($id);
-        $commu->community = $comunitty;
-        $commu->image = $gmbr;
-        $commu->path_img = $path;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $store_path = "storage/photos";
+            $name = $image->getClientOriginalName();
+            $image->move(public_path('/' . $store_path), $name);
+            $exist_image = $commu['image'];
+            $update['image'] = $store_path . '/' . $name;
 
-
+        }        
         $commu->update();
         return "success";
+
+
     }
 
     /**
@@ -158,6 +166,14 @@ class AdminCommunityController extends Controller
      */
     public function destroy($id)
     {
-        $community = Communities::find($id)->delete();
+        $community = Communities::find($id);
+
+        if ($community->path_img != null){
+            unlink(public_path($community->path_img));
+        }
+
+        Communities::destroy($id);
+
+        return "success";
     }
 }
