@@ -35,8 +35,8 @@ Route::post('quest/store','QuestionController@store');
 Route::put('quest/update','QuestionController@update');
 Route::delete('quest/delete','QuestionController@delete');
 // API Tag
-Route::get('tag/show','TagionController@show');
-Route::get('tag/search','TagionController@search');
+Route::get('tag/show','TagController@show');
+Route::get('tag/search','TagController@search');
 
 // ----------------------------------------------------------
 
