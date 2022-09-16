@@ -81,8 +81,8 @@
                             <p style="word-wrap:break-word" v-html="quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+'...'">{{-- @{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }} --}}</p>
                         </div>
 
-                        <div class="row" style="max-width: 90%">
-                                <a href="" v-for="tag in quest.tag" style="font-size: 80%; width: 50%;"  class="text-center border col mt-2  px-2">
+                        <div class="row mb-4" style="max-width: 90%; margin-left: 1%;">
+                                <a href="" v-for="tag in quest.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
                                     <i class="">#@{{tag.tag}}</i>
                                 </a>
                         </div>
