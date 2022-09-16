@@ -8,15 +8,15 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form id="form" enctype="multipart/form-data">
+        <form id="form" url="" enctype="multipart/form-data">
           {{ csrf_field() }}
             <div class="modal-body">
               <div class="form-group">
                   <label for="">Community name</label>
                   <input type="text" name="commu" class="form-control" required>
               </div>
-              <div class="form-group">
-                <input type="file" name="image" class="form-control">
+              <div id="append" class="form-group">
+                <input type="file" name="image" class="form-control" value="">
               </div>
             </div>
           <div class="modal-footer">
@@ -27,5 +27,6 @@
       </div>
     </div>
   </div>
+  
 <!-- Modal -->
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Communities;
+use Illuminate\Support\Facades\Storage;
 
 class AdminCommunityController extends Controller
 {
@@ -57,6 +58,7 @@ class AdminCommunityController extends Controller
         $community->image = $gmbr;
         $community->path_img = $path;
         $community->save();
+
         return "success";
     }
 
@@ -87,9 +89,10 @@ class AdminCommunityController extends Controller
     public function dataEdit(Request $request )
     {
         $id = $request->id;
+        $image = $request->image;
 
         $data = Communities::find($id);
-
+        $data->image = $image;
         return $data;
     
     }
@@ -125,34 +128,33 @@ class AdminCommunityController extends Controller
      */
     public function update(Request $request)
     {
-        // $id = $request->id;
-        // $comunitty = $request->commu;
-
-        // $request->validate([
-        //     'image' => 'image|mimes:png,jpg,jpeg,gif|max:1024'
-        // ]);
-
-        // if($request->hasFile('image')) {
-        //     $gmbr = $request->file('image')->getClientOriginalName();
-        //     $path = $request->file('image')->store('photos');
-        // } else {
-        //     $gmbr = null;
-        //     $path = null;
-        // }
-
         $id = $request->id;
+        $comunitty = $request->commu;
 
-        $commu = Communities::find($id);
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $store_path = "storage/photos";
-            $name = $image->getClientOriginalName();
-            $image->move(public_path('/' . $store_path), $name);
-            $exist_image = $commu['image'];
-            $update['image'] = $store_path . '/' . $name;
+        $community = Communities::find($id);
 
-        }        
-        $commu->update();
+        if ($community->path_img != null){
+            Storage::disk('public')->delete($community->path_img);
+        }
+
+        $request->validate([
+            'image' => 'image|mimes:png,jpg,jpeg,gif|max:1024'
+        ]);
+
+        if($request->hasFile('image')) {
+            $image = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->store('photos');
+            $community->image = $image;
+            $community->path_img = $path;
+        } else {
+            $gmbr = null;
+            $path = null;
+        }
+        
+        $community->community = $comunitty;
+
+
+        $community->update();
         return "success";
 
 
@@ -169,11 +171,9 @@ class AdminCommunityController extends Controller
         $community = Communities::find($id);
 
         if ($community->path_img != null){
-            unlink(public_path($community->path_img));
+            Storage::disk('public')->delete($community->path_img);
         }
-
-        Communities::destroy($id);
-
+        $community->delete();
         return "success";
     }
 }

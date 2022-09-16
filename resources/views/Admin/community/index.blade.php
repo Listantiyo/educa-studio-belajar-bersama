@@ -1,6 +1,13 @@
 @extends('Admin.layouts.master')
 
 @section('content')
+
+<style>
+  #gbrmdl{
+    max-width: 50%;
+    height: auto;
+  }
+</style>
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -56,85 +63,76 @@
   let table; 
 
     $(document).ready( function () {
-      table =  $('#table').DataTable({
-        ajax: {
-                url: 'api/data/admin/commu',
-            },
-            columns: [
-                {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data:'show_image'},
-                {data: 'community'},
-                {data:'followers'},
-                {data: 'aksi', searchable: false, sortable: false},
-            ]
-      });
+        table =  $('#table').DataTable({
+          ajax: {
+                  url: 'api/data/admin/commu',
+              },
+              columns: [
+                  {data: 'DT_RowIndex', searchable: false, sortable: false},
+                  {data:'show_image'},
+                  {data: 'community'},
+                  {data:'followers'},
+                  {data: 'aksi', searchable: false, sortable: false},
+              ]
+        });
+      }
+    );
+
+    let url;
+    let input;
+    let idu;
+
+  $("#form").submit(function (e) {
+    e.preventDefault();
+
+    input = new FormData(this);
+    if (idu != null) {
+      input.append('id', idu);
     }
-  );
+    console.log(input);
+    $.ajax({
+      type: "post",
+      url: url,
+      data: input,
+      contentType: false,
+      cache: false,
+      processData:false,
+      success: function (rsp) {
+        table.ajax.reload(rsp);
+            $('#modalCommunity form')[0].reset();
+            $('#modalCommunity').modal('hide');
+      }
+    });
+    return false;
+  });
 
   function addData(){
+    $("#form").attr("url", "api/data/admin/commu/store");
     $('.modal-title').text('Add Community');
     $('#modalCommunity form')[0].reset(); 
     $('#modalCommunity').modal('show'); 
-
-    $("#form").submit(function (e) { 
-        e.preventDefault();
-        let input = new FormData(this);
-        $.ajax({
-          type: "post",
-          url: "api/data/admin/commu/store",
-          data: input,
-          contentType: false,
-          cache: false,
-          processData:false,
-          success: function (rsp) {
-            table.ajax.reload(rsp);
-            $('#modalCommunity').modal('hide');
-          }
-        });
-        // $.post("api/data/admin/commu/store", input,
-        //   function (data) {
-        //   },
-        // );
-  
-      });
+    url = $("#form").attr("url");
+    
+    console.log(url);
+      
   }
 
   function editData(id){
-
-    id_up = id;
-    // alert(id)
+    idu = id
+    $("#form").attr("url", "api/data/admin/commu/update");
     $('.modal-title').text('Edit Community');
     $('#modalCommunity').modal('show');
-
+    url = $("#form").attr("url");
+    console.log(url);
     $.get("api/data/admin/commu/edit", {'id':id},
       function (data) {
         $("input[name='commu']").val(data.community);
+        $("#append").append("<img id='gbrmdl' src=''>");
+        $("#gbrmdl").attr('src', 'storage/'+data.path_img);
       },
     );
   }
   
-  let id_up;
-    $("#form").submit(function (e) { 
-        e.preventDefault();
-        let input = new FormData(this);
-        $.ajax({
-          type: "post",
-          url: "api/data/admin/commu/update",
-          data: input,
-          contentType: false,
-          cache: false,
-          processData:false,
-          success: function (rsp) {
-            table.ajax.reload();
-            $('#modalCommunity').modal('hide');
-          }
-        });
-        // $.post("api/data/admin/commu/update", input+'&id='+id_up,
-        //   function (data) {
-        //   },
-        // );
-  
-      });
 
   function deleteData(id){
       $.post("api/data/admin/commu/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
@@ -143,7 +141,7 @@
           table.ajax.reload();
         },
       );
-    }
+  }
 
   </script>
 

@@ -50,7 +50,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('tag') }}" class="nav-link">
+          <a href="{{ route ('tag-admin') }}" class="nav-link">
             <i class="nav-icon fa-solid fa-hashtag"></i>
             <p>
               Tag
@@ -58,7 +58,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('user') }} " class="nav-link">
+          <a href="{{ route ('user-admin') }} " class="nav-link">
             <i class="nav-icon fa fa-user"></i>
             <p>
               User
@@ -66,7 +66,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('status') }} " class="nav-link">
+          <a href="{{ route ('status-admin') }} " class="nav-link">
             <i class="nav-icon fas fa-shield-alt"></i>
             <p>
               Status
@@ -74,7 +74,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('answer') }} " class="nav-link">
+          <a href="{{ route ('answer-admin') }} " class="nav-link">
             <i class="nav-icon fas fa-voicemail"></i>
             <p>
               Answer
@@ -91,7 +91,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{route('communities')}}" class="nav-link">
+              <a href="{{route('communities-admin')}}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 List Community
               </a>
@@ -101,10 +101,6 @@
                 <i class="nav-icon fa-solid fa-plus"></i>
                 Tambah Community
               </a>
-            </li>
-          </ul>
-        </li>
-
             </li>
           </ul>
         </li>
