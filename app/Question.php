@@ -19,5 +19,14 @@ class Question extends Model
     {
         return $this->belongsToMany(Tags::class,'tbl_question_tags','id_quest','id_tag');
     }
-
+    
+    public function like()
+    {
+        return $this->belongsToMany(Tags::class,'tbl_like','id_quest','id_user');
+    }
+    
+    public function dislike()
+    {
+        return $this->belongsToMany(Tags::class,'tbl_like','id_quest','id_user');
+    }
 }

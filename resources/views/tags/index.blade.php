@@ -167,9 +167,9 @@
             },
             // search-pagginate
             searchPagginate(url){
-                var url = url+'?pages='
-                console.log(url);
+                var url = url+'?page='
                 let num = $("#search-pagginate").val();
+                console.log(url);
 
                 if (num == '') {
 

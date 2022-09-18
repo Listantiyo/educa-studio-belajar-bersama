@@ -46,7 +46,7 @@ class TagController extends Controller
      */
     public function show()
     {
-        $tags = DB::table('tbl_tags')->paginate(10);
+        $tags = DB::table('tbl_tags')->paginate(8);
         return response()->json($tags);
     }
 

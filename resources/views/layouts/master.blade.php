@@ -23,8 +23,21 @@
 		<link rel="icon" type="image/png" href="assets/images/favicon.png">
 		<!-- Title -->
 		<title>Pify - Social Questions & Answers HTML Template</title>
-
 		<style>
+			/* navbar */
+			.navbar-area{
+				padding-top: 0px;
+				padding-bottom: 0px;
+			}
+			.navbar-brand img{
+				max-width: 69%;
+			}
+			.desktop-nav .navbar .others-options ul li .search-box .form-control
+			{
+				height: 2.7rem !important;
+    			width: 20rem;
+			}
+			/* form-radius */
 			.global-radius{
 				border-radius:0.2rem !important; 
 			}
