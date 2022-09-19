@@ -26,7 +26,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
-                        <th>Id user</th>
+                        <th>Nama</th>
                         <th>Pertanyaan</th>
                         <th>Jawaban</th>
                         <th>Image</th>
@@ -56,8 +56,8 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id_user_dil'},/* sesuai di database */
-                {data: 'id_question'},
+                {data: 'name'},/* sesuai di database */
+                {data: 'question'},
                 {data: 'answer'},
                 {data: 'path_answ_img'},
                 {data: 'aksi', searchable: false, sortable: false},

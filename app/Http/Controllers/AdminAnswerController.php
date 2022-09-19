@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Answer;
 
@@ -42,8 +43,12 @@ class AdminAnswerController extends Controller
 
     }
     public function showAnswer()
-    {
-        $answers = Answer::all();
+    {    
+        $answers = DB::table('tbl_answers')
+        ->join('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
+        ->join('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
+        ->select('tbl_answers.*' , 'users.name', 'tbl_questions.question')
+        ->get();
 
         return datatables()
         ->of($answers)
@@ -64,6 +69,19 @@ class AdminAnswerController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function innerJoin()
+    {
+    
+    $result = DB::table('tbl_answers')
+        ->join('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
+        ->join('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
+        ->select('tbl_answers.*' , 'users.name', 'tbl_questions.question')
+        ->get();
+
+    dd($result);
+
     }
 
     /**
