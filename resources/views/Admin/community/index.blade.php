@@ -42,6 +42,7 @@
             <table id="table" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
+                        <th>#</th>
                         <th>Id</th>
                         <th>Image</th>
                         <th>Comunitty name</th>
@@ -73,6 +74,7 @@
               },
               columns: [
                   {data: 'DT_RowIndex', searchable: false, sortable: false},
+                  {data: 'id'},
                   {data:'show_image'},
                   {data: 'community'},
                   {data:'followers'},
