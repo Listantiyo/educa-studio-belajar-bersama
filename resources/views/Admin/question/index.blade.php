@@ -61,8 +61,8 @@
                               </a>
                           </td>
                       </tr>
-                  @endforeach
-              </tbody> --}}
+                  @endforeach  --}}
+              </tbody>
             </table>
           </div>
       </div>
@@ -88,9 +88,9 @@
         columns: [
           // {data: 'DT_RowIndex', searchable:false, sortable:false},
           {data: 'id'},
-          {data: 'id_user_dil'},
-          {data: 'id_type'},
-          {data: 'id_comunity'},
+          {data: 'name'},
+          {data: 'nama_type'},
+          {data: 'community'},
           {data: 'title'},
           {data: 'question'},
           {data: 'tags'},

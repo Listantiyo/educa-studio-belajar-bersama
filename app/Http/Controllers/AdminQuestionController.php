@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Question;
 
@@ -15,6 +16,7 @@ class AdminQuestionController extends Controller
     public function index()
     {
         $questions = Question::all();
+
         return view('Admin.question.index',compact('questions'));
         // return view('Admin.question.index');
     }
@@ -44,7 +46,13 @@ class AdminQuestionController extends Controller
     }
     public function showQuest()
     {
-        $questions = Question::all();
+        $questions = DB::table('tbl_questions')
+        ->leftjoin('users', 'tbl_questions.id_user_dil' , '=' ,'users.id')
+        ->leftjoin('tbl_types', 'tbl_questions.id_type' , '=' ,'tbl_types.id')
+        ->leftjoin('tbl_communities', 'tbl_questions.id_comunity' , '=' ,'tbl_communities.id')
+        ->select('tbl_questions.*' , 'users.name', 'tbl_types.nama_type', 'tbl_communities.community')
+        ->get();
+
 
         return datatables()
         ->of($questions)

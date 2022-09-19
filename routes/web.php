@@ -81,8 +81,11 @@ Route::get('/admincategory','AdminCategoryController@index')->name('category-adm
 Route::get('/adminuser','AdminUserController@index')->name('user-admin');
 Route::get('/adminuser/{adminuser}/edit','AdminUserController@edit')->name('editUser-admin');
 
-// Status
-Route::get('/adminstatus','AdminStatusController@index')->name('status-admin');
+// Question
+Route::get('/adminquestion','AdminQuestionController@index')->name('quest-admin');
+
+// Type
+Route::get('/admintypes','AdminTypeController@index')->name('type-admin');
 
 // Comunitty
 Route::get('/admincomunitty','AdminCommunityController@index')->name('communities-admin');
@@ -92,4 +95,37 @@ Route::get('/adminanswer','AdminAnswerController@index')->name('answer-admin');
 
 // Tag
 Route::get('/admintag','AdminTagController@index')->name('tag-admin');
+
+
+
+
+// // cek join
+// Route::get('/cek-join', function () {
+    
+//     $result = DB::table('tbl_answers')
+//         ->join('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
+//         ->join('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
+//         ->select('tbl_answers.*' , 'users.name', 'tbl_questions.question')
+//         ->get();
+
+//     dd($result);
+
+// });
+
+
+
+// // cek join quest
+// Route::get('/cek-join-quest', function () {
+    
+//     $result = DB::table('tbl_questions')
+//         ->leftjoin('users', 'tbl_questions.id_user_dil' , '=' ,'users.id')
+//         ->leftjoin('tbl_types', 'tbl_questions.id_type' , '=' ,'tbl_types.id')
+//         ->leftjoin('tbl_communities', 'tbl_questions.id' , '=' ,'tbl_communities.id')
+//         ->select('tbl_questions.*' , 'users.name', 'tbl_types.nama_type', 'tbl_communities.community')
+//         ->get();
+
+//     dd($result);
+
+// });
+
 

@@ -42,10 +42,18 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('adminquest') }} " class="nav-link">
+          <a href="{{ route ('quest-admin') }} " class="nav-link">
             <i class="nav-icon fas fa-question"></i>
             <p>
               Question
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route ('answer-admin') }} " class="nav-link">
+            <i class="nav-icon fas fa-voicemail"></i>
+            <p>
+              Answer
             </p>
           </a>
         </li>
@@ -66,18 +74,10 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('status-admin') }} " class="nav-link">
-            <i class="nav-icon fas fa-shield-alt"></i>
+          <a href="{{ route ('type-admin') }} " class="nav-link">
+            <i class="nav-icon fa-brands fa-typo3"></i>
             <p>
-              Status
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{ route ('answer-admin') }} " class="nav-link">
-            <i class="nav-icon fas fa-voicemail"></i>
-            <p>
-              Answer
+              Type
             </p>
           </a>
         </li>
