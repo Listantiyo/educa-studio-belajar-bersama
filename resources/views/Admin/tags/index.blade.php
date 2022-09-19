@@ -31,6 +31,7 @@
             <table id="table" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
+                        <th>#</th>
                         <th>Id</th>
                         <th>Tag</th>
                         <th>Aksi</th>
@@ -60,6 +61,7 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
+                {data: 'id'},
                 {data: 'tag'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
@@ -68,51 +70,91 @@
     
   );
 
+
+  let input;
+  let url;
+  let idu;
+
+    $("#form").submit(function (e) { 
+      e.preventDefault();
+      
+      input = $(this).serialize();
+      if(idu != null){
+        input.append('id', idu);
+      }
+      $.ajax({
+        type: "post",
+        url: url,
+        data: input,
+        contentType: false,
+        cache: false,
+        processData:false,
+        success: function (rsp) {
+          table.ajax.reload(rsp);
+          $('#tagModal form')[0].reset();
+          $('#tagModal').modal('hide');
+        }
+      });
+      return false;
+    });
+
+
   function addData(){
+    $("#form").attr("url","api/data/admin/tag/store");
     $('.modal-title').text('Add Tag');
     $('#tagModal form')[0].reset(); 
     $('#tagModal').modal('show'); 
+    url = $("#form").attr("url");
 
-    $("#form").submit(function (e) { 
-        e.preventDefault();
-        let input = $(this).serialize();
-        $.post("api/data/admin/tag/store", input,
-          function (data) {
-            table.ajax.reload();
-            $('#tagModal').modal('hide');
-          },
-        );
+    // $("#form").submit(function (e) { 
+    //     e.preventDefault();
+
+    //     let input = $(this).serialize();
+    //     $.ajax({
+    //       type: "post",
+    //       url: url,
+    //       data: input,
+          // contentType: false,
+          // cache: false,
+          // processData:false,
+    //       success: function (rsp) {
+    //         table.ajax.reload(rsp);
+    //         $('#tagModal').modal('hide');
+            
+    //       }
+    //     });
+    //   });
   
-      });
+    //   };
   }
 
   function editData(id){
 
-    id_up = id;
+    idu = id;
+    $("#form").attr("url", "api/data/admin/tag/update");
     $('.modal-title').text('Edit Tag');
     $('#tagModal').modal('show');
+    url = $("#form").attr("url");
 
-    $.get("api/data/admin/edit/tag", {'tag_id':id},
+    $.get("api/data/admin/edit/tag", input+'&id='+id_up,
       function (data) {
         $("input[name='tags']").val(data.tag);
       },
     );
   }
 
-  let id_up;
+    // $("#form").submit(function (e) { 
+    //   e.preventDefault();
+    //   let input = $(this).serialize();
+    //   console.log(input+'&id='+id_up);
+    //   $.post("api/data/admin/tag/update", input+'&id='+id_up,
+    //     function (data) {
+    //       table.ajax.reload();
+    //       $('#tagModal').modal('hide');
+    //     },
+    //   );
 
-    $("#form").submit(function (e) { 
-      e.preventDefault();
-      let input = $(this).serialize();
-      console.log(input+'&id='+id_up);
-      $.post("api/data/admin/tag/update", input+'&id='+id_up,
-        function (data) {
-          table.ajax.reload();
-          $('#tagModal').modal('hide');
-        },
-      );
-
-    });
+    // });
 
   function deleteData(id){
       $.post("api/data/admin/tag/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},

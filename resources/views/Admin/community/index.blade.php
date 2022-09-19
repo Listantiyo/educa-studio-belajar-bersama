@@ -6,6 +6,10 @@
   #gbrmdl{
     max-width: 50%;
     height: auto;
+    margin-top: 40px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
   }
 </style>
 <div class="content-wrapper">

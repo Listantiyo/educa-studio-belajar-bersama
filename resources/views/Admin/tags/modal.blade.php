@@ -8,7 +8,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form id="form">
+        <form id="form" url="">
           {{ csrf_field() }}
             <div class="modal-body">
               <div class="form-group">
