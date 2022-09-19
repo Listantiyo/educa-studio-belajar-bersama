@@ -15,8 +15,8 @@ class CreateTableCommunityFollowers extends Migration
     {
         Schema::create('tbl_community_followers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_community');
             $table->integer('id_user');
+            $table->integer('id_community');
             $table->timestamps();
         });
     }

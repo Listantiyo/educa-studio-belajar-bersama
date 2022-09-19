@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Communities;
+use App\Community_Followers;
 
 class CommunitiesController extends Controller
 {
@@ -45,9 +46,9 @@ class CommunitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showfollow(Request $request)
     {
-        //
+        $followers = Community_Followers::where('id_community')->where('id_user')->count();
     }
 
     /**

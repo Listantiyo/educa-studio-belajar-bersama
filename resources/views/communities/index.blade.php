@@ -38,9 +38,9 @@
                             <a href="communities.html">{{$item->community}}</a>
                         </h3>
                         <ul class="d-flex justify-content-between">
-                            <li>538 Followers-d</li>
+                            <li>{{$item->followers}} Followers</li>
                             <li>
-                                <button id="com-follow" class="active">Follow</button>
+                                <button id="com-follow" @click="followS({{$item->id}})" class="active" value="{{$item->id}}">Follow</button>
                             </li>
                         </ul>
                     </div>
@@ -60,7 +60,33 @@
                 return {
                     coba:'dd',
                 }
+            },mounted() {
+                
+            },methods: {
+                followS(id){
+                    alert(id)
+                    $.post("url", data,
+                        function (data, textStatus, jqXHR) {
+                            
+                        },
+                        "dataType"
+                    );
+                }
             },
         }).mount('#app')
     </script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "get",
+                url: "api/community/follow/show",
+                data: "data",
+                dataType: "dataType",
+                success: function (response) {
+                    
+                }
+            });
+        });
+    </script>
 @endpush
+ 

@@ -17,8 +17,8 @@ class Communities extends Migration
             $table->increments('id');
             $table->string('community')->unique();
             $table->integer('followers')->default(0);
-            $table->string('image');
-            $table->string('path_img');
+            $table->string('image')->nullable();
+            $table->string('path_img')->nullable();
             $table->timestamps();
         });
     }

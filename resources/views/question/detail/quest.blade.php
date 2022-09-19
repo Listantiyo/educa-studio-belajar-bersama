@@ -23,7 +23,7 @@
         <div class="flex-grow-1 ms-3">
             <ul class="graphic-design">
                 <li>
-                    <a href="user.html">{{Auth::user()->name}}{{$question->id_user_dil}}</a>
+                    <a href="user.html">Nama = {{$question->id_user_dil}}</a>
                 </li>
                 <li>
                     <span>Latest Answer: 14 hours ago</span>

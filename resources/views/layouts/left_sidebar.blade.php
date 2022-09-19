@@ -45,13 +45,33 @@
                                 </ul>
                             </li>
                             <li>
+                                <a href="#" class="has-arrow box-style aside">
+                                    <span class="menu-title">
+                                        <i class="ri-links-line"></i>
+                                        Communities
+                                    </span>
+                                </a>
+                                <ul class="sidemenu-nav-second-level">
+                                    <li>
+                                        <a href="">
+                                            <span class="menu-title">Communities Followed</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('communities')}}">
+                                            <span class="menu-title">Communities Unfollowed</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            {{-- <li>
                                 <a href="{{route('communities')}}" class="box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-links-line"></i>
                                         Communities
                                     </span>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="#" class="has-arrow box-style aside">
                                     <i class="ri-question-answer-fill"></i>

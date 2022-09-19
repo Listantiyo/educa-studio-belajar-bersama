@@ -73,6 +73,7 @@
                 },
             }).mount('#app')
         </script>
+@auth
         <script>
              $(document).ready(function() {
                 // load like
@@ -128,6 +129,6 @@
             });
             });
         </script>
-
+@endauth
 
 @endpush

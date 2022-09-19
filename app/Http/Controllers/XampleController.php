@@ -15,6 +15,7 @@ use App\Question_Tags;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Communities;
 
 use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class XampleController extends Controller
 {
     public function my()
     {    
-        // $like = DB::table('tbl_likes')
+    // $like = DB::table('tbl_likes')
         // ->where('id_quest',7)->where('id_user',1)->count();
         // $dislike = DB::table('tbl_dislikes')
         // ->where('id_quest',7)->where('id_user',1)->count();
@@ -59,7 +60,7 @@ class XampleController extends Controller
     //     $join->on(DB::raw('find_in_set(json_decode(tbl_questions.tags), tbl_tags.id)'), DB::raw(''), DB::raw(''));
     // })
     // ->get(); 
-        // foreach ($a as $a) {
+    // foreach ($a as $a) {
         //     $all =  json_decode($a);
         //     // $all1 = $al[0];
         //     // $all2 = $al[1];
@@ -83,11 +84,10 @@ class XampleController extends Controller
         // dd($al);
         // $all = $al;
 
-        // $al = Question::find(24)->pluck('path_img');
-        $like = DB::table('tbl_likes')
-        ->where('id_quest',3)->where('id_user',1);
-        $like->delete();
-        return "success";
+    // $al = Question::find(24)->pluck('path_img');
+    $var = User::find(1)->community;
+    // $var = Question::find(1)->tag;
+        return $var;
     }
     public function filter(){
         $filc = Classe::all();
