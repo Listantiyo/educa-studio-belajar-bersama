@@ -41,6 +41,7 @@ Route::get('tag/show','TagController@show');
 Route::get('tag/search','TagController@search');
 // Communities
 Route::post('community/follow', 'CommunitiesController@follow');
+Route::get('community/follow/show', 'CommunitiesController@showfollow');
 
 // ----------------------------------------------------------
 
