@@ -24,7 +24,6 @@
                     Ask Question
                 </button>
             </form>
-
             <div class="question-details-area">
 
                 @include('question.detail.quest')
@@ -64,7 +63,8 @@
             const vues = Vue.createApp({
                 data() {
                     return {
-                        
+                        like_count:'',
+                        dislike_count:'',
                     }
                 },mounted() {
                     
@@ -75,12 +75,55 @@
         </script>
         <script>
              $(document).ready(function() {
+                // load like
+                let id_quest = {{$id}}
+                let id_user = {{Auth::id()}}
+                alert(id_quest)
+                $.ajax({
+                    type: "get",
+                    data: {id:id_user,id_quest:id_quest},
+                    url: "\\api/quest/likedislike",
+                    success: function (rsp) {
+                        alert(rsp)
+                        if (rsp == 'like') {
+                            $("button[name='like']").addClass("active");
+                        }
+                        if (rsp == 'dislike') {
+                            $("button[name='dislike']").addClass("active");
+                        }
+                    }
+                });
+                // like n dislike
                 $(".like-unlink-count").click(function () {
+
+                let type = $(this).val();
+
                 if(!$(this).hasClass('active')) {
+                    alert(type)
                     $(".like-unlink-count").removeClass("active");
                     $(this).addClass("active");
+                    $.ajax({
+                        type: "post",
+                        url: "\\api/quest/likedislikestore",
+                        data: {id:id_user,id_quest:id_quest,'type':type},
+                        dataType: "json",
+                        success: function (rsp) {
+                            alert(rsp)
+                        }
+                    });
                 }else{
+                    type = type+'remove';
+                    alert(type)
                     $(".like-unlink-count").removeClass("active");
+                    $.ajax({
+                        type: "post",
+                        url: "\\api/quest/likedislikestore",
+                        data: {id:id_user,id_quest:id_quest,'type':type},
+                        dataType: "json",
+                        success: function (rsp) {
+                            alert(rsp)
+                        }
+                    });
                 }
             });
             });

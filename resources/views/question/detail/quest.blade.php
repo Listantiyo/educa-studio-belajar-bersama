@@ -6,14 +6,14 @@
             </a>
 
             <div class="donet-like-list">
-                <button class="like-unlink-count like" value="like" >
+                <button class="like-unlink-count like" name="like" value="like" >
                     <i class="ri-thumb-up-fill"></i>
                     <span>{{$question->like}}</span>
                 </button>
             </div>
 
             <div class="donet-like-list">
-                <button class="like-unlink-count dislike" value="dislike" >
+                <button class="like-unlink-count dislike" name="dislike" value="dislike" >
                     <i class="ri-thumb-down-fill"></i>
                     <span>{{$question->dislike}}</span>
                 </button>
@@ -23,7 +23,7 @@
         <div class="flex-grow-1 ms-3">
             <ul class="graphic-design">
                 <li>
-                    <a href="user.html">Teresa Klein{{$question->id_user_dil}}</a>
+                    <a href="user.html">{{Auth::user()->name}}{{$question->id_user_dil}}</a>
                 </li>
                 <li>
                     <span>Latest Answer: 14 hours ago</span>

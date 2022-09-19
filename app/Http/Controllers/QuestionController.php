@@ -8,6 +8,8 @@ use Illuminate\Foundation\Console\Presets\React;
 use Illuminate\Support\Facades\DB;
 use App\Communities;
 use App\Tags;
+use App\Likes;
+use App\Dislikes;
 
 class QuestionController extends Controller
 {
@@ -24,7 +26,7 @@ class QuestionController extends Controller
     public function detail($id)
     {
         $question = Question::find($id);
-        return view('question.detail.index',compact('question'));
+        return view('question.detail.index',compact('question','id'));
     }
 
     public function ask()
@@ -145,9 +147,70 @@ class QuestionController extends Controller
      */
     public function likedislike(Request $request)
     {
-        //
+        $id_user = $request->id;
+        $id_quest = $request->id_quest;
+
+        $like = DB::table('tbl_likes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
+            
+        $dislike = DB::table('tbl_dislikes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
+            
+        if ($like > 0) {
+            $disorlike = 'like';
+        }
+        if ($dislike > 0) {
+            $disorlike = 'dislike';
+        }
+        
+        return response()->json($disorlike);
     }
 
+    public function likedislikestore(Request $request)
+    {
+        $id_user = $request->id;
+        $id_quest = $request->id_quest;
+        $type = $request->type;
+        // like
+        // dislike
+        // rmlike
+        // rmdislike
+        if ($type === 'like') {
+            // rmdislike
+            DB::table('tbl_dislikes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            // like
+            $like = new Likes();
+
+            $like->id_quest = $id_quest;
+            $like->id_user = $id_user;
+            $like->save();
+        }
+        if ($type === 'dislike') {
+            // rmlike
+            DB::table('tbl_likes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            // dislike
+            $dislike = new Dislikes();
+
+            $dislike->id_quest = $id_quest;
+            $dislike->id_user = $id_user;
+            $dislike->save();
+        }
+        if ($type === 'likeremove') {
+            // rmlike
+            DB::table('tbl_likes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+        }
+        if ($type === 'dislikeremove') {
+            // rmdislike
+            DB::table('tbl_dislikes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+        }
+        
+        return response()->json("success");
+    }
+    
     /**
      * Update the specified resource in storage.
      *

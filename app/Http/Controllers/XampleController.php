@@ -21,9 +21,14 @@ use Illuminate\Http\Request;
 class XampleController extends Controller
 {
     public function my()
-    {   
-        Storage::disk('public')->delete('photos/qGp7Q0rMgnfuA0pNSGsFaBJF4HgplHh4qgUnZTUS.png');
-        return Storage::files('photos');
+    {    
+        // $like = DB::table('tbl_likes')
+        // ->where('id_quest',7)->where('id_user',1)->count();
+        // $dislike = DB::table('tbl_dislikes')
+        // ->where('id_quest',7)->where('id_user',1)->count();
+        // $l = DB::table('tbl_likes')->whereRaw('id_user','=',1,'and','id_quest','=',7)->count();
+        // Storage::disk('public')->delete('photos/qGp7Q0rMgnfuA0pNSGsFaBJF4HgplHh4qgUnZTUS.png');
+        // return Storage::files('photos');
         // $id = 1;
         // $kelas = "s";
         // $getid = DB::table('tbl_user_details')->where('id_user',$i)->get();
@@ -79,8 +84,10 @@ class XampleController extends Controller
         // $all = $al;
 
         // $al = Question::find(24)->pluck('path_img');
-        
-        // return "success";
+        $like = DB::table('tbl_likes')
+        ->where('id_quest',3)->where('id_user',1);
+        $like->delete();
+        return "success";
     }
     public function filter(){
         $filc = Classe::all();

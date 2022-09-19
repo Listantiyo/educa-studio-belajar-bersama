@@ -36,12 +36,14 @@
 			{
 				height: 2.7rem !important;
     			width: 20rem;
+				margin-top:3%; 
 			}
 			/* form-radius */
 			.global-radius{
 				border-radius:0.2rem !important; 
 			}
 		</style>
+		{{-- @yield('style') --}}
 
     </head>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Communities;
 
 class CommunitiesController extends Controller
 {
@@ -13,7 +14,8 @@ class CommunitiesController extends Controller
      */
     public function index()
     {
-        return view('communities.index');
+        $communities =  Communities::all();
+        return view('communities.index',compact('communities'));
     }
 
     /**
