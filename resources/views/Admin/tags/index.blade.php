@@ -77,56 +77,32 @@
 
     $("#form").submit(function (e) { 
       e.preventDefault();
-      
       input = $(this).serialize();
       if(idu != null){
-        input.append('id', idu);
+        input = input+'&id='+idu;
       }
-      $.ajax({
-        type: "post",
-        url: url,
-        data: input,
-        contentType: false,
-        cache: false,
-        processData:false,
-        success: function (rsp) {
-          table.ajax.reload(rsp);
+      $.post(url, input,
+        function (rsp) {
+          table.ajax.reload();
           $('#tagModal form')[0].reset();
           $('#tagModal').modal('hide');
-        }
-      });
+        },
+      );
       return false;
     });
 
 
   function addData(){
-    $("#form").attr("url","api/data/admin/tag/store");
+    $("#form").attr("url", "api/data/admin/tag/store");
     $('.modal-title').text('Add Tag');
     $('#tagModal form')[0].reset(); 
     $('#tagModal').modal('show'); 
     url = $("#form").attr("url");
 
-    // $("#form").submit(function (e) { 
-    //     e.preventDefault();
+    console.log(url);
 
-    //     let input = $(this).serialize();
-    //     $.ajax({
-    //       type: "post",
-    //       url: url,
-    //       data: input,
-          // contentType: false,
-          // cache: false,
-          // processData:false,
-    //       success: function (rsp) {
-    //         table.ajax.reload(rsp);
-    //         $('#tagModal').modal('hide');
-            
-    //       }
-    //     });
-    //   });
+      }
   
-    //   };
-  }
 
   function editData(id){
 
@@ -136,25 +112,13 @@
     $('#tagModal').modal('show');
     url = $("#form").attr("url");
 
-    $.get("api/data/admin/edit/tag", input+'&id='+id_up,
+    $.get("api/data/admin/edit/tag", {'tag_id':id},
       function (data) {
         $("input[name='tags']").val(data.tag);
       },
     );
   }
 
-    // $("#form").submit(function (e) { 
-    //   e.preventDefault();
-    //   let input = $(this).serialize();
-    //   console.log(input+'&id='+id_up);
-    //   $.post("api/data/admin/tag/update", input+'&id='+id_up,
-    //     function (data) {
-    //       table.ajax.reload();
-    //       $('#tagModal').modal('hide');
-    //     },
-    //   );
-
-    // });
 
   function deleteData(id){
       $.post("api/data/admin/tag/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},

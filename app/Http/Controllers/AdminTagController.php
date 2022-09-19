@@ -66,14 +66,14 @@ class AdminTagController extends Controller
     }
     public function store(Request $request)
     {
-        $id = $request->id;
         $tag_name = $request->tags;
 
         $name_tag = new Tags;
 
         $name_tag->tag = $tag_name;
         $name_tag->save();
-        return "success";
+        return $tag_name ;
+        // return "success";
     }
 
     /**
