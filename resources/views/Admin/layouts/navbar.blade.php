@@ -1,3 +1,11 @@
+<style>
+  .profile{
+    height: auto;
+    width: 2.1rem;
+    border: 1px solid black;
+  }
+</style>
+
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
   <!-- Left navbar links -->
   <ul class="navbar-nav">
@@ -5,7 +13,7 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="index3.html" class="nav-link">Home</a>
+      <a href="#" class="nav-link">Home</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
       <a href="#" class="nav-link">Contact</a>
@@ -13,7 +21,7 @@
   </ul>
 
   <!-- Right navbar links -->
-  <ul class="navbar-nav ml-auto">
+  <ul class="navbar-nav ml-auto d-flex align-item-center">
     <!-- Navbar Search -->
     <li class="nav-item">
       <a class="nav-link" data-widget="navbar-search" href="#" role="button">
@@ -125,6 +133,18 @@
       <a class="nav-link" data-widget="fullscreen" href="#" role="button">
         <i class="fas fa-expand-arrows-alt"></i>
       </a>
+    </li>
+    <li class="nav-item dropdown show">
+        <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="{{asset('Admin/dist/img/user2-160x160.jpg')}}" class="img-circle profile" alt="User Image">
+        </a>
+      
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            Logout
+          </a>
+        </div>
     </li>
     {{-- <li class="nav-item">
       <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
