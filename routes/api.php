@@ -39,6 +39,8 @@ Route::delete('quest/delete','QuestionController@delete');
 // API Tag
 Route::get('tag/show','TagController@show');
 Route::get('tag/search','TagController@search');
+// Communities
+Route::post('community/follow', 'CommunitiesController@follow');
 
 // ----------------------------------------------------------
 
