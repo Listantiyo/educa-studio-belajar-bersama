@@ -32,6 +32,7 @@ Route::delete('menu/delete','HomeController@delete');
 Route::get('quest/show','QuestionController@show');
 Route::get('quest/search','QuestionController@search');
 Route::get('quest/likedislike','QuestionController@likedislike');
+Route::post('quest/likedislikestore','QuestionController@likedislikestore');
 Route::post('quest/store','QuestionController@store');
 Route::put('quest/update','QuestionController@update');
 Route::delete('quest/delete','QuestionController@delete');
