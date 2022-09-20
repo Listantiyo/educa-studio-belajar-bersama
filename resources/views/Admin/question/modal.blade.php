@@ -45,21 +45,22 @@
       </div>
       <div class="modal-body">
         <div class="container">
-          <div id="username">
-              <label>Nama User :</label>
+          <div>
+              <label for="uname">Nama : <span class="font-weight-normal" id='uname'></span></label>
           </div>
-          <div id="ttl">
-              <label>Title :</label>
+          <div>
+            <label>Community : <span class="font-weight-normal" id='com'></span></label>
+          </div>
+          <div>
+              <label>Title : <span class="font-weight-normal" id='tit'></span></label>
               {{-- <p id="tit"></p> --}}
           </div>
-          <div id="qt">
-              <label>Question :</label>
-          </div>
-          <div id="cm">
-            <label>Community :</label>
-          </div>
-          <div id="gbr">
+          <div>
             <label>Image :</label>
+            <img id='gmbr' src=''>
+          </div>
+          <div class="my-3">
+              <label>Question : <span class="font-weight-normal" id='quest'></span></label>
           </div>
           <div class="row text-center">
             <div class="col-sm-4">

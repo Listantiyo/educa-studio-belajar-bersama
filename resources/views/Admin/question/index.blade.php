@@ -4,7 +4,7 @@
 
 <style>
   #gmbr{
-    width: 70%;
+    width: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -129,15 +129,15 @@
       $.get("api/data/admin/quest/show", {'id':id},
         function (data) {
           console.log(data);
-          $("#username").append("<p id='uname'></p>");
+          // $("#username").append("<p id='uname'></p>");
           $("#uname").text(data[0].name);
-          $("#qt").append("<p id='quest'></p>");
+          // $("#qt").append("<p id='quest'></p>");
           $("#quest").text(data[0].question);
-          $("#ttl").append("<p id='tit'></p>");
+          // $("#ttl").append("<p id='tit'></p>");
           $("#tit").text(data[0].title);
-          $("#cm").append("<p id='com'></p>");
+          // $("#cm").append("<p id='com'></p>");
           $("#com").text(data[0].community);
-          $("#gbr").append("<img id='gmbr' src=''>");
+          // $("#gbr").append("<img id='gmbr' src=''>");
           $("#gmbr").attr('src', 'storage/'+data[0].path_img);
           $("#like").text(data[0].like);
           $("#dislike").text(data[0].dislike);
