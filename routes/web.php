@@ -32,6 +32,7 @@ Route::get('/tags', 'TagController@index')->name('tags');
 
 // Communities
 Route::get('/communities', 'CommunitiesController@index')->name('communities');
+Route::get('/communitie/follows', 'CommunitiesController@follow')->name('communities-follow');
 
 // Most Answered Qs
 Route::get('/most-answered', 'MostAnsweredController@index')->name('most-answered');

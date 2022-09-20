@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Communities;
 use App\Community_Followers;
+use Illuminate\Database\Eloquent\Builder;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class CommunitiesController extends Controller
 {
@@ -15,10 +18,18 @@ class CommunitiesController extends Controller
      */
     public function index()
     {
-        $communities =  Communities::all();
-        return view('communities.index',compact('communities'));
+        $unfollow = Communities::whereDoesntHave('followers', function (Builder $query) {
+            $query->where('id_user',Auth::id());
+        })->get();
+        return view('communities.index',compact('unfollow'));
     }
-
+    
+    public function follow()
+    {
+        $id = Auth::id();
+        $follow = User::find($id)->community;
+        return view('communities.followed.index',compact('follow'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +59,13 @@ class CommunitiesController extends Controller
      */
     public function showfollow(Request $request)
     {
-        $followers = Community_Followers::where('id_community')->where('id_user')->count();
+        $follow = User::find(1)->community;
+    }
+    public function showunfollow(Request $request)
+    {
+        $unfollow = Communities::whereDoesntHave('followers', function (Builder $query) {
+            $query->where('id_user', '1');
+        })->get();
     }
 
     /**

@@ -30,7 +30,7 @@
 
         <div class="row justify-content-center">
 
-@foreach ($unfollow as $item) 
+@foreach ($follow as $item) 
                 <div class="col-xl-4 col-sm-6">
                     <div class="single-communities-box">
                         <img src="assets/images/communities/programing.png" alt="Image">
@@ -40,7 +40,7 @@
                         <ul class="d-flex justify-content-between">
                             <li>{{$item->followers}} Followers</li>
                             <li>
-                                <button id="com-follow" onclick="folloW('{{$item->id}}')" class="active" value="{{$item->id}}">Follow</button>
+                                <button id="com-follow" @click="followS({{$item->id}})" class="active" value="{{$item->id}}">Unfollow</button>
                             </li>
                         </ul>
                     </div>
@@ -55,15 +55,6 @@
 
 @push('scripts')
     <script>
-        function folloW(id){
-            alert(id)
-            
-        }
-        $(document).ready(function () {
-        });
-    </script>
-
-        {{-- <script>
         const vues = Vue.createApp({
             data() {
                 return {
@@ -83,6 +74,19 @@
                 }
             },
         }).mount('#app')
-    </script> --}}
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "get",
+                url: "api/community/follow/show",
+                data: "data",
+                dataType: "dataType",
+                success: function (response) {
+                    
+                }
+            });
+        });
+    </script>
 @endpush
  

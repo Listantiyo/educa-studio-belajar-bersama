@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Communities;
+use Illuminate\Database\Eloquent\Builder;
 
 use Illuminate\Http\Request;
 
@@ -85,9 +86,13 @@ class XampleController extends Controller
         // $all = $al;
 
     // $al = Question::find(24)->pluck('path_img');
-    $var = User::find(1)->community;
+    // $var = Communities::with('followers')->get();
+        // $posts = Communities::whereDoesntHave('followers', function (Builder $query) {
+        //     $query->where('id_user', '1');
+        // })->get();
     // $var = Question::find(1)->tag;
-        return $var;
+    $posts = User::find(1)->community;
+        return $posts;
     }
     public function filter(){
         $filc = Classe::all();

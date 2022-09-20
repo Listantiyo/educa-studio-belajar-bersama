@@ -53,7 +53,7 @@
                                 </a>
                                 <ul class="sidemenu-nav-second-level">
                                     <li>
-                                        <a href="">
+                                        <a href="{{route('communities-follow')}}">
                                             <span class="menu-title">Communities Followed</span>
                                         </a>
                                     </li>
