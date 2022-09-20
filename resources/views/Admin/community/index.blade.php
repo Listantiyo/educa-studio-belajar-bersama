@@ -42,10 +42,8 @@
             <table id="table" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
-                        <th>#</th>
-                        <th>Image</th>
+                        <th>Id</th>
                         <th>Comunitty name</th>
-                        <th>Followers</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -73,9 +71,7 @@
               },
               columns: [
                   {data: 'DT_RowIndex', searchable: false, sortable: false},
-                  {data:'show_image'},
                   {data: 'community'},
-                  {data:'followers'},
                   {data: 'aksi', searchable: false, sortable: false},
               ]
         });
@@ -121,6 +117,24 @@
     console.log(url);
       
   }
+
+  function showDetail(id){
+      $('.modal-title').text("Detail");
+      $("#commuDetail").modal('show');
+      $.get("api/data/admin/commu/edit", {'id':id},
+        function (data) {
+          console.log(data);
+          $("#gbr").append("<img id='gmbr' src=''>");
+          $("#gmbr").attr('src', 'storage/'+data.path_img);
+          $("#fl").append("<p id='fol'></p>");
+          $("#fol").text(data.followers);
+          $("#cm").append("<p id='com'></p>");
+          $("#com").text(data.community);
+        },
+      );
+      
+    }
+
 
   function editData(id){
     idu = id

@@ -78,6 +78,7 @@ class AdminCommunityController extends Controller
         })
         ->addColumn('aksi', function ($communities) {
             return '
+                <button onclick="showDetail(`'. $communities->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
                 <button onclick="editData(`'. $communities->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
                 <button onclick="deleteData(`'.  $communities->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             ';
@@ -96,6 +97,19 @@ class AdminCommunityController extends Controller
         return $data;
     
     }
+
+    public function showDetail(Request $request )
+    {
+        $id = $request->id;
+        // $image = $request->image;
+
+        $data = Communities::find($id);
+        // $data->image = $image;
+        return $data;
+    
+    }
+
+
 
     /**
      * Display the specified resource.
