@@ -31,19 +31,9 @@ class AnswerController extends Controller
     public function show_answer(Request $request)
     {
 
-            $id = $request->id;
-            $answer = Answer::where('id_question',$id)->get();
-            $comment = Answer_Comment::all();
-            
-            // dd($id);
-
-
-            // cek
-            // return response()->json($q_latest);
-            // return $q_latest;
-            return compact('answer','comment');
-        
-        
+            $id = $request->id_quest;
+            $answer = DB::table('tbl_answers')->where('id_question',$id)->get();
+            return response()->json(['answer' => $answer]);
     }
     /**
      * Show the form for creating a new resource.

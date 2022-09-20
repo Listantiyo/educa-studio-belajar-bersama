@@ -27,7 +27,7 @@
             <div class="question-details-area">
 
                 @include('question.detail.quest')
-                @include('question.detail.asnwer')
+                @include('question.detail.answer')
                 <hr>
                 <form id="answer-form" class="your-answer-form">
                     <div class="form-group">
@@ -67,18 +67,19 @@
                     }
                 },mounted() {
                     
-                },methods: {
                     $(document).ready(function () {
+                        let id_quest = {{$id}}
                         $.ajax({
                             type: "get",
-                            url: "url",
-                            data: "data",
-                            dataType: "dataType",
+                            url: "\\api/answer/show",
+                            data: {id_quest:id_quest},
                             success: function (rsp) {
-                                
+                                // alert(rsp.asnwer)
+                                vues.answer = rsp.answer
                             }
                         });
                     });
+                },methods: {
                 },
             }).mount('#app')
         </script>

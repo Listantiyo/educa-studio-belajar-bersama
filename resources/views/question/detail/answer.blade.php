@@ -12,7 +12,7 @@
     </li>
 </ul>
 
-<div class="answer-question-details like-dislike">
+<div v-for="item in answer" class="answer-question-details like-dislike">
     <div class="d-flex">
         <div class="link-unlike flex-shrink-0">
             <a href="user.html">
@@ -50,9 +50,8 @@
                 </li>
             </ul>
 
-            <p>Donec sollicitudin molestie malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec sollicitudin molestie malesuada Donec velit neque.</p>
+            <p>@{{item.answer}}</p>
 
-            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
-        </div>
+         </div>
     </div>
 </div>
