@@ -40,8 +40,7 @@ Route::delete('quest/delete','QuestionController@delete');
 Route::get('tag/show','TagController@show');
 Route::get('tag/search','TagController@search');
 // Communities
-Route::post('community/follow', 'CommunitiesController@follow');
-Route::get('community/follow/show', 'CommunitiesController@showfollow');
+Route::post('community/un_follow', 'CommunitiesController@un_follow');
 
 // ----------------------------------------------------------
 
