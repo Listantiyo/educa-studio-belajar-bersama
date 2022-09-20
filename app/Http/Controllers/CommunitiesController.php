@@ -50,6 +50,11 @@ class CommunitiesController extends Controller
     {
         //
     }
+    public function show(Request $request)
+    {
+        $data = Communities::all();
+        return response()->json($data);
+    }
 
     /**
      * Display the specified resource.
@@ -57,10 +62,32 @@ class CommunitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function un_follow(Request $request)
+    {   
+        $type = $request->type;
+        $id = $request->id ;
+        $id_user = $request->id_user ;
+        if ($type == 'follow') {
+
+            $follow = new Community_Followers();
+            $follow->id_user = $id_user;
+            $follow->id_community = $id;
+    
+            $follow->save();
+        }
+        if ($type == 'unfollow') {
+
+            $unfollow = Community_Followers::where('id_community',$id)->delete();
+        }
+        $alert = "success";
+        return compact('id','alert');
+    }
+
     public function showfollow(Request $request)
     {
         $follow = User::find(1)->community;
     }
+    
     public function showunfollow(Request $request)
     {
         $unfollow = Communities::whereDoesntHave('followers', function (Builder $query) {

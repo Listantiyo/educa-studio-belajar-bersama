@@ -31,7 +31,7 @@
         <div class="row justify-content-center">
 
 @foreach ($follow as $item) 
-                <div class="col-xl-4 col-sm-6">
+                <div id="unfollow{{$item->id}}" class="col-xl-4 col-sm-6">
                     <div class="single-communities-box">
                         <img src="assets/images/communities/programing.png" alt="Image">
                         <h3>
@@ -40,7 +40,7 @@
                         <ul class="d-flex justify-content-between">
                             <li>{{$item->followers}} Followers</li>
                             <li>
-                                <button id="com-follow" @click="followS({{$item->id}})" class="active" value="{{$item->id}}">Unfollow</button>
+                                <button id="com-follow" onclick="folloW('{{$item->id}}')" class="active" value="{{$item->id}}">Unfollow</button>
                             </li>
                         </ul>
                     </div>
@@ -55,37 +55,18 @@
 
 @push('scripts')
     <script>
-        const vues = Vue.createApp({
-            data() {
-                return {
-                    coba:'dd',
-                }
-            },mounted() {
-                
-            },methods: {
-                followS(id){
-                    alert(id)
-                    $.post("url", data,
-                        function (data, textStatus, jqXHR) {
-                            
-                        },
-                        "dataType"
-                    );
-                }
-            },
-        }).mount('#app')
-    </script>
-    <script>
+        function folloW(id){
+            let type = "unfollow"
+            let id_user = {{Auth::id()}}
+            $.post("\\api/community/un_follow", {id:id,id_user:id_user,type:type},
+                function (rsp) {
+                    alert(rsp.alert)
+                    $("#unfollow"+rsp.id).remove();
+                },
+            );
+            
+        }
         $(document).ready(function () {
-            $.ajax({
-                type: "get",
-                url: "api/community/follow/show",
-                data: "data",
-                dataType: "dataType",
-                success: function (response) {
-                    
-                }
-            });
         });
     </script>
 @endpush

@@ -26,37 +26,39 @@
 		<style>
 			/* navbar */
 			.navbar-area{
-				padding-top: 0px;
-				padding-bottom: 0px;
-			}
+				padding-top: 0.5%;
+				padding-bottom: 0.5%;
+			 }
 			.navbar-brand img{
 				max-width: 69%;
 			}
-			.desktop-nav .navbar .others-options ul li .search-box .form-control
+			/* .desktop-nav .navbar .others-options ul li .search-box .form-control
 			{
 				height: 2.7rem !important;
     			width: 20rem;
 				margin-top:3%; 
-			}
+				margin-top:3%; 
+			} */
 			/* form-radius */
 			.global-radius{
 				border-radius:0.2rem !important; 
 			}
 		</style>
-		{{-- @yield('style') --}}
+		@yield('style')
+		@stack('TOPSC')
 
     </head>
 
     <body>
 		<!-- Start Preloader Area -->
-		{{-- <div class="preloader" id="loader-style">
+		<div class="preloader" id="loader-style">
 			<div class="preloader-wrap">
 				<span></span>
 				<span></span>
 				<span></span>
 				<span></span>
 			</div>
-		</div> --}}
+		</div>
 		<!-- End Preloader Area -->
 		
 		<!-- Start Navbar Area --> 
@@ -105,6 +107,26 @@
 		<script src="{{asset('pify/assets/js/editor.js')}}"></script>
 		<script src="{{asset('pify/assets/js/like-dislike.min.js')}}"></script>
 		<script src="{{asset('pify/assets/js/custom.js')}}"></script>
+
+		<script>
+			const vus = Vue.createApp({
+				data() {
+					return {
+						data:'',
+					}
+				},mounted() {
+					$(document).ready(function () {
+						$.ajax({
+							type: "get",
+							url: "api/community/show",
+							success: function (rsp) {
+								vus.data = rsp
+							}
+						});
+					});
+				},
+			}).mount('#aps')
+		</script>
 
 		@stack('scripts')
     </body>

@@ -31,7 +31,7 @@
         <div class="row justify-content-center">
 
 @foreach ($unfollow as $item) 
-                <div class="col-xl-4 col-sm-6">
+                <div id="follow{{$item->id}}" class="col-xl-4 col-sm-6">
                     <div class="single-communities-box">
                         <img src="assets/images/communities/programing.png" alt="Image">
                         <h3>
@@ -56,33 +56,18 @@
 @push('scripts')
     <script>
         function folloW(id){
-            alert(id)
+            let type = "follow"
+            let id_user = {{Auth::id()}}
+            $.post("api/community/un_follow", {id:id,id_user:id_user,type:type},
+                function (rsp) {
+                    alert(rsp.alert)
+                    $("#follow"+rsp.id).remove();
+                },
+            );
             
         }
         $(document).ready(function () {
         });
     </script>
-
-        {{-- <script>
-        const vues = Vue.createApp({
-            data() {
-                return {
-                    coba:'dd',
-                }
-            },mounted() {
-                
-            },methods: {
-                followS(id){
-                    alert(id)
-                    $.post("url", data,
-                        function (data, textStatus, jqXHR) {
-                            
-                        },
-                        "dataType"
-                    );
-                }
-            },
-        }).mount('#app')
-    </script> --}}
 @endpush
  

@@ -87,12 +87,14 @@ class XampleController extends Controller
 
     // $al = Question::find(24)->pluck('path_img');
     // $var = Communities::with('followers')->get();
-        // $posts = Communities::whereDoesntHave('followers', function (Builder $query) {
-        //     $query->where('id_user', '1');
-        // })->get();
+        $posts = Communities::whereDoesntHave('followers', function (Builder $query) {
+            $query->where('id_user', '1');
+        })->get();
     // $var = Question::find(1)->tag;
-    $posts = User::find(1)->community;
-        return $posts;
+    // $posts = User::find(1)->community;
+    // $posts = DB::table('tbl_question_tags')->selectRaw('count(id_tag) as num,id_tag')->groupBy('id_tag')->get();
+    
+     return $posts;
     }
     public function filter(){
         $filc = Classe::all();

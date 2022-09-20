@@ -1,4 +1,12 @@
 @extends('layouts.master')
+@push('TOPSC') 
+    <script src="{{asset('pify/assets/js/jquery.min.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#aside").remove();
+        });
+    </script>
+@endpush
 
 @section('content')
 

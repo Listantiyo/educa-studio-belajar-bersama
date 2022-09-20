@@ -1,8 +1,9 @@
-<div class="col-lg-3">
-    <div class="right-siderbar">
+<div id="aside" class="col-lg-3">
+    <div id="aps" class="right-siderbar">
+        
         <div class="right-siderbar-common">
             <a href="{{route('ask-questions')}}" class="default-btn">
-                Ask a question
+                Ask a question 
             </a>
         </div>
 
@@ -14,10 +15,8 @@
                 </h3>
 
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Select Communities</option>
-                    <option value="1">Discussion</option>
-                    <option value="2">Language</option>
-                    <option value="3">Analytics</option>
+                    <option selected value="0">Select Communities</option>
+                    <option v-for="item in data" :value="item.id">@{{item.community}}</option>
                 </select>
             </div>
         </div>

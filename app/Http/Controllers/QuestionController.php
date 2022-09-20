@@ -10,6 +10,8 @@ use App\Communities;
 use App\Tags;
 use App\Likes;
 use App\Dislikes;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class QuestionController extends Controller
 {
@@ -31,8 +33,8 @@ class QuestionController extends Controller
 
     public function ask()
     {   
-
-        $communities = Communities::all();
+        $id = Auth::id();
+        $communities = User::find($id)->community;
         $tags = Tags::all();
 
         return view('question.ask.index',compact('communities','tags'));

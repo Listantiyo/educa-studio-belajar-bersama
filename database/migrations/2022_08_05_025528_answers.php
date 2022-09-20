@@ -17,8 +17,7 @@ class Answers extends Migration
             $table->increments('id');
             $table->integer('id_user_dil');
             $table->integer('id_question');
-            $table->string('answer');
-            $table->string('path_answ_img');
+            $table->text('answer');
             $table->timestamps();
         });
     }

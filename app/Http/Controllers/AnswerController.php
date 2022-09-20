@@ -63,7 +63,7 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {   
-        $id = $request->id;
+        $id = $request->id_quest;
         $answer = new Answer();
         $quest = Question::find($id);
         $input_answer = $request->text;
@@ -73,13 +73,13 @@ class AnswerController extends Controller
             return "kosong";
         };
 
-        $answer->id_question = $request->id;
-        $answer->id_user_dil = $request->user;
+        $answer->id_question = $request->id_quest;
+        $answer->id_user_dil = $request->id_user;
         $answer->answer = $input_answer;
 
         $answer->save();
 
-        $quest->id_type = 1;
+        $quest->id_type = 2;
 
         $quest->save();        
         return response()->json(['answer'=> $input_answer]);

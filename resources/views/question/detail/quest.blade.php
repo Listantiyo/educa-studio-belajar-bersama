@@ -107,7 +107,7 @@
                     </li>
                 </ul>
 
-                <a href="most-answered.html" class="default-btn">
+                <a id="buttons" type="button" class="default-btn">
                     Answer
                 </a>
             </div>
