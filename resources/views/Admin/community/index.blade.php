@@ -43,7 +43,6 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>
-                        <th>Id</th>
                         <th>Image</th>
                         <th>Comunitty name</th>
                         <th>Followers</th>
@@ -74,7 +73,6 @@
               },
               columns: [
                   {data: 'DT_RowIndex', searchable: false, sortable: false},
-                  {data: 'id'},
                   {data:'show_image'},
                   {data: 'community'},
                   {data:'followers'},
@@ -114,6 +112,7 @@
 
   function addData(){
     $("#form").attr("url", "api/data/admin/commu/store");
+    $("#gbrmdl").remove();
     $('.modal-title').text('Add Community');
     $('#modalCommunity form')[0].reset(); 
     $('#modalCommunity').modal('show'); 
@@ -127,6 +126,7 @@
     idu = id
     $("#form").attr("url", "api/data/admin/commu/update");
     $('.modal-title').text('Edit Community');
+    // $("#gbrmdl").remove();
     $('#modalCommunity').modal('show');
     url = $("#form").attr("url");
     console.log(url);
@@ -135,6 +135,8 @@
         $("input[name='commu']").val(data.community);
         $("#append").append("<img id='gbrmdl' src=''>");
         $("#gbrmdl").attr('src', 'storage/'+data.path_img);
+        $("#nameCommu").append("<p id='nama'></p>");
+        $("#nama").text(data.community);
       },
     );
   }

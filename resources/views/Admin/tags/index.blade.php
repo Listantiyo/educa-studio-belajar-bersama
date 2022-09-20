@@ -32,7 +32,6 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>
-                        <th>Id</th>
                         <th>Tag</th>
                         <th>Aksi</th>
                     </tr>
@@ -61,7 +60,6 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'id'},
                 {data: 'tag'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
