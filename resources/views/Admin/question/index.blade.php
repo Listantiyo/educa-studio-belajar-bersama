@@ -1,6 +1,16 @@
 @extends('Admin.layouts.master')
 
 @section('content')
+
+<style>
+  #gmbr{
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+  }
+</style>
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -111,6 +121,30 @@
           table.ajax.reload();
         }, 
       );
+    }
+
+    function showDetail(id){
+      $('.modal-title').text("Detail");
+      $("#questDetail").modal('show');
+      $.get("api/data/admin/quest/show", {'id':id},
+        function (data) {
+          console.log(data);
+          $("#username").append("<p id='uname'></p>");
+          $("#uname").text(data[0].name);
+          $("#qt").append("<p id='quest'></p>");
+          $("#quest").text(data[0].question);
+          $("#ttl").append("<p id='tit'></p>");
+          $("#tit").text(data[0].title);
+          $("#cm").append("<p id='com'></p>");
+          $("#com").text(data[0].community);
+          $("#gbr").append("<img id='gmbr' src=''>");
+          $("#gmbr").attr('src', 'storage/'+data[0].path_img);
+          $("#like").text(data[0].like);
+          $("#dislike").text(data[0].dislike);
+          $("#vote").text(data[0].votes);
+        },
+      );
+      
     }
 
     function editData(id){

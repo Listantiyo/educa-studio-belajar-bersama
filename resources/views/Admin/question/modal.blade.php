@@ -35,7 +35,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="questDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Edit question</h5>
@@ -43,48 +43,43 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <div class="modal-body">
+      <div class="modal-body">
+        <div class="container">
           <div id="username">
-              <label>
-                Name : 
+              <label>Nama User :</label>
+          </div>
+          <div id="ttl">
+              <label>Title :</label>
+              {{-- <p id="tit"></p> --}}
+          </div>
+          <div id="qt">
+              <label>Question :</label>
+          </div>
+          <div id="cm">
+            <label>Community :</label>
+          </div>
+          <div id="gbr">
+            <label>Image :</label>
+          </div>
+          <div class="row text-center">
+            <div class="col-sm-4">
+              <label for="">
+                Like : <span id="like"></span>
               </label>
-              <p id="uname" name="uname"></p>
-          </div>
-          <div id="comm">
-              <label>
-                Community :
+            </div>
+            <div class="col-sm-4">
+              <label for="">
+                Dislike : <span id="dislike"></span>
               </label>
-          </div>
-          <div id="title">
-            <label>
-              Title :
-            </label>
-          </div>
-          <div id="quest">
-            <label>
-              Question :
-            </label>
-          </div>
-          <div id="like">
-            <label>
-              Like :
-            </label>
-          </div>
-          <div id="dislike">
-            <label>
-              Dislike :
-            </label>
-          </div>
-          <div id="vote">
-            <label>
-              Vote :
-            </label>
+            </div>
+            <div class="col-sm-4">
+              <label for="">
+                Vote : <span id="vote"></span>
+              </label>
+            </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
-        </div>
+      </div>
     </div>
   </div>
 </div>

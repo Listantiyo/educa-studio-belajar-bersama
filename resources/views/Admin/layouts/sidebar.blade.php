@@ -42,12 +42,21 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('quest-admin') }} " class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon fas fa-question"></i>
             <p>
               Question
+              <i class="right fas fa-angle-left"></i>
             </p>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ route ('quest-admin') }} " class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                List Question
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item">
           <a href="{{ route ('answer-admin') }} " class="nav-link">

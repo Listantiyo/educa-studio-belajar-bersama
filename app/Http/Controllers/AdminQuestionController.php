@@ -60,7 +60,7 @@ class AdminQuestionController extends Controller
         ->addColumn('aksi', function ($questions) {
             return '
             <div class="btn-group">
-                <button onclick="detailData(`'. $questions->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                <button onclick="showDetail(`'. $questions->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
                 <button onclick="editData(`'. $questions->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
                 <button onclick="deleteData(`'.  $questions->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </div>
@@ -69,6 +69,26 @@ class AdminQuestionController extends Controller
         ->rawColumns(['aksi'])
         ->make(true);
     }
+
+    public function showDetail(Request $request)
+    {
+        $id = $request->id;
+        $username = $request->uname;
+
+        $data = Question::find($id);
+        $data = DB::table('tbl_questions')
+        ->where('tbl_questions.id',$id)
+        ->leftjoin('users', 'tbl_questions.id_user_dil' , '=' ,'users.id')
+        ->leftjoin('tbl_types', 'tbl_questions.id_type' , '=' ,'tbl_types.id')
+        ->leftjoin('tbl_communities', 'tbl_questions.id_comunity' , '=' ,'tbl_communities.id')
+        ->select('tbl_questions.*' , 'users.name', 'tbl_types.nama_type', 'tbl_communities.community')
+        ->get();
+        $data->name = $username;
+        // return $data;
+
+        return $data;
+    }
+
     public function store(Request $request)
     {
         //
@@ -80,9 +100,14 @@ class AdminQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function dataEdit($id)
+    public function dataEdit(Request $request)
     {
-        //
+        $id = $request->id;
+        $username = $request->uname;
+
+        $data = Question::find($id);
+        $data->name = $username;
+        return $data;
     }
 
     /**
