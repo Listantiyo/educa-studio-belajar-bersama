@@ -12,7 +12,7 @@ class ComunitySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tbl_communities')->insert([
+        DB::table('tbl_tags')->insert([
             [
                 'community' => 'Programmers',
                 'created_at' => date('Y-m-d H:i:s'),
@@ -87,7 +87,7 @@ class ComunitySeeder extends Seeder
                 'community' => 'Engineering',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
-            ],
+            ]
         ]);
     }
 }

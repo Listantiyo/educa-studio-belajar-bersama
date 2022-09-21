@@ -13,8 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             TagSeeder::class,
-            // CommunitiesSeeder::class,
-            ComuSeeder::class,
+            CoSeeder::class,
         ]);
     }
 }

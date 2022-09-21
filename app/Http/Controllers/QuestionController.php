@@ -25,10 +25,45 @@ class QuestionController extends Controller
         return view('question.index');
     }
     
-    public function detail($id)
-    {
-        $question = Question::find($id);
-        return view('question.detail.index',compact('question','id'));
+    public function detail($ids)
+    {   
+        if ($ids === "QD") {
+            $question = Question::latest()->first();
+            $id = $question->latest()->limit(1)->pluck('id');
+            $view = $question->latest()->limit(1)->pluck('views');
+            $views = data_get($view,'0');
+
+            $question->views = $views+1;
+            $question->update();
+
+            // return $question;
+
+            return view('question.detail.index',compact('question','id'));
+        }
+        if ($ids === "MAD") {
+            $question = Question::where('id_type',2)->latest()->first();
+            $id = $question->where('id_type',2)->latest()->limit(1)->pluck('id');
+            $view = $question->where('id_type',2)->latest()->limit(1)->pluck('views');
+            $views = data_get($view,'0');
+            
+            $question->views = $views+1;
+            $question->update();
+
+            // return $question;
+
+            return view('question.detail.index',compact('question','id'));
+        }
+        if ($ids != "QD"||"MAD") {
+            $id = $ids;
+            $question = Question::find($ids);
+            $view = Question::find($ids)->pluck('views');
+            $views = data_get($view,'0');
+
+            $question->views = $views+1;
+            $question->update();
+            // return $question;
+            return view('question.detail.index',compact('question','id'));
+        }
     }
 
     public function ask()
@@ -106,7 +141,6 @@ class QuestionController extends Controller
         $quest->title = $request->title;
         $quest->question = $request->text;
         $quest->image = $name;
-        $quest->tags = $tags;
         $quest->path_img = $path;
         
         $quest -> save();
@@ -223,6 +257,66 @@ class QuestionController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+    public function fillter(Request $request)
+    {
+        $id = $request->type;
+        $id_community = $request->id_community;
+        if ($id == 1) {
+
+            if ($id_community == 0) {
+                $question_all = Question::with('tag')
+                                ->latest()
+                                ->get(); 
+            }
+            if (!$id_community == 0) {
+                
+                $question_all = Question::with('tag')
+                                ->where('id_comunity',$id_community)
+                                ->latest()
+                                ->get(); 
+            }
+        }
+        if ($id == 2) {
+            if ($id_community == 0) {
+                $question_most = DB::table('tbl_questions')
+                                ->where('id_type',2)
+                                ->get();    
+            }
+            if (!$id_community == 0) {
+                $question_most = DB::table('tbl_questions')
+                                ->where('id_type',2)
+                                ->where('id_comunity',$id_community)
+                                ->get();    
+            }
+        }
+        if ($id == 3) {
+            if ($id_community == 0) {
+                $question_unans = DB::table('tbl_questions')
+                                ->where('id_type',1)
+                                ->get();   
+            }
+            if (!$id_community == 0) {
+                $question_unans = DB::table('tbl_questions')
+                                ->where('id_comunity',$id_community)
+                                ->where('id_type',1)
+                                ->get();   
+            }
+        }
+        if ($id == 4) {
+            if ($id_community == 0) {
+                
+            }
+            if (!$id_community == 0) {
+                
+            }
+            $question_feature = DB::table('tbl_questions')
+                            ->where('id_comunity',$id_community)
+                            ->where('like','>', 1)
+                            ->get();  
+        }
+
+        return compact('question_all','question_most','question_unans','question_feature','id');
     }
 
     /**

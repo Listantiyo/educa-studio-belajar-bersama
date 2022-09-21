@@ -109,18 +109,21 @@
 		<script src="{{asset('pify/assets/js/custom.js')}}"></script>
 
 		<script>
+			let list_com_url = "api/community/show"
 			const vus = Vue.createApp({
 				data() {
 					return {
 						data:'',
+						top_discus:'',
 					}
 				},mounted() {
 					$(document).ready(function () {
 						$.ajax({
 							type: "get",
-							url: "api/community/show",
+							url: list_com_url,
 							success: function (rsp) {
-								vus.data = rsp
+								vus.data = rsp.comuni
+								vus.top_discus = rsp.top_discus
 							}
 						});
 					});

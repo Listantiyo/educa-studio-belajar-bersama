@@ -101,7 +101,7 @@
                                 </li>
                                 <li>
                                     <a href="most-visited.html">
-                                        658 Views
+                                        @{{quest.views}} Views
                                     </a>
                                 </li>
                                 <li>
@@ -113,6 +113,11 @@
                                             
                                             <ul class="social-icon">
                                                 <li>
+                                                    <a @click="copyPath(quest.id)">
+                                                        <i class="ri-file-copy-line"></i>
+                                                    </a>
+                                                </li>
+                                                {{-- <li>
                                                     <a href="https://www.facebook.com/" target="_blank">
                                                         <i class="ri-facebook-fill"></i>
                                                     </a>
@@ -131,14 +136,14 @@
                                                     <a href="https://www.instagram.com/" target="_blank">
                                                         <i class="ri-instagram-line"></i>
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
 
-                            <a href="most-answered.html" class="default-btn">
+                            <a href="" @click="toAnswer(quest.id)" class="default-btn">
                                 Answer
                             </a>
                         </div>
@@ -220,7 +225,7 @@
                                 </li>
                                 <li>
                                     <a href="most-visited.html">
-                                        658 Views
+                                        @{{questmo.views}} Views
                                     </a>
                                 </li>
                                 <li>
@@ -232,6 +237,11 @@
                                             
                                             <ul class="social-icon">
                                                 <li>
+                                                    <a @click="copyPath(questmo.id)">
+                                                        <i class="ri-file-copy-line"></i>
+                                                    </a>
+                                                </li>
+                                                {{-- <li>
                                                     <a href="https://www.facebook.com/" target="_blank">
                                                         <i class="ri-facebook-fill"></i>
                                                     </a>
@@ -250,14 +260,14 @@
                                                     <a href="https://www.instagram.com/" target="_blank">
                                                         <i class="ri-instagram-line"></i>
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
 
-                            <a href="most-answered.html" class="default-btn bg-ea4335">
+                            <a href="" @click="toAnswer(questmo.id)" class="default-btn bg-ea4335">
                                 Question
                             </a>
                         </div>
@@ -347,7 +357,7 @@
                                 </li>
                                 <li>
                                     <a href="most-visited.html">
-                                        658 Views
+                                        @{{questun.views}} Views
                                     </a>
                                 </li>
                                 <li>
@@ -359,6 +369,11 @@
                                             
                                             <ul class="social-icon">
                                                 <li>
+                                                    <a @click="copyPath(questun.id)">
+                                                        <i class="ri-file-copy-line"></i>
+                                                    </a>
+                                                </li>
+                                                {{-- <li>
                                                     <a href="https://www.facebook.com/" target="_blank">
                                                         <i class="ri-facebook-fill"></i>
                                                     </a>
@@ -377,14 +392,14 @@
                                                     <a href="https://www.instagram.com/" target="_blank">
                                                         <i class="ri-instagram-line"></i>
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
 
-                            <a href="most-answered.html" class="default-btn">
+                            <a href="" @click="toAnswer(questun.id)" class="default-btn">
                                 Answer
                             </a>
                         </div>
@@ -493,6 +508,11 @@
                                             
                                             <ul class="social-icon">
                                                 <li>
+                                                    <a @click="copyPath(questfe.id)">
+                                                        <i class="ri-file-copy-line"></i>
+                                                    </a>
+                                                </li>
+                                                {{-- <li>
                                                     <a href="https://www.facebook.com/" target="_blank">
                                                         <i class="ri-facebook-fill"></i>
                                                     </a>
@@ -511,14 +531,14 @@
                                                     <a href="https://www.instagram.com/" target="_blank">
                                                         <i class="ri-instagram-line"></i>
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
 
-                            <a href="most-answered.html" class="default-btn">
+                            <a href="" @click="toAnswer(questfe.id)" class="default-btn">
                                 Answer
                             </a>
                         </div>

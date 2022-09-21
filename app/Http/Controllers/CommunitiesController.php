@@ -50,11 +50,6 @@ class CommunitiesController extends Controller
     {
         //
     }
-    public function show(Request $request)
-    {
-        $data = Communities::all();
-        return response()->json($data);
-    }
 
     /**
      * Display the specified resource.

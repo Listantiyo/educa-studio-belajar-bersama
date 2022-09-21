@@ -87,13 +87,36 @@ class XampleController extends Controller
 
     // $al = Question::find(24)->pluck('path_img');
     // $var = Communities::with('followers')->get();
-        $posts = Communities::whereDoesntHave('followers', function (Builder $query) {
-            $query->where('id_user', '1');
-        })->get();
+        // $posts = Communities::whereDoesntHave('followers', function (Builder $query) {
+        //     $query->where('id_user', '1');
+        // })->get();
     // $var = Question::find(1)->tag;
     // $posts = User::find(1)->community;
     // $posts = DB::table('tbl_question_tags')->selectRaw('count(id_tag) as num,id_tag')->groupBy('id_tag')->get();
-    
+    // $id = 1;
+    // $id_community = 14;
+    // if ($id == 1) {
+
+    //     if ($id_community == 0) {
+    //         $posts = Question::with('tag')
+    //         ->latest()
+    //         ->get(); 
+    //     }
+    //     if (!$id_community == 0) {
+            
+    //         $posts = Question::with('tag')
+    //         ->where('id_comunity',$id_community)
+    //         ->latest()
+    //         ->get(); 
+    //     }
+    // }
+    // $posts = Question::where('id_type',1)->latest()->first();
+    $posts = DB::select('SELECT tbl_questions.title,COUNT(tbl_answers.answer) AS total_answer
+    FROM tbl_questions 
+    JOIN tbl_answers 
+    ON tbl_answers.id_question = tbl_questions.id
+    GROUP BY tbl_questions.title
+    ORDER BY total_answer desc LIMIT 4');
      return $posts;
     }
     public function filter(){

@@ -14,8 +14,9 @@
                     Communities
                 </h3>
 
-                <select class="form-select" aria-label="Default select example">
-                    <option selected value="0">Select Communities</option>
+                <select class="form-select" id="fillter-community" aria-label="Default select example">
+                    <option disabled selected  value="">Select Communities</option>
+                    <option value="0">All Communities</option>
                     <option v-for="item in data" :value="item.id">@{{item.community}}</option>
                 </select>
             </div>

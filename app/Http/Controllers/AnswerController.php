@@ -59,7 +59,6 @@ class AnswerController extends Controller
         $input_answer = $request->text;
 
         if ( $input_answer === null ) {
-            # code...
             return "kosong";
         };
 

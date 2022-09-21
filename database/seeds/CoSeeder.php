@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ComuSeeder extends Seeder
+class CoSeeder extends Seeder
 {
     /**
      * Run the database seeds.

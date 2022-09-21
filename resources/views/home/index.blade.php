@@ -36,117 +36,13 @@
 @section('content')
 
 		{{-- content --}}
-		@include('home.content')
+		@include('question.content')
 		{{-- content end --}}
         
 @endsection
-
 @push('scripts')
-
-<script>
-	const { createApp } = Vue
-
-    const vues = createApp({
-        data() {
-            return {
-                quest :'',
-                quest_most :'',
-                quest_unans :'',
-                quest_featur :'',
-                id  : '',
-            }
-        },mounted() {
-            
-            $(document).ready(function (e) {
-				// load all question
-                ajax = $.ajax({
-                    url: "/api/quest/show",
-					data: 'id='+1,
-                    success: function(rsp){
-						
-                        vues.quest = rsp.question_all ;
-                        vues.quest_most = rsp.question_most ;
-                        vues.quest_unans = rsp.question_unans ;
-                        vues.quest_featur = rsp.question_feature ;
-						vues.id = rsp.id ;
-                        
-                    }
-                 }); 
-
-                 // SearchBar
-
-				$("#searchbar").keypress(function (e) { 
-                    
-                    if (e.which == 13) {
-						e.preventDefault(); 
-                        
-                        var input = $("#searchbar").val();
-                        var id = vues.id;
-                        $.get("/api/quest/search", {data:input,id:id},
-                            function (data) {           
-
-                                vues.quest = data.question_all ;
-                                vues.quest_most = data.question_most ;
-                                vues.quest_unans = data.question_unans ;
-                                vues.quest_featur = data.question_feature ;
-                                $("#searchbar").val(null);
-
-                            },
-
-                        );
-                    }
-                });
-
-                $("#search-button").click(function (e) { 
-                    e.preventDefault();
-
-                    var input = $("#searchbar").val();
-                        var id = vues.id;
-                        $.get("/api/quest/search", {data:input,id:id},
-                            function (data) {           
-
-                                vues.quest = data.question_all ;
-                                vues.quest_most = data.question_most ;
-                                vues.quest_unans = data.question_unans ;
-                                vues.quest_featur = data.question_feature ;
-                                $("#searchbar").val(null);
-
-                            },
-
-                        );
-                    
-                 });
-
-            });
-            
-        },methods: {
-			filterQuest(id){
-				// alert(id)
-				$.ajax({
-                    url: "/api/quest/show",
-					data:{id:id},
-                    success: function(rsp){
-						
-                        vues.quest = rsp.question_all ;
-                        vues.quest_most = rsp.question_most ;
-                        vues.quest_unans = rsp.question_unans ;
-                        vues.quest_featur = rsp.question_feature ;
-                        vues.id = rsp.id ;
-                        
-                    }
-                 }); 
-			},
-            toAnswer(id){
-                $(document).ready(function () {
-                    
-                    let url = "{{route('questions-details',':id')}}"
-                    url = url.replace(':id',id)
-                    alert(url)
-                    location.href = url;
-                });
-            },
-        },
-    }).mount('#app') 
-</script>
-
+		<script>
+			let page = 1
+		</script>
+        @include('question.script')
 @endpush

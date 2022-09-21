@@ -37,11 +37,11 @@
                                             <span class="menu-title">All questions</span>
                                         </a>
                                     </li>
-                                    {{-- <li>
-                                        <a href="{{route('questions-details')}}">
-                                            <span class="menu-title">questions details</span>
+                                    <li>
+                                        <a href="{{route('questions-details',['id'=>'QD'])}}">
+                                            <span class="menu-title">Questions details</span>
                                         </a>
-                                    </li> --}}
+                                    </li>
                                 </ul>
                             </li>
                             <li>
@@ -86,7 +86,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('most-answered-details')}}">
+                                        <a href="{{route('questions-details',['id'=>'MAD'])}}">
                                             <span class="menu-title">Most answered details</span>
                                         </a>
                                     </li>

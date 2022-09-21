@@ -46,7 +46,9 @@
 @endsection 
 
 @push('scripts')
-    
+        <script>
+            list_com_url = "\\api/community/show"
+        </script>
         <script>
             $(document).ready(function () {
             
