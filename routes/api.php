@@ -31,6 +31,7 @@ Route::delete('menu/delete','HomeController@delete');
 // API Question
 Route::get('quest/show','QuestionController@show');
 Route::get('quest/search','QuestionController@search');
+Route::get('quest/fillter-community','QuestionController@fillter');
 Route::get('quest/likedislike','QuestionController@likedislike');
 Route::post('quest/likedislikestore','QuestionController@likedislikestore');
 Route::post('quest/store','QuestionController@store');
