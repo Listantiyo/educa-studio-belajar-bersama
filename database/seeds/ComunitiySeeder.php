@@ -12,7 +12,7 @@ class ComunitySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tbl_tags')->insert([
+        DB::table('tbl_communities')->insert([
             [
                 'community' => 'Programmers',
                 'created_at' => date('Y-m-d H:i:s'),

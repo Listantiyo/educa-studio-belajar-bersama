@@ -50,6 +50,12 @@ class SidebarController extends Controller
      */
     public function show(Request $request)
     {   
+//         SELECT 
+// users.name ,COUNT(tbl_questions.question) AS total_qs
+// FROM users JOIN tbl_questions ON
+// tbl_questions.id_user_dil = users.id
+// GROUP BY users.name
+
         // AllCommunity
         $data = Communities::all();
         // TopDiscus
