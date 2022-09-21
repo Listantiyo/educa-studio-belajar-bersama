@@ -496,7 +496,7 @@
                                 </li>
                                 <li>
                                     <a href="most-visited.html">
-                                        658 Views
+                                        @{{questfe.views}} Views
                                     </a>
                                 </li>
                                 <li>

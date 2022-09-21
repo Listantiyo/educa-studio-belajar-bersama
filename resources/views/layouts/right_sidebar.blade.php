@@ -29,25 +29,10 @@
                     Top Discussions
                 </h3>
 
-                <ul>
+                <ul v-for="item in top_discus">
                     <li>
                         <a href="most-answered.html">
-                            The idea of how I will share my profile on social sites
-                        </a>
-                    </li>
-                    <li>
-                        <a href="most-answered.html">
-                            Discuss the rules for maintaining all the employees in the company
-                        </a>
-                    </li>
-                    <li>
-                        <a href="most-answered.html">
-                            The best way to choose between a job and a business
-                        </a>
-                    </li>
-                    <li>
-                        <a href="most-answered.html">
-                            Which is the most important UIUX in terms of design?
+                            @{{item.title}}
                         </a>
                     </li>
                 </ul>

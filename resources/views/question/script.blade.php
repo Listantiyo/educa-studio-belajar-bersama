@@ -124,10 +124,9 @@
                     let Url = "{{route('questions-details',':id')}}"
                     urI = Url.replace(':id',id)
                     alert(urI)
-                    
-                    navigator.clipboard.writeText(urI)
-                    return
-            },
+                    setTimeout(async()=>console.log(
+                        await window.navigator.clipboard.writeText(urI)), 1000)
+            }
         },
     }).mount('#app') 
 </script>
