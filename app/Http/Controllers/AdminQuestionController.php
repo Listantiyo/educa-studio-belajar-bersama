@@ -63,6 +63,7 @@ class AdminQuestionController extends Controller
             return '
             <div class="btn-group">
                 <button onclick="showDetail(`'. $questions->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
+                <button onclick="addData(`'. $questions->id .'`)" class="btn btn-sm btn-success"><i class="fas fa-plus"></i></button>
                 <button onclick="editData(`'. $questions->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
                 <button onclick="deleteData(`'.  $questions->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </div>

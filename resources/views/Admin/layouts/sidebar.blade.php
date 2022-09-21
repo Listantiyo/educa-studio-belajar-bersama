@@ -52,7 +52,7 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="{{ route ('quest-admin') }} " class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
+                <i class="nav-icon fas fa-question-square"></i>
                 List Question
               </a>
             </li>

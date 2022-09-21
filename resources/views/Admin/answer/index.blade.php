@@ -19,6 +19,14 @@
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
+  <div class="container">
+    <div class="d-flex justify-content-end mb-3">
+        <a href="#" onclick="addData()" class="btn btn-success">
+            <i class="nav-icon fa-solid fa-plus"></i>
+            Tambah
+        </a>
+    </div>
+  </div>
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -29,7 +37,6 @@
                         <th>Nama</th>
                         <th>Pertanyaan</th>
                         <th>Jawaban</th>
-                        <th>Image</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -42,6 +49,8 @@
 
 @endsection
 
+
+@include('Admin.answer.modal')
 @push('script')
 
 
@@ -59,11 +68,20 @@
                 {data: 'name'},/* sesuai di database */
                 {data: 'question'},
                 {data: 'answer'},
-                {data: 'path_answ_img'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
       });
   } );
+
+  function addData(){
+    $("#form").attr("url", "api/data/admin/answer/store");
+    $('.modal-title').text('Add Answer');
+    $('#addAnswer form')[0].reset(); 
+    $('#addAnswer').modal('show');
+    url = $("#form").attr("url");
+    
+    console.log(url); 
+  }
 
   function deleteData(id){
       alert(id)

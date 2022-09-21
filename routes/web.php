@@ -115,18 +115,16 @@ Route::get('/admintag','AdminTagController@index')->name('tag-admin');
 
 
 
-// // cek join quest
-// Route::get('/cek-join-quest', function () {
+// cek join quest
+Route::get('/cek-join-quest', function () {
     
-//     $result = DB::table('tbl_questions')
-//         ->leftjoin('users', 'tbl_questions.id_user_dil' , '=' ,'users.id')
-//         ->leftjoin('tbl_types', 'tbl_questions.id_type' , '=' ,'tbl_types.id')
-//         ->leftjoin('tbl_communities', 'tbl_questions.id' , '=' ,'tbl_communities.id')
-//         ->select('tbl_questions.*' , 'users.name', 'tbl_types.nama_type', 'tbl_communities.community')
-//         ->get();
+    $result = DB::table('users')
+    ->leftjoin('tbl_questions', 'users.id' , '=' ,'tbl_questions.id')
+    ->select('users.*' , 'tbl_questions.question')
+    ->get();
 
-//     dd($result);
+    dd($result);
 
-// });
+});
 
 

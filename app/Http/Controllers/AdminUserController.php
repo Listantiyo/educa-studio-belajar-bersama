@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Question;
 use App\User;
 
 class AdminUserController extends Controller
@@ -14,6 +16,7 @@ class AdminUserController extends Controller
      */
     public function index()
     {
+        
         $users = User::all();
         return view('Admin.user.index', compact('users'));
     }
@@ -54,12 +57,9 @@ class AdminUserController extends Controller
         ->addIndexColumn()
         ->addColumn('aksi', function($users) {
             return  '
-            <button onclick="editData(`'. $users->id .'`)" class="btn btn-sm btn-warning mr-2">
-                <i class="nav-icon fa-solid fa-pen-to-square"></i>
-            </button>
-            <button onclick="deleteData(`'. $users->id .'`)" class="btn btn-sm btn-danger">
-                <i class="nav-icon fa-solid fa-trash"></i>
-            </button>
+            <button onclick="showDetail(`'. $users->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
+            <button onclick="editData(`'. $users->id .'`)" class="btn btn-sm btn-warning mr-2"><i class="nav-icon fa-solid fa-pen-to-square"></i></button>
+            <button onclick="deleteData(`'. $users->id .'`)" class="btn btn-sm btn-danger"><i class="nav-icon fa-solid fa-trash"></i></button>
             ';
         })
         ->rawColumns(['aksi'])
@@ -78,6 +78,28 @@ class AdminUserController extends Controller
 
         $data = User::find($id);
 
+        return $data;
+    
+    }
+
+    public function showDetail(Request $request )
+    {
+        $id = $request->id;
+        $ser = $request->user;
+        $mail = $request->email;
+        $level = $request->level;
+        // $image = $request->image;
+        
+
+        $data = User::find($id);
+        $data->name = $ser;
+        $data->email = $mail;
+        $data->level = $level;
+        $data = DB::table('users')
+        ->leftjoin('tbl_questions', 'users.id' , '=' ,'tbl_questions.id')
+        ->select('users.*' , 'tbl_questions.question')
+        ->get();
+        // $data->image = $image;
         return $data;
     
     }

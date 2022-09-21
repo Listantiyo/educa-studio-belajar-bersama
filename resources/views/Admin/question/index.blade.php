@@ -41,37 +41,9 @@
                         <th>Type</th>
                         <th>Community</th>
                         <th>Title</th>
-                        <th>Pertanyaan</th>
-                        <th>Tags</th>
-                        <th>Like</th>
-                        <th>Dislike</th>
-                        <th>Vote</th>
-                        <th>Image</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                {{-- <tbody>
-                  @foreach ( $questions as $quest)
-                      <tr>
-                          <td>{{ $loop->index + 1 }}</td>
-                          <td>{{ $quest->id_user_dil }}</td>
-                          <td>{{ $quest->title }}</td>
-                          <td>{{ $quest->question }}</td>
-                          <td>{{ $quest->tags }}</td>
-                          <td>{{ $quest->like }}</td>
-                          <td>{{ $quest->dislike }}</td>
-                          <td>{{ $quest->votes }}</td>
-                          <td>{{ $quest->image }}</td>
-                          <td class="d-flex justify-content-center">
-                              <a href="#" class="btn btn-sm btn-warning mr-2" data-id="{{ $quest->id }}" data-user="{{ $quest->id_user_dil }}" data-title="{{ $quest->title }}" data-quest="{{ $quest->question }}" data-tags="{{ $quest->tags }}" data-like="{{ $quest->like }}" data-dislike="{{ $quest->dislike }}" data-vote="{{ $quest->vote }}" data-image="{{ $quest->image }}" data-toggle="modal" data-target="#editQuest">
-                                  <i class="nav-icon fa-solid fa-pen-to-square"></i>
-                              </a>
-                              <a onclick="deleteData({{$quest->id}})" href="#" class="btn btn-sm btn-danger">
-                                  <i class="nav-icon fa-solid fa-trash"></i>
-                              </a>
-                          </td>
-                      </tr>
-                  @endforeach  --}}
               </tbody>
             </table>
           </div>
@@ -102,12 +74,6 @@
           {data: 'nama_type'},
           {data: 'community'},
           {data: 'title'},
-          {data: 'question'},
-          {data: 'tags'},
-          {data: 'like'},
-          {data: 'dislike'},
-          {data: 'votes'},
-          {data: 'image'},
           {data: 'aksi', searchable:false, sortable:false}
         ]
       });
@@ -123,6 +89,17 @@
       );
     }
 
+    function addData(){
+    $("#form").attr("url", "api/data/admin/quest/store");
+    $('.modal-title').text('Add question');
+    // $('#addQuest form')[0].reset(); 
+    $('#addQuest').modal('show'); 
+    url = $("#form").attr("url");
+    
+    console.log(url);
+    }
+      
+
     function showDetail(id){
       $('.modal-title').text("Detail");
       $("#questDetail").modal('show');
@@ -137,6 +114,8 @@
           $("#tit").text(data[0].title);
           // $("#cm").append("<p id='com'></p>");
           $("#com").text(data[0].community);
+          // $("#vie").append("<img id='view' src=''>");
+          $("#view").text(data[0].views);
           // $("#gbr").append("<img id='gmbr' src=''>");
           $("#gmbr").attr('src', 'storage/'+data[0].path_img);
           $("#like").text(data[0].like);

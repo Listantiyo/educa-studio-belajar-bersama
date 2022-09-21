@@ -62,6 +62,9 @@
           <div class="my-3">
               <label>Question : <span class="font-weight-normal" id='quest'></span></label>
           </div>
+          <div>
+            <label>Views : <span class="font-weight-normal" id='vie'></span></label>
+          </div>
           <div class="row text-center">
             <div class="col-sm-4">
               <label for="">
@@ -85,7 +88,7 @@
   </div>
 </div>
 
-@push('script')
+{{-- @push('script')
 <script>
   var id;
   $('#editQuest').on('show.bs.modal', function (event) {
@@ -116,4 +119,67 @@ $(document).ready(function () {
   });
 });
 </script>
-@endpush
+@endpush --}}
+
+<!-- Modal -->
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="form" method="post">
+        {{ csrf_field() }}
+        <div class="modal-body">
+          <div class="form-group">
+              <label>Nama :</label>
+              <input type="text" name="nama" class="form-control" id="name" required>
+          </div>
+          <div class="form-group">
+              <label>Email :</label>
+              <input type="email" name="email" class="form-control" id="email" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addQuest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="form" method="post">
+        {{ csrf_field() }}
+        <div class="modal-body">
+          <div class="form-group">
+              <label>Pertanyaan :</label>
+              <input type="text" name="quest" class="form-control" id="name" required>
+          </div>
+          <div class="form-group">
+              <label>Jawaban :</label>
+              <textarea class="form-control" rows="3" name="asnwer" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

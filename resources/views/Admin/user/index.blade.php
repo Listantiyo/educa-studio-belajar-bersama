@@ -81,6 +81,27 @@
         });
     } );
 
+    function showDetail(id){
+      $('.modal-title').text("Detail");
+      $("#usersDetail").modal('show');
+      $.get("api/data/admin/user/show", {'id':id},
+        function (data) {
+          console.log(data);
+          $("#user").append("<p id='users' name='user'></p>");
+          $("#users").text(data[0].name);
+          $("#ema").append("<p id='mail' name='email'></p>");
+          $("#mail").text(data[0].email);
+          $("#lev").append("<p id='level' name='level'></p>");
+          $("#level").text(data[0].level);
+          $("#jmlh").append("<p id='jquest' name='jquest'></p>");
+          $("#jquest").text(data[0].question);
+
+          
+        },
+      );
+      
+    }
+
   function editData(id){
 
     id_up = id;
@@ -93,8 +114,6 @@
         $("input[name='email']").val(data.email);
       },
     );
-
-
 
   }
 
@@ -111,6 +130,7 @@
     );
 
   });
+
 
   function deleteData(id){
       $.post("api/data/admin/user/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},

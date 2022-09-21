@@ -34,35 +34,33 @@
   </div>
 
   
-  {{-- @push('script')
-  <script>
-    var id;
-    $('#editAnswer').on('show.bs.modal', function (event) {
-  
-      console.log('Modal open');
-    var button = $(event.relatedTarget)
-    var title = button.data('title') 
-    var question = button.data('quest')
-    var tags = button.data('tags')
-        id = button.data('id')
-  
-    var modal = $(this)
-    modal.find('.modal-body #title').val(title);
-    modal.find('.modal-body #question').val(question);
-    modal.find('.modal-body #tags').val(tags);
-  })
-  
-  $(document).ready(function () {
-    $("#form").submit(function (e) { 
-      e.preventDefault();
-      let inpu = $(this).serialize();
-      $.post("api/adminquestion/update/", inpu+'&id='+id,
-        function (data) {
-          alert(data)
-        },
-      );
-  
-    });
-  });
-  </script>
-  @endpush --}}
+<!-- Modal -->
+<div class="modal fade" id="addAnswer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="form" method="post">
+        {{ csrf_field() }}
+        <div class="modal-body">
+          <div class="form-group">
+              <label>Pertanyaan </label>
+              <input type="text" name="title" class="form-control" id="title" required>
+          </div>
+          <div class="form-group">
+              <label>Jawaban :</label>
+              <input type="text" name="question" class="form-control" id="question" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
