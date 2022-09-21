@@ -115,6 +115,13 @@
 					return {
 						data:'',
 						top_discus:'',
+						count_quest:'',
+						count_answer:'',
+						count_user:'',
+						count_comment:'',
+						recent_post:'',
+						top_members:'',
+						trending_tags:'',
 					}
 				},mounted() {
 					$(document).ready(function () {
@@ -124,6 +131,9 @@
 							success: function (rsp) {
 								vus.data = rsp.comuni
 								vus.top_discus = rsp.top_discus
+								vus.count_quest = rsp.quest_count
+								vus.count_answer = rsp.answer_count
+								vus.count_user = rsp.user_count
 							}
 						});
 					});

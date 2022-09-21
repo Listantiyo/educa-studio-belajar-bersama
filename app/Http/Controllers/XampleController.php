@@ -111,13 +111,22 @@ class XampleController extends Controller
     //     }
     // }
     // $posts = Question::where('id_type',1)->latest()->first();
-    $posts = DB::select('SELECT tbl_questions.title,COUNT(tbl_answers.answer) AS total_answer
-    FROM tbl_questions 
-    JOIN tbl_answers 
-    ON tbl_answers.id_question = tbl_questions.id
-    GROUP BY tbl_questions.title
-    ORDER BY total_answer desc LIMIT 4');
-     return $posts;
+    // $posts = DB::select('SELECT tbl_questions.title,COUNT(tbl_answers.answer) AS total_answer
+    // FROM tbl_questions 
+    // JOIN tbl_answers 
+    // ON tbl_answers.id_question = tbl_questions.id
+    // GROUP BY tbl_questions.title
+    // ORDER BY total_answer desc LIMIT 4');
+    $count = 999;
+
+    if ($count > 999) {
+        $num_back = floor(($count % 1000)/100);
+        $num_front = floor($count / 1000);
+        $posts = $num_front.'.'.$num_back.'K';
+    }else {
+        $posts = floor($count);
+    }
+    return $posts;
     }
     public function filter(){
         $filc = Classe::all();

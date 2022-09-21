@@ -44,11 +44,11 @@
                 <ul class="d-flex flex-wrap">
                     <li>
                         <span>Questions</span>
-                        <span class="count">435</span>
+                        <span class="count">@{{count_quest}}</span>
                     </li>
                     <li>
                         <span>Answers</span>
-                        <span class="count">435</span>
+                        <span class="count">@{{count_answer}}</span>
                     </li>
                     <li>
                         <span>Best answers</span>
@@ -56,11 +56,11 @@
                     </li>
                     <li>
                         <span>Users</span>
-                        <span class="count">2K</span>
+                        <span class="count">@{{count_user}}</span>
                     </li>
                     <li>
                         <span>Posts</span>
-                        <span class="count">852</span>
+                        <span class="count">@{{count_quest + count_answer}}</span>
                     </li>
                     <li>
                         <span>Comments</span>
