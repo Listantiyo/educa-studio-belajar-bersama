@@ -20,7 +20,7 @@ class Questions extends Migration
             $table->integer('id_comunity');
             $table->string('title');
             $table->text('question');
-            $table->string('tags');
+            $table->string('views')->default(0);
             $table->integer('like')->default(0);
             $table->integer('dislike')->default(0);
             $table->integer('votes')->default(0);
