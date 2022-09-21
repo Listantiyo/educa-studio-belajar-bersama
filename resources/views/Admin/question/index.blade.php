@@ -4,7 +4,7 @@
 
 <style>
   #gmbr{
-    width: 50%;
+    max-width: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;

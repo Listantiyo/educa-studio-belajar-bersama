@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Question;
+use Illuminate\Support\Facades\Storage;
+
 
 class AdminQuestionController extends Controller
 {
@@ -154,6 +156,10 @@ class AdminQuestionController extends Controller
     public function destroy($id)
     {
         $questions = Question::find($id);
+
+        if ($questions->path_img != null){
+            Storage::disk('public')->delete($questions->path_img);
+        }
         $questions->delete();
         
         return $id;

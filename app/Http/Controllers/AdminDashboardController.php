@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Question;
+use App\Answer;
+use App\Communities;
+use App\User;
 
 class AdminDashboardController extends Controller
 {
@@ -13,7 +17,11 @@ class AdminDashboardController extends Controller
      */
     public function index()
     {
-        return view('Admin.dashboard.index');
+        $quest = Question::all()->count();
+        $answer = Answer::all()->count();
+        $commu = Communities::all()->count();
+        $user = User::all()->count();
+        return view('Admin.dashboard.index', compact('quest','answer','commu','user'));
     }
 
     /**

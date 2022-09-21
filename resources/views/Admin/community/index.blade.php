@@ -51,7 +51,7 @@
             <table id="table" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Id</th>
+                        <th>#</th>
                         <th>Comunitty name</th>
                         <th>Aksi</th>
                     </tr>
