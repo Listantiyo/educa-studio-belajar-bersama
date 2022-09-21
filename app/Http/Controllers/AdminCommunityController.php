@@ -59,6 +59,7 @@ class AdminCommunityController extends Controller
         $community->path_img = $path;
         $community->save();
 
+        
         return "success";
     }
 
