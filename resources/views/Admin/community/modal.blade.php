@@ -16,7 +16,7 @@
                   <input type="text" name="commu" class="form-control" required>
               </div>
               <div id="append" class="form-group">
-                <input type="file" name="image" class="form-control" value="">
+                <input type="file" id="file-img" name="image" class="form-control" value="">
               </div>
             </div>
           <div class="modal-footer">
