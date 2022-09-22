@@ -100,6 +100,13 @@
                     }
                 },
             },
+            directives : {
+                dateshow : function (value){
+                    var date=moment(value).fromNow(); // here u modify data 
+                    this.el.innerText=date; // and set to the view
+
+                }
+            }
         }).mount('#app')
     </script>    
 @endpush

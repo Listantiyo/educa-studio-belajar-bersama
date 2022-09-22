@@ -80,6 +80,20 @@
                                 vues.answer = rsp.answer
                             }
                         });
+
+                        $("#fillter-answer").change(function (e) { 
+                            e.preventDefault();
+                            let jumlah = $(this).val();
+                            $.ajax({
+                            type: "get",
+                            url: "\\api/answer/show",
+                            data: {id_quest:id_quest,jumlah:jumlah},
+                            success: function (rsp) {
+                                // alert(rsp.asnwer)
+                                vues.answer = rsp.answer
+                            }
+                        });
+                        });
                     });
                 },methods: {
                 },

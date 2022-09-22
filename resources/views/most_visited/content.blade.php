@@ -34,7 +34,7 @@
                             <a href="user.html">@{{item.user.name}}</a>
                         </li>
                         <li>
-                            <span>Latest Answer: 14 hours ago</span>
+                            <span v-dateshow=" item.created_at ">Latest Answer: 14 hours ago @{{item.created_at}}</span>
                         </li>
                         <li>
                             <span>In : </span>

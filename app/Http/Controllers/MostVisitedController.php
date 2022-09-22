@@ -47,7 +47,7 @@ class MostVisitedController extends Controller
      */
     public function show()
     {
-        $quest =  Question::with('tag','user','community')->withCount('tag','answers')->created_at->diffForHumans()->paginate(10);
+        $quest = Question::with('tag','user','community')->withCount('tag','answers')->orderBy('views','desc')->paginate(10);
 
         return response()->json([
             'quest' => $quest

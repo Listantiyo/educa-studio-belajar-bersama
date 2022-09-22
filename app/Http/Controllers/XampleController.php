@@ -148,7 +148,7 @@ class XampleController extends Controller
     //             ->get();
     // $posts = Question::with('tag','user')->withCount('tag','likes','dislikes')->get();
     $postss = Question::find(1);
-    $posts = $posts = Question::with('tag','user','community')->withCount('tag','answers')->paginate(10);
+    $posts = Question::with('tag','user','community')->withCount('tag','answers')->orderBy('views','desc')->paginate(10);
     return $posts;
     }
     public function filter(){

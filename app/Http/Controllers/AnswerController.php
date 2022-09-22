@@ -32,7 +32,13 @@ class AnswerController extends Controller
     {
 
             $id = $request->id_quest;
-            $answer = DB::table('tbl_answers')->where('id_question',$id)->get();
+            $jumlah = $request->jumlah;
+
+            if ($jumlah > 0) {
+                $answer = DB::table('tbl_answers')->where('id_question',$id)->limit($jumlah)->get();
+            }else{
+                $answer = DB::table('tbl_answers')->where('id_question',$id)->get(); 
+            }
             return response()->json(['answer' => $answer]);
     }
     /**

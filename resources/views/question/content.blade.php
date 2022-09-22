@@ -73,8 +73,8 @@
                         </ul>
                         
                         <div>
-                            <h3 style="word-wrap:break-word">
-                                <a href @click="toAnswer(quest.id)">
+                            <h3 style="max-width: 70%;" >
+                                <a class="text-justify  align-items-center" style="inline-size: 150px; word-wrap:break-word; text-align:center;" href @click="toAnswer(quest.id)">
                                     @{{quest.title}}
                                 </a>
                             </h3>
