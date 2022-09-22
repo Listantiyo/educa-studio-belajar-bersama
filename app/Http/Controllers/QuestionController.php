@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
-use Illuminate\Foundation\Console\Presets\React;
 use Illuminate\Support\Facades\DB;
-use App\Communities;
 use App\Tags;
 use App\Likes;
 use App\Dislikes;
@@ -15,11 +13,7 @@ use App\User;
 
 class QuestionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('question.index');
@@ -36,7 +30,7 @@ class QuestionController extends Controller
             $question->views = $views+1;
             $question->update();
 
-            // return $question;
+            
 
             return view('question.detail.index',compact('question','id'));
         }
@@ -49,7 +43,7 @@ class QuestionController extends Controller
             $question->views = $views+1;
             $question->update();
 
-            // return $question;
+            
 
             return view('question.detail.index',compact('question','id'));
         }
@@ -61,7 +55,7 @@ class QuestionController extends Controller
 
             $question->views = $views+1;
             $question->update();
-            // return $question;
+            
             return view('question.detail.index',compact('question','id'));
         }
     }
@@ -74,15 +68,7 @@ class QuestionController extends Controller
 
         return view('question.ask.index',compact('communities','tags'));
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     public function search(Request $request)
     {
@@ -107,12 +93,7 @@ class QuestionController extends Controller
         return compact('question_all','question_most','question_unans','question_feature','id');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $tags = json_encode($request->input('tag')); /* serialize != unserialize */
@@ -150,12 +131,7 @@ class QuestionController extends Controller
         return "success";
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Request $request)
     {
         $id = $request->id;
@@ -163,24 +139,19 @@ class QuestionController extends Controller
             $question_all = Question::with('tag')->latest()->get(); 
         }
         if ($id == 2) {
-            $question_most = DB::table('tbl_questions')->where('id_type',2)->get();    
+            $question_most = Question::with('tag')->latest()->where('id_type',2)->get();    
         }
         if ($id == 3) {
-            $question_unans = DB::table('tbl_questions')->where('id_type',1)->get();   
+            $question_unans = Question::with('tag')->latest()->where('id_type',1)->get();   
         }
         if ($id == 4) {
-            $question_feature = DB::table('tbl_questions')->where('like','>', 1)->get();  
+            $question_feature = Question::with('tag')->latest()->where('like','>', 0)->get();  
         }
 
         return compact('question_all','question_most','question_unans','question_feature','id');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function likedislike(Request $request)
     {
         $id_user = $request->id;
@@ -207,10 +178,7 @@ class QuestionController extends Controller
         $id_user = $request->id;
         $id_quest = $request->id_quest;
         $type = $request->type;
-        // like
-        // dislike
-        // rmlike
-        // rmdislike
+
         if ($type === 'like') {
             // rmdislike
             DB::table('tbl_dislikes')
@@ -247,17 +215,6 @@ class QuestionController extends Controller
         return response()->json("success");
     }
     
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
     public function fillter(Request $request)
     {
         $id = $request->type;
@@ -319,14 +276,4 @@ class QuestionController extends Controller
         return compact('question_all','question_most','question_unans','question_feature','id');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

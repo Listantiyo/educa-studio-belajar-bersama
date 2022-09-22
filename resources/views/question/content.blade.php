@@ -33,9 +33,11 @@
     </ul>
 
     <div class="tab-content" id="myTabContent">
+
+{{--recent-questions  --}}
         <div class="tab-pane fade show active" id="recent-questions" role="tabpanel" aria-labelledby="recent-questions-tab">
             <div v-for="quest in quest" class="single-qa-box like-dislike">
-                <div class="d-flex">
+                <div class="d-flex mid-content-quest">
                     <div class="link-unlike flex-shrink-0">
                         <a href="user.html">
                             <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
@@ -56,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 ms-4 text-md-left " style="max-width: 100%">
+                    <div class="flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
                                 <a href="user.html">Teresa Klein</a>
@@ -73,19 +75,19 @@
                         </ul>
                         
                         <div>
-                            <h3 style="max-width: 70%;" >
-                                <a class="text-justify  align-items-center" style="inline-size: 150px; word-wrap:break-word; text-align:center;" href @click="toAnswer(quest.id)">
+                            <h3 style="word-wrap:break-word" >
+                                <a href @click="toAnswer(quest.id)">
                                     @{{quest.title}}
                                 </a>
                             </h3>
 
-                            <p style="word-wrap:break-word" v-html="quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+'...'">{{-- @{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }} --}}</p>
+                            <p style="word-wrap:break-word" v-html="quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+'...'"></p>
                         </div>
 
                         <div class="row mb-4 px-3" style="max-width: 100%;">
-                                <a href="" v-for="tag in quest.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
-                                    <i class="">#@{{tag.tag}}</i>
-                                </a>
+                            <a href="" v-for="tag in quest.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                                <i class="">#@{{tag.tag}}</i>
+                            </a>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="anser-list">
@@ -117,26 +119,28 @@
                                                         <i class="ri-file-copy-line"></i>
                                                     </a>
                                                 </li>
-                                                {{-- <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li> --}}
+                                                {{--
+                                                         <li>
+                                                        <a href="https://www.facebook.com/" target="_blank">
+                                                            <i class="ri-facebook-fill"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.twitter.com/" target="_blank">
+                                                            <i class="ri-twitter-line"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.linkedin.com/" target="_blank">
+                                                            <i class="ri-linkedin-fill"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.instagram.com/" target="_blank">
+                                                            <i class="ri-instagram-line"></i>
+                                                        </a>
+                                                    </li> 
+                                                --}}
                                             </ul>
                                         </li>
                                     </ul>
@@ -165,9 +169,10 @@
             </div>
         </div>
 
+{{-- most-answered --}}
         <div class="tab-pane fade" id="most-answered" role="tabpanel" aria-labelledby="most-answered-tab">
             <div v-for="questmo in quest_most" class="single-qa-box like-dislike">
-                <div class="d-flex">
+                <div class="d-flex mid-content-quest">
                     <div class="link-unlike flex-shrink-0">
                         <a href="user.html">
                             <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
@@ -197,19 +202,14 @@
                                 </a>
                             </h3>
 
-                            <p style="word-wrap:break-word" v-html="questmo.question.length < 100 ? questmo.question : questmo.question.substring(0,250)+'...'">{{-- @{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }} --}}</p>
+                            <p style="word-wrap:break-word" v-html="questmo.question.length < 100 ? questmo.question : questmo.question.substring(0,250)+'...'"></p>
                         </div>
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Photoshop</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
-                            </li>
-                        </ul>
+
+                        <div class="row mb-4 px-3" style="max-width: 100%;">
+                            <a href="" v-for="tag in questmo.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                                <i class="">#@{{tag.tag}}</i>
+                            </a>
+                        </div>
 
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="anser-list">
@@ -240,27 +240,7 @@
                                                     <a @click="copyPath(questmo.id)">
                                                         <i class="ri-file-copy-line"></i>
                                                     </a>
-                                                </li>
-                                                {{-- <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li> --}}
+                                                </li>                                            
                                             </ul>
                                         </li>
                                     </ul>
@@ -289,9 +269,10 @@
             </div>
         </div>
 
+{{-- unanswered-question  --}}
         <div class="tab-pane fade" id="unanswered-question" role="tabpanel" aria-labelledby="unanswered-question-tab">
             <div v-for="questun in quest_unans" class="single-qa-box like-dislike">
-                <div class="d-flex">
+                <div class="d-flex mid-content-quest">
                     <div class="link-unlike flex-shrink-0">
                         <a href="user.html">
                             <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
@@ -336,17 +317,11 @@
                             </h3>
                         </div>
 
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Photoshop</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
-                            </li>
-                        </ul>
+                        <div class="row mb-4 px-3" style="max-width: 100%;">
+                            <a href="" v-for="tag in questun.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                                <i class="">#@{{tag.tag}}</i>
+                            </a>
+                        </div>
 
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="anser-list">
@@ -421,9 +396,10 @@
             </div>
         </div>
 
+{{-- featured-question --}}
         <div class="tab-pane fade" id="featured-question" role="tabpanel" aria-labelledby="featured-question-tab">
             <div v-for="questfe in quest_featur" class="single-qa-box like-dislike">
-                <div class="d-flex">
+                <div class="d-flex mid-content-quest">
                     <div class="link-unlike flex-shrink-0">
                         <a href="user.html">
                             <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
@@ -467,25 +443,19 @@
                                 </a>
                             </h3>
 
-                            <p style="word-wrap:break-word" v-html="questfe.question.length < 100 ? questfe.question : questfe.question.substring(0,250)+'...'">{{-- @{{quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+"..." }} --}}</p>
+                            <p style="word-wrap:break-word" v-html="questfe.question.length < 100 ? questfe.question : questfe.question.substring(0,250)+'...'"></p>
                         </div>
                         
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Photoshop</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
-                            </li>
-                        </ul>
+                        <div class="row mb-4 px-3" style="max-width: 100%;">
+                            <a href="" v-for="tag in questfe.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                                <i class="">#@{{tag.tag}}</i>
+                            </a>
+                        </div>
 
                         <div class="d-flex justify-content-between align-items-center">
                             <ul class="anser-list">
                                 <li>
-                                    <a href="polls.html">
+                                    <a id="vote" href="polls.html">
                                         22 Vote
                                     </a>
                                 </li>
@@ -512,26 +482,6 @@
                                                         <i class="ri-file-copy-line"></i>
                                                     </a>
                                                 </li>
-                                                {{-- <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li> --}}
                                             </ul>
                                         </li>
                                     </ul>

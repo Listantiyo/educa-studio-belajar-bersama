@@ -43,6 +43,14 @@
 			.global-radius{
 				border-radius:0.2rem !important; 
 			}
+			.mid-content-quest{
+    
+				justify-content: space-evenly !important;
+				padding-left: 7%;
+				padding-right: 7%;
+				padding-top: 2%;
+				padding-bottom: 2%;
+			}
 		</style>
 		@yield('style')
 		@stack('TOPSC')
