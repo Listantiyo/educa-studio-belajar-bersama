@@ -117,15 +117,38 @@ class XampleController extends Controller
     // ON tbl_answers.id_question = tbl_questions.id
     // GROUP BY tbl_questions.title
     // ORDER BY total_answer desc LIMIT 4');
-    $count = 999;
+    // $count = 999;
 
-    if ($count > 999) {
-        $num_back = floor(($count % 1000)/100);
-        $num_front = floor($count / 1000);
-        $posts = $num_front.'.'.$num_back.'K';
-    }else {
-        $posts = floor($count);
-    }
+    // if ($count > 999) {
+    //     $num_back = floor(($count % 1000)/100);
+    //     $num_front = floor($count / 1000);
+    //     $posts = $num_front.'.'.$num_back.'K';
+    // }else {
+    //     $posts = floor($count);
+    // }
+//     $postss = DB::select('SELECT 	tbl_questions.*,
+//     COUNT(tbl_answers.answer) AS total_answer,
+//     COUNT(tbl_likes.id) AS likes,
+//     COUNT(tbl_dislikes.id) AS dislikes,
+//     tbl_communities.community
+// FROM tbl_questions 
+// LEFT JOIN tbl_communities ON tbl_communities.id = tbl_questions.id_comunity
+// LEFT JOIN tbl_answers ON tbl_answers.id_question = tbl_questions.id
+// LEFT JOIN tbl_likes ON tbl_likes.id_quest = tbl_questions.id
+// LEFT JOIN tbl_dislikes ON tbl_dislikes.id_quest = tbl_questions.id
+// GROUP BY tbl_questions.id
+// ORDER BY tbl_questions.views DESC
+// ');
+// $posts = $postss::with('tag')->get();
+    // $posts = DB::table('tbl_questions')
+    //             ->select('tbl_questions.*',
+    //                         DB::raw('count(tbl_answers.answer) as total'))   
+    //             ->leftjoin('tbl_answers','tbl_answers.id_question','=','tbl_questions.id')
+    //             ->groupBy('tbl_questions.id')
+    //             ->get();
+    // $posts = Question::with('tag','user')->withCount('tag','likes','dislikes')->get();
+    $postss = Question::find(1);
+    $posts = $posts = Question::with('tag','user','community')->withCount('tag','answers')->paginate(10);
     return $posts;
     }
     public function filter(){
@@ -171,26 +194,6 @@ class XampleController extends Controller
         
     }
 
-    // public function show_answer()
-    // {
-    //         $q_latest = DB::table('tbl_questions')->latest()->first();
-
-    //         // cek
-    //         // return response()->json($q_latest);
-    //         return response()->json("success");
-
-        
-    // }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
     public function search(Request $request)
     {   
         $data = $request->data;
@@ -244,49 +247,4 @@ class XampleController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     * @param  \Illuminate\Http\Request  $request
-     */
-    public function show(Request  $request)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     protected $table = 'tbl_questions';
+    protected $dates = ['created_at', 'updated_at'];
     
     
     public function quest_tag()
@@ -22,11 +23,23 @@ class Question extends Model
     
     public function likes()
     {
-        return $this->hasOne(Likes::class,'id_quest');
+        return $this->hasMany(Likes::class,'id_quest');
     }
     
-    // public function dislike()
-    // {
-    //     return $this->hasOne(Dislikes::class,'tbl_dislikes','id_quest','id_user');
-    // }
+    public function dislikes()
+    {
+        return $this->hasMany(Dislikes::class,'id_quest');
+    }
+    public function answers()
+    {
+        return $this->hasMany(Answer::class,'id_question');
+    }
+    public function user()
+    {
+        return $this->hasOne(User::class,'id','id_user_dil');
+    }
+    public function community()
+    {
+        return $this->hasOne(Communities::class,'id','id_comunity');
+    }
 }

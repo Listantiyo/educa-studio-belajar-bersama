@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MostVisitedController extends Controller
 {
@@ -43,9 +45,13 @@ class MostVisitedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $quest =  Question::with('tag','user','community')->withCount('tag','answers')->created_at->diffForHumans()->paginate(10);
+
+        return response()->json([
+            'quest' => $quest
+        ]);
     }
 
     /**

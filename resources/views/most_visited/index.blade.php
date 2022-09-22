@@ -2,763 +2,104 @@
 
 @section('content')
 
-    <div class="middull-content">
-        <ul class="page-nish">
-            <li>
-                <a href="index.html">
-                    <i class="ri-home-8-line"></i>
-                    Home
-                </a>
-            </li>
-            <li class="active">
-                Most visited
-            </li>
-        </ul>
-
-        <form class="aq-form">
-            <i class="ri-search-line"></i>
-            <input type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
-            <button class="aq-btn">
-                Ask Question
-            </button>
-        </form>
-
-        <div class="most-visited-content">
-            <div class="single-qa-box like-dislike">
-                <div class="d-flex">
-                    <div class="link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img src="assets/images/user/user-1.jpg" alt="Image">
-                        </a>
-                    </div>
-
-                    <div class="flex-grow-1 ms-3">
-                        <ul class="graphic-design">
-                            <li>
-                                <a href="user.html">Teresa Klein</a>
-                            </li>
-                            <li>
-                                <span>Latest Answer: 14 hours ago</span>
-                            </li>
-                            <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Graphic design
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h3>
-                            <a href="queations-details.html">
-                                If you open Illustrator by dragging the Photoshop file, why it becomes a JPG file
-                            </a>
-                        </h3>
-
-                        <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
-
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Photoshop</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
-                            </li>
-                        </ul>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="anser-list">
-                                <li>
-                                    <a href="polls.html">
-                                        24 Vote
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-answered.html">
-                                        2 Answer
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-visited.html">
-                                        658 Views
-                                    </a>
-                                </li>
-                                <li>
-                                    <ul class="qa-share">
-                                        <li class="share-option">
-                                            <span>
-                                                <i class="ri-share-fill"></i>
-                                            </span>
-                                            
-                                            <ul class="social-icon">
-                                                <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                            <a href="most-answered.html" class="default-btn bg-ea4335">
-                                Question
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-qa-box like-dislike">
-                <div class="d-flex">
-                    <div class="link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img src="assets/images/user/user-2.jpg" alt="Image">
-                        </a>
-                    </div>
-
-                    <div class="flex-grow-1 ms-3">
-                        <ul class="graphic-design">
-                            <li>
-                                <a href="user.html">Adam  Garrison</a>
-                            </li>
-                            <li>
-                                <span>Latest Answer: 15 hours ago</span>
-                            </li>
-                            <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Programming
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h3>
-                            <a href="queations-details.html">
-                                Teaching high school students various computer systems is a resource for the future
-                            </a>
-                        </h3>
-
-                        <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
-
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Language</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
-                            </li>
-                        </ul>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="anser-list">
-                                <li>
-                                    <a href="polls.html">
-                                        2 Vote
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-answered.html">
-                                        1 Answer
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-visited.html">
-                                        647 Views
-                                    </a>
-                                </li>
-                                <li>
-                                    <ul class="qa-share">
-                                        <li class="share-option">
-                                            <span>
-                                                <i class="ri-share-fill"></i>
-                                            </span>
-                                            
-                                            <ul class="social-icon">
-                                                <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                            <a href="most-answered.html" class="default-btn bg-ea4335">
-                                Question
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-qa-box like-dislike">
-                <div class="d-flex">
-                    <div class="link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img src="assets/images/user/user-3.jpg" alt="Image">
-                        </a>
-                    </div>
-
-                    <div class="flex-grow-1 ms-3">
-                        <ul class="graphic-design">
-                            <li>
-                                <a href="user.html">Yvonne Cox</a>
-                            </li>
-                            <li>
-                                <span>Latest Answer: 16 hours ago</span>
-                            </li>
-                            <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Conversion
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h3>
-                            <a href="queations-details.html">
-                                Here are some examples of how to prevent Kindle ebook text images from expanding from a PDF file.
-                            </a>
-                        </h3>
-
-                        <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
-
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Language</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
-                            </li>
-                        </ul>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="anser-list">
-                                <li>
-                                    <a href="polls.html">
-                                        24 Vote
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-answered.html">
-                                        1 Answer
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-visited.html">
-                                        658 Views
-                                    </a>
-                                </li>
-                                <li>
-                                    <ul class="qa-share">
-                                        <li class="share-option">
-                                            <span>
-                                                <i class="ri-share-fill"></i>
-                                            </span>
-                                            
-                                            <ul class="social-icon">
-                                                <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                            <a href="most-answered.html" class="default-btn bg-ea4335">
-                                Question
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-qa-box like-dislike">
-                <div class="d-flex">
-                    <div class="link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img src="assets/images/user/user-4.jpg" alt="Image">
-                        </a>
-                    </div>
-
-                    <div class="flex-grow-1 ms-3">
-                        <ul class="graphic-design">
-                            <li>
-                                <a href="user.html">Nelson Koch</a>
-                            </li>
-                            <li>
-                                <span>Latest Answer: 14 hours ago</span>
-                            </li>
-                            <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Graphic design
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h3>
-                            <a href="queations-details.html">
-                                If you open Illustrator by dragging the Photoshop file, why it becomes a JPG file
-                            </a>
-                        </h3>
-
-                        <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
-
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Language</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
-                            </li>
-                        </ul>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="anser-list">
-                                <li>
-                                    <a href="polls.html">
-                                        43 Vote
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-answered.html">
-                                        4 Answer
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-visited.html">
-                                        974 Views
-                                    </a>
-                                </li>
-                                <li>
-                                    <ul class="qa-share">
-                                        <li class="share-option">
-                                            <span>
-                                                <i class="ri-share-fill"></i>
-                                            </span>
-                                            
-                                            <ul class="social-icon">
-                                                <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                            <a href="most-answered.html" class="default-btn bg-ea4335">
-                                Question
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-qa-box like-dislike">
-                <div class="d-flex">
-                    <div class="link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img src="assets/images/user/user-5.jpg" alt="Image">
-                        </a>
-                    </div>
-
-                    <div class="flex-grow-1 ms-3">
-                        <ul class="graphic-design">
-                            <li>
-                                <a href="user.html">James Sardina</a>
-                            </li>
-                            <li>
-                                <span>Latest Answer: 19 hours ago</span>
-                            </li>
-                            <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Language
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h3>
-                            <a href="queations-details.html">
-                                In the case of a human being, learning how many languages is logical is mentioned
-                            </a>
-                        </h3>
-
-                        <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
-
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Language</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
-                            </li>
-                        </ul>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="anser-list">
-                                <li>
-                                    <a href="polls.html">
-                                        35 Vote
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-answered.html">
-                                        3 Answer
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-visited.html">
-                                        735 Views
-                                    </a>
-                                </li>
-                                <li>
-                                    <ul class="qa-share">
-                                        <li class="share-option">
-                                            <span>
-                                                <i class="ri-share-fill"></i>
-                                            </span>
-                                            
-                                            <ul class="social-icon">
-                                                <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                            <a href="most-answered.html" class="default-btn bg-ea4335">
-                                Question
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-qa-box like-dislike">
-                <div class="d-flex">
-                    <div class="link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img src="assets/images/user/user-6.jpg" alt="Image">
-                        </a>
-                    </div>
-
-                    <div class="flex-grow-1 ms-3">
-                        <ul class="graphic-design">
-                            <li>
-                                <a href="user.html">Judith Maddox</a>
-                            </li>
-                            <li>
-                                <span>Latest Answer: 14 hours ago</span>
-                            </li>
-                            <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Graphic design
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h3>
-                            <a href="queations-details.html">
-                                Why do people of different countries celebrate their New Year in different ways?
-                            </a>
-                        </h3>
-
-                        <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
-
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">l
-                                    Language</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
-                            </li>
-                        </ul>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="anser-list">
-                                <li>
-                                    <a href="polls.html">
-                                        32 Vote
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-answered.html">
-                                        2 Answer
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-visited.html">
-                                        374 Views
-                                    </a>
-                                </li>
-                                <li>
-                                    <ul class="qa-share">
-                                        <li class="share-option">
-                                            <span>
-                                                <i class="ri-share-fill"></i>
-                                            </span>
-                                            
-                                            <ul class="social-icon">
-                                                <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                            <a href="most-answered.html" class="default-btn bg-ea4335">
-                                Question
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-qa-box like-dislike">
-                <div class="d-flex">
-                    <div class="link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img src="assets/images/user/user-7.jpg" alt="Image">
-                        </a>
-                    </div>
-
-                    <div class="flex-grow-1 ms-3">
-                        <ul class="graphic-design">
-                            <li>
-                                <a href="user.html">Rick Thrasher</a>
-                            </li>
-                            <li>
-                                <span>Latest Answer: 22 hours ago</span>
-                            </li>
-                            <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Language
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h3>
-                            <a href="queations-details.html">
-                                What is the requirement of a student's e-book for conducting educational activities?
-                            </a>
-                        </h3>
-
-                        <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
-
-                        <ul class="tag-list">
-                            <li>
-                                <a href="tags.html">Discussion</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Language</a>
-                            </li>
-                            <li>
-                                <a href="tags.html">Analytics</a>
-                            </li>
-                        </ul>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul class="anser-list">
-                                <li>
-                                    <a href="polls.html">
-                                        24 Vote
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-answered.html">
-                                        1 Answer
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="most-visited.html">
-                                        658 Views
-                                    </a>
-                                </li>
-                                <li>
-                                    <ul class="qa-share">
-                                        <li class="share-option">
-                                            <span>
-                                                <i class="ri-share-fill"></i>
-                                            </span>
-                                            
-                                            <ul class="social-icon">
-                                                <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                            <a href="most-answered.html" class="default-btn bg-ea4335">
-                                Question
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pagination-area">
-                <a href="most-visited.html" class="next page-numbers">
-                    <i class="ri-arrow-left-line"></i>
-                </a>
-                <span class="page-numbers current" aria-current="page">1</span>
-                <a href="most-visited.html" class="page-numbers">2</a>
-                <a href="most-visited.html" class="page-numbers">3</a>
-                
-                <a href="most-visited.html" class="next page-numbers">
-                    <i class="ri-arrow-right-line"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+    @include('most_visited.content')
 
 @endsection
+@push('scripts')
+    <script>
+        const vues = Vue.createApp({
+            data() {
+                return {
+                    quest:'',
+                    first_page_url:'',
+                    last_page_url:'',
+                    prev_page_url:'',
+                    next_page_url:'',
+                    last_page:'',
+                    current_page:'',
+                    path:'',
+                }
+            },
+            mounted() {
+                $(document).ready(function () {
+                    $.ajax({
+                        type: "get",
+                        url: "api/most-visited/show",
+                        success: function (rsp) {
+                            console.log(rsp.quest)
+                            vues.quest = rsp.quest.data
+                            vues.first_page_url = rsp.quest.first_page_url
+                            vues.last_page_url = rsp.quest.last_page_url
+                            vues.last_page = rsp.quest.last_page
+                            vues.prev_page_url = rsp.quest.prev_page_url
+                            vues.next_page_url = rsp.quest.next_page_url
+                            vues.current_page = rsp.quest.current_page
+                            vues.path = rsp.quest.path
+                        }
+                    });
+                });
+            },
+            methods: {
+                // pagginate button
+                pagginate(url){
+                    console.log(url);
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json",
+                        dataType: "json",
+                        url: url,
+                        success: function (rsp) {
+                            console.log(rsp);   
+                            vues.tags = rsp.data
+                            vues.first_page_url = rsp.first_page_url
+                            vues.last_page_url = rsp.last_page_url
+                            vues.last_page = rsp.last_page
+                            vues.prev_page_url = rsp.prev_page_url
+                            vues.next_page_url = rsp.next_page_url
+                            vues.current_page = rsp.current_page
+                            vues.path = rsp.path
+                        }
+                    });
+                },
+                // search-pagginate
+                searchPagginate(url){
+                    var url = url+'?page='
+                    let num = $("#search-pagginate").val();
+                    console.log(url);
+
+                    if (num == '') {
+
+                        $("#search-pagginate").val(null);
+                        alert("please input number of page")
+
+                    }else if(num > vues.last_page){
+
+                        $("#search-pagginate").val(null);
+                        alert("your input out of range, the last page is " + vues.last_page)
+
+                    }else{                    
+                        $.ajax({
+                            type: "GET",
+                            contentType: "application/json",
+                            dataType: "json",
+                            url: url+num,
+                            success: function (rsp) {
+                                scrollToTop() 
+                                console.log(rsp);   
+                                vues.tags = rsp.data
+                                vues.first_page_url = rsp.first_page_url
+                                vues.last_page_url = rsp.last_page_url
+                                vues.last_page = rsp.last_page
+                                vues.prev_page_url = rsp.prev_page_url
+                                vues.next_page_url = rsp.next_page_url
+                                vues.current_page = rsp.current_page
+                                vues.path = rsp.path
+                                $("#search-pagginate").val(null);
+                            }
+                        });
+                    }
+                },
+            },
+        }).mount('#app')
+    </script>    
+@endpush

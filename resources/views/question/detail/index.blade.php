@@ -108,7 +108,7 @@
                 });
                 // like n dislike
                 $(".like-unlink-count").click(function () {
-
+                    alert()
                 let type = $(this).val();
 
                 if(!$(this).hasClass('active')) {
