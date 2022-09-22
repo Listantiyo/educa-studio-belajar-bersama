@@ -85,21 +85,13 @@ class AdminUserController extends Controller
     public function showDetail(Request $request )
     {
         $id = $request->id;
-        $ser = $request->user;
-        $mail = $request->email;
-        $level = $request->level;
-        // $image = $request->image;
-        
 
         $data = User::find($id);
-        $data->name = $ser;
-        $data->email = $mail;
-        $data->level = $level;
         $data = DB::table('users')
+        ->where('users.id',$id)
         ->leftjoin('tbl_questions', 'users.id' , '=' ,'tbl_questions.id')
         ->select('users.*' , 'tbl_questions.question')
         ->get();
-        // $data->image = $image;
         return $data;
     
     }

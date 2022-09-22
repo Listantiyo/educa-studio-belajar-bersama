@@ -25,7 +25,7 @@
             <table id="myTable" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Id</th>
+                        <th>#</th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Level</th>
