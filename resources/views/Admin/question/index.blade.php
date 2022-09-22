@@ -106,6 +106,11 @@
       $.get("api/data/admin/quest/show", {'id':id},
         function (data) {
           console.log(data);
+          if(data[0].community == null){
+            $("#com").text("Public");
+          } else {
+            $("#com").text(data[0].community);
+          }
           // $("#username").append("<p id='uname'></p>");
           $("#uname").text(data[0].name);
           // $("#qt").append("<p id='quest'></p>");
@@ -113,7 +118,6 @@
           // $("#ttl").append("<p id='tit'></p>");
           $("#tit").text(data[0].title);
           // $("#cm").append("<p id='com'></p>");
-          $("#com").text(data[0].community);
           // $("#vie").append("<img id='view' src=''>");
           $("#view").text(data[0].views);
           // $("#gbr").append("<img id='gmbr' src=''>");

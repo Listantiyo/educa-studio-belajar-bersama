@@ -76,7 +76,7 @@ class AdminQuestionController extends Controller
     public function showDetail(Request $request)
     {
         $id = $request->id;
-        $username = $request->uname;
+        // $username = $request->uname;
 
         $data = Question::find($id);
         $data = DB::table('tbl_questions')
@@ -86,7 +86,8 @@ class AdminQuestionController extends Controller
         ->leftjoin('tbl_communities', 'tbl_questions.id_comunity' , '=' ,'tbl_communities.id')
         ->select('tbl_questions.*' , 'users.name', 'tbl_types.nama_type', 'tbl_communities.community')
         ->get();
-        $data->name = $username;
+        
+        // $data->name = $username;
         // return $data;
 
         return $data;
@@ -157,6 +158,11 @@ class AdminQuestionController extends Controller
     public function destroy($id)
     {
         $questions = Question::find($id);
+        $questions = DB::table('tbl_questions')
+        -where('tbl_questions.id',$id)
+        ->leftjoin('tbl_answers', 'tbl_questions.id', '=', 'tbl_answers.id_question')
+        ->select('tbl_questions.*', 'tbl_answers.answer')
+        ->get();
 
         if ($questions->path_img != null){
             Storage::disk('public')->delete($questions->path_img);
