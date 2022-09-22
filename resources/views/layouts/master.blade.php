@@ -142,6 +142,7 @@
 								vus.count_quest = rsp.quest_count
 								vus.count_answer = rsp.answer_count
 								vus.count_user = rsp.user_count
+								vus.top_members = rsp.top_members
 							}
 						});
 					});

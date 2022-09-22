@@ -145,7 +145,7 @@ class QuestionController extends Controller
             $question_unans = Question::with('tag')->latest()->where('id_type',1)->get();   
         }
         if ($id == 4) {
-            $question_feature = Question::with('tag')->latest()->where('like','>', 0)->get();  
+            $question_feature = Question::with('tag')->withCount('likes')->having('likes_count','>', 0)->latest()->get();  
         }
 
         return compact('question_all','question_most','question_unans','question_feature','id');

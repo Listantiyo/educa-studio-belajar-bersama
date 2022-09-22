@@ -50,11 +50,6 @@ class SidebarController extends Controller
      */
     public function show(Request $request)
     {   
-//         SELECT 
-// users.name ,COUNT(tbl_questions.question) AS total_qs
-// FROM users JOIN tbl_questions ON
-// tbl_questions.id_user_dil = users.id
-// GROUP BY users.name
 
         // AllCommunity
         $data = Communities::all();
@@ -94,10 +89,19 @@ class SidebarController extends Controller
             $user_count = floor($users);
         }
 
+        // Top Memeber
+        $top_members = DB::select(
+        'SELECT 
+        users.name ,COUNT(tbl_questions.question) AS total_qs
+        FROM users JOIN tbl_questions ON
+        tbl_questions.id_user_dil = users.id
+        GROUP BY users.name LIMIT 5');
+
         
         return response()->json([
             'comuni' => $data,
             'top_discus' => $top_discus,
+            'top_members' => $top_members,
             'quest_count' => $quest_count,
             'answer_count' => $answer_count,
             'user_count' => $user_count,
