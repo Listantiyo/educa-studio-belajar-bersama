@@ -44,7 +44,8 @@ Route::get('tag/search','TagController@search');
 Route::post('community/un_follow', 'CommunitiesController@un_follow');
 // Sidebar
 Route::get('community/show', 'SidebarController@show');
-
+// Most-Visited
+Route::get('most-visited/show', 'MostVisitedController@show');
 // ----------------------------------------------------------
 
 // Route::get('/data/filter','DashboardController@filter');
