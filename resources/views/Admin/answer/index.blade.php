@@ -19,14 +19,14 @@
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
-  <div class="container">
+  {{-- <div class="container">
     <div class="d-flex justify-content-end mb-3">
         <a href="#" onclick="addData()" class="btn btn-success">
             <i class="nav-icon fa-solid fa-plus"></i>
             Tambah
         </a>
     </div>
-  </div>
+  </div> --}}
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -40,7 +40,6 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                
             </table>
         </div>
     </div>
@@ -73,15 +72,15 @@
       });
   } );
 
-  function addData(){
-    $("#form").attr("url", "api/data/admin/answer/store");
-    $('.modal-title').text('Add Answer');
-    $('#addAnswer form')[0].reset(); 
-    $('#addAnswer').modal('show');
-    url = $("#form").attr("url");
+  // function addData(){
+  //   $("#form").attr("url", "api/data/admin/answer/store");
+  //   $('.modal-title').text('Add Answer');
+  //   $('#addAnswer form')[0].reset(); 
+  //   $('#addAnswer').modal('show');
+  //   url = $("#form").attr("url");
     
-    console.log(url); 
-  }
+  //   console.log(url); 
+  // }
 
   function deleteData(id){
       alert(id)

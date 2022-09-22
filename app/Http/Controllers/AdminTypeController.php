@@ -55,8 +55,6 @@ class AdminTypeController extends Controller
         ->addColumn('aksi', function ($types) {
             return '
             <div class="btn-group">
-                <button onclick="detailData(`'. $types->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-                <button onclick="editData(`'. $types->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
                 <button onclick="deleteData(`'.  $types->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </div>
             ';

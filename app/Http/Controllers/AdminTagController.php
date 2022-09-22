@@ -54,11 +54,8 @@ class AdminTagController extends Controller
         ->addIndexColumn()
         ->addColumn('aksi', function ($tags) {
             return '
-            <div class="btn-group">
-                <button onclick="detailData(`'. $tags->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                 <button onclick="editData(`'. $tags->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
                 <button onclick="deleteData(`'.  $tags->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-            </div>
             ';
         })
         ->rawColumns(['aksi'])

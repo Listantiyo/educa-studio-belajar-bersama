@@ -167,10 +167,6 @@ $(document).ready(function () {
         {{ csrf_field() }}
         <div class="modal-body">
           <div class="form-group">
-              <label>Pertanyaan :</label>
-              <input type="text" name="quest" class="form-control" id="name" required>
-          </div>
-          <div class="form-group">
               <label>Jawaban :</label>
               <textarea class="form-control" rows="3" name="asnwer" required></textarea>
           </div>
