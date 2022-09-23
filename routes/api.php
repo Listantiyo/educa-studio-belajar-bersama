@@ -47,6 +47,7 @@ Route::get('community/show', 'SidebarController@show');
 // Most-Visited
 Route::get('most-visited/show', 'MostVisitedController@show');
 Route::get('most-visited/search','MostVisitedController@search');
+Route::get('most-visited/fillter-community','MostVisitedController@fillter');
 // ----------------------------------------------------------
 
 // Route::get('/data/filter','DashboardController@filter');
