@@ -42,16 +42,18 @@
                 <li>
                     <span>Latest Answer: 2 hours ago</span>
                 </li>
-                <li class="reports">
-                    <a href="referrals.html" class="report">
-                        <i class="ri-error-warning-line"></i>
-                        Report
-                    </a>
-                </li>
+                @auth                    
+                    <li class="replays">
+                        <p type="button" id="reply" @click="repLy(item.id)" style="color: orange;">
+                            Replay
+                        </p>
+                    </li>
+                @endauth
             </ul>
 
             <p>@{{item.answer}}</p>
 
          </div>
+         @include('question.detail.reply')
     </div>
 </div>

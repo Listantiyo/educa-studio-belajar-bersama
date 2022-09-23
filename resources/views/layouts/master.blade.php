@@ -51,6 +51,14 @@
 				padding-top: 2%;
 				padding-bottom: 2%;
 			}
+			.mid-content-quest-mv{
+    
+				justify-content: space-evenly !important;
+				padding-left: 5%;
+				padding-right: 12%;
+				padding-top: 2%;
+				padding-bottom: 2%;
+			}
 		</style>
 		@yield('style')
 		@stack('TOPSC')
@@ -143,6 +151,8 @@
 								vus.count_answer = rsp.answer_count
 								vus.count_user = rsp.user_count
 								vus.top_members = rsp.top_members
+								vus.trending_tags = rsp.trending_tags
+								vus.recent_post = rsp.recent_post
 							}
 						});
 					});

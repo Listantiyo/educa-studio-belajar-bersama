@@ -13,28 +13,28 @@
 
     <form class="aq-form">
         <i class="ri-search-line"></i>
-        <input type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
-        <button class="aq-btn">
+        <input id="searchbar" type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
+        <button id="search-button" class="aq-btn">
             Ask Question
         </button>
     </form>
 
     <div class="most-visited-content">
         <div v-for="item in quest" class="single-qa-box like-dislike">
-            <div class="d-flex">
+            <div class="d-flex mid-content-quest-mv">
                 <div class="link-unlike flex-shrink-0">
                     <a href="user.html">
                         <img src="assets/images/user/user-1.jpg" alt="Image">
                     </a>
                 </div>
 
-                <div class="flex-grow-1 ms-3">
+                <div class="flex-grow-1 ms-3" style="max-width: 100%">
                     <ul class="graphic-design">
                         <li>
                             <a href="user.html">@{{item.user.name}}</a>
                         </li>
                         <li>
-                            <span v-dateshow=" item.created_at ">Latest Answer: 14 hours ago @{{item.created_at}}</span>
+                            <span>Latest Answer: 14 hours ago</span>
                         </li>
                         <li>
                             <span>In : </span>
@@ -47,13 +47,16 @@
                         </li>
                     </ul>
 
-                    <h3>
-                        <a href="queations-details.html">
-                            @{{item.title}}
-                        </a>
-                    </h3>
+                    <div>
 
-                    <p>@{{item.question}}</p>
+                        <h3>
+                            <a style="word-wrap:break-word"  href="queations-details.html">
+                                @{{item.title}}
+                            </a>
+                        </h3>
+                        
+                        <p style="word-wrap:break-word" style="word-wrap:break-word" v-html="item.question.length < 100 ? item.question : item.question.substring(0,250)+'...'"></p>
+                    </div>
 
                     <div class="row mb-4 px-3" style="max-width: 100%;">
                         <a href="" v-for="tag in item.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
@@ -87,6 +90,11 @@
                                         
                                         <ul class="social-icon">
                                             <li>
+                                                <a @click="copyPath(item.id)">
+                                                    <i class="ri-file-copy-line"></i>
+                                                </a>
+                                            </li>
+                                            {{-- <li>
                                                 <a href="https://www.facebook.com/" target="_blank">
                                                     <i class="ri-facebook-fill"></i>
                                                 </a>
@@ -105,7 +113,7 @@
                                                 <a href="https://www.instagram.com/" target="_blank">
                                                     <i class="ri-instagram-line"></i>
                                                 </a>
-                                            </li>
+                                            </li> --}}
                                         </ul>
                                     </li>
                                 </ul>

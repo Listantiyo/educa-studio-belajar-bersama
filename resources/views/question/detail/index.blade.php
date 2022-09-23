@@ -42,7 +42,6 @@
                 </form>
             </div>
         </div>
-
 @endsection 
 
 @push('scripts')
@@ -61,7 +60,7 @@
             });
         </script>
         <script>
-
+            let id_answer;
             const vues = Vue.createApp({
                 data() {
                     return {
@@ -96,6 +95,12 @@
                         });
                     });
                 },methods: {
+                    repLy(id){
+                        id_answer = id
+                        alert(id)
+                        $('#modal-reply').modal('show');
+                        
+                    },
                 },
             }).mount('#app')
         </script>

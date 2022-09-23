@@ -8,6 +8,7 @@ use App\Mapel;
 use App\Question;
 use App\Type;
 use App\User_Detail;
+use App\Tags;
 use App\User;
 use App\Answer_Comment;
 use App\Question_Comment;
@@ -149,7 +150,13 @@ class XampleController extends Controller
     // $posts = Question::with('tag','user')->withCount('tag','likes','dislikes')->get();
     // $postss = Question::find(1);
     // $posts = Question::with('tag','user','community')->withCount('tag','answers')->orderBy('views','desc')->paginate(10);
-    $posts = Question::with('tag')->withCount('likes')->having('likes_count','>', 0)->get();
+    // $posts = Question::with('tag')->withCount('likes')->having('likes_count','>', 0)->get();
+    // $posts = Tags::withCount('quest_tags')->having('quest_tags_count','>',0)->orderBy('quest_tags_count','desc')->limit(9)->get();
+    $posts = Question::with('tag','user','community')
+    ->withCount('tag','answers')
+    ->where('id_comunity',2)
+    ->orderBy('views','desc')
+    ->paginate(10);  
     return $posts;
     }
     public function filter(){

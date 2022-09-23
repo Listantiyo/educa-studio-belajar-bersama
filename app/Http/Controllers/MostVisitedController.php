@@ -34,26 +34,53 @@ class MostVisitedController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function fillter(Request $request)
     {
-        //
-    }
+        $id_community = $request->id_community;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+            if ($id_community == 0) {
+                $quest = Question::with('tag','user','community')
+                        ->withCount('tag','answers')
+                        ->orderBy('views','desc')
+                        ->paginate(4); 
+            }
+            if (!$id_community == 0) {
+                
+                $quest = Question::with('tag','user','community')
+                        ->withCount('tag','answers')
+                        ->where('id_comunity',$id_community)
+                        ->orderBy('views','desc')
+                        ->paginate(4);     
+            }
+                    
+                    
+        return response()->json([
+            'quest' => $quest
+        ]);
+
+    }
     public function show()
     {
-        $quest = Question::with('tag','user','community')->withCount('tag','answers')->orderBy('views','desc')->paginate(10);
+        $quest = Question::with('tag','user','community')->withCount('tag','answers')->orderBy('views','desc')->paginate(4);
 
         return response()->json([
             'quest' => $quest
         ]);
     }
+    
+    public function search(Request $request)
+    {
+        $data = $request->data;
+        $quest = Question::with('tag','user','community')
+                        ->withCount('tag','answers')
+                        ->where('title','like','%'.$data.'%')
+                        ->orderBy('views','desc')
+                        ->paginate(4);
 
+        return response()->json([
+            'quest' => $quest
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

@@ -77,30 +77,12 @@
                     Recent post
                 </h3>
 
-                <ul>
+                <ul v-for="item in recent_post">
                     <li>
                         <a href="most-answered.html">
-                            What could be UX design software?
+                            @{{item.title}}
                         </a>
-                        <p>8 hours ago by <a href="user.html">Alan Woodson</a></p>
-                    </li>
-                    <li>
-                        <a href="most-answered.html">
-                            All the new features that have been used in Windows 11
-                        </a>
-                        <p>11 hours ago by <a href="user.html">Juan McPhail</a></p>
-                    </li>
-                    <li>
-                        <a href="most-answered.html">
-                            What is the most important thing in learning design?
-                        </a>
-                        <p>11 hours ago by <a href="user.html">Vickie White</a></p>
-                    </li>
-                    <li>
-                        <a href="most-answered.html">
-                            Which language is the most popular in the web right now?
-                        </a>
-                        <p>13 hours ago by <a href="user.html">Jose Merz</a></p>
+                        <p>8 hours ago by <a href>@{{item.user.name}}</a></p>
                     </li>
                 </ul>
             </div>
@@ -114,46 +96,18 @@
                 </h3>
 
                 <ul>
-                    <li>
+                    <li v-for="item in top_members">
                         <a href="groups.html">
                             <img src="assets/images/user/user-8.jpg" alt="Image">
-                            <p>Yong Spears <span>(5k Points)</span></p>
-                            <span>99 Questions</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="groups.html">
-                            <img src="assets/images/user/user-9.jpg" alt="Image">
-                            <p>Denise Jones <span>(4k Points)</span></p>
-                            <span>85 Questions</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="groups.html">
-                            <img src="assets/images/user/user-10.jpg" alt="Image">
-                            <p>Dennis Rogers <span>(3k Points)</span></p>
-                            <span>80 Questions</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="groups.html">
-                            <img src="assets/images/user/user-11.jpg" alt="Image">
-                            <p>Naomi Barnett <span>(1k Points)</span></p>
-                            <span>60 Questions</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="groups.html">
-                            <img src="assets/images/user/user-12.jpg" alt="Image">
-                            <p>Mary Wenger <span>(952 Points)</span></p>
-                            <span>50 Questions</span>
+                            <p>@{{item.name}}</p>
+                            <span>@{{item.total_qs}} Questions</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="right-siderbar-common">
+        {{-- <div class="right-siderbar-common">
             <div class="ads">
                 <a href="queations-details.html">
                     <img src="assets/images/ad.jpg" alt="Image">
@@ -163,7 +117,7 @@
                     Learn More
                 </a>
             </div>
-        </div>
+        </div> --}}
 
         <div class="right-siderbar-common">
             <div class="trending-tags">
@@ -173,49 +127,9 @@
                 </h3>
 
                 <ul>
-                    <li>
+                    <li v-for="item in trending_tags">
                         <a href="tags.html">
-                            discussion
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tags.html">
-                            analytics
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tags.html">
-                            company
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tags.html">
-                            life
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tags.html">
-                            computer
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tags.html">
-                            interview
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tags.html">
-                            grammer
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tags.html">
-                            convertion
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tags.html">
-                            google
+                            @{{item.tag}}
                         </a>
                     </li>
                 </ul>

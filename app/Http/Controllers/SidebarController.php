@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Communities;
 use App\Question;
 use App\User;
+use App\Tags;
 use Illuminate\Support\Facades\DB;
 
 class SidebarController extends Controller
@@ -61,6 +62,8 @@ class SidebarController extends Controller
                         ON tbl_answers.id_question = tbl_questions.id
                         GROUP BY tbl_questions.title
                         ORDER BY total_answer desc LIMIT 4');
+        // Recent Posts
+        $recent_post = Question::with('user')->orderBy('created_at','desc')->limit(4)->get();
         // Quest
         $quest = Question::count();
         if ($quest > 999) {
@@ -97,6 +100,9 @@ class SidebarController extends Controller
         tbl_questions.id_user_dil = users.id
         GROUP BY users.name LIMIT 5');
 
+        // Most Popular Tags
+        $trending_tags = Tags::withCount('quest_tags')->having('quest_tags_count','>',0)->orderBy('quest_tags_count','desc')->limit(9)->get();
+
         
         return response()->json([
             'comuni' => $data,
@@ -105,6 +111,8 @@ class SidebarController extends Controller
             'quest_count' => $quest_count,
             'answer_count' => $answer_count,
             'user_count' => $user_count,
+            'trending_tags' => $trending_tags,
+            'recent_post' => $recent_post,
         ]);
     }
 
