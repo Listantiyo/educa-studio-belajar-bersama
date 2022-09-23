@@ -131,7 +131,7 @@
                                     <div class="dropdown">
                                         <button type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                                             <img src="assets/images/user/user-48.jpg" alt="Image">
-                                            <span>Rosemary</span>
+                                            <span href="#">{{ Auth::user()->name }}</span>
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                                             <li>
