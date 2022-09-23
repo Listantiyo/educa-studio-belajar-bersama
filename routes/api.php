@@ -64,7 +64,7 @@ Route::get('/data/question','DashboardController@show_question');
 Route::get('/answer/show','AnswerController@show_answer');
 Route::post('/answer/store','AnswerController@store');
 Route::post('/data/store/coment','AnswerController@storeComent');
-Route::post('/data/show/coment','AnswerController@showComment');
+Route::get('/data/show/coment','AnswerController@showComment');
 
 // ADMIN
 
