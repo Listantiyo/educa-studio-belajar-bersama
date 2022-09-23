@@ -19,5 +19,11 @@ class Tags extends Model
         return $this->belongsToMany(Question::class);
                 
     }
-
+    
+    public function quest_tags()
+    {
+        return $this->hasMany(Question_Tags::class,'id_tag');
+                
+    }
+    
 }
