@@ -152,12 +152,13 @@ class XampleController extends Controller
     // $posts = Question::with('tag','user','community')->withCount('tag','answers')->orderBy('views','desc')->paginate(10);
     // $posts = Question::with('tag')->withCount('likes')->having('likes_count','>', 0)->get();
     // $posts = Tags::withCount('quest_tags')->having('quest_tags_count','>',0)->orderBy('quest_tags_count','desc')->limit(9)->get();
-    $posts = Question::with('tag','user','community')
-    ->withCount('tag','answers')
-    ->where('id_comunity',2)
-    ->orderBy('views','desc')
-    ->paginate(10);  
-    return $posts;
+    // $posts = Question::with('tag','user','community')
+    // ->withCount('tag','answers')
+    // ->where('id_comunity',2)
+    // ->orderBy('views','desc')
+    // ->paginate(10); 
+    // $posts = Answer_Comment::with('user')->where('id_answer',16)->where('id_question',5)->get(); 
+    return $postss;
     }
     public function filter(){
         $filc = Classe::all();

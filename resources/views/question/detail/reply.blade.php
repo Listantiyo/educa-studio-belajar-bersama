@@ -7,25 +7,27 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form id="reply-form" method="post">
         <div class="modal-body">
-          <div>
-            <div class="card">
-              <div class="card-body" style="max-height: 450px;">
-                <p class="card-text">Name : Reply</p>
+            <div>
+              <div class="card pt-3" style="max-height: 450px; overflow:auto">
+                <div v-for="item in comment" class="card-body px-5 py-0" style="max-height: 450px;">
+                  <p  class="card-text">@{{item.user.name}} ~ @{{item.comment}}</p>
+                  <hr>
+                </div>
               </div>
             </div>
-          </div>
-          <form method="post">
             <div class="form-group">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter reply">
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter reply">
             </div>
-          </form>
+            {{-- <button type="submit" class="btn btn-primary">Save changes</button> --}}
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
-      </div>
+        </form>
+        </div>
       <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->

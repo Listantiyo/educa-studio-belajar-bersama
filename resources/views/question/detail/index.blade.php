@@ -52,7 +52,6 @@
             $(document).ready(function () {
             
                 $("#buttons").click(function() {
-                    alert()
                     $('html, body').animate({
                         scrollTop: $("#answer-form").offset().top - 155 
                     }, 0);
@@ -65,6 +64,7 @@
                 data() {
                     return {
                         answer:'',
+                        comment:'',
                     }
                 },mounted() {
                     
@@ -80,24 +80,43 @@
                             }
                         });
 
+                        $("#reply-form").submit(function (e) { 
+                            e.preventDefault();
+                            let data = $("#reply-form input").val();
+                            $.post("\\api/data/store/coment", 
+                                
+                                {id_answer:id_answer,comment:data,id_quest:id_quest,id:id_user},
+
+                                function (rsp) {
+                                    vues.comment = rsp
+                                    $("#reply-form input").val(null);
+                                },
+                            );
+                            
+                        });
+
                         $("#fillter-answer").change(function (e) { 
                             e.preventDefault();
                             let jumlah = $(this).val();
-                            $.ajax({
-                            type: "get",
-                            url: "\\api/answer/show",
-                            data: {id_quest:id_quest,jumlah:jumlah},
-                            success: function (rsp) {
-                                // alert(rsp.asnwer)
-                                vues.answer = rsp.answer
-                            }
-                        });
+                             $.ajax({
+                                type: "get",
+                                url: "\\api/answer/show",
+                                data: {id_quest:id_quest,jumlah:jumlah},
+                                success: function (rsp) {
+                                    // alert(rsp.asnwer)
+                                    vues.answer = rsp.answer
+                                }
+                            });
                         });
                     });
                 },methods: {
                     repLy(id){
                         id_answer = id
-                        alert(id)
+                        $.get("\\api/data/show/coment", {id_answer:id,id_quest:id_quest},
+                            function (rsp) {
+                                vues.comment = rsp
+                            },
+                        );
                         $('#modal-reply').modal('show');
                         
                     },

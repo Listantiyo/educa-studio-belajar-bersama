@@ -54,6 +54,6 @@
             <p>@{{item.answer}}</p>
 
          </div>
-         @include('question.detail.reply')
+        </div>
     </div>
-</div>
+    @include('question.detail.reply')

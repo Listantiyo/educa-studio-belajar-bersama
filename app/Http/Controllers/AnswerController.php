@@ -94,28 +94,28 @@ class AnswerController extends Controller
     public function storeComent(Request $request)
     {
 
-        $commnet_quest = $request->commnet_quest;
+        // $commnet_quest = $request->commnet_quest;
         $id_user = $request->id;
         $id_quest = $request->id_quest;
-        $id_answer = $request->id;
+        $id_answer = $request->id_answer;
         $comment = $request->comment;
 
-        if ($commnet_quest != null) {
+        // if ($commnet_quest != null) {
             
-            $qus_comment = new Question_Comment();
+        //     $qus_comment = new Question_Comment();
 
-            $qus_comment->id_user = $request->id_user;
-            $qus_comment->comment = $commnet_quest;
-            $qus_comment->id_question = $id_quest;
-            $qus_comment->save();
+        //     $qus_comment->id_user = $request->id_user;
+        //     $qus_comment->comment = $commnet_quest;
+        //     $qus_comment->id_question = $id_quest;
+        //     $qus_comment->save();
 
-            $cek = "qus";
-            $comment = Question_Comment::where('id_question',$id_quest)->get();
+        //     $cek = "qus";
+        //     $comment = Question_Comment::where('id_question',$id_quest)->get();
 
-            return compact('comment','cek');
-            // return ;
+        //     return compact('comment','cek');
+        //     // return ;
 
-        }else{
+        // }else{
             $ans_comment = new Answer_Comment();
     
             $ans_comment->id_user = $id_user;
@@ -125,12 +125,12 @@ class AnswerController extends Controller
     
             $ans_comment->save();
     
-            $comment = Answer_Comment::where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+            $comment = Answer_Comment::with('user')->where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
             
             
             return $comment ;
 
-        }
+        // }
     }
 
     /**
@@ -153,20 +153,20 @@ class AnswerController extends Controller
      */
     public function showComment(Request $request)
     {
-        $id_user = $request->id_user;
+        // $id_user = $request->id_user;
         $id_answer = $request->id_answer;
         $id_quest = $request->id_quest;
-        if ($id_answer == null) {
+        // if ($id_answer == null) {
+        //     # code...
+        //     $comment = Question_Comment::where('id_user',$id_user)->where('id_question',$id_quest)->get();
+        //     $cek = "one";
+        //     return  compact('cek','comment');
+        // } else {
             # code...
-            $comment = Question_Comment::where('id_user',$id_user)->where('id_question',$id_quest)->get();
-            $cek = "one";
-            return  compact('cek','comment');
-        } else {
-            # code...
-            $comment = Answer_Comment::where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
-            $cek = "two";
-            return compact('comment','id_answer','cek');
-        }
+            $comment = Answer_Comment::with('user')->where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+            // $cek = "two";
+            return $comment;
+        // }
         
     }
     public function update(Request $request, $id)
