@@ -51,22 +51,22 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{ route ('quest-admin') }} " class="nav-link">
-                <i class="nav-icon fas fa-question-square"></i>
+              <a href="{{ route ('quest-admin') }}" class="nav-link">
+                <i class="nav-icon fa-solid fa-list"></i>
                 List Question
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-question"></i>  
-                 Question Pending
+              <a href="{{ route('quest-admin-pending') }}" class="nav-link">
+                <i class="nav-icon fa-solid fa-inbox"></i>
+                Question Pending
               </a>
             </li>
           </ul>
         </li>
         <li class="nav-item">
           <a href="{{ route ('answer-admin') }} " class="nav-link">
-            <i class="nav-icon fas fa-voicemail"></i>
+            <i class="nav-icon fa-solid fa-comment"></i>
             <p>
               Answer
             </p>
@@ -109,12 +109,6 @@
               <a href="{{route('communities-admin')}}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 List Community
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa-solid fa-plus"></i>
-                Tambah Community
               </a>
             </li>
           </ul>

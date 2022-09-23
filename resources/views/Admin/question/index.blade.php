@@ -103,6 +103,7 @@
     function showDetail(id){
       $('.modal-title').text("Detail");
       $("#questDetail").modal('show');
+      $('.modal-footer').hide();
       $.get("api/data/admin/quest/show", {'id':id},
         function (data) {
           console.log(data);
@@ -119,7 +120,7 @@
           $("#tit").text(data[0].title);
           // $("#cm").append("<p id='com'></p>");
           // $("#vie").append("<img id='view' src=''>");
-          $("#view").text(data[0].views);
+          $("#vie").text(data[0].views);
           // $("#gbr").append("<img id='gmbr' src=''>");
           $("#gmbr").attr('src', 'storage/'+data[0].path_img);
           $("#like").text(data[0].like);

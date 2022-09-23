@@ -26,6 +26,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('Admin/plugins/summernote/summernote-bs4.min.css')}}">
   <link rel="stylesheet" href="{{asset('Admin/dist/css/jquery.dataTables.min.css')}}">
+  <link rel="stylesheet" href="{{asset('bootstrap-toggle-master/css/bootstrap-toggle.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -90,6 +91,7 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('Admin/dist/js/pages/dashboard.js')}}"></script>
 <script src="{{asset('Admin/dist/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('bootstrap-toggle-master/js/bootstrap-toggle.min.js')}}"></script>
 <script src="https://kit.fontawesome.com/7f8292fccf.js" crossorigin="anonymous"></script>
 
 

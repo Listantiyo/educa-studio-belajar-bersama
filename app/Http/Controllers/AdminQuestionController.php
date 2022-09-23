@@ -23,6 +23,12 @@ class AdminQuestionController extends Controller
         // return view('Admin.question.index');
     }
 
+    public function indexPending()
+    {
+        $quest = Question::all();
+        return view('Admin.question.pending', compact('quest'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -70,6 +76,34 @@ class AdminQuestionController extends Controller
         ->make(true);
     }
 
+    public function questPending()
+    {
+        $quest = DB::table('tbl_questions')
+        ->leftjoin('users', 'tbl_questions.id_user_dil' , '=' ,'users.id')
+        ->leftjoin('tbl_types', 'tbl_questions.id_type' , '=' ,'tbl_types.id')
+        ->leftjoin('tbl_communities', 'tbl_questions.id_comunity' , '=' ,'tbl_communities.id')
+        ->select('tbl_questions.*' , 'users.name', 'tbl_types.nama_type', 'tbl_communities.community')
+        ->get();
+
+        return datatables()
+        ->of($quest)
+        ->addIndexColumn()
+        ->addColumn('status', function($quest){
+            return '
+                <div class="text-center">
+                    <label class="bg-warning py-1 px-2 rounded">Pending</label>
+                </div>
+            ';
+        })
+        ->addColumn('aksi', function($quest){
+            return '
+                <button onclick="showDetail(`'.$quest->id.'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
+            ';
+        })
+        ->rawColumns(['status','aksi'])
+        ->make(true);
+    }
+
     public function showDetail(Request $request)
     {
         $id = $request->id;
@@ -88,6 +122,19 @@ class AdminQuestionController extends Controller
         // return $data;
 
         return $data;
+    }
+
+    public function statusUpdate(Request $request)
+    {
+        $id = $request->id_quest;
+
+        $data = Question::find($id);
+        if($data->id_status === 1){
+            $data->id_status = 2;
+        }
+        $data->update();
+
+        return "success";
     }
 
     public function store(Request $request)
@@ -152,6 +199,7 @@ class AdminQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function destroy($id)
     {
         $questions = Question::find($id);
