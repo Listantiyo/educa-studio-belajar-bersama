@@ -87,6 +87,7 @@ Route::get('/adminuser/{adminuser}/edit','AdminUserController@edit')->name('edit
 
 // Question
 Route::get('/adminquestion','AdminQuestionController@index')->name('quest-admin');
+Route::get('/adminquestpending','AdminQuestionController@indexPending')->name('quest-admin-pending');
 
 // Type
 Route::get('/admintypes','AdminTypeController@index')->name('type-admin');

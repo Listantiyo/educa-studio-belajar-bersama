@@ -78,6 +78,7 @@ Route::delete('data/admin/user/delete/{id}','AdminUserController@destroy');
 // Question
 Route::get('/data/admin/quest','AdminQuestionController@showQuest');
 Route::get('/data/admin/quest/show','AdminQuestionController@showDetail');
+Route::get('/data/admin/quest/pending','AdminQuestionController@questPending');
 Route::post('/data/admin/edit/question','AdminQuestionController@editQuest');
 Route::delete('/data/admin/quest/{id}','AdminQuestionController@destroy');
 
