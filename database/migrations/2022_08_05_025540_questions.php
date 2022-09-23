@@ -17,6 +17,7 @@ class Questions extends Migration
             $table->increments('id');
             $table->integer('id_user_dil');
             $table->integer('id_type')->default(1);
+            $table->integer('id_status')->default(1);
             $table->integer('id_comunity');
             $table->string('title');
             $table->text('question');
