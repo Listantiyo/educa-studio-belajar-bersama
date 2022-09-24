@@ -18,17 +18,12 @@ class CommunitiesController extends Controller
      */
     public function index()
     {
-        $unfollow = Communities::whereDoesntHave('followers', function (Builder $query) {
-            $query->where('id_user',Auth::id());
-        })->get();
-        return view('communities.index',compact('unfollow'));
+        return view('communities.index');
     }
     
     public function follow()
     {
-        $id = Auth::id();
-        $follow = User::find($id)->community;
-        return view('communities.followed.index',compact('follow'));
+        return view('communities.followed.index');
     }
     /**
      * Show the form for creating a new resource.
@@ -46,9 +41,29 @@ class CommunitiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function search(Request $request)
     {
-        //
+        $type = $request->type;
+        if ($type === 'unfollow') {
+            # code...
+            $unfollow = Communities::where('community','like','%'.$request->data.'%')
+            ->whereDoesntHave('followers', function (Builder $query) use ($request) {
+                $query->where('id_user',$request->id);
+            })->get();
+
+            return response()->json([
+                'unfollow'=>$unfollow,
+            ]);
+        }
+        if ($type === 'follow') {
+            # code...
+            $follow = User::find($request->id)->community()->where('community','like','%'.$request->data.'%')->get();
+        
+            return response()->json([
+                'follow'=>$follow,
+            ]);
+        }
+
     }
 
     /**
@@ -80,14 +95,23 @@ class CommunitiesController extends Controller
 
     public function showfollow(Request $request)
     {
-        $follow = User::find(1)->community;
+        $id = $request->id;
+        $follow = User::find($id)->community;
+        
+        return response()->json([
+            'follow'=>$follow,
+        ]);
     }
     
     public function showunfollow(Request $request)
     {
-        $unfollow = Communities::whereDoesntHave('followers', function (Builder $query) {
-            $query->where('id_user', '1');
+        $unfollow = Communities::whereDoesntHave('followers', function (Builder $query) use ($request) {
+            $query->where('id_user',$request->id);
         })->get();
+
+        return response()->json([
+            'unfollow'=>$unfollow,
+        ]);
     }
 
     /**

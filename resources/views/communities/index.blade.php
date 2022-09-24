@@ -22,30 +22,27 @@
 
         <form class="aq-form">
             <i class="ri-search-line"></i>
-            <input type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
-            <button class="aq-btn">
-                Ask Question
-            </button>
+            <input type="text" id="searchbar" class="form-control" placeholder="Type to search ">
         </form>
 
         <div class="row justify-content-center">
 
-@foreach ($unfollow as $item) 
-                <div id="follow{{$item->id}}" class="col-xl-4 col-sm-6">
+
+                <div v-for="item in unfollow" :id="'follow'+item.id" class="col-xl-4 col-sm-6">
                     <div class="single-communities-box">
                         <img src="assets/images/communities/programing.png" alt="Image">
                         <h3>
-                            <a href="communities.html">{{$item->community}}</a>
+                            <a href="communities.html">@{{item.community}}</a>
                         </h3>
                         <ul class="d-flex justify-content-between">
-                            <li>{{$item->followers}} Followers</li>
+                            <li>@{{item.followers}} Followers</li>
                             <li>
-                                <button id="com-follow" onclick="folloW('{{$item->id}}')" class="active" value="{{$item->id}}">Follow</button>
+                                <button id="com-follow" @click="folloW(item.id)" class="active" :value="item.id">Follow</button>
                             </li>
                         </ul>
                     </div>
                 </div>
-@endforeach
+
         </div>
     </div>
 
@@ -55,19 +52,55 @@
 
 @push('scripts')
     <script>
-        function folloW(id){
-            let type = "follow"
-            let id_user = {{Auth::id()}}
-            $.post("api/community/un_follow", {id:id,id_user:id_user,type:type},
-                function (rsp) {
-                    alert(rsp.alert)
-                    $("#follow"+rsp.id).remove();
-                },
-            );
-            
-        }
-        $(document).ready(function () {
-        });
+        const vues = Vue.createApp({
+            data() {
+                return {
+                    unfollow:'',
+                }
+            },
+            mounted() {
+                let id_user = {{Auth::id()}}
+                $(document).ready(function () {
+                    $.ajax({
+                        type: "get",
+                        url: "api/community/show/unfollow",
+                        data: {id:id_user},
+                        dataType: "json",
+                        success: function (rsp) {
+                            vues.unfollow = rsp.unfollow
+                        }
+                    });
+
+                //  SearchBar
+				$("#searchbar").keyup(function (e) { 
+                    
+                        let type = 'unfollow'
+                        var input = $("#searchbar").val();
+                        $.get("api/community/show/search", {data:input,type:type,id:id_user},
+                            function (rsp) {           
+
+                                vues.unfollow = rsp.unfollow
+
+                            },
+
+                        );
+                });
+                });
+            },
+            methods: {
+                folloW(id){
+                    let type = "follow"
+                    let id_user = {{Auth::id()}}
+                    $.post("api/community/un_follow", {id:id,id_user:id_user,type:type},
+                        function (rsp) {
+                            alert(rsp.alert)
+                            $("#follow"+rsp.id).remove();
+                        },
+                    );
+                    
+                }
+            },
+        }).mount('#app')
     </script>
 @endpush
  

@@ -41,6 +41,9 @@ Route::delete('quest/delete','QuestionController@delete');
 Route::get('tag/show','TagController@show');
 Route::get('tag/search','TagController@search');
 // Communities
+Route::get('community/show/follow', 'CommunitiesController@showfollow');
+Route::get('community/show/unfollow', 'CommunitiesController@showunfollow');
+Route::get('community/show/search', 'CommunitiesController@search');
 Route::post('community/un_follow', 'CommunitiesController@un_follow');
 // Sidebar
 Route::get('community/show', 'SidebarController@show');

@@ -157,8 +157,14 @@ class XampleController extends Controller
     // ->where('id_comunity',2)
     // ->orderBy('views','desc')
     // ->paginate(10); 
-    // $posts = Answer_Comment::with('user')->where('id_answer',16)->where('id_question',5)->get(); 
-    return $postss;
+    // $posts = Answer_Comment::with('user')->where('id_answer',16)->where('id_question',5)->get();
+    $data = 'c';
+ 
+    // $posts = Communities::where('community','like','%'.$data.'%')->whereDoesntHave('followers', function (Builder $query) {
+    //     $query->where('id_user',1);
+    // })->get();
+   $posts =  User::find(1)->community()->where('community','like','%'.$data.'%')->get();
+    return $posts;
     }
     public function filter(){
         $filc = Classe::all();
