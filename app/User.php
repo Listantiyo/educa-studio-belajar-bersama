@@ -31,4 +31,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Communities::class,'tbl_community_followers','id_user','id_community');
     }
+    public function groups()
+    {
+        return $this->belongsToMany(Groups::class,'tbl_group_followers','id_user','id_group');
+    }
 }

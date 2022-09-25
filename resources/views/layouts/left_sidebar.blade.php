@@ -125,12 +125,24 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('groups')}}" class="box-style aside">
+                                <a href="#" class="has-arrow box-style aside">
                                     <span class="menu-title">
                                         <i class="ri-group-2-line"></i>
                                         Groups
                                     </span>
                                 </a>
+                                <ul class="sidemenu-nav-second-level">
+                                    <li>
+                                        <a href="{{route('groups-join')}}">
+                                            <span class="menu-title">Groups Followed</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('groups')}}">
+                                            <span class="menu-title">Groups Unfollowed</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             {{-- <li>
                                 <a href="education" class="box-style aside">

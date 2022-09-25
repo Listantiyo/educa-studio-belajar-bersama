@@ -45,6 +45,11 @@ Route::get('community/show/follow', 'CommunitiesController@showfollow');
 Route::get('community/show/unfollow', 'CommunitiesController@showunfollow');
 Route::get('community/show/search', 'CommunitiesController@search');
 Route::post('community/un_follow', 'CommunitiesController@un_follow');
+// Groups
+Route::get('group/show/joined', 'GroupsController@showjoin');
+Route::get('group/show/public', 'GroupsController@showunjoin');
+Route::get('group/show/search', 'GroupsController@search');
+Route::post('group/un_join', 'GroupsController@un_join');
 // Sidebar
 Route::get('community/show', 'SidebarController@show');
 // Most-Visited

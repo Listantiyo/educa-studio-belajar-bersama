@@ -22,7 +22,9 @@ Route::get('/oohome', function () {
 Route::get('/level', 'LevelController@index')->name('level');
 // Home
 Route::get('/menu', 'HomeController@index')->name('menu');
+Route::group(['middleware' => 'auth'], function () {
 
+});
 // Question
 Route::get('/question', 'QuestionController@index')->name('questions');
 Route::get('/questions-details/{id}', 'QuestionController@detail')->name('questions-details');
@@ -55,6 +57,7 @@ Route::get('/faq', 'FaqController@index')->name('faq');
 
 // Groups
 Route::get('/groups', 'GroupsController@index')->name('groups');
+Route::get('/groups/join', 'GroupsController@join')->name('groups-join');
 
 // ------------------------------------------------------------
 

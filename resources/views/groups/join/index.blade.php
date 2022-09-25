@@ -30,7 +30,7 @@
 
         <div class="group-content">
             <div class="row justify-content-center">
-                <div :id="'join'+item.id"  v-for="item in group"  class="col-xl-6 col-md-6">
+                <div :id="'join'+item.id"  v-for="item in group" type="button"  class="col-xl-6 col-md-6">
                     <div class="single-group-box">
                         <div class="group-img">
                             <img src="{{asset('pify/assets/images/group/group-1.jpg')}}" alt="Image">
@@ -56,7 +56,7 @@
                             </ul>
 
                             <button @click="joiN(item.id)"  class="group-btn">
-                                Join group
+                                Leave group
                             </button>
                         </div>
                     </div>
@@ -83,12 +83,12 @@
                 $(document).ready(function () {
                     $.ajax({
                         type: "get",
-                        url: "api/group/show/public",
+                        url: "\\api/group/show/joined",
                         data: {id:id_user},
                         dataType: "json",
                         success: function (rsp) {
                             console.log(rsp);
-                            vues.group = rsp.unjoin
+                            vues.group = rsp.join
 
                         }
                     });
@@ -97,12 +97,12 @@
                 //  SearchBar
 				$("#searchbar").keyup(function (e) { 
                     
-                    let type = 'unjoin'
+                    let type = 'join'
                     var input = $("#searchbar").val();
-                    $.get("api/group/show/search", {data:input,type:type,id:id_user},
+                    $.get("\\api/group/show/search", {data:input,type:type,id:id_user},
                         function (rsp) {           
 
-                            vues.group = rsp.unjoin
+                            vues.group = rsp.join
 
                         },
 
@@ -111,9 +111,9 @@
             },
             methods: {
                 joiN(id){
-                    let type = "join"
+                    let type = "unjoin"
                     let id_user = {{Auth::id()}}
-                    $.post("api/group/un_join", {id:id,id_user:id_user,type:type},
+                    $.post("\\api/group/un_join", {id:id,id_user:id_user,type:type},
                         function (rsp) {
                             alert(rsp.alert)
                             $("#join"+rsp.id).remove();
