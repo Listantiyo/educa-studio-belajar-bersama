@@ -36,21 +36,21 @@
 
 {{--recent-questions  --}}
         <div class="tab-pane fade show active" id="recent-questions" role="tabpanel" aria-labelledby="recent-questions-tab">
-            <div v-for="quest in quest" class="single-qa-box like-dislike">
-                <div class="d-flex mid-content-quest">
-                    <div class="link-unlike flex-shrink-0">
+            <div v-for="quest in quest" class="ps-2 single-qa-box like-dislike">
+                <div class="p-2 row">
+                    <div class="col-2 pe-md-0 pe-sm-3 link-unlike flex-shrink-0">
                         <a href="user.html">
                             <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
                         </a>
 
-                        <div class="donet-like-list">
+                        <div class="mt-md-2 mt-sm-4 donet-like-list">
                             <button class="like-unlink-count like">
                                 <i class="ri-thumb-up-fill"></i>
                                 <span>@{{quest.like}}</span>
                             </button>
                         </div>
 
-                        <div class="donet-like-list">
+                        <div class="mt-md-2 mt-sm-3 donet-like-list">
                             <button class="like-unlink-count dislike">
                             <i class="ri-thumb-down-fill"></i>
                                 <span>@{{quest.dislike}}</span>
@@ -58,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
+                    <div class=" col-9 ps-0 pe-4 flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
                                 <a href="user.html">Teresa Klein</a>
@@ -171,15 +171,15 @@
 
 {{-- most-answered --}}
         <div class="tab-pane fade" id="most-answered" role="tabpanel" aria-labelledby="most-answered-tab">
-            <div v-for="questmo in quest_most" class="single-qa-box like-dislike">
-                <div class="d-flex mid-content-quest">
-                    <div class="link-unlike flex-shrink-0">
+            <div v-for="questmo in quest_most" class="ps-2 single-qa-box like-dislike">
+                <div class="p-2 row">
+                    <div class="col-2 pe-md-0 pe-sm-3  link-unlike flex-shrink-0">
                         <a href="user.html">
                             <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
                         </a>
                     </div>
 
-                    <div class="flex-grow-1 ms-3" style="max-width: 100%">
+                    <div class=" col-9 ps-0 pe-4 flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
                                 <a href="user.html">Teresa Klein</a>
@@ -271,21 +271,21 @@
 
 {{-- unanswered-question  --}}
         <div class="tab-pane fade" id="unanswered-question" role="tabpanel" aria-labelledby="unanswered-question-tab">
-            <div v-for="questun in quest_unans" class="single-qa-box like-dislike">
-                <div class="d-flex mid-content-quest">
-                    <div class="link-unlike flex-shrink-0">
+            <div v-for="questun in quest_unans" class="ps-2 single-qa-box like-dislike">
+                <div class="p-2 row">
+                    <div class="col-2 pe-md-0 pe-sm-3  link-unlike flex-shrink-0">
                         <a href="user.html">
                             <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
                         </a>
 
-                        <div class="donet-like-list">
+                        <div class="mt-md-2 mt-sm-4 donet-like-list">
                             <button class="like-unlink-count like">
                                 <i class="ri-thumb-up-fill"></i>
                                 <span>20</span>
                             </button>
                         </div>
 
-                        <div class="donet-like-list">
+                        <div class="mt-md-2 mt-sm-3 donet-like-list">
                             <button class="like-unlink-count dislike">
                             <i class="ri-thumb-down-fill"></i>
                                 <span>25</span>
@@ -293,7 +293,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 ms-3" style="max-width: 100%">
+                <div class=" col-9 ps-0 pe-4 flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
                                 <a href="user.html">Teresa Klein</a>
@@ -398,21 +398,21 @@
 
 {{-- featured-question --}}
         <div class="tab-pane fade" id="featured-question" role="tabpanel" aria-labelledby="featured-question-tab">
-            <div v-for="questfe in quest_featur" class="single-qa-box like-dislike">
-                <div class="d-flex mid-content-quest">
-                    <div class="link-unlike flex-shrink-0">
+            <div v-for="questfe in quest_featur" class="ps-2 single-qa-box like-dislike">
+                <div class="p-2 row">
+                    <div class="col-2 pe-md-0 pe-sm-3  link-unlike flex-shrink-0">
                         <a href="user.html">
                             <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
                         </a>
 
-                        <div class="donet-like-list">
+                        <div class="mt-md-2 mt-sm-4 donet-like-list">
                             <button class="like-unlink-count like">
                                 <i class="ri-thumb-up-fill"></i>
                                 <span>22</span>
                             </button>
                         </div>
 
-                        <div class="donet-like-list">
+                        <div class="mt-md-2 mt-sm-3 donet-like-list">
                             <button class="like-unlink-count dislike">
                             <i class="ri-thumb-down-fill"></i>
                                 <span>25</span>
@@ -420,7 +420,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 ms-3" style="max-width: 100%">
+                    <div class=" col-9 ps-0 pe-4 flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
                                 <a href="user.html">Teresa Klein</a>
