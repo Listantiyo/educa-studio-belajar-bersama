@@ -30,6 +30,10 @@ class Question extends Model
     {
         return $this->hasMany(Dislikes::class,'id_quest');
     }
+    public function votes()
+    {
+        return $this->hasMany(Question_Votes::class,'id_quest');
+    }
     public function answers()
     {
         return $this->hasMany(Answer::class,'id_question');

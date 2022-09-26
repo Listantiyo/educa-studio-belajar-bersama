@@ -64,7 +64,7 @@
                                 <a href="user.html">Teresa Klein</a>
                             </li>
                             <li>
-                                <span>@{{quest.created_at}}</span>
+                                <span>@{{quest.created_at | moment("dddd, MMMM Do YYYY, h:mm:ss a") }}</span>
                             </li>
                             <li>
                                 <span>In:</span>

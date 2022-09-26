@@ -211,12 +211,17 @@
                     data: {id:id_user,id_quest:id_quest},
                     url: "\\api/quest/likedislike",
                     success: function (rsp) {
-                        alert(rsp)
-                        if (rsp == 'like') {
+                        // alert(rsp)
+                        if (rsp.disorlike == 'like') {
                             $("button[name='like']").addClass("active");
                         }
-                        if (rsp == 'dislike') {
+                        if (rsp.disorlike == 'dislike') {
                             $("button[name='dislike']").addClass("active");
+                        }
+                        if (rsp.votes == 'vote') {
+                            $("#votes").removeClass('bg-info');
+                            $("#votes").addClass('bg-warning');
+                            $("#votes").append('<i id="flag" class="ri-flag-2-fill" style="font-size:12px;"></i>');
                         }
                     }
                 });
@@ -258,25 +263,44 @@
 {{-- vote --}}
         <script>
             $("#votes").click(function (e) { 
-                
-                if ($(this).hasClass('bg-warning')) {
-                    alert()
-                }
-                $(this).removeClass('bg-info');
-                $(this).addClass('bg-warning');
-                $(this).append('<i id="flag" class="ri-flag-2-fill" style="font-size:12px;"></i>');
+                e.preventDefault();
                 let id_quest = {{$id}}
                 let id_user = {{Auth::id()}}
-                // e.preventDefault();
-                // $.ajax({
-                //     type: "post",
-                //     url: "api/quest/vote",
-                //     data: {id_quest:id_quest,id_answer:id_answer},
-                //     dataType: "json",
-                //     success: function (rsp) {
-                        
-                //     }
-                // });
+                
+                if ($(this).hasClass('bg-warning')) {
+                    $(this).removeClass('bg-warning');
+                    $(this).addClass('bg-info');
+                    $("#flag").remove();
+                    let type = 'unvote'
+                    $.ajax({
+                        type: "post",
+                        url: "\\api/quest/vote",
+                        data: {id_quest:id_quest,id_user:id_user,type:type},
+                        dataType: "json",
+                        success: function (rsp) {
+                            alert(rsp.vote)
+                        }
+                    });
+
+                }else{
+
+                    $(this).removeClass('bg-info');
+                    $(this).addClass('bg-warning');
+                    $(this).append('<i id="flag" class="ri-flag-2-fill" style="font-size:12px;"></i>');
+                    let type = 'vote'
+                    $.ajax({
+                        type: "post",
+                        url: "\\api/quest/vote",
+                        data: {id_quest:id_quest,id_user:id_user,type:type},
+                        dataType: "json",
+                        success: function (rsp) {
+                            alert(rsp.vote)
+                        }
+                    });
+                }
+
+                
+
             });
         </script>
 {{-- post answer --}}

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Communities;
+use App\Question_Votes;
 use Illuminate\Database\Eloquent\Builder;
 
 use Illuminate\Http\Request;
@@ -168,18 +169,19 @@ class XampleController extends Controller
         //     $query->where('id_user',1);
         //     },
         // ])->get();
-        $id_user = 1;
-        $posts = Answer::with('user')->withCount(['dislikes','likes',
+        // $id_user = 1;
+        // $posts = Answer::with('user')->withCount(['dislikes','likes',
 
-        'likes as load_like' => function ($query) use ($id_user) {
-            $query->where('id_user',$id_user);
-        },
+        // 'likes as load_like' => function ($query) use ($id_user) {
+        //     $query->where('id_user',$id_user);
+        // },
 
-        'dislikes as load_dislike' => function ($query) use ($id_user) {
-            $query->where('id_user',$id_user);
-        },
+        // 'dislikes as load_dislike' => function ($query) use ($id_user) {
+        //     $query->where('id_user',$id_user);
+        // },
 
-        ])->where('id_question',1)->get();
+        // ])->where('id_question',1)->get();
+
     return $posts;
     }
     public function filter(){

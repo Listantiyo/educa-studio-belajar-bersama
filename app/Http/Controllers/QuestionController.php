@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\DB;
 use App\Tags;
 use App\Likes;
 use App\Dislikes;
+use App\Question_Votes;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Questions;
 
 class QuestionController extends Controller
 {
@@ -152,7 +154,7 @@ class QuestionController extends Controller
     }
 
 
-    public function likedislike(Request $request)
+    public function likedislikevote(Request $request)
     {
         $id_user = $request->id;
         $id_quest = $request->id_quest;
@@ -162,6 +164,9 @@ class QuestionController extends Controller
             
         $dislike = DB::table('tbl_dislikes')
             ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
+
+        $vote = DB::table('tbl_question_votes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
             
         if ($like > 0) {
             $disorlike = 'like';
@@ -169,8 +174,16 @@ class QuestionController extends Controller
         if ($dislike > 0) {
             $disorlike = 'dislike';
         }
+        if ($vote > 0) {
+            $votes = 'vote';
+        }else{
+            $votes = 'unvote';
+        }
         
-        return response()->json($disorlike);
+        return response()->json([
+            'disorlike' => $disorlike,
+            'votes' => $votes
+        ]);
     }
 
     public function likedislikestore(Request $request)
@@ -279,9 +292,32 @@ class QuestionController extends Controller
     public function vote(Request $request)
     {   $id_user = $request->id_user;
         $id_quest = $request->id_quest;
+        $type = $request->type;
+
+        if ($type === 'vote') {
+            # code...
+            $vote = new Question_Votes();
+            $vote->id_quest = $id_quest;
+            $vote->id_user = $id_user;
+            $vote->save();
+
+            $votes = 'succes vote';
+        }
+        if ($type === 'unvote') {
+            # code...
+            Question_Votes::where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            $votes = 'success unvote';
+        }
+        return response()->json([
+            'vote' => $votes,
+        ]);
+    }
+
+    public function quest_vote(){
+        $voted = Question::has('votes')->get();
 
         return response()->json([
-            'vote' => $vote,
+            'quest_voted' => $voted,
         ]);
     }
 }

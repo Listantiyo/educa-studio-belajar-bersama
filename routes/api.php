@@ -32,10 +32,12 @@ Route::delete('menu/delete','HomeController@delete');
 Route::get('quest/show','QuestionController@show');
 Route::get('quest/search','QuestionController@search');
 Route::get('quest/fillter-community','QuestionController@fillter');
-Route::get('quest/likedislike','QuestionController@likedislike');
+Route::get('quest/likedislike','QuestionController@likedislikevote');
 Route::post('quest/likedislikestore','QuestionController@likedislikestore');
 Route::post('quest/store','QuestionController@store');
 Route::post('quest/vote','QuestionController@vote');
+Route::get('quest/vote/show','QuestionController@quest_vote');
+
 Route::put('quest/update','QuestionController@update');
 Route::delete('quest/delete','QuestionController@delete');
 // API Tag
