@@ -33,13 +33,34 @@ class AnswerController extends Controller
     public function show_answer(Request $request)
     {
 
+            $id_user = $request->id_user;
             $id = $request->id_quest;
             $jumlah = $request->jumlah;
 
             if ($jumlah > 0) {
-                $answer = DB::table('tbl_answers')->where('id_question',$id)->limit($jumlah)->get();
+                $answer = Answer::with('user')->withCount(['dislikes','likes',
+
+                'likes as load_like' => function ($query) use ($id_user) {
+                    $query->where('id_user',$id_user);
+                },
+
+                'dislikes as load_dislike' => function ($query) use ($id_user) {
+                    $query->where('id_user',$id_user);
+                },
+
+                ])->where('id_question',$id)->limit($jumlah)->get();
             }else{
-                $answer = DB::table('tbl_answers')->where('id_question',$id)->get(); 
+                $answer = Answer::with('user')->withCount(['dislikes','likes',
+
+                'likes as load_like' => function ($query) use ($id_user) {
+                    $query->where('id_user',$id_user);
+                },
+
+                'dislikes as load_dislike' => function ($query) use ($id_user) {
+                    $query->where('id_user',$id_user);
+                },
+
+                ])->where('id_question',$id)->get();
             }
             return response()->json(['answer' => $answer]);
     }

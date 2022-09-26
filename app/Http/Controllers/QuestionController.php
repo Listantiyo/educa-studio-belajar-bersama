@@ -276,4 +276,12 @@ class QuestionController extends Controller
         return compact('question_all','question_most','question_unans','question_feature','id');
     }
 
+    public function vote(Request $request)
+    {   $id_user = $request->id_user;
+        $id_quest = $request->id_quest;
+
+        return response()->json([
+            'vote' => $vote,
+        ]);
+    }
 }

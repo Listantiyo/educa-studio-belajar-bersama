@@ -51,6 +51,7 @@
             $("#side-community").remove();
 
         </script>
+{{-- scroll --}}
         <script>
             $(document).ready(function () {
             
@@ -61,6 +62,7 @@
                 });
             });
         </script>
+{{-- vue --}}
         <script>
             let id_answer;
             const vues = Vue.createApp({
@@ -105,7 +107,7 @@
                              $.ajax({
                                 type: "get",
                                 url: "\\api/answer/show",
-                                data: {id_quest:id_quest,jumlah:jumlah},
+                                data: {id_quest:id_quest,jumlah:jumlah,id_user:id_user},
                                 success: function (rsp) {
                                     // alert(rsp.asnwer)
                                     vues.answer = rsp.answer
@@ -253,9 +255,29 @@
             });
             });
         </script>
-{{-- likedis answer --}}
+{{-- vote --}}
         <script>
-
+            $("#votes").click(function (e) { 
+                
+                if ($(this).hasClass('bg-warning')) {
+                    alert()
+                }
+                $(this).removeClass('bg-info');
+                $(this).addClass('bg-warning');
+                $(this).append('<i id="flag" class="ri-flag-2-fill" style="font-size:12px;"></i>');
+                let id_quest = {{$id}}
+                let id_user = {{Auth::id()}}
+                // e.preventDefault();
+                // $.ajax({
+                //     type: "post",
+                //     url: "api/quest/vote",
+                //     data: {id_quest:id_quest,id_answer:id_answer},
+                //     dataType: "json",
+                //     success: function (rsp) {
+                        
+                //     }
+                // });
+            });
         </script>
 {{-- post answer --}}
         <script>

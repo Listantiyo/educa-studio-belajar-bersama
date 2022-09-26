@@ -19,16 +19,24 @@
                 <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
             </a>
             <div class="donet-like-list">
-                <button :class="'like-unlink-count '+'answer-link'+item.id+' like'" name="answer-like" @click="likE(item.id)">
+                <button v-if="item.load_like === 1" :class="'like-unlink-count '+'answer-link'+item.id+' like active'" name="answer-like" @click="likE(item.id)">
                     <i class="ri-thumb-up-fill"></i>
-                    <span>197</span>
+                    <span>@{{item.likes_count}}</span>
+                </button>
+                <button v-else :class="'like-unlink-count '+'answer-link'+item.id+' like'" name="answer-like" @click="likE(item.id)">
+                    <i class="ri-thumb-up-fill"></i>
+                    <span>@{{item.likes_count}}</span>
                 </button>
             </div>
 
             <div class="donet-like-list">
-                <button :class="'like-unlink-count '+'answer-link'+item.id+' dislike'" name="answer-dislike" @click="dislikE(item.id)" >
+                <button v-if="item.load_dislike === 1" :class="'like-unlink-count '+'answer-link'+item.id+' dislike active'" name="answer-dislike" @click="dislikE(item.id)" >
                     <i class="ri-thumb-down-fill"></i>
-                    <span>2</span>
+                    <span>@{{item.dislikes_count}}</span>
+                </button>
+                <button v-else :class="'like-unlink-count '+'answer-link'+item.id+' dislike'" name="answer-dislike" @click="dislikE(item.id)" >
+                    <i class="ri-thumb-down-fill"></i>
+                    <span>@{{item.dislikes_count}}</span>
                 </button>
             </div>
         </div>
@@ -36,7 +44,7 @@
         <div class="flex-grow-1 ms-3">
             <ul class="latest-answer-list">
                 <li>
-                    <a href="user.html">Elsa Feldman</a>
+                    <a href="user.html">@{{item.user.name}}</a>
                 </li>
                 <li>
                     <span>Latest Answer: 2 hours ago</span>
@@ -44,7 +52,7 @@
                 @auth                    
                     <li class="replays">
                         <p type="button" id="reply" @click="repLy(item.id)" style="color: orange;">
-                            Replay
+                            <b> Replay </b>
                         </p>
                     </li>
                 @endauth

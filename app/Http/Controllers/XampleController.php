@@ -163,7 +163,23 @@ class XampleController extends Controller
     // $posts = Communities::where('community','like','%'.$data.'%')->whereDoesntHave('followers', function (Builder $query) {
     //     $query->where('id_user',1);
     // })->get();
-   $posts =  User::find(1)->community()->where('community','like','%'.$data.'%')->get();
+//    $posts =  User::find(1)->community()->where('community','like','%'.$data.'%')->get();
+        // $posts = Answer::withCount(['likes','likes as load_like' => function ($query) {
+        //     $query->where('id_user',1);
+        //     },
+        // ])->get();
+        $id_user = 1;
+        $posts = Answer::with('user')->withCount(['dislikes','likes',
+
+        'likes as load_like' => function ($query) use ($id_user) {
+            $query->where('id_user',$id_user);
+        },
+
+        'dislikes as load_dislike' => function ($query) use ($id_user) {
+            $query->where('id_user',$id_user);
+        },
+
+        ])->where('id_question',1)->get();
     return $posts;
     }
     public function filter(){

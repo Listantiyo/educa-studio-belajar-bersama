@@ -58,9 +58,9 @@
 
             <div class="d-flex justify-content-between align-items-center">
                 <ul class="anser-list">
-                    <li>
-                        <a class="btn bg-info" id="votes" style="color: white" type="button" href="">
-                            {{$question->votes}} Votes
+                    <li id="vote-container">
+                        <a class="btn bg-info " id="votes" style="color: white" type="button" >
+                            <b> {{$question->votes}} Votes </b>
                         </a>
                     </li>
                     <li>
