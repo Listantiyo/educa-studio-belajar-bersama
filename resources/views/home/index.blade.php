@@ -18,13 +18,13 @@
 
 					<div class="col-lg-6 pe-0">
 						<div class="banner-img">
-							<img src="assets/images/banner/banner-img.png" alt="Image">
-							<img src="assets/images/banner/shape-1.png" alt="Image" class="shape shape-1">
-							<img src="assets/images/banner/shape-2.png" alt="Image" class="shape shape-2">
-							<img src="assets/images/banner/shape-3.png" alt="Image" class="shape shape-3">
-							<img src="assets/images/banner/shape-4.png" alt="Image" class="shape shape-4">
-							<img src="assets/images/banner/shape-5.png" alt="Image" class="shape shape-5">
-							<img src="assets/images/banner/shape-6.png" alt="Image" class="shape shape-6">
+							<img src="{{asset('pify/assets/images/banner/banner-img.png')}}" alt="Image">
+							<img src="{{asset('pify/assets/images/banner/shape-1.png')}}" alt="Image" class="shape shape-1">
+							<img src="{{asset('pify/assets/images/banner/shape-2.png')}}" alt="Image" class="shape shape-2">
+							<img src="{{asset('pify/assets/images/banner/shape-3.png')}}" alt="Image" class="shape shape-3">
+							<img src="{{asset('pify/assets/images/banner/shape-4.png')}}" alt="Image" class="shape shape-4">
+							<img src="{{asset('pify/assets/images/banner/shape-5.png')}}" alt="Image" class="shape shape-5">
+							<img src="{{asset('pify/assets/images/banner/shape-6.png')}}" alt="Image" class="shape shape-6">
 						</div>
 					</div>
 				</div>

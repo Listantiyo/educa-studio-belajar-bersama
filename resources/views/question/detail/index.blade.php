@@ -47,6 +47,9 @@
 @push('scripts')
         <script>
             list_com_url = "\\api/community/show"
+
+            $("#side-community").remove();
+
         </script>
         <script>
             $(document).ready(function () {
@@ -70,6 +73,7 @@
                     
                     $(document).ready(function () {
                         let id_quest = {{$id}}
+                        let id_user = {{Auth::id()}}
                         $.ajax({
                             type: "get",
                             url: "\\api/answer/show",
@@ -108,6 +112,10 @@
                                 }
                             });
                         });
+
+                        $("#kk").click(function () { 
+                            alert()
+                        });
                     });
                 },methods: {
                     repLy(id){
@@ -120,10 +128,25 @@
                         $('#modal-reply').modal('show');
                         
                     },
+                    likE(id){
+                        $.get("url", {id:id},
+                            function (rsp) {
+                                
+                            },  
+                        );
+                    },
+                    dislikE(id){
+                        $.get("url", {id:id},
+                            function (rsp) {
+                                
+                            },
+                        );
+                    }
                 },
             }).mount('#app')
         </script>
 @auth
+{{-- likedis quest --}}
         <script>
              $(document).ready(function() {
                 // load like
@@ -179,6 +202,11 @@
             });
             });
         </script>
+{{-- likedis answer --}}
+        <script>
+
+        </script>
+{{-- post answer --}}
         <script>
             let id_quest = {{$id}}
             let id_user = {{Auth::id()}}

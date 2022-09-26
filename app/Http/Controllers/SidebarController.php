@@ -8,6 +8,7 @@ use App\Communities;
 use App\Question;
 use App\User;
 use App\Tags;
+use App\Answer_Comment;
 use Illuminate\Support\Facades\DB;
 
 class SidebarController extends Controller
@@ -102,6 +103,8 @@ class SidebarController extends Controller
 
         // Most Popular Tags
         $trending_tags = Tags::withCount('quest_tags')->having('quest_tags_count','>',0)->orderBy('quest_tags_count','desc')->limit(9)->get();
+        // Commnet
+        $count_comment = Answer_Comment::count();
 
         
         return response()->json([
@@ -113,6 +116,7 @@ class SidebarController extends Controller
             'user_count' => $user_count,
             'trending_tags' => $trending_tags,
             'recent_post' => $recent_post,
+            'count_comment' => $count_comment,
         ]);
     }
 

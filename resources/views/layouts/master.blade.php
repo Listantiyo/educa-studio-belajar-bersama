@@ -153,6 +153,7 @@
 								vus.top_members = rsp.top_members
 								vus.trending_tags = rsp.trending_tags
 								vus.recent_post = rsp.recent_post
+								vus.count_comment = rsp.count_comment
 							}
 						});
 					});

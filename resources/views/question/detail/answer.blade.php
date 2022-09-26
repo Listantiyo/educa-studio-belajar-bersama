@@ -15,19 +15,18 @@
 <div v-for="item in answer" class="answer-question-details like-dislike">
     <div class="d-flex">
         <div class="link-unlike flex-shrink-0">
-            <a href="user.html">
-                <img src="assets/images/user/user-13.jpg" alt="Image">
+            <a href="">
+                <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
             </a>
-
             <div class="donet-like-list">
-                <button class="like-unlink-count like">
+                <button class="like-unlink-count answer-link like" name="answer-like" @click="likE(item.id)">
                     <i class="ri-thumb-up-fill"></i>
                     <span>197</span>
                 </button>
             </div>
 
             <div class="donet-like-list">
-                <button class="like-unlink-count dislike">
+                <button class="like-unlink-count answer-link dislike" name="answer-dislike" @click="dislikE(item.id)" >
                     <i class="ri-thumb-down-fill"></i>
                     <span>2</span>
                 </button>

@@ -7,7 +7,7 @@
             </a>
         </div>
 
-        <div class="right-siderbar-common">
+        <div id="side-community" class="right-siderbar-common">
             <div class="category-communities">
                 <h3>
                     <i class="ri-list-unordered"></i>
@@ -64,7 +64,7 @@
                     </li>
                     <li>
                         <span>Comments</span>
-                        <span class="count">57</span>
+                        <span class="count">@{{count_comment}}</span>
                     </li>
                 </ul>
             </div>

@@ -2,7 +2,7 @@
     <div class="d-flex">
         <div class="link-unlike flex-shrink-0">
             <a href="user.html">
-                <img src="assets/images/user/user-1.jpg" alt="Image">
+                <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
             </a>
 
             <div class="donet-like-list">
@@ -59,19 +59,23 @@
             <div class="d-flex justify-content-between align-items-center">
                 <ul class="anser-list">
                     <li>
-                        <a href="polls.html">
+                        <a class="btn bg-info" id="votes" style="color: white" type="button" href="">
                             {{$question->votes}} Votes
                         </a>
                     </li>
                     <li>
-                        <a href="most-answered.html">
-                            2 Answer
-                        </a>
+                    <b>
+                        <p type="text" style="color: #f48225;">
+                            2 Answer 
+                        </p>
+                    </b> 
                     </li>
                     <li>
-                        <a href="most-visited.html">
+                    <b>
+                        <p type="text" style="color: #f48225;">
                             658 Views
-                        </a>
+                        </p>
+                    </b>
                     </li>
                     <li>
                         <ul class="qa-share">
