@@ -70,6 +70,7 @@ Route::post('/data/store','DashboardController@store');
 Route::get('/data/question','DashboardController@show_question');
 // API Answer
 Route::get('/answer/show','AnswerController@show_answer');
+Route::get('/answer/likedislike','AnswerController@likedislike');
 Route::post('/answer/store','AnswerController@store');
 Route::post('/data/store/coment','AnswerController@storeComent');
 Route::get('/data/show/coment','AnswerController@showComment');
