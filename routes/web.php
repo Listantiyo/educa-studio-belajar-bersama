@@ -100,6 +100,7 @@ Route::get('/admincomunitty','AdminCommunityController@index')->name('communitie
 
 // Answer
 Route::get('/adminanswer','AdminAnswerController@index')->name('answer-admin');
+Route::get('/adminanswerpending','AdminAnswerController@indexPending')->name('answer-admin-pending');
 
 // Tag
 Route::get('/admintag','AdminTagController@index')->name('tag-admin');

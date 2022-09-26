@@ -16,6 +16,7 @@ class Answers extends Migration
         Schema::create('tbl_answers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user_dil');
+            $table->integer('id_status')->default(1);
             $table->integer('id_question');
             $table->text('answer');
             $table->timestamps();

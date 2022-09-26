@@ -28,6 +28,7 @@
                         <th>#</th>
                         <th>Nama</th>
                         <th>Email</th>
+                        <th>Password</th>
                         <th>Level</th>
                         <th>Aksi</th>
                     </tr>
@@ -75,11 +76,23 @@
             {data: 'DT_RowIndex', searchable:false, sortable:false},
             {data: 'name'},
             {data: 'email'},
+            {data: 'password_showed'},
             {data: 'level'},
             {data: 'aksi', searchable:false, sortable:false}
           ]
         });
     } );
+
+    $(document).ready(function () {
+      $("#showPw").on('click', function () {
+        let sandi = $("#passInput");
+        if (sandi.attr('type')==='password'){
+          sandi.attr('type','text');
+        } else {
+          sandi.attr('type','password');
+        }
+      });
+    });
 
     function showDetail(id){
       $('.modal-title').text("Detail");
@@ -91,15 +104,21 @@
           $("#users").text(data[0].name);
           $("#ema").append("<p id='mail' name='email'></p>");
           $("#mail").text(data[0].email);
+          $("#pass").append("<p id='pw' name='pw'></p>");
+          $("#pw").text(data[0].password_showed);
           $("#lev").append("<p id='level' name='level'></p>");
-          $("#level").text(data[0].level);
+          // $("#level").text(data[0].level);
+          if (data[0].level == 1){
+            $("#level").text("User");
+          } else {
+            $("#level").text("Admin");
+          }
           $("#jmlh").append("<p id='jquest' name='jquest'></p>");
           $("#jquest").text(data[0].question);
-
+          
           
         },
       );
-      
     }
 
   function editData(id){
@@ -112,6 +131,7 @@
       function (data) {
         $("input[name='nama']").val(data.name);
         $("input[name='email']").val(data.email);
+        $("input[name='pw']").val(data.password_showed);
       },
     );
 

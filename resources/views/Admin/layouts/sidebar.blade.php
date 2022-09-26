@@ -65,12 +65,27 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="{{ route ('answer-admin') }} " class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon fa-solid fa-comment"></i>
             <p>
               Answer
             </p>
+            <i class="right fas fa-angle-left"></i>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ route ('answer-admin') }}" class="nav-link">
+                <i class="nav-icon fa-solid fa-list"></i>
+                List Answer
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('answer-admin-pending')}}" class="nav-link">
+                <i class="nav-icon fa-solid fa-inbox"></i>
+                Answer Pending
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item">
           <a href="{{ route ('tag-admin') }}" class="nav-link">

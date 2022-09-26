@@ -33,7 +33,7 @@
             <table id="table" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Id</th>
+                        <th>No</th>
                         <th>Nama</th>
                         <th>Pertanyaan</th>
                         <th>Jawaban</th>
@@ -60,27 +60,18 @@
     $(document).ready( function () {
       table =  $('#table').DataTable({
         ajax: {
-                url: 'api/data/admin/answer',/* api route */
+              url: 'api/data/admin/answer',/* api route */
             },
             columns: [
-                {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'name'},/* sesuai di database */
-                {data: 'question'},
-                {data: 'answer'},
-                {data: 'aksi', searchable: false, sortable: false},
+              {data: 'DT_RowIndex', searchable: false, sortable: false},
+              {data: 'name'},/* sesuai di database */
+              {data: 'question'},
+              {data: 'answer'},
+              {data: 'aksi', searchable: false, sortable: false}
             ]
       });
-  } );
+    });
 
-  // function addData(){
-  //   $("#form").attr("url", "api/data/admin/answer/store");
-  //   $('.modal-title').text('Add Answer');
-  //   $('#addAnswer form')[0].reset(); 
-  //   $('#addAnswer').modal('show');
-  //   url = $("#form").attr("url");
-    
-  //   console.log(url); 
-  // }
 
   function deleteData(id){
       alert(id)
@@ -92,9 +83,6 @@
       );
     }
 
-    function editData(id){
-      $('#kelasModal').modal('show');
-    }
   </script>
 
 @endpush

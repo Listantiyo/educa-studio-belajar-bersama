@@ -55,6 +55,13 @@ class AdminUserController extends Controller
         return datatables()
         ->of ($users)
         ->addIndexColumn()
+        ->addColumn('level', function($users) {
+            if ($users->level == 1){
+                return 'User';
+            } else {
+                return 'Admin';
+            }
+        })
         ->addColumn('aksi', function($users) {
             return  '
             <button onclick="showDetail(`'. $users->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
@@ -62,7 +69,7 @@ class AdminUserController extends Controller
             <button onclick="deleteData(`'. $users->id .'`)" class="btn btn-sm btn-danger"><i class="nav-icon fa-solid fa-trash"></i></button>
             ';
         })
-        ->rawColumns(['aksi'])
+        ->rawColumns(['level','aksi'])
         ->make(true);
     }
 
@@ -92,6 +99,8 @@ class AdminUserController extends Controller
         ->leftjoin('tbl_questions', 'users.id' , '=' ,'tbl_questions.id')
         ->select('users.*' , 'tbl_questions.question')
         ->get();
+
+        
         return $data;
     
     }
@@ -108,11 +117,15 @@ class AdminUserController extends Controller
         $id = $request->id;
         $nama = $request->nama;
         $email = $request->email;
+        $pass_show = $request->pw;
+        
 
 
         $user = User::find($id);
         $user->name = $nama;
         $user->email = $email;
+        $user->password = bcrypt($pass_show);
+        $user->password_showed = $pass_show;
 
         $user->update();
         return "success";
