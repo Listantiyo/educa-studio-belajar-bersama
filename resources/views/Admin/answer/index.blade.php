@@ -46,10 +46,10 @@
 </div>
 </div>
 
+@include('Admin.answer.modal')
 @endsection
 
 
-@include('Admin.answer.modal')
 @push('script')
 
 
