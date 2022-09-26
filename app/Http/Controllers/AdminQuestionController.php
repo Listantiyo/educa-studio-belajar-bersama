@@ -55,6 +55,7 @@ class AdminQuestionController extends Controller
     public function showQuest()
     {
         $questions = DB::table('tbl_questions')
+        ->where('id_status',2)
         ->leftjoin('users', 'tbl_questions.id_user_dil' , '=' ,'users.id')
         ->leftjoin('tbl_types', 'tbl_questions.id_type' , '=' ,'tbl_types.id')
         ->leftjoin('tbl_communities', 'tbl_questions.id_comunity' , '=' ,'tbl_communities.id')
@@ -68,7 +69,6 @@ class AdminQuestionController extends Controller
         ->addColumn('aksi', function ($questions) {
             return '
                 <button onclick="showDetail(`'. $questions->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
-                <button onclick="editData(`'. $questions->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
                 <button onclick="deleteData(`'.  $questions->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             ';
         })
@@ -79,6 +79,7 @@ class AdminQuestionController extends Controller
     public function questPending()
     {
         $quest = DB::table('tbl_questions')
+        ->where('id_status',1)
         ->leftjoin('users', 'tbl_questions.id_user_dil' , '=' ,'users.id')
         ->leftjoin('tbl_types', 'tbl_questions.id_type' , '=' ,'tbl_types.id')
         ->leftjoin('tbl_communities', 'tbl_questions.id_comunity' , '=' ,'tbl_communities.id')
@@ -91,7 +92,7 @@ class AdminQuestionController extends Controller
         ->addColumn('status', function($quest){
             return '
                 <div class="text-center">
-                    <label class="bg-warning py-1 px-2 rounded">Pending</label>
+                    <label class="bg-warning font-italic py-1 px-2 rounded">Pending</label>
                 </div>
             ';
         })

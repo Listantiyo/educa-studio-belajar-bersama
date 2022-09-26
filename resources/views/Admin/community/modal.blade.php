@@ -15,8 +15,9 @@
                   <label for="">Community name</label>
                   <input type="text" name="commu" class="form-control" required>
               </div>
-              <div id="append" class="form-group">
+              <div class="form-group">
                 <input type="file" id="file-img" name="image" class="form-control" value="">
+                <img id="gbrmdl" src="">
               </div>
             </div>
           <div class="modal-footer">
@@ -30,7 +31,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="commuDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Detail community</h5>
@@ -41,9 +42,8 @@
       <div class="modal-body">
         <div class="container">
           <div id="gbr">
-            <label>Image :</label>
           </div>
-          <div id="cm">
+          <div class="mt-5" id="cm">
               <label>Community :</label>
           </div>
           <div id="fl">
@@ -55,7 +55,7 @@
   </div>
 </div>
 
-@push('script')
+{{-- @push('script')
 <script>
   var id;
   $('#commuDetail').on('show.bs.modal', function (event) {
@@ -86,4 +86,4 @@ $(document).ready(function () {
   });
 });
 </script>
-@endpush
+@endpush --}}

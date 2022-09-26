@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Communities;
+use App\Community_Followers;
 use Illuminate\Support\Facades\Storage;
 
 class AdminCommunityController extends Controller
@@ -66,6 +67,7 @@ class AdminCommunityController extends Controller
     public function showCommunities()
     {
         $communities = Communities::all();
+        $comm = Community_Followers::all()->count();
 
         return datatables()
         ->of($communities)
@@ -148,7 +150,7 @@ class AdminCommunityController extends Controller
 
         $community = Communities::find($id);
 
-        if ($community->path_img != null){
+        if ($community->path_img == null){
             Storage::disk('public')->delete($community->path_img);
         }
 
@@ -162,7 +164,7 @@ class AdminCommunityController extends Controller
             $community->image = $image;
             $community->path_img = $path;
         } else {
-            $gmbr = null;
+            $image = null;
             $path = null;
         }
         

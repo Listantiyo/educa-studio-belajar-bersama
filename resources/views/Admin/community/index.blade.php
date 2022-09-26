@@ -4,7 +4,7 @@
 
 <style>
   #gbrmdl{
-    max-width: 50%;
+    max-width: 40%;
     height: auto;
     margin-top: 40px;
     display: block;
@@ -13,8 +13,8 @@
   }
 
   #gmbr{
-    max-width: 50%;
-    height: auto;
+    max-width: 40%;
+    max-height: 50%;
     /* margin-top: 40px; */
     display: block;
     margin-right: auto;
@@ -137,9 +137,9 @@
           console.log(data);
           $("#gbr").append("<img id='gmbr' src=''>");
           $("#gmbr").attr('src', 'storage/'+data.path_img);
-          $("#fl").append("<p id='fol'></p>");
+          $("#fl").append("<span id='fol'></span>");
           $("#fol").text(data.followers);
-          $("#cm").append("<p id='com'></p>");
+          $("#cm").append("<span id='com'></span>");
           $("#com").text(data.community);
         },
       );
@@ -158,7 +158,7 @@
     $.get("api/data/admin/commu/edit", {'id':id},
       function (data) {
         $("input[name='commu']").val(data.community);
-        $("#append").append("<img id='gbrmdl' src=''>");
+        // $("#append").append("<img id='gbrmdl' src=''>");
         $("#gbrmdl").attr('src', 'storage/'+data.path_img);
         $("#nameCommu").append("<p id='nama'></p>");
         $("#nama").text(data.community);
@@ -182,12 +182,29 @@
   
 
   function deleteData(id){
+    Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
       $.post("api/data/admin/commu/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
         function (data) {
           // alert(data);
           table.ajax.reload();
         },
-      );
+      ),
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    };
+  });
   }
 
   </script>

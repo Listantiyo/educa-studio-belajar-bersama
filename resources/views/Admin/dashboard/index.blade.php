@@ -86,7 +86,6 @@
           </div>
           <!-- ./col -->
         </div>
-        <input type="checkbox" checked data-toggle="toggle">
         <!-- /.row -->
         <!-- DONUT CHART -->
         <div class="card card-danger">
