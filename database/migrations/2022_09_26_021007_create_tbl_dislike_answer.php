@@ -13,7 +13,7 @@ class CreateTblDislikeAnswer extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_answer_dislike', function (Blueprint $table) {
+        Schema::create('tbl_answer_dislikes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_answer');
             $table->integer('id_quest');
@@ -29,6 +29,6 @@ class CreateTblDislikeAnswer extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_answer_dislike');
+        Schema::dropIfExists('tbl_answer_dislikes');
     }
 }

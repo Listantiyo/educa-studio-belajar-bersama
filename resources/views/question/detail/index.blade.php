@@ -77,7 +77,7 @@
                         $.ajax({
                             type: "get",
                             url: "\\api/answer/show",
-                            data: {id_quest:id_quest},
+                            data: {id_quest:id_quest,id_user:id_user},
                             success: function (rsp) {
                                 // alert(rsp.asnwer)
                                 vues.answer = rsp.answer
@@ -129,18 +129,69 @@
                         
                     },
                     likE(id){
-                        $.get("url", {id:id},
-                            function (rsp) {
-                                
-                            },  
-                        );
+
+                        let id_quest = {{$id}}
+                        let id_user  = {{Auth::id()}}
+                        let type     = 'like'
+
+                        if(!$(".like.answer-link"+id).hasClass('active')) {
+                            $(".answer-link"+id).removeClass("active");
+                            $(".like.answer-link"+id).addClass("active");
+                            $.ajax({
+                                type: "post",
+                                url: "\\api/answer/likedislikestore",
+                                data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
+                                dataType: "json",
+                                success: function (rsp) {
+                                    alert(rsp)
+                                }
+                            });
+                        }else{
+                            type = type+'remove';
+                            $(".like.answer-link"+id).removeClass("active");
+                            $.ajax({
+                                type: "post",
+                                url: "\\api/answer/likedislikestore",
+                                data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
+                                dataType: "json",
+                                success: function (rsp) {
+                                    alert(rsp)
+                                }
+                            });
+                        }
                     },
                     dislikE(id){
-                        $.get("url", {id:id},
-                            function (rsp) {
-                                
-                            },
-                        );
+                        
+                        let id_quest = {{$id}}
+                        let id_user  = {{Auth::id()}}
+                        let type     = 'dislike'
+
+                        if(!$(".dislike.answer-link"+id).hasClass('active')) {
+                            $(".answer-link"+id).removeClass("active");
+                            $(".dislike.answer-link"+id).addClass("active");
+                            
+                            $.ajax({
+                                type: "post",
+                                url: "\\api/answer/likedislikestore",
+                                data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
+                                dataType: "json",
+                                success: function (rsp) {
+                                    alert(rsp)
+                                }
+                            });
+                        }else{
+                            type = type+'remove';
+                            $(".dislike.answer-link"+id).removeClass("active");
+                            $.ajax({
+                                type: "post",
+                                url: "\\api/answer/likedislikestore",
+                                data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
+                                dataType: "json",
+                                success: function (rsp) {
+                                    alert(rsp)
+                                }
+                            });
+                        }
                     }
                 },
             }).mount('#app')
@@ -168,13 +219,13 @@
                     }
                 });
                 // like n dislike
-                $(".like-unlink-count").click(function () {
+                $(".quest-link.like-unlink-count").click(function () {
                     alert()
                 let type = $(this).val();
 
                 if(!$(this).hasClass('active')) {
                     alert(type)
-                    $(".like-unlink-count").removeClass("active");
+                    $(".quest-link.like-unlink-count").removeClass("active");
                     $(this).addClass("active");
                     $.ajax({
                         type: "post",
@@ -188,7 +239,7 @@
                 }else{
                     type = type+'remove';
                     alert(type)
-                    $(".like-unlink-count").removeClass("active");
+                    $(".quest-link.like-unlink-count").removeClass("active");
                     $.ajax({
                         type: "post",
                         url: "\\api/quest/likedislikestore",

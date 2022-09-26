@@ -6,14 +6,14 @@
             </a>
 
             <div class="donet-like-list">
-                <button class="like-unlink-count like" name="like" value="like" >
+                <button class="like-unlink-count quest-link like" name="like" value="like" >
                     <i class="ri-thumb-up-fill"></i>
                     <span>{{$question->like}}</span>
                 </button>
             </div>
 
             <div class="donet-like-list">
-                <button class="like-unlink-count dislike" name="dislike" value="dislike" >
+                <button class="like-unlink-count quest-link dislike" name="dislike" value="dislike" >
                     <i class="ri-thumb-down-fill"></i>
                     <span>{{$question->dislike}}</span>
                 </button>

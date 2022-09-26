@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Answer;
 use App\Question;
 use App\Answer_Comment;
+use App\Dislikes_Answer;
+use App\Likes_Answer;
 use App\Question_Comment;
 
 class AnswerController extends Controller
@@ -40,15 +42,6 @@ class AnswerController extends Controller
                 $answer = DB::table('tbl_answers')->where('id_question',$id)->get(); 
             }
             return response()->json(['answer' => $answer]);
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -86,10 +79,71 @@ class AnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function likedislike(Request $request)
     {
-        //
+        $id = $request->id;
+        $id_user = $request->id_user;
+        $id_quest = $request->id_quest;
 
+        $like = DB::table('tbl_likes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
+            
+        $dislike = DB::table('tbl_dislikes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
+            
+        if ($like > 0) {
+            $disorlike = 'like';
+        }
+        if ($dislike > 0) {
+            $disorlike = 'dislike';
+        }
+        
+        return response()->json($disorlike);
+    }
+
+    public function likedislikestore(Request $request)
+    {
+        $id_answer = $request->id_answer;
+        $id_user = $request->id_user;
+        $id_quest = $request->id_quest;
+        $type = $request->type;
+
+        if ($type === 'like') {
+            // rmdislike
+            DB::table('tbl_answer_dislikes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            // like
+            $like = new Likes_Answer();
+
+            $like->id_answer = $id_answer;
+            $like->id_quest = $id_quest;
+            $like->id_user = $id_user;
+            $like->save();
+        }
+        if ($type === 'dislike') {
+            // rmlike
+            DB::table('tbl_answer_likes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            // dislike
+            $dislike = new Dislikes_Answer();
+
+            $dislike->id_answer = $id_answer;
+            $dislike->id_quest = $id_quest;
+            $dislike->id_user = $id_user;
+            $dislike->save();
+        }
+        if ($type === 'likeremove') {
+            // rmlike
+            DB::table('tbl_answer_likes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+        }
+        if ($type === 'dislikeremove') {
+            // rmdislike
+            DB::table('tbl_answer_dislikes')
+            ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+        }
+        
+        return response()->json("success");
     }
     public function storeComent(Request $request)
     {
