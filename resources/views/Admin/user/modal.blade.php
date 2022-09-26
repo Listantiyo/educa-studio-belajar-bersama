@@ -19,6 +19,11 @@
                 <label>Email :</label>
                 <input type="email" name="email" class="form-control" id="email" required>
             </div>
+            <div class="form-group">
+              <label>Password :</label>
+              <input type="password" name="pw" id="passInput" class="form-control" required>
+              <input type="checkbox" id="showPw"> Show Password
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -46,6 +51,9 @@
           </div>
           <div id="ema">
               <label>Email :</label>
+          </div>
+          <div id="pass">
+            <label>Password :</label>
           </div>
           <div id="lev">
             <label>Level :</label>

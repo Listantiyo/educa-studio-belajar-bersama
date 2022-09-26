@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Question;
 use App\Answer;
 
 class AdminAnswerController extends Controller
@@ -17,6 +18,12 @@ class AdminAnswerController extends Controller
     {
         $answers = Answer::all();
         return view('Admin.answer.index',compact('answers'));
+    }
+
+    public function indexPending()
+    {
+        $answ = Answer::all();
+        return view('Admin.answer.pending',compact('answ'));
     }
 
     /**
@@ -55,14 +62,38 @@ class AdminAnswerController extends Controller
         ->addIndexColumn()
         ->addColumn('aksi', function ($answers) {
             return '
-            <div class="btn-group">
-                <button onclick="detailData(`'. $answers->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-                <button onclick="editData(`'. $answers->id .'`)" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button>
+                <button onclick="detailData(`'. $answers->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
                 <button onclick="deleteData(`'.  $answers->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-            </div>
             ';
         })
         ->rawColumns(['aksi'])
+        ->make(true);
+    }
+
+    public function answerPending()
+    {
+        $answ = DB::table('tbl_answers')
+        ->join('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
+        ->join('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
+        ->select('tbl_answers.*' , 'users.name', 'tbl_questions.question')
+        ->get();
+
+        return datatables()
+        ->of($answ)
+        ->addIndexColumn()
+        ->addColumn('status', function ($answ) {
+            return '
+                <div class="text-center">
+                    <label class="bg-warning font-italic py-1 px-2 rounded">Pending</label>
+                </div>
+            ';
+        })
+        ->addColumn('aksi', function ($answ) {
+            return '
+                <button onclick="detailData(`'. $answ->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
+            ';
+        })
+        ->rawColumns(['status','aksi'])
         ->make(true);
     }
     ///////////////////////////////////////////////
@@ -126,6 +157,6 @@ class AdminAnswerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $answers = Answer::find($id);
     }
 }

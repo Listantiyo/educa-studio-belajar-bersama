@@ -35,8 +35,7 @@
             <table id="table" class="display table table-bordered">
                 <thead class="thead-dark">
                     <tr>
-                        {{-- <th>#</th> --}}
-                        <th>Id</th>
+                        <th>No</th>
                         <th>user</th>
                         <th>Type</th>
                         <th>Community</th>
@@ -68,8 +67,8 @@
           url: 'api/data/admin/quest',
         },
         columns: [
-          // {data: 'DT_RowIndex', searchable:false, sortable:false},
-          {data: 'id'},
+          {data: 'DT_RowIndex', searchable:false, sortable:false},
+          // {data: 'id'},
           {data: 'name'},
           {data: 'nama_type'},
           {data: 'community'},
@@ -89,15 +88,15 @@
       );
     }
 
-    function addData(){
-    $("#form").attr("url", "api/data/admin/quest/store");
-    $('.modal-title').text('Add question');
-    // $('#addQuest form')[0].reset(); 
-    $('#addQuest').modal('show'); 
-    url = $("#form").attr("url");
+    // function addData(){
+    // $("#form").attr("url", "api/data/admin/quest/store");
+    // $('.modal-title').text('Add question');
+    // // $('#addQuest form')[0].reset(); 
+    // $('#addQuest').modal('show'); 
+    // url = $("#form").attr("url");
     
-    console.log(url);
-    }
+    // console.log(url);
+    // }
       
 
     function showDetail(id){
@@ -131,12 +130,12 @@
       
     }
 
-    function editData(id){
-      $('#typesModal').modal('show');
-    }
+    // function editData(id){
+    //   $('#typesModal').modal('show');
+    // }
     
-      $(document).ready( function () {
-        $('#myTable').DataTable();
-    } );  
+    //   $(document).ready( function () {
+    //     $('#myTable').DataTable();
+    // } );  
     </script>
   @endpush

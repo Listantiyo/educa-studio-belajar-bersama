@@ -25,8 +25,7 @@
                 <table id="table" class="display table table-bordered">
                     <thead class="thead-dark">
                         <tr>
-                            {{-- <th>#</th> --}}
-                            <th>Id</th>
+                            <th>No</th>
                             <th>user</th>
                             <th>Type</th>
                             <th>Community</th>
@@ -55,7 +54,7 @@
                 url: 'api/data/admin/quest/pending',
             },
             columns: [
-                {data: 'id'},
+                {data: 'DT_RowIndex', searchable:false, sortable:false},
                 {data: 'name'},
                 {data: 'nama_type'},
                 {data: 'community'},
@@ -100,13 +99,30 @@
     }
 
     function rejected(id){
-        alert(id_status)
-        $.post("api/data/admin/quest/pending/"+id_status,{'_method':'delete'},
-            function (data) {
-                table.ajax.reload();
-                $('#questDetail').modal('hide');
-            },
-        );
+        // alert(id_status)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                $.post("api/data/admin/quest/pending/"+id_status,{'_method':'delete'},
+                    function (data) {
+                        table.ajax.reload();
+                        $('#questDetail').modal('hide');
+                    },
+                ),
+                Swal.fire(
+                'Deleted!',
+                'Question has been deleted.',
+                'success'
+                )
+            }
+            })
     }
     
     $("#acc").submit(function (e) { 
@@ -117,8 +133,9 @@
             url: "api/data/admin/quest/pending/update",
             data: {id_quest:id},
             success: function (rsp) {
+                Swal.fire('Accepted!', '', 'success')
                 table.ajax.reload();
-                alert(rsp)
+                // alert(rsp)
                 $("#questDetail").modal('hide');
             }
         });
