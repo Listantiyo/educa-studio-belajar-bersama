@@ -64,7 +64,7 @@
                                 <a href="user.html">Teresa Klein</a>
                             </li>
                             <li>
-                                <span>Latest Answer: 14 hours ago</span>
+                                <span>@{{quest.created_at}}</span>
                             </li>
                             <li>
                                 <span>In:</span>

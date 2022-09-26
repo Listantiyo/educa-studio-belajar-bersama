@@ -31,7 +31,7 @@
                             <th>Type</th>
                             <th>Community</th>
                             <th>Title</th>
-                            <th>status</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>

@@ -67,7 +67,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="default-btn global-radius">Post your answer</button>
+                <button type="submit" class="default-btn global-radius">Ask your question</button>
             </div>
         </form>
     </div>
