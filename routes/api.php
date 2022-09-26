@@ -71,6 +71,7 @@ Route::get('/data/question','DashboardController@show_question');
 // API Answer
 Route::get('/answer/show','AnswerController@show_answer');
 Route::get('/answer/likedislike','AnswerController@likedislike');
+Route::post('/answer/likedislikestore','AnswerController@likedislikestore');
 Route::post('/answer/store','AnswerController@store');
 Route::post('/data/store/coment','AnswerController@storeComent');
 Route::get('/data/show/coment','AnswerController@showComment');
