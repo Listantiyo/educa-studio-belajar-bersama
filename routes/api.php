@@ -66,6 +66,9 @@ Route::get('most-visited/fillter-community','MostVisitedController@fillter');
 // Route::get('/data/search','XampleController@search');
 
 // API Profile
+
+
+Route::get('/profile/detail','UserProfileController@detailUser');
 Route::get('/data/profile/question','ProfileController@showQuest');
 Route::post('data/profile/update','ProfileController@updateProfile');
 // API Dashboard

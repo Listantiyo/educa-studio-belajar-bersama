@@ -61,6 +61,7 @@ Route::get('/groups/join', 'GroupsController@join')->name('groups-join');
 // User Profile
 Route::get('user-profile', 'UserProfileController@index')->name('user-profile');
 Route::get('user-profile/edit', 'UserProfileController@edit')->name('profile-edit');
+Route::get('user-profile/detail', 'UserProfileController@detail')->name('profile-detail');
 
 // ------------------------------------------------------------
 

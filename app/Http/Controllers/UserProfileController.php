@@ -15,15 +15,19 @@ class UserProfileController extends Controller
     {
         return view('user_profile.index');
     }
+    public function detail()
+    {
+        return view('user_profile.detail');
+    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function detailUser(Request $request)
     {
-        //
+        return "success";
     }
 
     /**

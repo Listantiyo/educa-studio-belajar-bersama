@@ -57,22 +57,13 @@
 
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="activity.html" class="nav-link">Activity</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="referrals.html" class="nav-link">Referrals</a>
+                                    <a href="{{route('profile-detail')}}" class="nav-link">Activity</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="terms-conditions.html" class="nav-link">Terms & Conditions</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="coming-soon.html" class="nav-link">Coming Soon</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="404.html" class="nav-link">404 Page</a>
                                 </li>
                             </ul>
                         </li>
@@ -147,7 +138,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="activity.html">
+                                                <a href="{{route('profile-detail')}}">
                                                     <i class="ri-lightbulb-line"></i>
                                                     Activity
                                                 </a>
