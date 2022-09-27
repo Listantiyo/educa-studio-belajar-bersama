@@ -2,15 +2,7 @@
 
 @section('content')
 
-<style>
-  #gmbr{
-    max-width: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-  }
-</style>
+
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -79,13 +71,28 @@
     });
 
     function deleteData(id){
-      alert(id)
-      $.post("api/data/admin/quest/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
-        function (data) {
-          alert(data);
-          table.ajax.reload();
-        }, 
-      );
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.post("api/data/admin/quest/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+            function (data) {
+              table.ajax.reload();
+            }, 
+          ),
+          Swal.fire(
+            'Deleted!',
+            'Question has been deleted.',
+            'success'
+          )
+        }
+      })
     }
 
     // function addData(){

@@ -203,13 +203,16 @@ class AdminQuestionController extends Controller
     
     public function destroy($id)
     {
-        $questions = Question::find($id);
-
-        if ($questions->path_img != null){
-            Storage::disk('public')->delete($questions->path_img);
-        }
+        // $questions = Question::find($id);
+        $questions = DB::table('tbl_questions')
+            ->leftjoin('tbl_answers','tbl_questions.id','=','tbl_answers.id_question')
+            ->where('tbl_questions.id',$id);
+            DB::table('tbl_answers')->where('id_question',$id)->delete();
+        $quest = Question::find($id)->pluck('path_img');
+            Storage::disk('public')->delete($quest[0]);
+        
         $questions->delete();
         
-        return $id;
+        return $quest;
     }
 }

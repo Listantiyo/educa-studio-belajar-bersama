@@ -52,8 +52,9 @@ class AdminAnswerController extends Controller
     public function showAnswer()
     {    
         $answers = DB::table('tbl_answers')
-        ->join('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
-        ->join('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
+        ->where('tbl_answers.id_status',2)
+        ->leftjoin('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
+        ->leftjoin('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
         ->select('tbl_answers.*' , 'users.name', 'tbl_questions.question')
         ->get();
 
@@ -62,17 +63,32 @@ class AdminAnswerController extends Controller
         ->addIndexColumn()
         ->addColumn('aksi', function ($answers) {
             return '
-                <button onclick="detailData(`'. $answers->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
+                <button onclick="showDetail(`'. $answers->id .'`)" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></button>
                 <button onclick="deleteData(`'.  $answers->id .'`)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             ';
         })
-        ->rawColumns(['aksi'])
+        ->rawColumns(['status','aksi'])
         ->make(true);
+    }
+
+    public function showDetail(Request $request)
+    {
+        $id = $request->id;
+
+        $data = Answer::find($id);
+        $data = DB::table('tbl_answers')
+        ->leftjoin('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
+        ->leftjoin('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
+        ->select('tbl_answers.*' , 'users.name', 'tbl_questions.question')
+        ->get();
+
+        return $data;
     }
 
     public function answerPending()
     {
         $answ = DB::table('tbl_answers')
+        ->where('tbl_answers.id_status',1)
         ->join('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
         ->join('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
         ->select('tbl_answers.*' , 'users.name', 'tbl_questions.question')
@@ -104,15 +120,7 @@ class AdminAnswerController extends Controller
 
     public function innerJoin()
     {
-    
-    $result = DB::table('tbl_answers')
-        ->join('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
-        ->join('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
-        ->select('tbl_answers.*' , 'users.name', 'tbl_questions.question')
-        ->get();
-
-    dd($result);
-
+        //
     }
 
     /**
@@ -144,9 +152,17 @@ class AdminAnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function statusUpdate(Request $request)
     {
-        //
+        $id = $request->id_answer;
+
+        $data = Answer::find($id);
+        if ($data->id_status == 1){
+            $data->id_status = 2;
+        }
+
+        $data->update();
+        return 'success';
     }
 
     /**
@@ -158,5 +174,6 @@ class AdminAnswerController extends Controller
     public function destroy($id)
     {
         $answers = Answer::find($id);
+        $answers->delete();
     }
 }

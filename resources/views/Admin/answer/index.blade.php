@@ -73,15 +73,45 @@
     });
 
 
-  function deleteData(id){
-      alert(id)
-      $.post("api/data/admin/answer/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+  
+    function showDetail(id){
+      $(".modal-title").text("Detail");
+      $("#answerModal").modal('show');
+      $(".modal-footer").hide();
+      $.get("api/data/admin/answer/show",{'id':id},
         function (data) {
-          alert(data);
-          table.ajax.reload();
+          console.log(data);
+          $("#name").text(data[0].name);
+          $("#quest").text(data[0].question);
+          $("#answ").text(data[0].answer);
         },
       );
     }
+
+  function deleteData(id){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $.post("api/data/admin/answer/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}'},
+          function (data) {
+            table.ajax.reload();
+          },
+        ),
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+  }
 
   </script>
 

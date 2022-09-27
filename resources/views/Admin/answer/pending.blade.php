@@ -37,6 +37,7 @@
                             <th>Nama</th>
                             <th>Pertanyaan</th>
                             <th>Jawaban</th>
+                            <th>status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -46,7 +47,7 @@
     </div>
 </div>
     
-    @include('Admin.answer.modal')
+@include('Admin.answer.modal')
         
 @endsection
 
@@ -64,26 +65,73 @@
                     {data: 'name'},/* sesuai di database */
                     {data: 'question'},
                     {data: 'answer'},
+                    {data: 'status'},
                     {data: 'aksi', searchable: false, sortable: false}
                 ]
             });
-        } );
+        });
 
         let id_status;
 
         function detailData(id){
+            alert(id)
             id_status = id;
+            $(".modal-title").text("Detail");
             $("#answerModal").modal('show');
-            $(".modal-header").text("Detail");
-        }
-
-        function rejected(id){
-            alert(id_status)
-            $.post("api/data/admin/answer/"+id_status,{'_method':'delete'}
+            $.get("api/data/admin/answer/show",{'id':id},
                 function (data) {
-                    table.ajax.reload();
+                    console.log(data);
+                    $("#name").text(data[0].name);
+                    $("#quest").text(data[0].question);
+                    $("#answ").text(data[0].answer);
                 },
             );
+        }
+
+        $("#accept").submit(function (e) { 
+            e.preventDefault();
+            // alert(id_status)
+            $.ajax({
+                type: "post",
+                url: "api/data/admin/answer/pending/update",
+                data: {id_answer:id_status},
+                success: function (rsp) {
+                    table.ajax.reload();
+                    $('#answerModal').modal('hide');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Question accepted!',
+                        showConfirmButton: true,
+                        timer: 2000   
+                    })
+                }
+            });
+        });
+
+        function reject(id){
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, reject it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.post("api/data/admin/answer/"+id_status, {'_method':'delete'},
+                            function (data) {
+                                table.ajax.reload();
+                                $('#answerModal').modal('hide');
+                            },
+                        ),
+                        Swal.fire(
+                        'Deleted!',
+                        'Answer has been deleted.',
+                        'success'
+                        )
+                    }
+                })
         }
 </script>
 @endpush

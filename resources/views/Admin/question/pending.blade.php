@@ -107,7 +107,7 @@
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes, reject it!'
             }).then((result) => {
             if (result.isConfirmed) {
                 $.post("api/data/admin/quest/pending/"+id_status,{'_method':'delete'},
@@ -133,7 +133,12 @@
             url: "api/data/admin/quest/pending/update",
             data: {id_quest:id},
             success: function (rsp) {
-                Swal.fire('Accepted!', '', 'success')
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Question accepted!',
+                    showConfirmButton: true,
+                    timer: 2000
+                })
                 table.ajax.reload();
                 // alert(rsp)
                 $("#questDetail").modal('hide');
