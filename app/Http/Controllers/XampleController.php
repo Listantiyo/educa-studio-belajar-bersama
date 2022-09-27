@@ -31,7 +31,10 @@ class XampleController extends Controller
         // $dislike = DB::table('tbl_dislikes')
         // ->where('id_quest',7)->where('id_user',1)->count();
         // $l = DB::table('tbl_likes')->whereRaw('id_user','=',1,'and','id_quest','=',7)->count();
-        // Storage::disk('public')->delete('photos/qGp7Q0rMgnfuA0pNSGsFaBJF4HgplHh4qgUnZTUS.png');
+        // $r = Question::latest()->limit(1)->pluck('path_img');
+        // Storage::disk('public')->delete($r[0]);
+        // return $r;
+        // dd($r);
         // return Storage::files('photos');
         // $id = 1;
         // $kelas = "s";
@@ -181,9 +184,12 @@ class XampleController extends Controller
         // },
 
         // ])->where('id_question',1)->get();
-        $posts = Answer::has('likes','>=',10)->count();
+        // $posts = Answer::has('likes','>=',10)->count();
+        // $posts = Question::pluck('title');
+        $posts = User::find(1)->pluck('password');
+        $postss = $posts[0];
 
-    return $posts;
+    return $postss;
     }
     public function filter(){
         $filc = Classe::all();

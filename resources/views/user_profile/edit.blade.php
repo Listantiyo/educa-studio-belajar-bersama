@@ -35,6 +35,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active edit-profile" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab">
                     <div class="public-information">
+                    <form id="edit-profile-data" class="edeite-content" method="post">
                         <h3>Public information</h3>
 
                         <div class="information d-flex align-items-center">
@@ -50,7 +51,7 @@
                             </div>
                         </div>
 
-                        <form id="edit-profile" class="edeite-content" method="post">
+                        
                             <div class="form-group">
                                 <label>Display name</label>
                                 <input type="text" class="form-control" name="name" id="name">
@@ -62,28 +63,27 @@
                             </div>
 
                             <div class="form-group">
-                                <button class="default-btn">Update</button>
+                                <button type="submit" class="default-btn">Update</button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="tab-pane fade edit-profile" id="change-password" role="tabpanel" aria-labelledby="change-password-tab">
                     <div class="public-information">
                         <h3>Change Email</h3>
 
-                        <form class="edeite-content">
+                        <form id="up-email" class="edeite-content">
                             <div class="form-group email-save">
                                 <label>Email Address</label>
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Rosemary@gmail.com">
-
-                                <button class="default-btn">Save change</button>
+                                <button type="submit"  class="default-btn">Save change</button>
                             </div>
                         </form>
 
                         <h3>Change password</h3>
 
-                        <form class="edeite-content">
+                        <form id="up-pass" class="edeite-content">
                             <div class="form-group">
                                 <label>Current Password</label>
                                 <input type="password" class="form-control" name="password" id="password">
@@ -91,16 +91,16 @@
 
                             <div class="form-group">
                                 <label>New Password</label>
-                                <input type="password" class="form-control" name="new-password" id="new-password">
+                                <input type="password" class="form-control" name="new_password" id="new-password">
                             </div>
 
                             <div class="form-group">
                                 <label>New Password (again)</label>
-                                <input type="password" class="form-control" name="new-password-again" id="new-password-again">
+                                <input type="password" class="form-control" name="new_password_again" id="new-password-again">
                             </div>
 
                             <div class="form-group mb-0">
-                                <button class="default-btn">Save change</button>
+                                <button type="submit" class="default-btn">Save change</button>
                             </div>
                         </form>
                     </div>
@@ -140,6 +140,32 @@
         });
     </script>
     <script>
+            $(document).ready(function () {
+
+
+            $("#edit-profile-data").submit(function (e) { 
+            // alert()
+            e.preventDefault();
+            let id = {{Auth::id()}}
+            let text = $("#txtEditor").Editor("getText"); 
+            let data = new FormData(this)
+            data.append('text', text);
+            data.append('id', id);
+                $.ajax({
+                type: "POST",
+                url: "\\api/data/profile/update",
+                data: data,
+                contentType: false,
+                cache: false,
+                processData:false,
+                    success: function (rsp) {
+                        alert(rsp)
+                    }
+                });
+            }); 
+            });
+    </script>
+    <script>
         const vues = Vue.createApp({
             data() {
                 return {
@@ -148,28 +174,35 @@
             },
             mounted() {
                 $(document).ready(function () {
-                   $("#edit-profile").submit(function (e) { 
-                    e.preventDefault();
-                    let text = $("#txtEditor").Editor("getText"); 
-                    let data = new FormData(this)
-                    data.append('text', text);
-                    $.ajax({
-                    type: "POST",
-                    url: "api/quest/store",
-                    data: data,
-                    contentType: false,
-                    cache: false,
-                    processData:false,
-                    success: function (rsp) {
-                        alert(rsp)
-                        
-                        let url = "{{route('questions')}}"
-                        location.href = url
-                    }
-                });
-                   }); 
+                    let id_user = {{Auth::id()}}
+                    $("#up-email").submit(function (e) { 
+                        e.preventDefault();
+                        let type = 'em'
+                        let data = $(this).serialize();
+                        console.log(data+'&type='+type+'&id='+id_user);
+                        $.post("\\api/data/profile/update",data+'&type='+type+'&id='+id_user,
+                            function (rsp) {
+                                
+                            },
+                            "json"
+                        );
+                    });
+
+                    $("#up-pass").submit(function (e) { 
+                        e.preventDefault();
+                        alert()
+                        let type = 'pw'
+                        let data = $(this).serialize();
+                        console.log(data+'&type='+type+'&id='+id_user);
+                        $.post("\\api/data/profile/update",data+'&type='+type+'&id='+id_user,
+                            function (rsp) {
+                                
+                            },
+                            "json"
+                        );
+                    });
                 });
             },
-        }).mount('app')
+        }).mount('#app')
     </script>
 @endpush

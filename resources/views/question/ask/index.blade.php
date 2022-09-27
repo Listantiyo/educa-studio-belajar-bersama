@@ -122,9 +122,11 @@
             // post data
             $("#ask").submit(function (e) { 
                 e.preventDefault();
+                let id = {{Auth::id()}}
                 let text = $("#txtEditor").Editor("getText"); 
                 let data = new FormData(this)
                 data.append('text', text);
+                data.append('id', id);
                 $.ajax({
                     type: "POST",
                     url: "api/quest/store",

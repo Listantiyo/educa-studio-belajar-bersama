@@ -117,7 +117,7 @@ class QuestionController extends Controller
             
         $quest = new Question();
 
-        $quest->id_user_dil = 1;
+        $quest->id_user_dil = $request->id;
         // $quest->id_user_dil = $request->user_id;
         // $quest->id_type = $request->type;
         $quest->id_comunity = $request->community;

@@ -9,6 +9,7 @@ use App\User_Detail;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -174,9 +175,62 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateProfile(Request $request)
     {
-        //
+        if ($request->type === 'pw') {
+            $password = User::find($request->id);
+            $p = User::find($request->id)->pluck('password');
+            $pass = $p[0];
+            if (Hash::check($request->password,$pass)) {
+                $new_pass = bcrypt($request->new_password);
+                $password->password = $new_pass;
+                $password->password_showed = $request->new_password_again;
+
+                $password->update();
+                return "pass sc";
+
+            }else{
+                return "pass ggl";
+            }
+
+        }elseif ($request->type === 'em') {
+
+            $email = User::find($request->id);
+            $email->email = $request->email;
+            $email->update();
+            return "ema";
+
+        }else {
+            
+            $request->validate([
+                'image' => 'image|mimes:jpeg,png,jpg,gif|max:1024'
+            ]);
+
+            if ($request->hasFile('image')) {
+
+                $name = $request->file('image')->getClientOriginalName();
+                
+                $path = $request->file('image')->store('photos');
+            }else{
+                $name = null;
+                $path = null;
+            }
+                
+            $u_dil = User_Detail::find($request->id);
+            if ($u_dil == null) {
+                $u_dil = new User_Detail();
+            }
+
+            $u_dil->id_user = $request->id;
+            $u_dil->detail = $request->text;
+            $u_dil->image = $name;
+            $u_dil->path_img = $path;
+            
+            $u_dil -> save();
+        };
+    
+
+    return "success";
     }
 
     /**
