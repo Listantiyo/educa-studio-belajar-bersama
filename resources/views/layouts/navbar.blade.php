@@ -135,7 +135,7 @@
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                                             <li>
-                                                <a href="user-profile.html">
+                                                <a href="{{route('user-profile')}}">
                                                     <i class="ri-user-line"></i>
                                                     User profile
                                                 </a>

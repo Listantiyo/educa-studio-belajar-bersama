@@ -181,6 +181,7 @@ class XampleController extends Controller
         // },
 
         // ])->where('id_question',1)->get();
+        $posts = Answer::has('likes','>=',10)->count();
 
     return $posts;
     }

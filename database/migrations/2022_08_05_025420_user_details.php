@@ -16,8 +16,9 @@ class UserDetails extends Migration
         Schema::create('tbl_user_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user');
-            $table->string('gender');
-            $table->string('kelas');
+            $table->text('detail');
+            $table->string('image')->nullable();
+            $table->string('path_img')->nullable();
             $table->timestamps();
         });
     }

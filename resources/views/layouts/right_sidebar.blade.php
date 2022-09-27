@@ -52,7 +52,7 @@
                     </li>
                     <li>
                         <span>Best answers</span>
-                        <span class="count">324</span>
+                        <span class="count">@{{best_answer}}</span>
                     </li>
                     <li>
                         <span>Users</span>

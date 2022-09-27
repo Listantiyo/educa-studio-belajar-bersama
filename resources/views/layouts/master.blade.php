@@ -138,6 +138,7 @@
 						recent_post:'',
 						top_members:'',
 						trending_tags:'',
+						best_answer:'',
 					}
 				},mounted() {
 					$(document).ready(function () {
@@ -154,6 +155,7 @@
 								vus.trending_tags = rsp.trending_tags
 								vus.recent_post = rsp.recent_post
 								vus.count_comment = rsp.count_comment
+								vus.best_answer = rsp.best_answer
 							}
 						});
 					});

@@ -105,6 +105,8 @@ class SidebarController extends Controller
         $trending_tags = Tags::withCount('quest_tags')->having('quest_tags_count','>',0)->orderBy('quest_tags_count','desc')->limit(9)->get();
         // Commnet
         $count_comment = Answer_Comment::count();
+        // Best Answer
+        $best_answer = Answer::has('likes','>=',10)->count();
 
         
         return response()->json([
@@ -117,6 +119,7 @@ class SidebarController extends Controller
             'trending_tags' => $trending_tags,
             'recent_post' => $recent_post,
             'count_comment' => $count_comment,
+            'best_answer' => $best_answer,
         ]);
     }
 
