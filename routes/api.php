@@ -67,7 +67,7 @@ Route::get('most-visited/fillter-community','MostVisitedController@fillter');
 
 // API Profile
 Route::get('/data/profile/question','ProfileController@showQuest');
-Route::post('/data/profile/update','ProfileController@storeProfile');
+Route::post('/data/profile/update','ProfileController@updateProfile');
 // API Dashboard
 Route::post('/data/store','DashboardController@store');
 Route::get('/data/question','DashboardController@show_question');
