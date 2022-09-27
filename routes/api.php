@@ -101,6 +101,9 @@ Route::delete('/data/admin/quest/{id}','AdminQuestionController@destroy');
 // Answer
 Route::get('/data/admin/answer','AdminAnswerController@showAnswer');
 Route::post('/data/admin/edit/answer','AdminAnswerController@editQuest');
+Route::get('/data/admin/answer/show','AdminAnswerController@showDetail');
+Route::get('/data/admin/answer/pending','AdminAnswerController@answerPending');
+Route::post('/data/admin/answer/pending/update','AdminAnswerController@statusUpdate');
 Route::delete('/data/admin/answer/{id}','AdminAnswerController@destroy');
 
 // Tags
