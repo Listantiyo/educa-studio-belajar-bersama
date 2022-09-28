@@ -94,26 +94,6 @@
                                                     <i class="ri-file-copy-line"></i>
                                                 </a>
                                             </li>
-                                            {{-- <li>
-                                                <a href="https://www.facebook.com/" target="_blank">
-                                                    <i class="ri-facebook-fill"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.twitter.com/" target="_blank">
-                                                    <i class="ri-twitter-line"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.linkedin.com/" target="_blank">
-                                                    <i class="ri-linkedin-fill"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.instagram.com/" target="_blank">
-                                                    <i class="ri-instagram-line"></i>
-                                                </a>
-                                            </li> --}}
                                         </ul>
                                     </li>
                                 </ul>

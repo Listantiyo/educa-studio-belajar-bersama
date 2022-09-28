@@ -46,14 +46,14 @@
                         <div class="mt-md-2 mt-sm-4 donet-like-list">
                             <button class="like-unlink-count like">
                                 <i class="ri-thumb-up-fill"></i>
-                                <span>@{{quest.like}}</span>
+                                <span>@{{quest.likes_count}}</span>
                             </button>
                         </div>
 
                         <div class="mt-md-2 mt-sm-3 donet-like-list">
                             <button class="like-unlink-count dislike">
                             <i class="ri-thumb-down-fill"></i>
-                                <span>@{{quest.dislike}}</span>
+                                <span>@{{quest.dislikes_count}}</span>
                             </button>
                         </div>
                     </div>
@@ -61,15 +61,18 @@
                     <div class=" col-9 ps-0 pe-4 flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
-                                <a href="user.html">Teresa Klein</a>
+                                <a href="user.html">@{{quest.user.name}}</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <span>@{{quest.created_at}}</span>
-                            </li>
+                            </li> --}}
                             <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Graphic design
+                                <span>In : </span>
+                                <a v-if="quest.community === null" href="tags.html" class="graphic">
+                                    Public
+                                </a>
+                                <a v-else href class="graphic">
+                                    @{{quest.community.community}}
                                 </a>
                             </li>
                         </ul>
@@ -93,12 +96,12 @@
                             <ul class="anser-list">
                                 <li>
                                     <a href="polls.html">
-                                        50 Vote
+                                        @{{quest.votes_count}} Vote
                                     </a>
                                 </li>
                                 <li>
                                     <a href="most-answered.html">
-                                        2 Answer
+                                        @{{quest.answers_count}} Answer
                                     </a>
                                 </li>
                                 <li>
@@ -119,28 +122,6 @@
                                                         <i class="ri-file-copy-line"></i>
                                                     </a>
                                                 </li>
-                                                {{--
-                                                         <li>
-                                                        <a href="https://www.facebook.com/" target="_blank">
-                                                            <i class="ri-facebook-fill"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.twitter.com/" target="_blank">
-                                                            <i class="ri-twitter-line"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.linkedin.com/" target="_blank">
-                                                            <i class="ri-linkedin-fill"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.instagram.com/" target="_blank">
-                                                            <i class="ri-instagram-line"></i>
-                                                        </a>
-                                                    </li> 
-                                                --}}
                                             </ul>
                                         </li>
                                     </ul>
@@ -182,15 +163,18 @@
                     <div class=" col-9 ps-0 pe-4 flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
-                                <a href="user.html">Teresa Klein</a>
+                                <a href="user.html">@{{questmo.user.name}}</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <span>Latest Answer: 14 hours ago</span>
-                            </li>
+                            </li> --}}
                             <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Graphic design
+                                <span>In : </span>
+                                <a v-if="questmo.community === null" href="tags.html" class="graphic">
+                                    Public
+                                </a>
+                                <a v-else href class="graphic">
+                                    @{{questmo.community.community}}
                                 </a>
                             </li>
                         </ul>
@@ -215,12 +199,12 @@
                             <ul class="anser-list">
                                 <li>
                                     <a href="polls.html">
-                                        24 Vote
+                                        @{{questmo.votes_count}} Vote
                                     </a>
                                 </li>
                                 <li>
                                     <a href="most-answered.html">
-                                        2 Answer
+                                        @{{questmo.answers_count}} Answer
                                     </a>
                                 </li>
                                 <li>
@@ -281,14 +265,14 @@
                         <div class="mt-md-2 mt-sm-4 donet-like-list">
                             <button class="like-unlink-count like">
                                 <i class="ri-thumb-up-fill"></i>
-                                <span>20</span>
+                                <span>@{{questun.likes_count}}</span>
                             </button>
                         </div>
 
                         <div class="mt-md-2 mt-sm-3 donet-like-list">
                             <button class="like-unlink-count dislike">
                             <i class="ri-thumb-down-fill"></i>
-                                <span>25</span>
+                                <span>@{{questun.dislikes_count}}</span>
                             </button>
                         </div>
                     </div>
@@ -296,15 +280,18 @@
                 <div class=" col-9 ps-0 pe-4 flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
-                                <a href="user.html">Teresa Klein</a>
+                                <a href="user.html">@{{questun.user.name}}</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <span>Latest Answer: 14 hours ago</span>
-                            </li>
+                            </li> --}}
                             <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Graphic design
+                                <span>In : </span>
+                                <a v-if="questun.community === null" href="tags.html" class="graphic">
+                                    Public
+                                </a>
+                                <a v-else href class="graphic">
+                                    @{{questun.community.community}}
                                 </a>
                             </li>
                         </ul>
@@ -327,7 +314,7 @@
                             <ul class="anser-list">
                                 <li>
                                     <a href="polls.html">
-                                        20 Vote
+                                        @{{questun.votes_count}} Vote
                                     </a>
                                 </li>
                                 <li>
@@ -348,26 +335,6 @@
                                                         <i class="ri-file-copy-line"></i>
                                                     </a>
                                                 </li>
-                                                {{-- <li>
-                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                        <i class="ri-facebook-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.twitter.com/" target="_blank">
-                                                        <i class="ri-twitter-line"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.linkedin.com/" target="_blank">
-                                                        <i class="ri-linkedin-fill"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://www.instagram.com/" target="_blank">
-                                                        <i class="ri-instagram-line"></i>
-                                                    </a>
-                                                </li> --}}
                                             </ul>
                                         </li>
                                     </ul>
@@ -408,14 +375,14 @@
                         <div class="mt-md-2 mt-sm-4 donet-like-list">
                             <button class="like-unlink-count like">
                                 <i class="ri-thumb-up-fill"></i>
-                                <span>22</span>
+                                <span>@{{questfe.likes_count}}</span>
                             </button>
                         </div>
 
                         <div class="mt-md-2 mt-sm-3 donet-like-list">
                             <button class="like-unlink-count dislike">
                             <i class="ri-thumb-down-fill"></i>
-                                <span>25</span>
+                                <span>@{{questfe.dislikes_count}}</span>
                             </button>
                         </div>
                     </div>
@@ -423,15 +390,18 @@
                     <div class=" col-9 ps-0 pe-4 flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
                         <ul class="graphic-design">
                             <li>
-                                <a href="user.html">Teresa Klein</a>
+                                <a href="user.html">@{{questfe.user.name}}</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <span>Latest Answer: 14 hours ago</span>
-                            </li>
+                            </li> --}}
                             <li>
-                                <span>In:</span>
-                                <a href="tags.html" class="graphic">
-                                    Graphic design
+                                <span>In : </span>
+                                <a v-if="questfe.community === null" href="tags.html" class="graphic">
+                                    Public
+                                </a>
+                                <a v-else href class="graphic">
+                                    @{{questfe.community.community}}
                                 </a>
                             </li>
                         </ul>
@@ -456,12 +426,12 @@
                             <ul class="anser-list">
                                 <li>
                                     <a id="vote" href="polls.html">
-                                        22 Vote
+                                        @{{questfe.votes_count}} Vote
                                     </a>
                                 </li>
                                 <li>
                                     <a href="most-answered.html">
-                                        2 Answer
+                                        @{{questfe.answers_count}} Answer
                                     </a>
                                 </li>
                                 <li>

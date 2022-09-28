@@ -138,16 +138,20 @@ class QuestionController extends Controller
     {
         $id = $request->id;
         if ($id == 1) {
-            $question_all = Question::with('tag')->latest()->get(); 
+            $question_all = Question::with('tag','user','community')
+            ->withCount('likes','dislikes','votes','answers')->latest()->get(); 
         }
         if ($id == 2) {
-            $question_most = Question::with('tag')->latest()->where('id_type',2)->get();    
+            $question_most = Question::with('tag','user','community')
+            ->withCount('votes','answers')->latest()->where('id_type',2)->get();    
         }
         if ($id == 3) {
-            $question_unans = Question::with('tag')->latest()->where('id_type',1)->get();   
+            $question_unans = Question::with('tag','user','community')
+            ->withCount('likes','dislikes','votes','answers')->latest()->where('id_type',1)->get();   
         }
         if ($id == 4) {
-            $question_feature = Question::with('tag')->withCount('likes')->having('likes_count','>', 0)->latest()->get();  
+            $question_feature = Question::with('tag','user','community')
+            ->withCount('likes','dislikes','votes','answers')->having('likes_count','>', 0)->latest()->get();  
         }
 
         return compact('question_all','question_most','question_unans','question_feature','id');
