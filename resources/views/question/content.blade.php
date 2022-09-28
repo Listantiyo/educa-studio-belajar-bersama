@@ -136,18 +136,7 @@
                 </div>
             </div>
 
-            <div class="pagination-area">
-                <a href="all-queations.html" class="next page-numbers">
-                    <i class="ri-arrow-left-line"></i>
-                </a>
-                <span class="page-numbers current" aria-current="page">1</span>
-                <a href="all-queations.html" class="page-numbers">2</a>
-                <a href="all-queations.html" class="page-numbers">3</a>
-                
-                <a href="all-queations.html" class="next page-numbers">
-                    <i class="ri-arrow-right-line"></i>
-                </a>
-            </div>
+            @include('question.pagginate')
         </div>
 
 {{-- most-answered --}}
@@ -239,18 +228,7 @@
                 </div>
             </div>
 
-            <div class="pagination-area">
-                <a href="all-queations.html" class="next page-numbers">
-                    <i class="ri-arrow-left-line"></i>
-                </a>
-                <span class="page-numbers current" aria-current="page">1</span>
-                <a href="all-queations.html" class="page-numbers">2</a>
-                <a href="all-queations.html" class="page-numbers">3</a>
-                
-                <a href="all-queations.html" class="next page-numbers">
-                    <i class="ri-arrow-right-line"></i>
-                </a>
-            </div>
+            @include('question.pagginate')
         </div>
 
 {{-- unanswered-question  --}}
@@ -349,18 +327,7 @@
                 </div>
             </div>
 
-            <div class="pagination-area">
-                <a href="all-queations.html" class="next page-numbers">
-                    <i class="ri-arrow-left-line"></i>
-                </a>
-                <span class="page-numbers current" aria-current="page">1</span>
-                <a href="all-queations.html" class="page-numbers">2</a>
-                <a href="all-queations.html" class="page-numbers">3</a>
-                
-                <a href="all-queations.html" class="next page-numbers">
-                    <i class="ri-arrow-right-line"></i>
-                </a>
-            </div>
+            @include('question.pagginate')
         </div>
 
 {{-- featured-question --}}
@@ -467,18 +434,7 @@
                 <span class="featured">Featured</span>
             </div>
 
-            <div class="pagination-area">
-                <a href="all-queations.html" class="next page-numbers">
-                    <i class="ri-arrow-left-line"></i>
-                </a>
-                <span class="page-numbers current" aria-current="page">1</span>
-                <a href="all-queations.html" class="page-numbers">2</a>
-                <a href="all-queations.html" class="page-numbers">3</a>
-                
-                <a href="all-queations.html" class="next page-numbers">
-                    <i class="ri-arrow-right-line"></i>
-                </a>
-            </div>
+            @include('question.pagginate')
         </div>
     </div>
 </div>

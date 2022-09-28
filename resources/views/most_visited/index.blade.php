@@ -118,7 +118,7 @@
                     alert(urI)
                     setTimeout(async()=>console.log(
                         await window.navigator.clipboard.writeText(urI)), 1000)
-            },
+                },
                 // pagginate button
                 pagginate(url){
                     console.log(url);

@@ -11,7 +11,6 @@ use App\Dislikes;
 use App\Question_Votes;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use Questions;
 
 class QuestionController extends Controller
 {
@@ -71,30 +70,29 @@ class QuestionController extends Controller
         return view('question.ask.index',compact('communities','tags'));
     }
 
-
     public function search(Request $request)
     {
         $data = $request->data;
         $id = $request->id;
-        $quest = DB::table('tbl_questions')->where('title','like','%'.$data.'%')->get();
+        $quest = Question::with('tag','user','community')
+        ->withCount('likes','dislikes','votes','answers')->where('title','like','%'.$data.'%');
 
         $id = $request->id;
         if ($id == 1) {
-            $question_all = $quest;
+            $question_all = $quest->paginate(6);
         }
         if ($id == 2) {
-            $question_most = $quest->where('id_type',2);    
+            $question_most = $quest->where('id_type',2)->paginate(6);    
         }
         if ($id == 3) {
-            $question_unans = $quest->where('id_type',1);   
+            $question_unans = $quest->where('id_type',1)->paginate(6);   
         }
         if ($id == 4) {
-            $question_feature = $quest->where('like','>', 1);  
+            $question_feature = $quest->where('like','>', 1)->paginate(6);  
         }
         
         return compact('question_all','question_most','question_unans','question_feature','id');
     }
-
 
     public function store(Request $request)
     {
@@ -133,30 +131,28 @@ class QuestionController extends Controller
         return "success";
     }
 
-
     public function show(Request $request)
     {
         $id = $request->id;
         if ($id == 1) {
             $question_all = Question::with('tag','user','community')
-            ->withCount('likes','dislikes','votes','answers')->latest()->get(); 
+            ->withCount('likes','dislikes','votes','answers')->latest()->paginate(6); 
         }
         if ($id == 2) {
             $question_most = Question::with('tag','user','community')
-            ->withCount('votes','answers')->latest()->where('id_type',2)->get();    
+            ->withCount('votes','answers')->latest()->where('id_type',2)->paginate(6);    
         }
         if ($id == 3) {
             $question_unans = Question::with('tag','user','community')
-            ->withCount('likes','dislikes','votes','answers')->latest()->where('id_type',1)->get();   
+            ->withCount('likes','dislikes','votes','answers')->latest()->where('id_type',1)->paginate(6);   
         }
         if ($id == 4) {
             $question_feature = Question::with('tag','user','community')
-            ->withCount('likes','dislikes','votes','answers')->having('likes_count','>', 0)->latest()->get();  
+            ->withCount('likes','dislikes','votes','answers')->having('likes_count','>', 0)->latest()->simplePaginate(6);  
         }
 
         return compact('question_all','question_most','question_unans','question_feature','id');
     }
-
 
     public function likedislikevote(Request $request)
     {
@@ -239,62 +235,74 @@ class QuestionController extends Controller
         if ($id == 1) {
 
             if ($id_community == 0) {
-                $question_all = Question::with('tag')
+                $question_all = Question::with('tag','user','community')
+                                ->withCount('likes','dislikes','votes','answers')
                                 ->latest()
-                                ->get(); 
+                                ->paginate(6); 
             }
             if (!$id_community == 0) {
                 
-                $question_all = Question::with('tag')
+                $question_all = Question::with('tag','user','community')
+                                ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_comunity',$id_community)
                                 ->latest()
-                                ->get(); 
+                                ->paginate(6); 
             }
         }
         if ($id == 2) {
             if ($id_community == 0) {
-                $question_most = DB::table('tbl_questions')
+                $question_most = Question::with('tag','user','community')
+                                ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_type',2)
-                                ->get();    
+                                ->paginate(6);    
             }
             if (!$id_community == 0) {
-                $question_most = DB::table('tbl_questions')
+                $question_most = Question::with('tag','user','community')
+                                ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_type',2)
                                 ->where('id_comunity',$id_community)
-                                ->get();    
+                                ->paginate(6);    
             }
         }
         if ($id == 3) {
             if ($id_community == 0) {
-                $question_unans = DB::table('tbl_questions')
+                $question_unans = Question::with('tag','user','community')
+                                ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_type',1)
-                                ->get();   
+                                ->paginate(6);   
             }
             if (!$id_community == 0) {
-                $question_unans = DB::table('tbl_questions')
+                $question_unans = Question::with('tag','user','community')
+                                ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_comunity',$id_community)
                                 ->where('id_type',1)
-                                ->get();   
+                                ->paginate(6);   
             }
         }
         if ($id == 4) {
             if ($id_community == 0) {
-                
+                $question_feature = Question::with('tag','user','community')
+                                ->withCount('likes','dislikes','votes','answers')
+                                ->having('likes_count','>', 0)
+                                ->simplePaginate(6); 
             }
             if (!$id_community == 0) {
+                $question_feature = Question::with('tag','user','community')
+                                ->withCount('likes','dislikes','votes','answers')
+                                ->where('id_comunity',$id_community)
+                                ->having('likes_count','>', 0)
+                                ->simplePaginate(6);  
                 
             }
-            $question_feature = DB::table('tbl_questions')
-                            ->where('id_comunity',$id_community)
-                            ->where('like','>', 1)
-                            ->get();  
+
         }
 
         return compact('question_all','question_most','question_unans','question_feature','id');
     }
 
     public function vote(Request $request)
-    {   $id_user = $request->id_user;
+    {
+        $id_user = $request->id_user;
         $id_quest = $request->id_quest;
         $type = $request->type;
 
@@ -317,7 +325,8 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function quest_vote(){
+    public function quest_vote()
+    {
         $voted = Question::has('votes')->get();
 
         return response()->json([
