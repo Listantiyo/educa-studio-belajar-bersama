@@ -19,6 +19,12 @@ class Tags extends Model
         return $this->belongsToMany(Question::class);
                 
     }
+
+    // public function quest_group()
+    // {
+    //     return $this->belongsToMany(Question::class);
+                
+    // }
     
     public function quest_tags()
     {

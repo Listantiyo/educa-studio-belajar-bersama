@@ -49,6 +49,7 @@ Route::get('community/show/unfollow', 'CommunitiesController@showunfollow');
 Route::get('community/show/search', 'CommunitiesController@search');
 Route::post('community/un_follow', 'CommunitiesController@un_follow');
 // Groups
+Route::get('group/quest/show','GroupsController@show');
 Route::get('group/show/joined', 'GroupsController@showjoin');
 Route::get('group/show/public', 'GroupsController@showunjoin');
 Route::get('group/show/search', 'GroupsController@search');

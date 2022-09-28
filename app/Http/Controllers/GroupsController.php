@@ -7,6 +7,8 @@ use App\Groups;
 use Illuminate\Database\Eloquent\Builder;
 use App\User;
 use App\Group_Followers;
+use App\Question_Groups;
+use App\Tags as AppTags;
 
 class GroupsController extends Controller
 {
@@ -23,6 +25,19 @@ class GroupsController extends Controller
     public function join()
     {
         return view('groups.join.index');
+    }
+
+    public function detail($id)
+    {
+        $detail = Groups::find($id);
+        
+        return view('group_question.index',compact('id','detail'));
+    }
+
+    public function ask($id)
+    {
+        $tags = AppTags::all();
+        return view('group_question.ask.index',compact('id','tags'));
     }
 
     public function showunjoin(Request $request)
@@ -119,9 +134,16 @@ class GroupsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $id = $request->id_group;
+        
+        $question_all = Question_Groups::with('tag','user')
+        ->withCount('likes','dislikes','answers')->where('id_group',$id)->latest()->paginate(6);
+        
+        return $question_all;
+
+        return compact('question_all');
     }
 
     /**

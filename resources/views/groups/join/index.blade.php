@@ -28,9 +28,9 @@
             <input id="searchbar"  type="text" class="form-control" placeholder="Have a question? Ask or enter a search">        
         </form>
 
-        <div class="group-content">
+        <div  class="group-content">
             <div class="row justify-content-center">
-                <div :id="'join'+item.id"  v-for="item in group" type="button"  class="col-xl-6 col-md-6">
+                <div :id="'join'+item.id"  v-for="item in group" @click="goToGroup(item.id)" type="button"  class="col-xl-6 col-md-6">
                     <div class="single-group-box">
                         <div class="group-img">
                             <img src="{{asset('pify/assets/images/group/group-1.jpg')}}" alt="Image">
@@ -120,6 +120,11 @@
                         },
                     );
                     
+                },
+                goToGroup(id){
+                    let url = '/groups/detail/'+id
+                    location.href = url
+                    // alert(url)
                 }
             },
         }).mount('#app')

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Tags;
 use App\Likes;
 use App\Dislikes;
+use App\Question_Groups;
 use App\Question_Votes;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -96,6 +97,7 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
+
         $tags = json_encode($request->input('tag')); /* serialize != unserialize */
         // dd($request->input('tag'));
         
@@ -112,12 +114,28 @@ class QuestionController extends Controller
             $name = null;
             $path = null;
         }
+        
+        if($request->id_group !== null) {
+            # code...
+            $quest_g = new Question_Groups();
+
+            $quest_g->id_user_dil = $request->id;
+            $quest_g->id_group = $request->id_group;
+            $quest_g->title = $request->title;
+            $quest_g->question = $request->text;
+            $quest_g->image = $name;
+            $quest_g->path_img = $path;
             
+            $quest_g -> save();
+
+            $quest_g->quest_tag()->attach($request->tag);
+
+            return "sudec";
+        }
+
         $quest = new Question();
 
         $quest->id_user_dil = $request->id;
-        // $quest->id_user_dil = $request->user_id;
-        // $quest->id_type = $request->type;
         $quest->id_comunity = $request->community;
         $quest->title = $request->title;
         $quest->question = $request->text;

@@ -11,12 +11,16 @@ use App\User_Detail;
 use App\Tags;
 use App\User;
 use App\Answer_Comment;
+use App\Answer_Groups;
 use App\Question_Comment;
 use App\Question_Tags;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Communities;
+use App\Dislike_Groups;
+use App\Like_Groups;
+use App\Question_Groups;
 use App\Question_Votes;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -186,10 +190,14 @@ class XampleController extends Controller
         // ])->where('id_question',1)->get();
         // $posts = Answer::has('likes','>=',10)->count();
         // $posts = Question::pluck('title');
-        $posts = User::find(1)->pluck('password');
-        $postss = $posts[0];
+        // $posts = User::find(1)->pluck('password');
+        // $postss = $posts[0];
+        $posts = Question_Groups::with('tag','user')
+        ->withCount('likes','dislikes','answers')->latest()->paginate(6); 
+        // $posts = Dislike_Groups::all();
 
-    return $postss;
+
+    return $posts;
     }
     public function filter(){
         $filc = Classe::all();

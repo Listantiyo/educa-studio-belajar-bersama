@@ -2,7 +2,7 @@
     <div id="aps" class="right-siderbar">
         
         <div class="right-siderbar-common">
-            <a href="{{route('ask-questions')}}" class="default-btn">
+            <a href="{{route('ask-questions')}}" id="ask-question-n" class="default-btn">
                 Ask a question 
             </a>
         </div>

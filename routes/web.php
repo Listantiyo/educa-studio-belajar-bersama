@@ -58,6 +58,8 @@ Route::get('/faq', 'FaqController@index')->name('faq');
 // Groups
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::get('/groups/join', 'GroupsController@join')->name('groups-join');
+Route::get('/groups/detail/{id}', 'GroupsController@detail')->name('groups-detail');
+Route::get('/groups/ask/{id}', 'GroupsController@ask')->name('groups-ask');
 // User Profile
 Route::get('user-profile', 'UserProfileController@index')->name('user-profile');
 Route::get('user-profile/edit', 'UserProfileController@edit')->name('profile-edit');
