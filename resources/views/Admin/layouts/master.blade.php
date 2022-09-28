@@ -51,6 +51,7 @@
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
+
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
@@ -92,7 +93,8 @@
 <script src="{{asset('Admin/dist/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('Admin/dist/js/sweetalert.js')}}"></script>
 <script src="https://kit.fontawesome.com/7f8292fccf.js" crossorigin="anonymous"></script>
-
+<script>
+</script>
 
 @stack('script')
 </body>

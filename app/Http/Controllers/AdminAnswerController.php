@@ -26,6 +26,14 @@ class AdminAnswerController extends Controller
         return view('Admin.answer.pending',compact('answ'));
     }
 
+    public function countPending()
+    {
+        $apen = DB::table('tbl_answers')
+        ->where('id_status',1)->count();
+
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -75,11 +83,11 @@ class AdminAnswerController extends Controller
     {
         $id = $request->id;
 
-        $data = Answer::find($id);
         $data = DB::table('tbl_answers')
-        ->leftjoin('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
-        ->leftjoin('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
+        ->join('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
+        ->join('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
         ->select('tbl_answers.*' , 'users.name', 'tbl_questions.question')
+        ->where('tbl_answers.id',$id) //filter get id
         ->get();
 
         return $data;

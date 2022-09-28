@@ -27,12 +27,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Comunitty</h1>
+          <h1 class="m-0">Community</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{ route ('admindashboard') }} ">Home</a></li>
-            <li class="breadcrumb-item active">Comunitty</li>
+            <li class="breadcrumb-item active">Community</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -52,7 +52,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>
-                        <th>Comunitty name</th>
+                        <th>Community Name</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -98,7 +98,7 @@
     if (idu != null) {
       input.append('id', idu);
     }
-    console.log(input);
+    // console.log(input);
     $.ajax({
       type: "post",
       url: url,
@@ -107,9 +107,14 @@
       cache: false,
       processData:false,
       success: function (rsp) {
+        Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        ),
         table.ajax.reload(rsp);
-            $('#modalCommunity form')[0].reset();
-            $('#modalCommunity').modal('hide');
+        $('#modalCommunity form')[0].reset();
+        $('#modalCommunity').modal('hide');
       }
     });
     return false;
@@ -132,6 +137,7 @@
   function showDetail(id){
       $('.modal-title').text("Detail");
       $("#commuDetail").modal('show');
+      $('#gmbr').remove();
       $.get("api/data/admin/commu/edit", {'id':id},
         function (data) {
           console.log(data);
@@ -151,14 +157,14 @@
     idu = id
     $("#form").attr("url", "api/data/admin/commu/update");
     $('.modal-title').text('Edit Community');
-    // $("#gbrmdl").remove();
+    $("#gbrmdl").remove();
     $('#modalCommunity').modal('show');
     url = $("#form").attr("url");
     console.log(url);
     $.get("api/data/admin/commu/edit", {'id':id},
       function (data) {
         $("input[name='commu']").val(data.community);
-        // $("#append").append("<img id='gbrmdl' src=''>");
+        $("#append").append("<img id='gbrmdl' src=''>");
         $("#gbrmdl").attr('src', 'storage/'+data.path_img);
         $("#nameCommu").append("<p id='nama'></p>");
         $("#nama").text(data.community);
@@ -200,7 +206,7 @@
       ),
       Swal.fire(
         'Deleted!',
-        'Your file has been deleted.',
+        'Community has been deleted.',
         'success'
       )
     };

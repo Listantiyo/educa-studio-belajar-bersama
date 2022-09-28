@@ -15,7 +15,7 @@
                   <label for="">Community name</label>
                   <input type="text" name="commu" class="form-control" required>
               </div>
-              <div class="form-group">
+              <div class="form-group" id="append">
                 <input type="file" id="file-img" name="image" class="form-control" value="">
                 <img id="gbrmdl" src="">
               </div>
@@ -54,36 +54,3 @@
     </div>
   </div>
 </div>
-
-{{-- @push('script')
-<script>
-  var id;
-  $('#commuDetail').on('show.bs.modal', function (event) {
-
-    console.log('Modal open');
-  var button = $(event.relatedTarget)
-  var title = button.data('title') 
-  var question = button.data('quest')
-  var tags = button.data('tags')
-      id = button.data('id')
-
-  var modal = $(this)
-  modal.find('.modal-body #title').val(title);
-  modal.find('.modal-body #question').val(question);
-  modal.find('.modal-body #tags').val(tags);
-})
-
-$(document).ready(function () {
-  $("#form").submit(function (e) { 
-    e.preventDefault();
-    let inpu = $(this).serialize();
-    $.post("api/adminquestion/update/", inpu+'&id='+id,
-      function (data) {
-        alert(data)
-      },
-    );
-
-  });
-});
-</script>
-@endpush --}}

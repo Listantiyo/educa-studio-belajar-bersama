@@ -100,21 +100,21 @@
       $.get("api/data/admin/user/show", {'id':id},
         function (data) {
           console.log(data);
-          $("#user").append("<p id='users' name='user'></p>");
+          // $("#user").append("<p id='users' name='user'></p>");
           $("#users").text(data[0].name);
-          $("#ema").append("<p id='mail' name='email'></p>");
+          // $("#ema").append("<p id='mail' name='email'></p>");
           $("#mail").text(data[0].email);
-          $("#pass").append("<p id='pw' name='pw'></p>");
+          // $("#pass").append("<p id='pw' name='pw'></p>");
           $("#pw").text(data[0].password_showed);
-          $("#lev").append("<p id='level' name='level'></p>");
+          // $("#lev").append("<p id='level' name='level'></p>");
           // $("#level").text(data[0].level);
           if (data[0].level == 1){
             $("#level").text("User");
           } else {
             $("#level").text("Admin");
           }
-          $("#jmlh").append("<p id='jquest' name='jquest'></p>");
-          $("#jquest").text(data[0].question);
+          // $("#jmlh").append("<p id='jquest' name='jquest'></p>");
+          // $("#jquest").text(data[0].question);
           
           
         },

@@ -12,7 +12,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route ('admindashboard') }} ">Home</a></li>
-                <li class="breadcrumb-item active">Jawaban</li>
+                <li class="breadcrumb-item active">Answer Pending</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -74,7 +74,7 @@
         let id_status;
 
         function detailData(id){
-            alert(id)
+            // alert(id)
             id_status = id;
             $(".modal-title").text("Detail");
             $("#answerModal").modal('show');

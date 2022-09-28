@@ -81,6 +81,23 @@
       }
       $.post(url, input,
         function (rsp) {
+          if (url == "api/data/admin/tag/store"){
+            Swal.fire({
+              icon: 'success',
+              title: 'Add tag success!',
+              showButtonConfirm: 'true',
+              timer: 2000
+
+            })
+          } else {
+            Swal.fire({
+              icon: 'success',
+              title: 'Update tag success!',
+              showButtonConfirm: 'true',
+              timer: 2000
+
+            })
+          }
           table.ajax.reload();
           $('#tagModal form')[0].reset();
           $('#tagModal').modal('hide');

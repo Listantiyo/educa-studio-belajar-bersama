@@ -96,7 +96,7 @@ class AdminUserController extends Controller
         $data = User::find($id);
         $data = DB::table('users')
         ->where('users.id',$id)
-        ->leftjoin('tbl_questions', 'users.id' , '=' ,'tbl_questions.id')
+        ->leftjoin('tbl_questions', 'users.id' , '=' ,'tbl_questions.id_user_dil')
         ->select('users.*' , 'tbl_questions.question')
         ->get();
 
