@@ -16,7 +16,7 @@ class Tags extends Model
 
     public function quest()
     {
-        return $this->belongsToMany(Question::class);
+        return $this->hasMany(Question::class,'id','id_quest');
                 
     }
 

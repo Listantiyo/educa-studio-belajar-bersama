@@ -92,80 +92,69 @@
                 </button>
             </form>
 
-            <div class="education-content">
-                <div class="single-qa-box like-dislike">
-                    <div class="d-flex">
-                        <div class="link-unlike flex-shrink-0">
+            <div class="tab-pane fade show active" id="recent-questions" role="tabpanel" aria-labelledby="recent-questions-tab">
+                <div v-for="quest in quest" class="ps-2 single-qa-box like-dislike">
+                    <div class="p-2 row">
+                        <div class="col-2 pe-md-0 pe-sm-3 link-unlike flex-shrink-0">
                             <a href="user.html">
-                                <img src="assets/images/user/user-2.jpg" alt="Image">
+                                <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
                             </a>
-
-                            <div class="donet-like-list">
-                                <button class="like-unlink-count like">
+    
+                            <div class="mt-md-2 mt-sm-4 donet-like-list">
+                                <button class="like-unlink-count like active">
                                     <i class="ri-thumb-up-fill"></i>
-                                    <span>774</span>
+                                    <span>@{{quest.likes_count}}</span>
                                 </button>
                             </div>
-
-                            <div class="donet-like-list">
-                                <button class="like-unlink-count dislike">
-                                    <i class="ri-thumb-down-fill"></i>
-                                    <span>2</span>
+    
+                            <div class="mt-md-2 mt-sm-3 donet-like-list">
+                                <button class="like-unlink-count dislike active">
+                                <i class="ri-thumb-down-fill"></i>
+                                    <span>@{{quest.dislikes_count}}</span>
                                 </button>
                             </div>
                         </div>
-
-                        <div class="flex-grow-1 ms-3">
+    
+                        <div class=" col-9 ps-0 pe-4 flex-grow-1 ms-3 text-md-justify " style="max-width: 100%">
                             <ul class="graphic-design">
                                 <li>
-                                    <a href="user.html">Adam  Garrison</a>
+                                    <a href="user.html">@{{quest.user.name}}</a>
                                 </li>
-                                <li>
-                                    <span>Latest Answer: 15 hours ago</span>
-                                </li>
-                                <li>
-                                    <span>In:</span>
-                                    <a href="tags.html" class="graphic">
-                                        Programming
+                                {{-- <li>
+                                    <span>@{{quest.created_at}}</span>
+                                </li> --}}
+                            </ul>
+                            
+                            <div>
+                                <h3 style="word-break: break-word;" >
+                                    <a href @click="toAnswer(quest.id)">
+                                        @{{quest.title}}
                                     </a>
-                                </li>
-                            </ul>
-
-                            <h3>
-                                <a href="queations-details.html">
-                                    Teaching high school students various computer systems is a resource for the future
+                                </h3>
+    
+                                <p style="display: inline-block;word-break: break-word;" v-html="quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+'...'"></p>
+                            </div>
+    
+                            <div class="row mb-4 px-3" style="max-width: 100%;">
+                                <a href="" v-for="tag in quest.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                                    <i class="">#@{{tag.tag}}</i>
                                 </a>
-                            </h3>
-
-                            <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus rutrum congue leo eget malesuada tincidunt.</p>
-
-                            <ul class="tag-list">
-                                <li>
-                                    <a href="tags.html">Discussion</a>
-                                </li>
-                                <li>
-                                    <a href="tags.html">Language</a>
-                                </li>
-                                <li>
-                                    <a href="tags.html">Analytics</a>
-                                </li>
-                            </ul>
-
+                            </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <ul class="anser-list">
                                     <li>
                                         <a href="polls.html">
-                                            2 Vote
+                                            @{{quest.votes_count}} Vote
                                         </a>
                                     </li>
                                     <li>
                                         <a href="most-answered.html">
-                                            1 Answer
+                                            @{{quest.answers_count}} Answer
                                         </a>
                                     </li>
                                     <li>
                                         <a href="most-visited.html">
-                                            647 Views
+                                            @{{quest.views}} Views
                                         </a>
                                     </li>
                                     <li>
@@ -177,23 +166,8 @@
                                                 
                                                 <ul class="social-icon">
                                                     <li>
-                                                        <a href="https://www.facebook.com/" target="_blank">
-                                                            <i class="ri-facebook-fill"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.twitter.com/" target="_blank">
-                                                            <i class="ri-twitter-line"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.linkedin.com/" target="_blank">
-                                                            <i class="ri-linkedin-fill"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.instagram.com/" target="_blank">
-                                                            <i class="ri-instagram-line"></i>
+                                                        <a @click="copyPath(quest.id)">
+                                                            <i class="ri-file-copy-line"></i>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -201,27 +175,16 @@
                                         </ul>
                                     </li>
                                 </ul>
-
-                                <a href="most-answered.html" class="default-btn">
+    
+                                <a href="" @click="toAnswer(quest.id)" class="default-btn">
                                     Answer
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="pagination-area">
-                    <a href="education.html" class="next page-numbers">
-                        <i class="ri-arrow-left-line"></i>
-                    </a>
-                    <span class="page-numbers current" aria-current="page">1</span>
-                    <a href="education.html" class="page-numbers">2</a>
-                    <a href="education.html" class="page-numbers">3</a>
-                    
-                    <a href="education.html" class="next page-numbers">
-                        <i class="ri-arrow-right-line"></i>
-                    </a>
-                </div>
+    
+                @include('question.pagginate')
             </div>
         </div>
         
@@ -242,11 +205,18 @@
             data() {
                 return {
                     quest :'',
+                    first_page_url:'',
+                    last_page_url:'',
+                    prev_page_url:'',
+                    next_page_url:'',
+                    last_page:'',
+                    current_page:'',
+                    path:'',
                 }
             },
             mounted() {
-                ajax = $.ajax({
-                        url: "/api/group/quest/show",
+                    $.ajax({
+                        url: "\\api/group/quest/show",
                         data: {id_group:id_group},
                         success: function(rsp){
                             
@@ -268,15 +238,17 @@
             toAnswer(id){
                 $(document).ready(function () {
                     
-                    let url = "{{route('questions-details',':id')}}"
-                    url = url.replace(':id',id)
+                    // let url = "{{url('groups-quest-detail/')}}"+id+"/"+id_group
+                    // url = url.replace(':id',id)
+                    // url = url.replace(':idg',id_group)
+                    var url = "{{ route('groups-quest-detail', ['"+id "','"+id_group"']) }}"
                     alert(url)
                     location.href = url;
                 });
             },
             copyPath(id){
                 alert(id)
-                    let Url = "{{route('questions-details',':id')}}"
+                    let Url = "{{route('groups-quest-detail',':id')}}"
                     urI = Url.replace(':id',id)
                     alert(urI)
                     setTimeout(async()=>console.log(
@@ -353,6 +325,9 @@
                         }
                     })
                 }
+            } 
+            }  
         }).mount('#app')
     </script>
+
 @endpush

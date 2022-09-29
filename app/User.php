@@ -39,4 +39,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(User_Detail::class,'id_user');
     }
+
+    public function tags()
+    {
+        return $this->hasManyThrough(Question::class, Question_Tags::class,'id_quest','id_user_dil','id','id');
+    }
 }

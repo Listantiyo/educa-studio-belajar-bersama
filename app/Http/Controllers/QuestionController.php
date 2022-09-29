@@ -54,7 +54,7 @@ class QuestionController extends Controller
             $question = Question::find($ids);
             $view = Question::find($ids)->pluck('views');
             $views = data_get($view,'0');
-
+            
             $question->views = $views+1;
             $question->update();
             

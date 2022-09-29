@@ -192,9 +192,18 @@ class XampleController extends Controller
         // $posts = Question::pluck('title');
         // $posts = User::find(1)->pluck('password');
         // $postss = $posts[0];
-        $posts = Question_Groups::with('tag','user')
-        ->withCount('likes','dislikes','answers')->latest()->paginate(6); 
+        // $posts = Question_Groups::with('tag','user')
+        // ->withCount('likes','dislikes','answers')->latest()->paginate(6); 
         // $posts = Dislike_Groups::all();
+        // $posts = DB::select(
+        // 'SELECT 
+        // count(tbl_question_tags.id) AS total_tags,tbl_questions.id_user_dil 
+        // FROM tbl_question_tags
+        // LEFT JOIN tbl_questions 
+        // ON tbl_questions.id = tbl_question_tags.id_quest
+        // WHERE tbl_questions.id_user_dil = 1 
+        // GROUP BY tbl_questions.id_user_dil
+        // ');
 
 
     return $posts;

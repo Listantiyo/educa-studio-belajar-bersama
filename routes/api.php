@@ -60,6 +60,9 @@ Route::get('community/show', 'SidebarController@show');
 Route::get('most-visited/show', 'MostVisitedController@show');
 Route::get('most-visited/search','MostVisitedController@search');
 Route::get('most-visited/fillter-community','MostVisitedController@fillter');
+// -------------------------------------------
+Route::get('/group/answer/show','GroupAnswerController@show_answer');
+Route::post('/group/answer/store','GroupAnswerController@store');
 
 // Contact Us 
 Route::post('/contactus/store','ContactUsController@store');

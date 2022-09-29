@@ -49,42 +49,42 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>Answers (0)</h3>
+                            <h3>Answers (@{{count_answer}})</h3>
                             <p>You have not <a href="all-queations.html">answered</a> any questions</p>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>Badges (0)</h3>
+                            <h3>Group (@{{count_group}})</h3>
                             <p>You have no <a href="all-queations.html">badges</a></p>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>Questions (0)</h3>
+                            <h3>Questions (@{{count_quest}})</h3>
                             <p>You have not asked any <a href="all-queations.html">questions</a></p>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>following posts (12)</h3>
-                            <p>You are  <a href="all-queations.html">following 12 posts.</a></p>
+                            <h3>Community (@{{count_commu}})</h3>
+                            <p>You are  <a href="all-queations.html">following 12 communities.</a></p>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>Votes (0)</h3>
+                            <h3>Votes (@{{count_vote}})</h3>
                             <p>You have not cast any <a href="all-queations.html">votes</a></p>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>Tags (0)</h3>
+                            <h3>Tags (@{{count_tag}})</h3>
                             <p>You have not participated in any <a href="all-queations.html">tags</a></p>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>Answers (0)</h3>
+                            <h3>Answers (@{{count_answer}})</h3>
                             <p>You have not <a href="all-queations.html">answered</a> any questions</p>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>Questions (0)</h3>
+                            <h3>Questions (@{{count_quest}})</h3>
                             <p>You have not asked any <a href="all-queations.html">questions</a></p>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>Tags (0)</h3>
+                            <h3>Tags (@{{count_tag}})</h3>
                             <p>You have not participated in any <a href="all-queations.html">tags</a></p>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>following posts (12)</h3>
+                            <h3>Communitiy (@{{count_commu}})</h3>
                             <p>You are  <a href="user-profile.html">following 12 posts.</a></p>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single-summary">
-                            <h3>Votes (0)</h3>
+                            <h3>Votes (@{{count_vote}})</h3>
                             <p>You have not cast any <a href="most-visited.html">votes</a></p>
                         </div>
                     </div>
@@ -159,17 +159,18 @@
     });
 
     let page = 1;
+    let id_user = {{Auth::id()}}
 </script>
 <script>
     const vues = Vue.createApp({
         data() {
             return {
-                user_answer:'',
-                user_quest:'',
-                user_votes:'',
-                user_tags:'',
-                user_answer:'',
-                user_answer:'',
+                count_answer:'',
+                count_quest:'',
+                count_vote:'',
+                count_group:'',
+                count_commu:'',
+                count_tag:'',
             }
         },
         mounted() {
@@ -177,11 +178,16 @@
                 if (page === 1) {
                     $.ajax({
                         type: "get",
-                        url: "url",
-                        data: "data",
+                        url: "\\api/profile/detail",
+                        data: {id_user:id_user},
                         dataType: "json",
                         success: function (rsp) {
-                            
+                            vues.count_answer = rsp.count_answer
+                            vues.count_quest = rsp.count_quest
+                            vues.count_vote = rsp.count_vote
+                            vues.count_group = rsp.count_group
+                            vues.count_commu = rsp.count_commu
+                            vues.count_tag = rsp.count_tag
                         }
                     });
                 }
