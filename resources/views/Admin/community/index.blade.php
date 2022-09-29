@@ -107,14 +107,14 @@
       cache: false,
       processData:false,
       success: function (rsp) {
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        ),
-        table.ajax.reload(rsp);
-        $('#modalCommunity form')[0].reset();
-        $('#modalCommunity').modal('hide');
+          Swal.fire(
+            'Good job!',
+            'You clicked the button!',
+            'success'
+          ),
+          table.ajax.reload(rsp);
+          $('#modalCommunity form')[0].reset();
+          $('#modalCommunity').modal('hide');
       }
     });
     return false;

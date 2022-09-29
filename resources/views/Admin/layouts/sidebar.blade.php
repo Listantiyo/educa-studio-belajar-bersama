@@ -104,14 +104,14 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a href="{{ route ('type-admin') }} " class="nav-link">
             <i class="nav-icon fa-brands fa-typo3"></i>
             <p>
               Type
             </p>
           </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
@@ -128,6 +128,28 @@
               </a>
             </li>
           </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              Group
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ route('group-admin') }}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                List Group
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('admin-contact') }}" class="nav-link">
+            Contact
+          </a>
         </li>
       </ul>
     </nav>

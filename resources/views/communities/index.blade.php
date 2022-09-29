@@ -30,7 +30,7 @@
 
                 <div v-for="item in unfollow" :id="'follow'+item.id" class="col-xl-4 col-sm-6">
                     <div class="single-communities-box">
-                        <img src="assets/images/communities/programing.png" alt="Image">
+                        <img :src="'storage/'+item.path_img" style="width: 200px; height: 100px; object-fit: cover;" alt="Image">
                         <h3>
                             <a href="communities.html">@{{item.community}}</a>
                         </h3>

@@ -60,6 +60,9 @@ Route::get('community/show', 'SidebarController@show');
 Route::get('most-visited/show', 'MostVisitedController@show');
 Route::get('most-visited/search','MostVisitedController@search');
 Route::get('most-visited/fillter-community','MostVisitedController@fillter');
+
+// Contact Us 
+Route::post('/contactus/store','ContactUsController@store');
 // ----------------------------------------------------------
 
 // Route::get('/data/filter','DashboardController@filter');
@@ -147,6 +150,11 @@ Route::post('/data/admin/group/store','AdminGroupController@store');
 Route::get('/data/admin/group/edit','AdminGroupController@dataEdit');
 Route::post('/data/admin/group/update','AdminGroupController@update');
 Route::delete('/data/admin/group/delete/{id}','AdminGroupController@destroy');
+
+// Contact Us
+Route::get('/data/admin/contact','AdminContactUsController@showContact');
+Route::get('/data/admin/contact/show','AdminContactUsController@showDetail');
+Route::delete('/data/admin/contact/{id}','AdminContactUsController@destroy');
 
 
 // Route::post('login', 'API\UserController@login');

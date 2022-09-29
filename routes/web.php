@@ -116,7 +116,10 @@ Route::get('/adminanswerpending','AdminAnswerController@indexPending')->name('an
 Route::get('/admintag','AdminTagController@index')->name('tag-admin');
 
 // Group
-Route::get('admingroup','AdminGroupController@index')->name('group-admin');
+Route::get('/admingroup','AdminGroupController@index')->name('group-admin');
+
+// Contact Us
+Route::get('/admincontact','AdminContactUsController@index')->name('admin-contact');
 
 
 
