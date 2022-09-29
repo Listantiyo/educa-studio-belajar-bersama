@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Dislike_Groups;
 use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Support\Facades\DB;
 use App\Tags;
 use App\Likes;
 use App\Dislikes;
+use App\Like_Groups;
 use App\Question_Groups;
 use App\Question_Votes;
 use Illuminate\Support\Facades\Auth;
@@ -73,8 +75,22 @@ class QuestionController extends Controller
 
     public function search(Request $request)
     {
+
         $data = $request->data;
         $id = $request->id;
+
+        if ($request->ini === 'vote') {
+            # code...
+            $voted = Question::has('votes')->with('tag','user','community')
+            ->withCount('likes','dislikes','votes','answers')
+            ->where('title','like','%'.$data.'%')
+            ->latest()->paginate(6); 
+    
+            return response()->json([
+                'quest_voted' => $voted,
+            ]);
+        }
+
         $quest = Question::with('tag','user','community')
         ->withCount('likes','dislikes','votes','answers')->where('title','like','%'.$data.'%');
 
@@ -114,7 +130,7 @@ class QuestionController extends Controller
             $name = null;
             $path = null;
         }
-        
+        // store qs group
         if($request->id_group !== null) {
             # code...
             $quest_g = new Question_Groups();
@@ -176,32 +192,56 @@ class QuestionController extends Controller
     {
         $id_user = $request->id;
         $id_quest = $request->id_quest;
-
-        $like = DB::table('tbl_likes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
-            
-        $dislike = DB::table('tbl_dislikes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
-
-        $vote = DB::table('tbl_question_votes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
-            
-        if ($like > 0) {
-            $disorlike = 'like';
-        }
-        if ($dislike > 0) {
-            $disorlike = 'dislike';
-        }
-        if ($vote > 0) {
-            $votes = 'vote';
-        }else{
-            $votes = 'unvote';
-        }
         
-        return response()->json([
-            'disorlike' => $disorlike,
-            'votes' => $votes
-        ]);
+        if ($request->ini === 'group') {
+            # code...
+            $like = DB::table('tbl_group_likes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
+                
+            $dislike = DB::table('tbl_group_dislikes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
+
+            if ($like > 0) {
+                $disorlike = 'like';
+            }
+            if ($dislike > 0) {
+                $disorlike = 'dislike';
+            }    
+
+            return response()->json([
+                'disorlike' => $disorlike,
+            ]);
+
+        } else {
+            # code...
+            $like = DB::table('tbl_likes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
+                
+            $dislike = DB::table('tbl_dislikes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
+    
+            $vote = DB::table('tbl_question_votes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->count();
+        
+        
+                
+            if ($like > 0) {
+                $disorlike = 'like';
+            }
+            if ($dislike > 0) {
+                $disorlike = 'dislike';
+            }
+            if ($vote > 0) {
+                $votes = 'vote';
+            }else{
+                $votes = 'unvote';
+            }
+            
+            return response()->json([
+                'disorlike' => $disorlike,
+                'votes' => $votes
+            ]);
+        }
     }
 
     public function likedislikestore(Request $request)
@@ -212,10 +252,24 @@ class QuestionController extends Controller
 
         if ($type === 'like') {
             // rmdislike
-            DB::table('tbl_dislikes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            if ($request->ini === 'group') {
+                # code...
+                DB::table('tbl_group_dislikes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            } else {
+                # code...
+                DB::table('tbl_dislikes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            }
+            
             // like
-            $like = new Likes();
+            if ($request->ini === 'group') {
+                # code...
+                $like = new Like_Groups();
+            }else {
+                # code...
+                $like = new Likes();
+            }
 
             $like->id_quest = $id_quest;
             $like->id_user = $id_user;
@@ -223,10 +277,23 @@ class QuestionController extends Controller
         }
         if ($type === 'dislike') {
             // rmlike
-            DB::table('tbl_likes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            if ($request->ini === 'group') {
+                # code...
+                DB::table('tbl_group_likes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            }else {
+                # code...
+                DB::table('tbl_likes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            }
             // dislike
-            $dislike = new Dislikes();
+            if ($request->ini === 'group') {
+                # code...
+                $dislike = new Dislike_Groups();
+            }else {
+                # code...
+                $dislike = new Dislikes();
+            }
 
             $dislike->id_quest = $id_quest;
             $dislike->id_user = $id_user;
@@ -234,13 +301,27 @@ class QuestionController extends Controller
         }
         if ($type === 'likeremove') {
             // rmlike
-            DB::table('tbl_likes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            if ($request->ini === 'group') {
+                # code...
+                DB::table('tbl_group_likes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            }else {
+                # code...
+                DB::table('tbl_likes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            }
         }
         if ($type === 'dislikeremove') {
             // rmdislike
-            DB::table('tbl_dislikes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            if ($request->ini === 'group') {
+                # code...
+                DB::table('tbl_group_dislikes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            }else {
+                # code...
+                DB::table('tbl_dislikes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->delete();
+            }
         }
         
         return response()->json("success");
@@ -345,7 +426,8 @@ class QuestionController extends Controller
 
     public function quest_vote()
     {
-        $voted = Question::has('votes')->get();
+        $voted = Question::has('votes')->with('tag','user','community')
+        ->withCount('likes','dislikes','votes','answers')->latest()->paginate(6); 
 
         return response()->json([
             'quest_voted' => $voted,

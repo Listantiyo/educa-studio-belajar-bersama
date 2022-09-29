@@ -40,16 +40,15 @@ class GroupsController extends Controller
         return view('group_question.ask.index',compact('id','tags'));
     }
 
-    public function detailQuest($ids,$idg)
+    public function detailQuest($ids)
     {
-        return $idg;
         $id = $ids;
         $question = Question_Groups::find($ids);
         $view = Question_Groups::find($ids)->pluck('views');
         $views = data_get($view,'0');
         $question->views = $views+1;
         $question->update();
-        return view('group_question.detail.index',compact('question','id','idg'));
+        return view('group_question.detail.index',compact('question','id'));
     }
 
     public function showunjoin(Request $request)

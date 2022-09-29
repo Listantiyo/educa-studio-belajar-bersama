@@ -86,12 +86,26 @@
                             }
                         });
 
+                        // addAsnwer
+                        $("#answer-form").submit(function (e) { 
+                            e.preventDefault();
+                            let text = $("#txtEditor").Editor("getText"); 
+                            $.post("\\api/group/answer/store", {text:text,id_quest:id_quest,id_user:id_user},
+                                function (rsp) {
+                                    // alert()
+                                    console.log(rsp);
+                                    vues.answer = rsp.answer
+                                },
+                            );
+                        });
+
                         $("#reply-form").submit(function (e) { 
                             e.preventDefault();
                             let data = $("#reply-form input").val();
+                            let ini  = 'group';
                             $.post("\\api/data/store/coment", 
                                 
-                                {id_answer:id_answer,comment:data,id_quest:id_quest,id:id_user},
+                                {id_answer:id_answer,comment:data,id_quest:id_quest,id:id_user,ini:ini},
 
                                 function (rsp) {
                                     vues.comment = rsp
@@ -104,10 +118,11 @@
                         $("#fillter-answer").change(function (e) { 
                             e.preventDefault();
                             let jumlah = $(this).val();
+                            let ini = 'group';
                              $.ajax({
                                 type: "get",
                                 url: "\\api/answer/show",
-                                data: {id_quest:id_quest,jumlah:jumlah,id_user:id_user},
+                                data: {id_quest:id_quest,jumlah:jumlah,id_user:id_user,ini:ini},
                                 success: function (rsp) {
                                     // alert(rsp.asnwer)
                                     vues.answer = rsp.answer
@@ -115,14 +130,14 @@
                             });
                         });
 
-                        $("#kk").click(function () { 
-                            alert()
-                        });
                     });
                 },methods: {
                     repLy(id){
-                        id_answer = id
-                        $.get("\\api/data/show/coment", {id_answer:id,id_quest:id_quest},
+                        let id_quest    = {{$id}}
+                        id_answer       = id
+                        let ini         = 'group';
+
+                        $.get("\\api/data/show/coment", {id_answer:id,id_quest:id_quest,ini:ini},
                             function (rsp) {
                                 vues.comment = rsp
                             },
@@ -135,6 +150,7 @@
                         let id_quest = {{$id}}
                         let id_user  = {{Auth::id()}}
                         let type     = 'like'
+                        let ini      = 'group';
 
                         if(!$(".like.answer-link"+id).hasClass('active')) {
                             $(".answer-link"+id).removeClass("active");
@@ -142,7 +158,7 @@
                             $.ajax({
                                 type: "post",
                                 url: "\\api/answer/likedislikestore",
-                                data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
+                                data: {id_user:id_user,id_quest:id_quest,ini:ini,'type':type,'id_answer':id},
                                 dataType: "json",
                                 success: function (rsp) {
                                     alert(rsp)
@@ -154,7 +170,7 @@
                             $.ajax({
                                 type: "post",
                                 url: "\\api/answer/likedislikestore",
-                                data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
+                                data: {id_user:id_user,id_quest:id_quest,ini:ini,'type':type,'id_answer':id},
                                 dataType: "json",
                                 success: function (rsp) {
                                     alert(rsp)
@@ -167,6 +183,7 @@
                         let id_quest = {{$id}}
                         let id_user  = {{Auth::id()}}
                         let type     = 'dislike'
+                        let ini      = 'group';
 
                         if(!$(".dislike.answer-link"+id).hasClass('active')) {
                             $(".answer-link"+id).removeClass("active");
@@ -175,7 +192,7 @@
                             $.ajax({
                                 type: "post",
                                 url: "\\api/answer/likedislikestore",
-                                data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
+                                data: {id_user:id_user,id_quest:id_quest,ini:ini,'type':type,'id_answer':id},
                                 dataType: "json",
                                 success: function (rsp) {
                                     alert(rsp)
@@ -187,7 +204,7 @@
                             $.ajax({
                                 type: "post",
                                 url: "\\api/answer/likedislikestore",
-                                data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
+                                data: {id_user:id_user,id_quest:id_quest,ini:ini,'type':type,'id_answer':id},
                                 dataType: "json",
                                 success: function (rsp) {
                                     alert(rsp)
@@ -205,10 +222,11 @@
                 // load like
                 let id_quest = {{$id}}
                 let id_user = {{Auth::id()}}
+                let ini = 'group';
                 alert(id_quest)
                 $.ajax({
                     type: "get",
-                    data: {id:id_user,id_quest:id_quest},
+                    data: {id:id_user,id_quest:id_quest,ini:ini},
                     url: "\\api/quest/likedislike",
                     success: function (rsp) {
                         // alert(rsp)
@@ -229,6 +247,7 @@
                 $(".quest-link.like-unlink-count").click(function () {
                     alert()
                 let type = $(this).val();
+                let ini = 'group';
 
                 if(!$(this).hasClass('active')) {
                     alert(type)
@@ -237,7 +256,7 @@
                     $.ajax({
                         type: "post",
                         url: "\\api/quest/likedislikestore",
-                        data: {id:id_user,id_quest:id_quest,'type':type},
+                        data: {id:id_user,id_quest:id_quest,ini:ini,'type':type},
                         dataType: "json",
                         success: function (rsp) {
                             alert(rsp)
@@ -250,7 +269,7 @@
                     $.ajax({
                         type: "post",
                         url: "\\api/quest/likedislikestore",
-                        data: {id:id_user,id_quest:id_quest,'type':type},
+                        data: {id:id_user,id_quest:id_quest,ini:ini,'type':type},
                         dataType: "json",
                         success: function (rsp) {
                             alert(rsp)
@@ -260,64 +279,12 @@
             });
             });
         </script>
-{{-- vote --}}
-        <script>
-            $("#votes").click(function (e) { 
-                e.preventDefault();
-                let id_quest = {{$id}}
-                let id_user = {{Auth::id()}}
-                
-                if ($(this).hasClass('bg-warning')) {
-                    $(this).removeClass('bg-warning');
-                    $(this).addClass('bg-info');
-                    $("#flag").remove();
-                    let type = 'unvote'
-                    $.ajax({
-                        type: "post",
-                        url: "\\api/quest/vote",
-                        data: {id_quest:id_quest,id_user:id_user,type:type},
-                        dataType: "json",
-                        success: function (rsp) {
-                            alert(rsp.vote)
-                        }
-                    });
-
-                }else{
-
-                    $(this).removeClass('bg-info');
-                    $(this).addClass('bg-warning');
-                    $(this).append('<i id="flag" class="ri-flag-2-fill" style="font-size:12px;"></i>');
-                    let type = 'vote'
-                    $.ajax({
-                        type: "post",
-                        url: "\\api/quest/vote",
-                        data: {id_quest:id_quest,id_user:id_user,type:type},
-                        dataType: "json",
-                        success: function (rsp) {
-                            alert(rsp.vote)
-                        }
-                    });
-                }
-
-                
-
-            });
-        </script>
-{{-- post answer --}}
+{{-- post answer
         <script>
             let id_quest = {{$id}}
             let id_user = {{Auth::id()}}
-            // addAsnwer
-            $("#answer-form").submit(function (e) { 
-                e.preventDefault();
-                let text = $("#txtEditor").Editor("getText"); 
-                $.post("\\api/group/answer/store", {text:text,id_quest:id_quest,id_user:id_user},
-                    function (rsp) {
-                        alert(rsp.answer)
-                    },
-                );
-            });
-        </script>
+
+        </script> --}}
 @endauth
 
 @endpush

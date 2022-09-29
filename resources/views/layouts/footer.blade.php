@@ -4,7 +4,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-footer-widget style-two">
                     <a href="index.html">
-                        <img src="assets/images/logo.png" alt="Image">
+                        <img src="{{asset('pify/assets/images/logo.png')}}" alt="Image">
                     </a>
 
                     <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit tortor eget felis porttitor volutpat. Pellentesque in ipsum id orci porta dapibus.</p>
@@ -97,7 +97,7 @@
         </div>
     </div>
     <div class="footer-shape">
-        <img src="assets/images/footer-shape.png" alt="Image">
+        <img src="{{asset('pify/assets/images/footer-shape.png')}}" alt="Image">
     </div>
 </div>
 
@@ -109,7 +109,7 @@
                     <p>© Pify is Proudly Owned by <a href="https://envytheme.com/" target="_blank">EnvyTheme.com</a></p>
                 </div>
                 <div class="col-lg-6 col-md-4">
-                    <div class="language">
+                    {{-- <div class="language">
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Language</option>
                             <option value="1">English</option>
@@ -117,7 +117,7 @@
                             <option value="3">Germany</option>
                         </select>
                         <i class="ri-global-line"></i>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('question.index');
 });
@@ -71,25 +73,17 @@ Route::get('user-profile/detail', 'UserProfileController@detail')->name('profile
 
 // ------------------------------------------------------------
 
-Route::get('/profile/edit', 'ProfileController@editShow')->name('edit.profile');
-Route::get('/profile', 'ProfileController@index')->name('profile');
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-Route::get('/answer/{id}','AnswerController@index')->name('answer');
-Route::get('/quest/{data}','AnswerController@goToquest')->name('answer.search');
-
-Auth::routes();
+// Route::get('/profile/edit', 'ProfileController@editShow')->name('edit.profile');
+// Route::get('/profile', 'ProfileController@index')->name('profile');
+// Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+// Route::get('/answer/{id}','AnswerController@index')->name('answer');
+// Route::get('/quest/{data}','AnswerController@goToquest')->name('answer.search');
 
 Route::get('/home', 'AuthController@index')->name('home');
 
 // ADMIN
 Route::get('/admindashboard','AdminDashboardController@index')->name('admindashboard');
 Route::get('/adminquestion','AdminQuestionController@index')->name('adminquest');
-
-// // Kelas
-// Route::get('/adminkelas','AdminKelasController@index')->name('kelas');
-
-// // Mapel
-// Route::get('/adminmapel','AdminMapelController@index')->name('matapelajaran');
 
 // Category
 Route::get('/admincategory','AdminCategoryController@index')->name('category-admin');
@@ -123,32 +117,5 @@ Route::get('/admincontact','AdminContactUsController@index')->name('admin-contac
 
 
 
-
-// // cek join
-// Route::get('/cek-join', function () {
-    
-//     $result = DB::table('tbl_answers')
-//         ->join('users', 'tbl_answers.id_user_dil' , '=' ,'users.id')
-//         ->join('tbl_questions', 'tbl_answers.id_question' , '=' ,'tbl_questions.id')
-//         ->select('tbl_answers.*' , 'users.name', 'tbl_questions.question')
-//         ->get();
-
-//     dd($result);
-
-// });
-
-
-
-// cek join quest
-Route::get('/cek-join-quest', function () {
-    
-    $result = DB::table('users')
-    ->leftjoin('tbl_questions', 'users.id' , '=' ,'tbl_questions.id')
-    ->select('users.*' , 'tbl_questions.question')
-    ->get();
-
-    dd($result);
-
-});
 
 

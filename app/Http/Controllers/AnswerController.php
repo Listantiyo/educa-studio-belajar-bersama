@@ -7,9 +7,14 @@ use Illuminate\Support\Facades\DB;
 use App\Answer;
 use App\Question;
 use App\Answer_Comment;
+use App\Answer_Commment_Groups;
+use App\Answer_Groups;
+use App\Dislike_Answer_Groups;
 use App\Dislikes_Answer;
+use App\Like_Answer_Groups;
 use App\Likes_Answer;
 use App\Question_Comment;
+use PhpParser\Node\Stmt\If_;
 
 class AnswerController extends Controller
 {
@@ -38,29 +43,63 @@ class AnswerController extends Controller
             $jumlah = $request->jumlah;
 
             if ($jumlah > 0) {
-                $answer = Answer::with('user')->withCount(['dislikes','likes',
-
-                'likes as load_like' => function ($query) use ($id_user) {
-                    $query->where('id_user',$id_user);
-                },
-
-                'dislikes as load_dislike' => function ($query) use ($id_user) {
-                    $query->where('id_user',$id_user);
-                },
-
-                ])->where('id_question',$id)->limit($jumlah)->get();
+                if ($request->ini === 'group') {
+                    # code...
+                    $answer = Answer_Groups::with('user')->withCount(['dislikes','likes',
+    
+                    'likes as load_like' => function ($query) use ($id_user) {
+                        $query->where('id_user',$id_user);
+                    },
+    
+                    'dislikes as load_dislike' => function ($query) use ($id_user) {
+                        $query->where('id_user',$id_user);
+                    },
+    
+                    ])->where('id_question',$id)->limit($jumlah)->get();
+                } else {
+                    # code...
+                    $answer = Answer::with('user')->withCount(['dislikes','likes',
+    
+                    'likes as load_like' => function ($query) use ($id_user) {
+                        $query->where('id_user',$id_user);
+                    },
+    
+                    'dislikes as load_dislike' => function ($query) use ($id_user) {
+                        $query->where('id_user',$id_user);
+                    },
+    
+                    ])->where('id_question',$id)->limit($jumlah)->get();
+                }
+                
             }else{
-                $answer = Answer::with('user')->withCount(['dislikes','likes',
-
-                'likes as load_like' => function ($query) use ($id_user) {
-                    $query->where('id_user',$id_user);
-                },
-
-                'dislikes as load_dislike' => function ($query) use ($id_user) {
-                    $query->where('id_user',$id_user);
-                },
-
-                ])->where('id_question',$id)->get();
+                if ($request->ini === 'group') {
+                    # code...
+                    $answer = Answer_Groups::with('user')->withCount(['dislikes','likes',
+    
+                    'likes as load_like' => function ($query) use ($id_user) {
+                        $query->where('id_user',$id_user);
+                    },
+    
+                    'dislikes as load_dislike' => function ($query) use ($id_user) {
+                        $query->where('id_user',$id_user);
+                    },
+    
+                    ])->where('id_question',$id)->get();
+                } else {
+                    # code...
+                    
+                    $answer = Answer::with('user')->withCount(['dislikes','likes',
+    
+                    'likes as load_like' => function ($query) use ($id_user) {
+                        $query->where('id_user',$id_user);
+                    },
+    
+                    'dislikes as load_dislike' => function ($query) use ($id_user) {
+                        $query->where('id_user',$id_user);
+                    },
+    
+                    ])->where('id_question',$id)->get();
+                }
             }
             return response()->json(['answer' => $answer]);
     }
@@ -131,10 +170,25 @@ class AnswerController extends Controller
 
         if ($type === 'like') {
             // rmdislike
-            DB::table('tbl_answer_dislikes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            if ($request->ini === 'group') {
+                # code...
+                DB::table('tbl_group_answer_dislikes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            } else {
+                # code...
+                DB::table('tbl_answer_dislikes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            }
+            
             // like
-            $like = new Likes_Answer();
+            if ($request->ini === 'group') {
+                # code...
+                $like = new Like_Answer_Groups();
+            } else {
+                # code...
+                $like = new Likes_Answer();
+            }
+            
 
             $like->id_answer = $id_answer;
             $like->id_quest = $id_quest;
@@ -143,10 +197,25 @@ class AnswerController extends Controller
         }
         if ($type === 'dislike') {
             // rmlike
-            DB::table('tbl_answer_likes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            if ($request->ini === 'group') {
+                # code...
+                DB::table('tbl_group_answer_likes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            } else {
+                # code...
+                DB::table('tbl_answer_likes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            }
+            
             // dislike
-            $dislike = new Dislikes_Answer();
+            if ($request->ini === 'group') {
+                # code...
+                $dislike = new Dislike_Answer_Groups();
+            } else {
+                # code...
+                $dislike = new Dislikes_Answer();
+            }
+            
 
             $dislike->id_answer = $id_answer;
             $dislike->id_quest = $id_quest;
@@ -155,13 +224,29 @@ class AnswerController extends Controller
         }
         if ($type === 'likeremove') {
             // rmlike
-            DB::table('tbl_answer_likes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            if ($request->ini === 'group') {
+                # code...
+                DB::table('tbl_group_answer_likes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            } else {
+                # code...
+                DB::table('tbl_answer_likes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            }
+            
         }
         if ($type === 'dislikeremove') {
             // rmdislike
-            DB::table('tbl_answer_dislikes')
-            ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            if ($request->ini === 'group') {
+                # code...
+                DB::table('tbl_group_answer_dislikes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            } else {
+                # code...
+                DB::table('tbl_answer_dislikes')
+                ->where('id_quest',$id_quest)->where('id_user',$id_user)->where('id_answer',$id_answer)->delete();
+            }
+            
         }
         
         return response()->json("success");
@@ -191,7 +276,14 @@ class AnswerController extends Controller
         //     // return ;
 
         // }else{
-            $ans_comment = new Answer_Comment();
+            if ($request->ini === 'group') {
+                # code...
+                $ans_comment = new Answer_Commment_Groups();
+            } else {
+                # code...
+                $ans_comment = new Answer_Comment();
+            }
+            
     
             $ans_comment->id_user = $id_user;
             $ans_comment->id_question = $id_quest;
@@ -200,7 +292,14 @@ class AnswerController extends Controller
     
             $ans_comment->save();
     
-            $comment = Answer_Comment::with('user')->where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+            if ($request->ini === 'group') {
+                # code...
+                $comment = Answer_Commment_Groups::with('user')->where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+            } else {
+                # code...
+                $comment = Answer_Comment::with('user')->where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+            }
+            
             
             
             return $comment ;
@@ -208,24 +307,6 @@ class AnswerController extends Controller
         // }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function showComment(Request $request)
     {
         // $id_user = $request->id_user;
@@ -238,7 +319,14 @@ class AnswerController extends Controller
         //     return  compact('cek','comment');
         // } else {
             # code...
-            $comment = Answer_Comment::with('user')->where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+            if ($request->ini === 'group') {
+                # code...
+                $comment = Answer_Commment_Groups::with('user')->where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+            } else {
+                # code...
+                $comment = Answer_Comment::with('user')->where('id_answer',$id_answer)->where('id_question',$id_quest)->get();
+            }
+            
             // $cek = "two";
             return $comment;
         // }

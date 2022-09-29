@@ -45,6 +45,7 @@ class GroupAnswerController extends Controller
 
     public function store(Request $request)
     {   
+        $id_user = $request->id_user;
         $id = $request->id_quest;
         $answer = new Answer_Groups();
         $quest = Question_Groups::find($id);
@@ -63,6 +64,18 @@ class GroupAnswerController extends Controller
         $quest->id_type = 2;
 
         $quest->save();        
-        return response()->json(['answer'=> $input_answer]);
+
+        $answer_show = Answer_Groups::with('user')->withCount(['dislikes','likes',
+
+        'likes as load_like' => function ($query) use ($id_user) {
+            $query->where('id_user',$id_user);
+        },
+
+        'dislikes as load_dislike' => function ($query) use ($id_user) {
+            $query->where('id_user',$id_user);
+        },
+
+        ])->where('id_question',$id)->get();
+        return response()->json(['answer'=> $answer_show]);
     }
 }

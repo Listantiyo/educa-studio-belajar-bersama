@@ -83,7 +83,6 @@
                     Education
                 </li>
             </ul>
-
             <form class="aq-form">
                 <i class="ri-search-line"></i>
                 <input type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
@@ -143,11 +142,6 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <ul class="anser-list">
                                     <li>
-                                        <a href="polls.html">
-                                            @{{quest.votes_count}} Vote
-                                        </a>
-                                    </li>
-                                    <li>
                                         <a href="most-answered.html">
                                             @{{quest.answers_count}} Answer
                                         </a>
@@ -183,7 +177,7 @@
                         </div>
                     </div>
                 </div>
-    
+                
                 @include('question.pagginate')
             </div>
         </div>
@@ -237,13 +231,12 @@
             methods: {
             toAnswer(id){
                 $(document).ready(function () {
+                
                     
-                    // let url = "{{url('groups-quest-detail/')}}"+id+"/"+id_group
-                    // url = url.replace(':id',id)
-                    // url = url.replace(':idg',id_group)
-                    var url = "{{ route('groups-quest-detail', ['"+id "','"+id_group"']) }}"
-                    alert(url)
-                    location.href = url;
+                    let Url = "{{route('groups-quest-detail',':id')}}"
+                    Url = Url.replace(':id',id)
+
+                    location.href = Url;
                 });
             },
             copyPath(id){
