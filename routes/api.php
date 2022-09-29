@@ -140,6 +140,12 @@ Route::delete('data/admin/type/delete/{id}','AdminTypeController@destroy');
 Route::get('/data/admin/kelas','AdminKelasController@showKelas');
 Route::delete('/data/admin/kelas/{id}','AdminKelasController@destroy');
 
+// Group
+Route::get('/data/admin/group','AdminGroupController@showGroup');
+Route::post('/data/admin/group/store','AdminGroupController@store');
+Route::get('/data/admin/group/edit','AdminGroupController@dataEdit');
+Route::post('/data/admin/group/update','AdminGroupController@update');
+
 
 // Route::post('login', 'API\UserController@login');
 // Route::post('register', 'API\UserController@register');

@@ -111,6 +111,9 @@ Route::get('/adminanswerpending','AdminAnswerController@indexPending')->name('an
 // Tag
 Route::get('/admintag','AdminTagController@index')->name('tag-admin');
 
+// Group
+Route::get('admingroup','AdminGroupController@index')->name('group-admin');
+
 
 
 
