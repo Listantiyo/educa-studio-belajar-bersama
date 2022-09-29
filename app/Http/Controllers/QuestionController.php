@@ -81,7 +81,7 @@ class QuestionController extends Controller
 
         if ($request->ini === 'vote') {
             # code...
-            $voted = Question::has('votes')->with('tag','user','community')
+            $voted = Question::has('votes')->with('tag','user','community','user_detail')
             ->withCount('likes','dislikes','votes','answers')
             ->where('title','like','%'.$data.'%')
             ->latest()->paginate(6); 
@@ -91,7 +91,7 @@ class QuestionController extends Controller
             ]);
         }
 
-        $quest = Question::with('tag','user','community')
+        $quest = Question::with('tag','user','community','user_detail')
         ->withCount('likes','dislikes','votes','answers')->where('title','like','%'.$data.'%');
 
         $id = $request->id;
@@ -169,19 +169,19 @@ class QuestionController extends Controller
     {
         $id = $request->id;
         if ($id == 1) {
-            $question_all = Question::with('tag','user','community')
+            $question_all = Question::with('tag','user','community','user_detail')
             ->withCount('likes','dislikes','votes','answers')->latest()->paginate(6); 
         }
         if ($id == 2) {
-            $question_most = Question::with('tag','user','community')
+            $question_most = Question::with('tag','user','community','user_detail')
             ->withCount('votes','answers')->latest()->where('id_type',2)->paginate(6);    
         }
         if ($id == 3) {
-            $question_unans = Question::with('tag','user','community')
+            $question_unans = Question::with('tag','user','community','user_detail')
             ->withCount('likes','dislikes','votes','answers')->latest()->where('id_type',1)->paginate(6);   
         }
         if ($id == 4) {
-            $question_feature = Question::with('tag','user','community')
+            $question_feature = Question::with('tag','user','community','user_detail')
             ->withCount('likes','dislikes','votes','answers')->having('likes_count','>', 0)->latest()->simplePaginate(6);  
         }
 
@@ -334,14 +334,14 @@ class QuestionController extends Controller
         if ($id == 1) {
 
             if ($id_community == 0) {
-                $question_all = Question::with('tag','user','community')
+                $question_all = Question::with('tag','user','community','user_detail')
                                 ->withCount('likes','dislikes','votes','answers')
                                 ->latest()
                                 ->paginate(6); 
             }
             if (!$id_community == 0) {
                 
-                $question_all = Question::with('tag','user','community')
+                $question_all = Question::with('tag','user','community','user_detail')
                                 ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_comunity',$id_community)
                                 ->latest()
@@ -350,13 +350,13 @@ class QuestionController extends Controller
         }
         if ($id == 2) {
             if ($id_community == 0) {
-                $question_most = Question::with('tag','user','community')
+                $question_most = Question::with('tag','user','community','user_detail')
                                 ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_type',2)
                                 ->paginate(6);    
             }
             if (!$id_community == 0) {
-                $question_most = Question::with('tag','user','community')
+                $question_most = Question::with('tag','user','community','user_detail')
                                 ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_type',2)
                                 ->where('id_comunity',$id_community)
@@ -365,13 +365,13 @@ class QuestionController extends Controller
         }
         if ($id == 3) {
             if ($id_community == 0) {
-                $question_unans = Question::with('tag','user','community')
+                $question_unans = Question::with('tag','user','community','user_detail')
                                 ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_type',1)
                                 ->paginate(6);   
             }
             if (!$id_community == 0) {
-                $question_unans = Question::with('tag','user','community')
+                $question_unans = Question::with('tag','user','community','user_detail')
                                 ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_comunity',$id_community)
                                 ->where('id_type',1)
@@ -380,13 +380,13 @@ class QuestionController extends Controller
         }
         if ($id == 4) {
             if ($id_community == 0) {
-                $question_feature = Question::with('tag','user','community')
+                $question_feature = Question::with('tag','user','community','user_detail')
                                 ->withCount('likes','dislikes','votes','answers')
                                 ->having('likes_count','>', 0)
                                 ->simplePaginate(6); 
             }
             if (!$id_community == 0) {
-                $question_feature = Question::with('tag','user','community')
+                $question_feature = Question::with('tag','user','community','user_detail')
                                 ->withCount('likes','dislikes','votes','answers')
                                 ->where('id_comunity',$id_community)
                                 ->having('likes_count','>', 0)
@@ -426,7 +426,7 @@ class QuestionController extends Controller
 
     public function quest_vote()
     {
-        $voted = Question::has('votes')->with('tag','user','community')
+        $voted = Question::has('votes')->with('tag','user','community','user_detail')
         ->withCount('likes','dislikes','votes','answers')->latest()->paginate(6); 
 
         return response()->json([

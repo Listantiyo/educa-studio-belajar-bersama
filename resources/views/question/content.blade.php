@@ -39,8 +39,12 @@
             <div v-for="quest in quest" class="ps-2 single-qa-box like-dislike">
                 <div class="p-2 row">
                     <div class="col-2 pe-md-0 pe-sm-3 link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+
+                        <a v-if="quest.user_detail === null" href="{{route('user-profile')}}">
+                            <img style="max-width: 55px; height:55px;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                        </a>
+                        <a v-else  href="{{route('user-profile')}}">
+                            <img style="max-width: 55px; height:55px;" class="mb-3 px-0" :src="'storage/'+quest.user_detail.path_img" alt="oi">
                         </a>
 
                         <div class="mt-md-2 mt-sm-4 donet-like-list">
@@ -144,8 +148,11 @@
             <div v-for="questmo in quest_most" class="ps-2 single-qa-box like-dislike">
                 <div class="p-2 row">
                     <div class="col-2 pe-md-0 pe-sm-3  link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                        <a v-if="questmo.user_detail === null" href="{{route('user-profile')}}">
+                            <img style="max-width: 55px; height:55px;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                        </a>
+                        <a v-else  href="{{route('user-profile')}}">
+                            <img style="max-width: 55px; height:55px;" class="mb-3 px-0" :src="'storage/'+questmo.user_detail.path_img" alt="oi">
                         </a>
                     </div>
 
@@ -236,8 +243,11 @@
             <div v-for="questun in quest_unans" class="ps-2 single-qa-box like-dislike">
                 <div class="p-2 row">
                     <div class="col-2 pe-md-0 pe-sm-3  link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                        <a v-if="questun.user_detail === null" href="{{route('user-profile')}}">
+                            <img style="max-width: 55px; height:55px;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                        </a>
+                        <a v-else  href="{{route('user-profile')}}">
+                            <img style="max-width: 55px; height:55px;" class="mb-3 px-0" :src="'storage/'+questun.user_detail.path_img" alt="oi">
                         </a>
 
                         <div class="mt-md-2 mt-sm-4 donet-like-list">
@@ -335,8 +345,11 @@
             <div v-for="questfe in quest_featur" class="ps-2 single-qa-box like-dislike">
                 <div class="p-2 row">
                     <div class="col-2 pe-md-0 pe-sm-3  link-unlike flex-shrink-0">
-                        <a href="user.html">
-                            <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                        <a v-if="questfe.user_detail === null" href="{{route('user-profile')}}">
+                            <img style="max-width: 55px; height:55px;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                        </a>
+                        <a v-else  href="{{route('user-profile')}}">
+                            <img style="max-width: 55px; height:55px;" class="mb-3 px-0" :src="'storage/'+questfe.user_detail.path_img" alt="oi">
                         </a>
 
                         <div class="mt-md-2 mt-sm-4 donet-like-list">

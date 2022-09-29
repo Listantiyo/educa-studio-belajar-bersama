@@ -46,4 +46,8 @@ class Question extends Model
     {
         return $this->hasOne(Communities::class,'id','id_comunity');
     }
+    public function user_detail()
+    {
+        return $this->hasOne(User_Detail::class,'id_user','id');
+    }
 }

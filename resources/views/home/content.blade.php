@@ -37,8 +37,11 @@
             <div v-for="quest in quest" class="single-qa-box like-dislike">
                 <div class="d-flex">
                     <div class="link-unlike flex-shrink-0">
-                        <a href="user.html">
+                        {{-- <a v-if="quest.user_detail != null" href="user.html">
                             <img src="{{asset('pify/assets/images/user/user-1.jpg')}}" alt="Image">
+                        </a> --}}
+                        <a {{-- v-else --}}  href="user.html">
+                            <img class="mb-3 px-0" :src="item.user_detail.path_img" alt="oi">
                         </a>
 
                         <div class="donet-like-list">
