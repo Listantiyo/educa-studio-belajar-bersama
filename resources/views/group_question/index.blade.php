@@ -229,17 +229,130 @@
 
 @push('scripts')
     <script>
+        $("#side-community").remove();
         let id_group = {{$id}}
         let url = '/groups/ask/'+id_group
         $("#ask-question-n").attr("href",url);
+        function scrollToTop() {
+        window.scrollTo(0, 0);
+        }
     </script>
     <script>
         const vues = Vue.createApp({
             data() {
                 return {
-                    
+                    quest :'',
                 }
             },
+            mounted() {
+                ajax = $.ajax({
+                        url: "/api/group/quest/show",
+                        data: {id_group:id_group},
+                        success: function(rsp){
+                            
+                            vues.id = rsp.id ;
+                            
+                            vues.quest = rsp.data ;
+                            vues.first_page_url = rsp.first_page_url
+                            vues.last_page_url = rsp.last_page_url
+                            vues.last_page = rsp.last_page
+                            vues.prev_page_url = rsp.prev_page_url
+                            vues.next_page_url = rsp.next_page_url
+                            vues.current_page = rsp.current_page
+                            vues.path = rsp.path
+                            
+                        }
+                     }); 
+            },
+            methods: {
+            toAnswer(id){
+                $(document).ready(function () {
+                    
+                    let url = "{{route('questions-details',':id')}}"
+                    url = url.replace(':id',id)
+                    alert(url)
+                    location.href = url;
+                });
+            },
+            copyPath(id){
+                alert(id)
+                    let Url = "{{route('questions-details',':id')}}"
+                    urI = Url.replace(':id',id)
+                    alert(urI)
+                    setTimeout(async()=>console.log(
+                        await window.navigator.clipboard.writeText(urI)), 1000)
+            },
+            // pagginate button
+            pagginate(url){
+                console.log(url);
+                let type = vues.id
+                $.ajax({
+                    type: "GET",
+                    contentType: "application/json",
+                    data:{id:type},
+                    dataType: "json",
+                    url: url,
+                    success: function (rsp) {
+                        console.log(rsp);   
+
+                            vues.id = rsp.id ;
+
+                            if (rsp.id === '1') {
+                            vues.quest = rsp.question_all.data ;
+                            vues.first_page_url = rsp.question_all.first_page_url
+                            vues.last_page_url = rsp.question_all.last_page_url
+                            vues.last_page = rsp.question_all.last_page
+                            vues.prev_page_url = rsp.question_all.prev_page_url
+                            vues.next_page_url = rsp.question_all.next_page_url
+                            vues.current_page = rsp.question_all.current_page
+                            vues.path = rsp.question_all.path
+                        }
+                    }
+                })
+            },
+            // search-pagginate
+            searchPagginate(url){
+                var url = url+'?page='
+                let num = $("#search-pagginate").val();
+                let type = vues.id
+                console.log(url);
+
+                if (num == '') {
+
+                    $("#search-pagginate").val(null);
+                    alert("please input number of page")
+
+                }else if(num > vues.last_page){
+
+                    $("#search-pagginate").val(null);
+                    alert("your input out of range, the last page is " + vues.last_page)
+
+                }else{                    
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json",
+                        data:{id:type},
+                        dataType: "json",
+                        url: url+num,
+                        success: function (rsp) {
+                            scrollToTop() 
+                            console.log(rsp);   
+
+                            vues.id = rsp.id ;
+
+                            if (rsp.id === '1') {
+                            vues.quest = rsp.question_all.data ;
+                            vues.first_page_url = rsp.question_all.first_page_url
+                            vues.last_page_url = rsp.question_all.last_page_url
+                            vues.last_page = rsp.question_all.last_page
+                            vues.prev_page_url = rsp.question_all.prev_page_url
+                            vues.next_page_url = rsp.question_all.next_page_url
+                            vues.current_page = rsp.question_all.current_page
+                            vues.path = rsp.question_all.path
+                            }
+                        }
+                    })
+                }
         }).mount('#app')
     </script>
 @endpush
