@@ -227,6 +227,10 @@ class ProfileController extends Controller
             $u_dil->path_img = $path;
             
             $u_dil -> save();
+
+            $user = User::find($request->id);
+            $user->name = $request->name;
+            $user->save();
         };
     
 

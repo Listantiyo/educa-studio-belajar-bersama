@@ -4,17 +4,17 @@
 <div class="edit-profile-area">
         <div class="profile-content d-flex justify-content-between align-items-center">
             <div class="profile-img">
-                <img src="assets/images/user/profile-img.jpg" alt="Image">
+                <img src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
                 <h3>Rosemary Hamm</h3>
                 <span>Member since 1 years ago</span>
                 <span>Last seen this week</span>
                 <button class="followers-btn">45 Followers</button>
                 <button class="followers-btn">12 Following</button>
             </div>
-
+{{-- 
             <div class="edit-btn">
                 <a href="edit-profile.html" class="default-btn">Edit profile</a>
-            </div>
+            </div> --}}
         </div>
 
         <div class="profile-tabs">
@@ -39,10 +39,10 @@
                         <h3>Public information</h3>
 
                         <div class="information d-flex align-items-center">
-                            <img src="assets/images/user/profile-img.jpg" alt="Image">
+                            <img id="imgPreview-profile" src="https://www.asiantelegraphqatar.com/wp-content/uploads/2016/10/default-placeholder-1024x1024-400x280.png" style="max-width:20%; max-height:20%;object-fit: fill;" alt="Image">
                             
                             <div class="file-upload-account-info">
-                                <input type="file" name="file" id="file-profile-upload" class="inputfile">
+                                <input type="file" name="image" id="file-profile-upload" class="inputfile">
                                 <label onclick="$('#file-profile-upload').trigger('click')" class="upload">
                                     <i class="ri-link"></i>
                                     Upload Photo
@@ -137,6 +137,22 @@
             $("#app").removeClass("col-lg-6");
             $("#app").addClass("col-lg-9");
             $("#aside").remove();        
+        });
+    </script>
+    {{-- img preview --}}
+    <script>
+        $(document).ready(() => {
+            $("#file-profile-upload").change(function () {
+                const file = this.files[0];
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function (event) {
+                        $("#imgPreview-profile")
+                        .attr("src", event.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
         });
     </script>
     <script>

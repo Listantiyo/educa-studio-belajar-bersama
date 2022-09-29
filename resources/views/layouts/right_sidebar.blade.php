@@ -31,7 +31,7 @@
 
                 <ul v-for="item in top_discus">
                     <li>
-                        <a href="most-answered.html">
+                        <a style="word-wrap:break-word" href="most-answered.html">
                             @{{item.title}}
                         </a>
                     </li>
@@ -79,7 +79,7 @@
 
                 <ul v-for="item in recent_post">
                     <li>
-                        <a href="most-answered.html">
+                        <a style="display: inline-block;word-break: break-word;" href="">
                             @{{item.title}}
                         </a>
                         <p>8 hours ago by <a href>@{{item.user.name}}</a></p>
@@ -98,7 +98,7 @@
                 <ul>
                     <li v-for="item in top_members">
                         <a href="groups.html">
-                            <img src="assets/images/user/user-8.jpg" alt="Image">
+                            <img src="{{asset('pify/assets/images/user/user.jpeg')}}" style="max-width:20%; max-height:100%;object-fit: fill;" alt="Image">
                             <p>@{{item.name}}</p>
                             <span>@{{item.total_qs}} Questions</span>
                         </a>

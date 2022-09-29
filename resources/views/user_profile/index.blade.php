@@ -1,22 +1,28 @@
 @extends('layouts.master')
 
 @section('content')
+
 <div class="user-profile-area">
-    <div class="profile-content d-flex justify-content-between align-items-center">
-        <div class="profile-img">
-            <img src="assets/images/user/profile-img.jpg" alt="Image">
-            <h3>Rosemary Hamm</h3>
-            <span>Member since 1 years ago</span>
-            <span>Last seen this week</span>
-            <button class="followers-btn">45 Followers</button>
-            <button class="followers-btn">12 Following</button>
+@foreach ($user_detail as $item) 
+        <div class="profile-content d-flex justify-content-between align-items-center" style="margin-bottom: 10%;">
+            <div class="profile-img pt-5">
+                @if ($item->user_detail->path_img === null)
+                    <img src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                @else
+                    <img class="mb-3 px-0" src="{{asset('storage/'.$item->user_detail->path_img)}}" alt="{{$item->user_detail->image}}">
+                @endif
+                <h3>{{$item->name}}</h3>
+                {{-- <span>Member since 1 years ago</span>
+                <span>Last seen this week</span> --}}
+                <button class="followers-btn mt-4">45 Followers</button>
+                <button class="followers-btn">12 Following</button>
+            </div>
+    
+            <div class="edit-btn">
+                <a href="{{route('profile-edit')}}" class="default-btn">Edit profile</a>
+            </div>
         </div>
-
-        <div class="edit-btn">
-            <a href="{{route('profile-edit')}}" class="default-btn">Edit profile</a>
-        </div>
-    </div>
-
+@endforeach
     <div class="profile-achive">
         <div class="row">
             <div class="col-xl-3 col-sm-6">
@@ -56,7 +62,7 @@
         <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Sed porttitor lectus nibh. Proin eget tortor risus blandit aliquet elit, eget tincidunt nibh.</p>
     </div>
 
-    <div class="badges">
+    {{-- <div class="badges">
         <h3>Badges</h3>
 
         <div class="row justify-content-center">
@@ -92,9 +98,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <div class="top-tags">
+    <div class="top-tags mt-5">
         <div class="tag-title d-flex justify-content-between">
             <h3>Top tags</h3>
             <a href="tags.html" class="read-more">View all tags</a>

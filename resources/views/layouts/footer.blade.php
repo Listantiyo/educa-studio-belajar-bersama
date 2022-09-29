@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-2 col-sm-6">
+            {{-- <div class="col-lg-2 col-sm-6">
                 <div class="single-footer-widget style-two">
                     <h3>Follow us</h3>
 
@@ -72,7 +72,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="col-lg-3 col-sm-6">
                 <div class="single-footer-widget style-two">

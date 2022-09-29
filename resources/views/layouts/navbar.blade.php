@@ -71,7 +71,7 @@
 
                     <div class="others-options">
                         <ul>
-                            <li>
+                            <li style="visibility:hidden ;">
                                 <form class="search-box">
                                     <input type="text" name="Search" placeholder="Search for..." class="form-control">
                             
@@ -83,18 +83,19 @@
 
                             @auth
                                 <li>
-                                    <a href="faq.html" class="user-noti">
+                                    <a href="{{route('faq')}}" class="user-noti">
                                         <i class="ri-question-line"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <div class="dropdown">
                                         <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="user-notif">
-                                            <i class="ri-notification-3-fill"></i>
-                                            <span>3</span>
+                                            {{-- <i class="ri-notification-3-fill"></i> --}}
+                                            <i class="ri-user-settings-fill"></i>
+                                            {{-- <span>3</span> --}}
                                         </button>
                                         <ul class="dropdown-menu notif" aria-labelledby="dropdownMenuButton1">
-                                            <li>
+                                            {{-- <li>
                                                 <a href="user-profile.html">
                                                     <i class="ri-mail-line"></i>
                                                     Check your mail
@@ -107,13 +108,13 @@
                                                     Check your skype
                                                 </a>
                                                 <p>Lorem, ipsum dolor sit amet</p>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <a href="user-profile.html">
+                                                <a href="{{route('profile-edit')}}">
                                                     <i class="ri-refresh-line"></i>
                                                     Update your profile
                                                 </a>
-                                                <p>Lorem, ipsum dolor sit amet</p>
+                                                {{-- <p>Lorem, ipsum dolor sit amet</p> --}}
                                             </li>
                                         </ul>
                                     </div>
@@ -121,7 +122,7 @@
                                 <li>
                                     <div class="dropdown">
                                         <button type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <img src="assets/images/user/user-48.jpg" alt="Image">
+                                            <img src="{{asset('pify/assets/images/user/user.jpeg')}}" style="  width: 40px;object-fit: contain;" alt="Image">
                                             <span href="#">{{ Auth::user()->name }}</span>
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
@@ -144,29 +145,29 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="user-groups.html">
+                                                <a href="{{route('groups-join')}}">
                                                     <i class="ri-group-line"></i>
                                                     Group
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="user-ask-questions.html">
+                                                <a href="{{route('ask-questions')}}">
                                                     <i class="ri-questionnaire-line"></i>
                                                     Ask questions
                                                 </a>
                                             </li>
-                                            <li>
+                                            {{-- <li>
                                                 <a href="best-answered.html">
                                                     <i class="ri-question-answer-line"></i>
                                                     Best Answers
                                                 </a>
-                                            </li>
-                                            <li>
+                                            </li> --}}
+                                            {{-- <li>
                                                 <a href="referrals.html">
                                                     <i class="ri-restart-line"></i>
                                                     Referrals
                                                 </a>
-                                            </li>
+                                            </li> --}}
                                             <li>
                                                 <a href="" onclick="event.preventDefault(); $('#logout').submit();">
                                                     <i class="ri-logout-box-r-line"></i>

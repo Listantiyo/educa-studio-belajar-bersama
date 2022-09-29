@@ -44,14 +44,14 @@
                         </a>
 
                         <div class="mt-md-2 mt-sm-4 donet-like-list">
-                            <button class="like-unlink-count like">
+                            <button class="like-unlink-count like active">
                                 <i class="ri-thumb-up-fill"></i>
                                 <span>@{{quest.likes_count}}</span>
                             </button>
                         </div>
 
                         <div class="mt-md-2 mt-sm-3 donet-like-list">
-                            <button class="like-unlink-count dislike">
+                            <button class="like-unlink-count dislike active">
                             <i class="ri-thumb-down-fill"></i>
                                 <span>@{{quest.dislikes_count}}</span>
                             </button>
@@ -78,13 +78,13 @@
                         </ul>
                         
                         <div>
-                            <h3 style="word-wrap:break-word" >
+                            <h3 style="word-break: break-word;" >
                                 <a href @click="toAnswer(quest.id)">
                                     @{{quest.title}}
                                 </a>
                             </h3>
 
-                            <p style="word-wrap:break-word" v-html="quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+'...'"></p>
+                            <p style="display: inline-block;word-break: break-word;" v-html="quest.question.length < 100 ? quest.question : quest.question.substring(0,250)+'...'"></p>
                         </div>
 
                         <div class="row mb-4 px-3" style="max-width: 100%;">

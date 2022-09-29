@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserProfileController extends Controller
@@ -13,7 +14,10 @@ class UserProfileController extends Controller
      */
     public function index()
     {
-        return view('user_profile.index');
+        $user = User::with('user_detail')->get();
+        $user_detail = $user->makeHidden('password_showed');
+        
+        return view('user_profile.index',compact('user_detail'));
     }
     public function detail()
     {

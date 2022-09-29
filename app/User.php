@@ -35,4 +35,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Groups::class,'tbl_group_followers','id_user','id_group');
     }
+    public function user_detail()
+    {
+        return $this->hasOne(User_Detail::class,'id_user');
+    }
 }
