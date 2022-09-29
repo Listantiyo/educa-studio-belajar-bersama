@@ -55,6 +55,9 @@ Route::get('/polls', 'PollsController@index')->name('polls');
 // FAQ
 Route::get('/faq', 'FaqController@index')->name('faq');
 
+// Contact Us
+Route::get('/contactus','ContactUsController@index')->name('contact-us');
+
 // Groups
 Route::get('/groups', 'GroupsController@index')->name('groups');
 Route::get('/groups/join', 'GroupsController@join')->name('groups-join');
