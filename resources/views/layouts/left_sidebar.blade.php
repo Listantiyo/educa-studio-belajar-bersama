@@ -44,6 +44,8 @@
                                     </li>
                                 </ul>
                             </li>
+                            @auth
+                                
                             <li>
                                 <a href="#" class="has-arrow box-style aside">
                                     <span class="menu-title">
@@ -64,6 +66,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            @endauth
                             {{-- <li>
                                 <a href="{{route('communities')}}" class="box-style aside">
                                     <span class="menu-title">
@@ -108,6 +111,7 @@
                                     </span>
                                 </a>
                             </li>
+                            @auth                               
                             <li>
                                 <a href="{{route('polls')}}" class="box-style aside">
                                     <span class="menu-title">
@@ -116,6 +120,7 @@
                                     </span>
                                 </a>
                             </li>
+                            @endauth
                             <li>
                                 <a href="{{route('faq')}}" class="box-style aside">
                                     <span class="menu-title">
@@ -124,6 +129,8 @@
                                     </span>
                                 </a>
                             </li>
+                            @auth
+                                
                             <li>
                                 <a href="#" class="has-arrow box-style aside">
                                     <span class="menu-title">
@@ -144,6 +151,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            @endauth
                             {{-- <li>
                                 <a href="education" class="box-style aside">
                                     <span class="menu-title">
@@ -160,6 +168,8 @@
                                     </span>
                                 </a>
                             </li> --}}
+                            @auth
+                                
                             <li>
                                 <a href="{{route('tags')}}" class="box-style aside">
                                     <span class="menu-title">
@@ -168,6 +178,7 @@
                                     </span>
                                 </a>
                             </li>
+                            @endauth
                             {{-- <li>
                                 <a href="{{route('badges')}}" class="box-style aside">
                                     <span class="menu-title">

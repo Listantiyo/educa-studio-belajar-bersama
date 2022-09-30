@@ -1,12 +1,13 @@
 <div id="aside" class="col-lg-3">
     <div id="aps" class="right-siderbar">
         
+        @auth
         <div class="right-siderbar-common">
             <a href="{{route('ask-questions')}}" id="ask-question-n" class="default-btn">
                 Ask a question 
             </a>
         </div>
-
+            
         <div id="side-community" class="right-siderbar-common">
             <div class="category-communities">
                 <h3>
@@ -21,6 +22,7 @@
                 </select>
             </div>
         </div>
+        @endauth
 
         <div class="right-siderbar-common">
             <div class="discussions">
@@ -87,7 +89,8 @@
                 </ul>
             </div>
         </div>
-
+        @auth
+            
         <div class="right-siderbar-common">
             <div class="top-members">
                 <h3>
@@ -107,6 +110,7 @@
                 </ul>
             </div>
         </div>
+        @endauth
 
         {{-- <div class="right-siderbar-common">
             <div class="ads">

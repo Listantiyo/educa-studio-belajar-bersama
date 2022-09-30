@@ -26,7 +26,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="about.html" class="nav-link">
+                            <a href="{{route('about-us')}}" class="nav-link">
                                 About Us
                             </a>
                         </li>

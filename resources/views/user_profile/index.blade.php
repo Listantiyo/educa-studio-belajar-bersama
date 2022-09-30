@@ -102,7 +102,7 @@
         </div>
     </div> --}}
 
-    <div class="top-tags mt-5">
+    {{-- <div class="top-tags mt-5">
         <div class="tag-title d-flex justify-content-between">
             <h3>Top tags</h3>
             <a href="tags.html" class="read-more">View all tags</a>
@@ -358,7 +358,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 @endsection
 

@@ -37,9 +37,18 @@
                     <h3>Explore</h3>
 
                     <ul class="import-link">
+                        @auth
+                            
                         <li>
                             <a href="{{route('ask-questions')}}">Ask question</a>
                         </li>
+                        @endauth
+                        @guest
+                            
+                        <li>
+                            <a href="{{route('menu')}}">Ask question</a>
+                        </li>
+                        @endguest
                         <li>
                             <a href="{{route('faq')}}">FAQs</a>
                         </li>
