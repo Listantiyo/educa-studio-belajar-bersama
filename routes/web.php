@@ -31,15 +31,6 @@ Route::get('/question', 'QuestionController@index')->name('questions');
 Route::get('/questions-details/{id}', 'QuestionController@detail')->name('questions-details');
 Route::get('/ask-questions', 'QuestionController@ask')->name('ask-questions');
 
-// Tags
-Route::get('/tags', 'TagController@index')->name('tags');
-
-// Communities
-
-Route::get('/communities', 'CommunitiesController@index')->name('communities');
-Route::get('/communitie/follows', 'CommunitiesController@follow')->name('communities-follow');
-
-
 // Most Answered Qs
 Route::get('/most-answered', 'MostAnsweredController@index')->name('most-answered');
 Route::get('/most-answered-details', 'MostAnsweredController@detail')->name('most-answered-details');
@@ -50,11 +41,24 @@ Route::get('/unanswered', 'UnansweredController@index')->name('unanswered');
 // MostVisited Qs
 Route::get('/most-visited', 'MostVisitedController@index')->name('most-visited');
 
+// FAQ
+Route::get('/faq', 'FaqController@index')->name('faq');
+
+Route::group(['middleware' => 'auth'], function () {
+
+
+
+// Tags
+Route::get('/tags', 'TagController@index')->name('tags');
+
+// Communities
+
+Route::get('/communities', 'CommunitiesController@index')->name('communities');
+Route::get('/communitie/follows', 'CommunitiesController@follow')->name('communities-follow');
+
 // Polls
 Route::get('/polls', 'PollsController@index')->name('polls');
 
-// FAQ
-Route::get('/faq', 'FaqController@index')->name('faq');
 
 // Contact Us
 Route::get('/contactus','ContactUsController@index')->name('contact-us');
@@ -119,5 +123,5 @@ Route::get('/admincontact','AdminContactUsController@index')->name('admin-contac
 
 });
 
-
+});
 
