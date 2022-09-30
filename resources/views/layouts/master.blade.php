@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="{{asset('pify/assets/css/responsive.css')}}">
 		
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" href="assets/images/favicon.png">
+		<link rel="icon" type="image/png" href="{{asset('pify/assets/images/favicon.png')}}">
 		<!-- Title -->
 		<title>Pify - Social Questions & Answers HTML Template</title>
 		<style>
