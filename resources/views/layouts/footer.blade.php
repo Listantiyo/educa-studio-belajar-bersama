@@ -25,9 +25,9 @@
                         {{-- <li>
                             <a href="blog.html">Blog</a>
                         </li> --}}
-                        <li>
+                        {{-- <li>
                             <a href="#">User</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -88,10 +88,10 @@
                     <h3>Contact Us</h3>
 
                     <ul class="address-link">
-                        <li>
+                        {{-- <li>
                             <span>Call:</span>
                             <a href="tel:+1-719-504-1984">+1 719-504-1984</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <span>Email:</span>
                             <a href="mailto:pify@gmail.com">pify@gmail.com</a>

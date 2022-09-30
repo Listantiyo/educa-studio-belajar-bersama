@@ -82,7 +82,7 @@ Route::get('user-profile/detail', 'UserProfileController@detail')->name('profile
 // Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 // Route::get('/answer/{id}','AnswerController@index')->name('answer');
 // Route::get('/quest/{data}','AnswerController@goToquest')->name('answer.search');
-
+Route::group(['middleware' => 'level:2'], function () {
 Route::get('/home', 'AuthController@index')->name('home');
 
 // ADMIN
@@ -119,7 +119,7 @@ Route::get('/admingroup','AdminGroupController@index')->name('group-admin');
 // Contact Us
 Route::get('/admincontact','AdminContactUsController@index')->name('admin-contact');
 
-
+}
 
 
 
