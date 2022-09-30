@@ -1,0 +1,458 @@
+		<link rel="stylesheet" href="{{asset('pify/assets/css/bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/owl.theme.default.min.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/owl.carousel.min.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/flaticon.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/remixicon.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/meanmenu.min.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/animate.min.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/metismenu.min.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/font-awesome.min.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/editor.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/style.css')}}">
+		<link rel="stylesheet" href="{{asset('pify/assets/css/responsive.css')}}">
+
+        <style>
+            .about-banner-area{
+                padding-top: 0;
+            }
+
+            .banner-content{
+                margin-left:  0;
+            }
+        </style>
+
+
+        
+<div class="navbar-area">
+    <div class="mobile-responsive-nav">
+        <div class="container">
+            <div class="mobile-responsive-menu">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="{{asset('pify/assets/images/logo.png')}}" alt="logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="desktop-nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" href="index.html">
+                    <img src="{{asset('pify/assets/images/logo.png')}}" alt="logo">
+                </a>
+
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link active">
+                                Home 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('about-us') }}" class="nav-link">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link dropdown-toggle">
+                                Blog  
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="blog.html" class="nav-link">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="blog-details.html" class="nav-link">Blog Details</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('contact-us') }}" class="nav-link">Contact Us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link dropdown-toggle">
+                                Pages 
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('profile-detail')}}" class="nav-link">Activity</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="terms-conditions.html" class="nav-link">Terms & Conditions</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div class="others-options">
+                        <ul>
+                            <li style="visibility:hidden ;">
+                                <form class="search-box">
+                                    <input type="text" name="Search" placeholder="Search for..." class="form-control">
+                            
+                                    <button type="submit" class="search-btn">
+                                        <i class="ri-search-line"></i>
+                                    </button>
+                                </form>
+                            </li>
+
+                            @auth
+                                <li>
+                                    <a href="{{route('faq')}}" class="user-noti">
+                                        <i class="ri-question-line"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="dropdown">
+                                        <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="user-notif">
+                                            {{-- <i class="ri-notification-3-fill"></i> --}}
+                                            <i class="ri-user-settings-fill"></i>
+                                            {{-- <span>3</span> --}}
+                                        </button>
+                                        <ul class="dropdown-menu notif" aria-labelledby="dropdownMenuButton1">
+                                            {{-- <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ri-mail-line"></i>
+                                                    Check your mail
+                                                </a>
+                                                <p>Lorem, ipsum dolor sit amet</p>
+                                            </li>
+                                            <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ri-skype-line"></i>
+                                                    Check your skype
+                                                </a>
+                                                <p>Lorem, ipsum dolor sit amet</p>
+                                            </li> --}}
+                                            <li>
+                                                <a href="{{route('profile-edit')}}">
+                                                    <i class="ri-refresh-line"></i>
+                                                    Update your profile
+                                                </a>
+                                                {{-- <p>Lorem, ipsum dolor sit amet</p> --}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dropdown">
+                                        <button type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img id="photo-user" src="{{asset('pify/assets/images/user/user.jpeg')}}" style="  height:40px;width: 40px;" alt="Image">
+                                            <span href="#">{{ Auth::user()->name }}</span>
+                                        </button>
+                                        
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                            <li>
+                                                <a href="{{route('user-profile')}}">
+                                                    <i class="ri-user-line"></i>
+                                                    User profile
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="edit-profile.html">
+                                                    <i class="ri-settings-2-line"></i>
+                                                    Setting
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('profile-detail')}}">
+                                                    <i class="ri-lightbulb-line"></i>
+                                                    Activity
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('groups-join')}}">
+                                                    <i class="ri-group-line"></i>
+                                                    Group
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('ask-questions')}}">
+                                                    <i class="ri-questionnaire-line"></i>
+                                                    Ask questions
+                                                </a>
+                                            </li>
+                                            {{-- <li>
+                                                <a href="best-answered.html">
+                                                    <i class="ri-question-answer-line"></i>
+                                                    Best Answers
+                                                </a>
+                                            </li> --}}
+                                            {{-- <li>
+                                                <a href="referrals.html">
+                                                    <i class="ri-restart-line"></i>
+                                                    Referrals
+                                                </a>
+                                            </li> --}}
+                                            <li>
+                                                <a href="" onclick="event.preventDefault(); $('#logout').submit();">
+                                                    <i class="ri-logout-box-r-line"></i>
+                                                    Log out
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            @else                        
+                                <li>
+                                    <a href="log-in.html" data-bs-toggle="modal" data-bs-target="#exampleModal" class="active">
+                                        Log in	
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="sign-up.html" data-bs-toggle="modal" data-bs-target="#exampleModal-2">
+                                        Sign up
+                                    </a>
+                                </li>
+                            @endauth
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="others-option-for-responsive">
+        <div class="container">
+            <div class="dot-menu">
+                <div class="inner">
+                    <div class="circle circle-one"></div>
+                    <div class="circle circle-two"></div>
+                    <div class="circle circle-three"></div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="option-inner">
+                    <div class="others-options justify-content-center d-flex align-items-center">
+                        @auth
+                            <ul>
+                                <li>
+                                    <form class="search-box">
+                                        <input type="text" name="Search" placeholder="Search for..." class="form-control">
+                                
+                                        <button type="submit" class="search-btn">
+                                            <i class="ri-search-line"></i>
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <a href="faq.html" class="user-noti">
+                                        <i class="ri-question-line"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="dropdown">
+                                        <button type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false" class="user-notif">
+                                            <i class="ri-notification-3-fill"></i>
+                                            <span>3</span>
+                                        </button>
+                                        <ul class="dropdown-menu notif" aria-labelledby="dropdownMenuButton3">
+                                            <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ri-mail-line"></i>
+                                                    Check your mail
+                                                </a>
+                                                <p>Lorem, ipsum dolor sit amet</p>
+                                            </li>
+                                            <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ri-skype-line"></i>
+                                                    Check your skype
+                                                </a>
+                                                <p>Lorem, ipsum dolor sit amet</p>
+                                            </li>
+                                            <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ri-refresh-line"></i>
+                                                    Update your profile
+                                                </a>
+                                                <p>Lorem, ipsum dolor sit amet</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dropdown">
+                                        <button type="button" id="dropdownMenuButton4" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="assets/images/user/user-48.jpg" alt="Image">
+                                            <span>Rosemary</span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                                            <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ri-user-line"></i>
+                                                    User profile
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="edit-profile.html">
+                                                    <i class="ri-settings-2-line"></i>
+                                                    Setting
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="activity.html">
+                                                    <i class="ri-lightbulb-line"></i>
+                                                    Activity
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="user-groups.html">
+                                                    <i class="ri-group-line"></i>
+                                                    Group
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="user-ask-questions.html">
+                                                    <i class="ri-questionnaire-line"></i>
+                                                    Ask questions
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="best-answered.html">
+                                                    <i class="ri-question-answer-line"></i>
+                                                    Best Answers
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="referrals.html">
+                                                    <i class="ri-restart-line"></i>
+                                                    Referrals
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" onclick="event.preventDefault(); $('#logout').submit();">
+                                                    <i class="ri-logout-box-r-line"></i>
+                                                    Log out
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        @else
+                            <ul>
+                                <li>
+                                    <form class="search-box">
+                                        <input type="text" name="Search" placeholder="Search for..." class="form-control">
+                                
+                                        <button type="submit" class="search-btn">
+                                            <i class="ri-search-line"></i>
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-3" class="active">
+                                        Log in	
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-4">
+                                        Sign up
+                                    </a>
+                                </li>
+                            </ul>
+                        @endauth
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@include('auth.login')
+@include('auth.register')
+
+<form style="display:none;" id="logout" action="{{route('logout')}}" method="post">
+    {{ csrf_field() }}
+</form>
+
+
+		<!-- Start About Banner Area -->
+		<div class="about-banner-area">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-7">
+						<div class="banner-content">
+							<h1 style="font-weight: 500px;" >Pify</h1>
+                        </div>
+                        <div class="about-banner-content">
+							<p>Our job is to empower the world through the development of technology through combined knowledge.Our mission is to help answer someone's unanswered questions whether it's from lessons, life and more. And we want to make the world a better place with us. We provide several features to use from the community, answer questions, groups and more</p>
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div class="about-banner-img">
+							<img src="{{asset('pify/assets/images/banner-img.png')}}" style="max-width: 140% padding-right: 150px">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End About Banner Area -->
+
+
+		<!-- Start Why Choose Us Area -->
+		<div class="why-choose-us-area ptb-100">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="why-choose-img">
+							<img src="{{asset('pify/assets/images/city.jpg')}}" style="height: 350px;">
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="why-choose-content">
+							<span class="top-title">Why choosing Pify</span>
+							<h2>The main reason why you choose it is that we share our knowledge at the doorsteps of the world</h2>
+							<p>Pify is online that can be used with anyone on the internet, pify also provides a community to see more or in depth.</p>
+
+							<ul>
+								<li>
+									<h3>First priority customer mindset</h3>
+									<p>We also want to make users comfortable and safe when using our pify.</p>
+								</li>
+								<li>
+									<h3>Be transparent</h3>
+									<p>pify is also flexible and easy to use for internet users, so it's not that hard to use the pify website.</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Why Choose Us Area -->
+
+		
+		<!-- End Partner Area -->
+
+		<!-- Start team Area -->
+	
+		<!-- End Footer Area -->
+
+        
+		<script src="{{asset('vue/vue.global.js') }}"></script>
+        <script src="{{asset('pify/assets/js/jquery.min.js')}}"></script>
+        <script src="{{asset('pify/assets/js/bootstrap.bundle.min.js')}}"></script>
+		<script src="{{asset('pify/assets/js/meanmenu.min.js')}}"></script>
+		<script src="{{asset('pify/assets/js/owl.carousel.min.js')}}"></script>
+		<script src="{{asset('pify/assets/js/form-validator.min.js')}}"></script>
+		<script src="{{asset('pify/assets/js/contact-form-script.js')}}"></script>
+		<script src="{{asset('pify/assets/js/ajaxchimp.min.js')}}"></script>
+		<script src="{{asset('pify/assets/js/metismenu.js')}}"></script>
+		<script src="{{asset('pify/assets/js/editor.js')}}"></script>
+		<script src="{{asset('pify/assets/js/like-dislike.min.js')}}"></script>
+		<script src="{{asset('pify/assets/js/custom.js')}}"></script>

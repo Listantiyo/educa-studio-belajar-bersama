@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -59,6 +60,9 @@ Route::get('/faq', 'FaqController@index')->name('faq');
 
 // Contact Us
 Route::get('/contactus','ContactUsController@index')->name('contact-us');
+
+// About us
+Route::get('/abouts','AboutUsController@index')->name('about-us');
 
 // Groups
 Route::get('/groups', 'GroupsController@index')->name('groups');
