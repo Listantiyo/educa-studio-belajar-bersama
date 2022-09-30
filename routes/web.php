@@ -25,9 +25,7 @@ Route::get('/oohome', function () {
 Route::get('/level', 'LevelController@index')->name('level');
 // Home
 Route::get('/menu', 'HomeController@index')->name('menu');
-Route::group(['middleware' => 'auth'], function () {
 
-});
 // Question
 Route::get('/question', 'QuestionController@index')->name('questions');
 Route::get('/questions-details/{id}', 'QuestionController@detail')->name('questions-details');
@@ -37,10 +35,10 @@ Route::get('/ask-questions', 'QuestionController@ask')->name('ask-questions');
 Route::get('/tags', 'TagController@index')->name('tags');
 
 // Communities
-Route::group(['middleware' => 'level:1'], function () {
+
 Route::get('/communities', 'CommunitiesController@index')->name('communities');
 Route::get('/communitie/follows', 'CommunitiesController@follow')->name('communities-follow');
-});
+
 
 // Most Answered Qs
 Route::get('/most-answered', 'MostAnsweredController@index')->name('most-answered');
@@ -119,7 +117,7 @@ Route::get('/admingroup','AdminGroupController@index')->name('group-admin');
 // Contact Us
 Route::get('/admincontact','AdminContactUsController@index')->name('admin-contact');
 
-}
+});
 
 
 
