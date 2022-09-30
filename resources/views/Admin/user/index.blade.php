@@ -28,7 +28,7 @@
                         <th>#</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Password</th>
+                        {{-- <th>Password</th> --}}
                         <th>Level</th>
                         <th>Aksi</th>
                     </tr>
@@ -76,7 +76,7 @@
             {data: 'DT_RowIndex', searchable:false, sortable:false},
             {data: 'name'},
             {data: 'email'},
-            {data: 'password_showed'},
+            // {data: 'password_showed'},
             {data: 'level'},
             {data: 'aksi', searchable:false, sortable:false}
           ]
@@ -145,6 +145,11 @@
     $.post("api/data/admin/user/update/", input+'&id='+id_up,
       function (data) {
         table.ajax.reload();
+        Swal.fire(
+          'User update success!',
+          '',
+          'success'
+        )
         $('#editUser').modal('hide');
       },
     );
@@ -153,11 +158,28 @@
 
 
   function deleteData(id){
-      $.post("api/data/admin/user/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
-        function (data) {
-          table.ajax.reload();
-        },
-      );
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $.post("api/data/admin/user/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+          function (data) {
+            table.ajax.reload();
+            Swal.fire(
+              'Deleted!',
+              'User has been deleted.',
+              'success'
+            )
+          },
+        )
+      }
+    })
     }
   </script>
 @endpush

@@ -108,8 +108,8 @@
       processData:false,
       success: function (rsp) {
           Swal.fire(
-            'Good job!',
-            'You clicked the button!',
+            'Add community success!',
+            '',
             'success'
           ),
           table.ajax.reload(rsp);

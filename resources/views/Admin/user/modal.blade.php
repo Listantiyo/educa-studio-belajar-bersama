@@ -53,7 +53,7 @@
               <label>Email : <span class="font-weight-normal" id="mail"></label>
           </div>
           <div>
-            <label>Password : <span class="font-weight-normal" id="pw"></label>
+            {{-- <label>Password : <span type="password" class="font-weight-normal" id="pw"></label> --}}
           </div>
           <div>
             <label>Level : <span class="font-weight-normal" id="level"></label>

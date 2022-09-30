@@ -7,7 +7,7 @@
                         <img src="{{asset('pify/assets/images/logo.png')}}" alt="Image">
                     </a>
 
-                    <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit tortor eget felis porttitor volutpat. Pellentesque in ipsum id orci porta dapibus.</p>
+                    <p>Pify adalah website tanya dan menjawab untuk pengguna website online, pify menyediakan fitur bertanya untuk mengajukan pertanyaan dan fitur menjawab untuk menjawab pertanyaan</p>
                 </div>
             </div>
 
@@ -20,13 +20,13 @@
                             <a href="about.html">About us</a>
                         </li>
                         <li>
-                            <a href="contact-us.html">Contact us</a>
+                            <a href="{{ route('contact-us') }}">Contact us</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="blog.html">Blog</a>
-                        </li>
+                        </li> --}}
                         <li>
-                            <a href="user.html">User</a>
+                            <a href="#">User</a>
                         </li>
                     </ul>
                 </div>
@@ -38,17 +38,17 @@
 
                     <ul class="import-link">
                         <li>
-                            <a href="ask-questions.html">Ask question</a>
+                            <a href="{{route('ask-questions')}}">Ask question</a>
                         </li>
                         <li>
-                            <a href="faq.html">FAQs</a>
+                            <a href="{{route('faq')}}">FAQs</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="privacy-policy.html">Privacy policy</a>
                         </li>
                         <li>
                             <a href="terms-conditions.html">Terms & Conditions</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                         </li>
                         <li>
                             <span>Address:</span>
-                            7200 E Dry Creek Rd C104, Centennial, CO 80112, United States
+                            Jl. Kalisombo No.18, Salatiga, Kec. Sidorejo, Kota Salatiga, Jawa Tengah 50711
                         </li>
                     </ul>
                 </div>

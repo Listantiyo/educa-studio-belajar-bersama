@@ -106,7 +106,7 @@
         ),
         Swal.fire(
           'Deleted!',
-          'Your file has been deleted.',
+          'Answer has been deleted.',
           'success'
         )
       }

@@ -118,7 +118,7 @@
                 </div>
             </div>
 
-            <div class="accordion-item">
+            {{-- <div class="accordion-item">
                 <h2 class="accordion-header" id="headingSix">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                         What to do to be able to write a good answer?
@@ -129,7 +129,7 @@
                         <p>Donec sollicitudin molestie malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec sollicitudin molestie malesuada faucibus orci luctus et.</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingEight">

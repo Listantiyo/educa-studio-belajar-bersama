@@ -115,7 +115,6 @@
             cache: false,
             processData:false,
             success: function (rsp) {
-                alert(rsp)
                 table.ajax.reload();
                 $('#modalGroup form')[0].reset();
                 $('#modalGroup').modal('hide');
@@ -220,12 +219,29 @@
     });
 
     function deleteData(id){
-        alert(id)
-        $.post("api/data/admin/group/delete/"+id,{'_method':'delete'},
-            function (data) {
-                table.ajax.reload();
-            },
-        );
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                $.post("api/data/admin/group/delete/"+id,{'_method':'delete'},
+                    function (data) {
+                        table.ajax.reload();
+                        Swal.fire(
+                        'Deleted!',
+                        'Group has been deleted.',
+                        'success'
+                        )
+                    },
+                )
+            }
+            })
+
     }
 
 

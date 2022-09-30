@@ -37,13 +37,13 @@ class ContactUsController extends Controller
     public function store(Request $request)
     {
         $id = $request->id;
-        $nama = $request->name;
-        $mail = $request->email;
+        $nama = $request->namecontact;
+        $mail = $request->mailcontact;
         $sub = $request->msg_subject;
         $mess = $request->message;
 
         $conta = new Contact_us;
-        $conta->nama_user = $nama;
+        $conta->name_user = $nama;
         $conta->email = $mail;
         $conta->subject = $sub;
         $conta->message = $mess;

@@ -133,11 +133,11 @@
     </li>
     <li class="nav-item dropdown show">
         <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="{{asset('Admin/dist/img/user2-160x160.jpg')}}" class="img-circle profile" alt="User Image">
+          <img src="{{asset('pify/assets/images/user/user.jpeg')}}" class="img-circle profile" alt="User Image">
         </a>
       
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="#" onclick="event.preventDefault(); $('#logout').submit();">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
             Logout
           </a>
@@ -150,3 +150,7 @@
     </li> --}}
   </ul>
 </nav>
+
+<form style="display:none;" id="logout" action="{{route('logout')}}" method="post">
+  {{ csrf_field() }}
+</form>

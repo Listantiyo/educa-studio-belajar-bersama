@@ -1,21 +1,24 @@
+<style>
+  .brand-link{
+    padding-left: 50px;
+  }
+</style>
+
 <aside class="main-sidebar sidebar-dark-light elevation-4">
   <!-- Brand Logo -->
   <a href="#" class="brand-link">
-    <img src="{{asset('Admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Admin Pify</span>
+    <img src="{{asset('pify/assets/images/logo.png')}}" alt="AdminLTE Logo" style="opacity: .8">
+    {{-- <span class="brand-text font-weight-light">Admin Pify</span> --}}
   </a>
 
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
         <img src="{{asset('Admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
       </div>
-      <div class="info">
-        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-      </div>
-    </div>
+    </div> --}}
 
     <!-- SidebarSearch Form -->
     <div class="form-inline">
@@ -96,14 +99,6 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="{{ route ('user-admin') }} " class="nav-link">
-            <i class="nav-icon fa fa-user"></i>
-            <p>
-              User
-            </p>
-          </a>
-        </li>
         {{-- <li class="nav-item">
           <a href="{{ route ('type-admin') }} " class="nav-link">
             <i class="nav-icon fa-brands fa-typo3"></i>
@@ -123,7 +118,7 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="{{route('communities-admin')}}" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
+                <i class="nav-icon fa-solid fa-list"></i>
                 List Community
               </a>
             </li>
@@ -131,7 +126,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-users"></i>
+            <i class="fa-solid fa-user-group"></i>
             <p>
               Group
               <i class="right fas fa-angle-left"></i>
@@ -140,7 +135,7 @@
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="{{ route('group-admin') }}" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
+                <i class="nav-icon fa-solid fa-list"></i>
                 List Group
               </a>
             </li>
@@ -148,7 +143,16 @@
         </li>
         <li class="nav-item">
           <a href="{{ route('admin-contact') }}" class="nav-link">
+            <i class="nav-icon fa-solid fa-address-book"></i>
             Contact
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route ('user-admin') }} " class="nav-link">
+            <i class="nav-icon fa fa-user"></i>
+            <p>
+              User
+            </p>
           </a>
         </li>
       </ul>

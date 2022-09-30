@@ -10,8 +10,8 @@
 							<h1>Pify</h1>
 							<h3>Share & grow the world's <span>knowledge</span>!</h3>
 							<p>We want to connect with people who will share their knowledge from one person to another.</p>
-							<a href="user.html" class="default-btn">
-								Create a free team
+							<a href="#" id="start" class="default-btn">
+								Start
 							</a>
 						</div>
 					</div>
@@ -44,5 +44,15 @@
 		<script>
 			let page = 1
 		</script>
+		<script>
+            $(document).ready(function () {
+            
+                $("#start").click(function() {
+                    $('html, body').animate({
+                        scrollTop: $(".aq-form").offset().top - 155 
+                    }, 0);
+                });
+            });
+        </script>
         @include('question.script')
 @endpush

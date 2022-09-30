@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="contact-form">
-    <h2>Get in touch</h2>
+    <h2>Contact Us</h2>
 
     <form id="contactForm">
         <div class="row">
             <div class="col-lg-12">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" id="name" class="form-control" required data-error="Please enter your name" placeholder="Your name">
+                    <input type="text" name="namecontact" id="name" class="form-control" required data-error="Please enter your name" placeholder="Your name">
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
@@ -17,7 +17,7 @@
             <div class="col-lg-12">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" id="email" class="form-control" required data-error="Please enter your email" placeholder="Your email">
+                    <input type="email" name="mailcontact" id="email" class="form-control" required data-error="Please enter your email" placeholder="Your email">
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
@@ -74,16 +74,24 @@
 
 @push('scripts')
 <script>
+    let id_user = {{Auth::id()}}
     $("#contactForm").submit(function (e) { 
+        let data = $(this).serialize();
         e.preventDefault();
         
         $.ajax({
             type: "post",
             url: "api/contactus/store",
-            data: ,
-            dataType: "dataType",
+            data: data+'&id_user='+id_user,
             success: function (rsp) {
-                alert(rsp)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Send message success!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                $("#contactForm")[0].reset();
             }
         });
     });

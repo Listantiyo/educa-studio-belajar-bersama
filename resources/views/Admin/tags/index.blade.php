@@ -136,12 +136,29 @@
 
 
   function deleteData(id){
-      $.post("api/data/admin/tag/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
-        function (data) {
-          alert(data);
-          table.ajax.reload();
-        },
-      );
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $.post("api/data/admin/tag/delete/"+ id, {'_method':'delete','_token':'{{ csrf_token() }}',},
+          function (data) {
+            table.ajax.reload();
+            Swal.fire(
+              'Deleted!',
+              'Tag has been deleted.',
+              'success'
+            )
+          }
+        )
+      }
+    })
+
     }
   </script>
 

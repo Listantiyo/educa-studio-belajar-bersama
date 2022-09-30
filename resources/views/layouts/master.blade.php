@@ -123,6 +123,8 @@
 		<script src="{{asset('pify/assets/js/editor.js')}}"></script>
 		<script src="{{asset('pify/assets/js/like-dislike.min.js')}}"></script>
 		<script src="{{asset('pify/assets/js/custom.js')}}"></script>
+		<script src="{{asset('Admin/dist/js/sweetalert.js')}}"></script>
+
 
 		<script>
 			let list_com_url = "api/community/show"

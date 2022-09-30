@@ -84,12 +84,12 @@
                 $.post("api/data/admin/contact/"+id, {'_method':'delete'},
                     function (data) {
                         table.ajax.reload();
+                        Swal.fire(
+                        'Deleted!',
+                        'Contact has been deleted.',
+                        'success'
+                        )
                     },
-                ),
-                Swal.fire(
-                'Deleted!',
-                'Contact has been deleted.',
-                'success'
                 )
             }
             })
