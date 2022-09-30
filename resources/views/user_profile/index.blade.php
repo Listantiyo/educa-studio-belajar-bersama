@@ -6,7 +6,9 @@
 @foreach ($user_detail as $item) 
         <div class="profile-content d-flex justify-content-between align-items-center" style="margin-bottom: 10%;">
             <div class="profile-img pt-5">
-                @if ($item->user_detail->path_img === null)
+                @if ($item->path_img === null)
+                    <img src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                @elseif($item->user_detail->path_img === null)
                     <img src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
                 @else
                     <img class="mb-3 px-0" src="{{asset('storage/'.$item->user_detail->path_img)}}" alt="{{$item->user_detail->image}}">
@@ -14,8 +16,8 @@
                 <h3>{{$item->name}}</h3>
                 {{-- <span>Member since 1 years ago</span>
                 <span>Last seen this week</span> --}}
-                <button class="followers-btn mt-4">45 Followers</button>
-                <button class="followers-btn">12 Following</button>
+                <button onclick="location.href='{{route('communities-follow')}}'" class="followers-btn mt-4">{{$item->community_count}} Community Following</button>
+                <button onclick="location.href='{{route('groups-join')}}'" class="followers-btn">{{$item->groups_count}} Group Joined</button>
             </div>
     
             <div class="edit-btn">

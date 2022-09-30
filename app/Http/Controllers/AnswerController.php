@@ -14,7 +14,7 @@ use App\Dislikes_Answer;
 use App\Like_Answer_Groups;
 use App\Likes_Answer;
 use App\Question_Comment;
-use PhpParser\Node\Stmt\If_;
+
 
 class AnswerController extends Controller
 {
@@ -112,6 +112,7 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {   
+        $id_user = $request->id;
         $id = $request->id_quest;
         $answer = new Answer();
         $quest = Question::find($id);
@@ -130,7 +131,18 @@ class AnswerController extends Controller
         $quest->id_type = 2;
 
         $quest->save();        
-        return response()->json(['answer'=> $input_answer]);
+        $answer_show = Answer::with('user','user_detail')->withCount(['dislikes','likes',
+
+        'likes as load_like' => function ($query) use ($id_user) {
+            $query->where('id_user',$id_user);
+        },
+
+        'dislikes as load_dislike' => function ($query) use ($id_user) {
+            $query->where('id_user',$id_user);
+        },
+
+        ])->where('id_question',$id)->get();
+        return response()->json(['answer'=> $answer_show]);
     }
 
     /**

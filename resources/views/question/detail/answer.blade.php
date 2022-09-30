@@ -1,6 +1,6 @@
 <ul class="answerss d-flex justify-content-between align-items-center">
     <li>
-        <h3>2 Answers</h3>
+        <h3>{{$question->answers_count}} Answers</h3>
     </li>
     <li>
         <select id="fillter-answer" class="form-select" aria-label="Default select example">
@@ -12,7 +12,7 @@
     </li>
 </ul>
 
-<div v-for="item in answer" class="answer-question-details like-dislike">
+<div v-for="item in answer" class="answer-question-details px-5 like-dislike">
     <div class="d-flex">
         <div class="link-unlike flex-shrink-0">
             <a v-if="item.user_detail === null" href="{{route('user-profile')}}">
@@ -65,5 +65,5 @@
 
          </div>
         </div>
-    </div>
-    @include('question.detail.reply')
+</div>
+@include('question.detail.reply')

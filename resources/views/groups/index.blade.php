@@ -34,14 +34,12 @@
                     <div class="single-group-box">
                         <div class="group-img">
                             <img :src="'storage/'+item.path_img_bg" style="width: 400px; height: 200px; object-fit: cover;" alt="Image">
-                            <span>8 hours ago</span>
                         </div>
 
                         <div class="group-content">
                             <div class="group-sub-img">
                                 <img :src="'storage/'+item.path_img" style="width:35%;" alt="Image">
                                 <h3>@{{item.group}}</h3>
-                                <span>Public group</span>
                             </div>
 
                             <ul class="d-flex justify-content-between">
@@ -70,6 +68,7 @@
 @push('scripts')
     <script>
         let id_user = {{Auth::id()}}
+        $("#side-community").remove();
     </script>
     <script>
         const vues = Vue.createApp({

@@ -21,4 +21,8 @@ class Answer_Groups extends Model
     {
         return $this->hasOne(User::class,'id','id_user_dil');
     }
+    public function user_detail()
+    {
+        return $this->hasOne(User_Detail::class,'id_user','id_user_dil');
+    }
 }

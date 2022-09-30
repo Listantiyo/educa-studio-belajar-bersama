@@ -56,7 +56,11 @@ class SidebarController extends Controller
         if ($request->id_user != null) {
             # code...
             $img = User_Detail::where('id_user',$request->id_user)->pluck('path_img');
-            return $img;
+            $is = $img->count();
+            return response()->json([
+                'is'=>$is,
+                'img'=>$img,
+            ]);
         }
 
         // AllCommunity

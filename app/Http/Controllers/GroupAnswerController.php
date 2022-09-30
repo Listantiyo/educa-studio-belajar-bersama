@@ -16,7 +16,7 @@ class GroupAnswerController extends Controller
             $jumlah = $request->jumlah;
 
             if ($jumlah > 0) {
-                $answer = Answer_Groups::with('user')->withCount(['dislikes','likes',
+                $answer = Answer_Groups::with('user','user_detail')->withCount(['dislikes','likes',
 
                 'likes as load_like' => function ($query) use ($id_user) {
                     $query->where('id_user',$id_user);
@@ -28,7 +28,7 @@ class GroupAnswerController extends Controller
 
                 ])->where('id_question',$id)->limit($jumlah)->get();
             }else{
-                $answer = Answer_Groups::with('user')->withCount(['dislikes','likes',
+                $answer = Answer_Groups::with('user','user_detail')->withCount(['dislikes','likes',
 
                 'likes as load_like' => function ($query) use ($id_user) {
                     $query->where('id_user',$id_user);
@@ -65,7 +65,7 @@ class GroupAnswerController extends Controller
 
         $quest->save();        
 
-        $answer_show = Answer_Groups::with('user')->withCount(['dislikes','likes',
+        $answer_show = Answer_Groups::with('user','user_detail')->withCount(['dislikes','likes',
 
         'likes as load_like' => function ($query) use ($id_user) {
             $query->where('id_user',$id_user);

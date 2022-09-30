@@ -37,6 +37,7 @@ Route::post('quest/likedislikestore','QuestionController@likedislikestore');
 Route::post('quest/store','QuestionController@store');
 Route::post('quest/vote','QuestionController@vote');
 Route::get('quest/vote/show','QuestionController@quest_vote');
+Route::get('quest/vote/search','QuestionController@search_vote');
 
 Route::put('quest/update','QuestionController@update');
 Route::delete('quest/delete','QuestionController@delete');

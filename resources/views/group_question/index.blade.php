@@ -13,7 +13,7 @@
 
 					<div class="col-lg-6 col-md-9">
 						<div class="page-title-content-list">
-							<ul>
+							{{-- <ul>
 								<li>
 									<a href="all-queations.html">6 Questions</a>
 								</li>
@@ -58,7 +58,7 @@
 										</li>
 									</ul>
 								</li>
-							</ul>
+							</ul> --}}
 						</div>
 					</div>
 				</div>
@@ -77,10 +77,10 @@
                     </a>
                 </li>
                 <li class="active">
-                    Communities
+                    Group
                 </li>
                 <li class="active">
-                    Education
+                    {{$detail->group}}
                 </li>
             </ul>
             <form class="aq-form">
@@ -95,8 +95,11 @@
                 <div v-for="quest in quest" class="ps-2 single-qa-box like-dislike">
                     <div class="p-2 row">
                         <div class="col-2 pe-md-0 pe-sm-3 link-unlike flex-shrink-0">
-                            <a href="user.html">
-                                <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                            <a v-if="quest.user_detail === null" href="{{route('user-profile')}}">
+                                <img style="max-width: 55px; height:55px;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                            </a>
+                            <a v-else  href="{{route('user-profile')}}">
+                                <img style="max-width: 55px; height:55px;" class="mb-3 px-0" :src="'\\\\storage/'+quest.user_detail.path_img" alt="oi">
                             </a>
     
                             <div class="mt-md-2 mt-sm-4 donet-like-list">
@@ -186,6 +189,8 @@
 
 @push('scripts')
     <script>
+        list_com_url = "\\api/community/show"
+
         $("#side-community").remove();
         let id_group = {{$id}}
         let url = '/groups/ask/'+id_group

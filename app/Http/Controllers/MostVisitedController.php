@@ -39,15 +39,15 @@ class MostVisitedController extends Controller
         $id_community = $request->id_community;
 
             if ($id_community == 0) {
-                $quest = Question::with('tag','user','community')
-                        ->withCount('tag','answers')
+                $quest = Question::with('tag','user','community','user_detail')
+                        ->withCount('likes','dislikes','votes','answers')
                         ->orderBy('views','desc')
                         ->paginate(4); 
             }
             if (!$id_community == 0) {
                 
-                $quest = Question::with('tag','user','community')
-                        ->withCount('tag','answers')
+                $quest = Question::with('tag','user','community','user_detail')
+                        ->withCount('likes','dislikes','votes','answers')
                         ->where('id_comunity',$id_community)
                         ->orderBy('views','desc')
                         ->paginate(4);     
@@ -61,7 +61,8 @@ class MostVisitedController extends Controller
     }
     public function show()
     {
-        $quest = Question::with('tag','user','community')->withCount('tag','answers')->orderBy('views','desc')->paginate(4);
+        $quest = Question::with('tag','user','community','user_detail')
+        ->withCount('likes','dislikes','votes','answers')->orderBy('views','desc')->paginate(4);
 
         return response()->json([
             'quest' => $quest
@@ -71,8 +72,8 @@ class MostVisitedController extends Controller
     public function search(Request $request)
     {
         $data = $request->data;
-        $quest = Question::with('tag','user','community')
-                        ->withCount('tag','answers')
+        $quest = Question::with('tag','user','community','user_detail')
+        ->withCount('likes','dislikes','votes','answers')
                         ->where('title','like','%'.$data.'%')
                         ->orderBy('views','desc')
                         ->paginate(4);

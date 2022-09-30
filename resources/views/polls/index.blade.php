@@ -136,6 +136,9 @@
 
 @push('scripts')
     <script>
+        $("#side-community").remove();
+    </script>
+    <script>
         const vues = Vue.createApp({
             data() {
                 return {
@@ -179,7 +182,7 @@
                         $.get("/api/quest/search", {data:input,id:id,ini:ini},
                             function (rsp) {           
 
-                                vues.quest = rsp.quest_voted.data ;
+                                vues.quest_voted = rsp.quest_voted.data ;
                                 vues.first_page_url = rsp.quest_voted.first_page_url
                                 vues.last_page_url = rsp.quest_voted.last_page_url
                                 vues.last_page = rsp.quest_voted.last_page
@@ -205,7 +208,7 @@
                         $.get("/api/quest/search", {data:input,id:id,ini:ini},
                             function (rsp) {           
 
-                                vues.quest = rsp.quest_voted.data ;
+                                vues.quest_voted = rsp.quest_voted.data ;
                                 vues.first_page_url = rsp.quest_voted.first_page_url
                                 vues.last_page_url = rsp.quest_voted.last_page_url
                                 vues.last_page = rsp.quest_voted.last_page

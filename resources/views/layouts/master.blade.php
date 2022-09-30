@@ -165,13 +165,16 @@
 			}).mount('#aps')
 		</script>
 		<script>
-			let prof_user;
 			$(document).ready(function () {
 				id_user = {{Auth::id()}}
 				$.get(list_com_url, {id_user:id_user},
 					function (rsp) {
-						if (rsp != null) {
-							$("#photo-user").attr("src", "storage/"+rsp[0]);
+						console.log(rsp);
+						if (rsp.is > 0 && rsp.img[0] != null) {
+							console.log(rsp.img[0]);
+							
+								$("#photo-user").attr("src", "storage/"+rsp.img[0]);
+							
 						}
 					},
 				);

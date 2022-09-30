@@ -43,11 +43,15 @@ class GroupsController extends Controller
     public function detailQuest($ids)
     {
         $id = $ids;
-        $question = Question_Groups::find($ids);
+        // $question = Question_Groups::find($ids);
+        $question = Question_Groups::where('id',$ids)->with('tag','user','user_detail')
+        ->withCount('likes','dislikes','answers')->first();
+        
         $view = Question_Groups::find($ids)->pluck('views');
         $views = data_get($view,'0');
         $question->views = $views+1;
         $question->update();
+
         return view('group_question.detail.index',compact('question','id'));
     }
 
@@ -140,7 +144,7 @@ class GroupsController extends Controller
     {
         $id = $request->id_group;
         
-        $question_all = Question_Groups::with('tag','user')
+        $question_all = Question_Groups::with('tag','user','user_detail')
         ->withCount('likes','dislikes','answers')->where('id_group',$id)->latest()->paginate(6);
         
         return $question_all;

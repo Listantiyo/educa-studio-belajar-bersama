@@ -11,6 +11,7 @@ use App\Question_Tags;
 use App\Question_Votes;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UserProfileController extends Controller
@@ -22,9 +23,10 @@ class UserProfileController extends Controller
      */
     public function index()
     {
-        $user = User::with('user_detail')->get();
+        $id = Auth::id();
+        $user = User::with('user_detail')->withCount('community','groups')->where('id',$id)->get();
         $user_detail = $user->makeHidden('password_showed');
-        
+        // return $user_detail;
         return view('user_profile.index',compact('user_detail'));
     }
     public function detail()

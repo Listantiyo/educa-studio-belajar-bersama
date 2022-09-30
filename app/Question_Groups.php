@@ -34,4 +34,8 @@ class Question_Groups extends Model
     {
         return $this->hasMany(Dislike_Groups::class,'id_quest');
     }
+    public function user_detail()
+    {
+        return $this->hasOne(User_Detail::class,'id_user','id_user_dil');
+    }
 }

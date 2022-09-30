@@ -1,9 +1,14 @@
 <div class="question-details-content like-dislike">
     <div class="p-2 row">
         <div class="col-2 pe-md-0 pe-sm-3 link-unlike flex-shrink-0">
+            @if ($question->user_detail->path_img === null)
             <a style="margin-bottom: 110%;" href="user.html">
                 <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
             </a>
+                
+            @else
+                <img style="width: 55px; height:55px;" class="mb-3 px-0" src="{{asset('storage/'.$question->user_detail->path_img)}}" alt="{{$question->image}}">
+            @endif
 
             <div class="mt-md-4 mt-sm-5 donet-like-list">
                 <button class="like-unlink-count quest-link like" name="like" value="like" >
@@ -23,10 +28,7 @@
         <div class="pt-3 col-9 ps-0 pe-4 flex-grow-1 ms-3 text-md-justify row" style="max-width: 100%">
             <ul class="graphic-design">
                 <li>
-                    <a href="user.html">Nama = {{$question->id_user_dil}}</a>
-                </li>
-                <li class="me-5" style="visibility: hidden;">
-                    <span>Latest Answer: 14 hours ago</span>
+                    <a href="user.html">{{$question->user->name}}</a>
                 </li>
                 <li>
                     <span>In:</span>
@@ -64,11 +66,11 @@
 
             <div class="d-flex justify-content-between align-items-center">
                 <ul class="anser-list">
-                    <li id="vote-container">
+                    {{-- <li id="vote-container">
                         <a class="btn bg-info " id="votes" style="color: white" type="button" >
                             <b> {{$question->votes}} Votes </b>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                     <b>
                         <p type="text" style="color: #f48225;">

@@ -160,8 +160,12 @@
 
 
             $("#edit-profile-data").submit(function (e) { 
-            // alert()
-            e.preventDefault();
+                e.preventDefault();
+
+
+            
+            
+            
             let id = {{Auth::id()}}
             let text = $("#txtEditor").Editor("getText"); 
             let data = new FormData(this)
@@ -176,6 +180,8 @@
                 processData:false,
                     success: function (rsp) {
                         alert(rsp)
+                        let url = "{{route('user-profile')}}"
+                        location.href = url
                     }
                 });
             }); 

@@ -82,7 +82,7 @@
                         <a style="display: inline-block;word-break: break-word;" href="">
                             @{{item.title}}
                         </a>
-                        <p>8 hours ago by <a href>@{{item.user.name}}</a></p>
+                        <p><a href>@{{item.user.name}}</a></p>
                     </li>
                 </ul>
             </div>

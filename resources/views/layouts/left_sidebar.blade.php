@@ -176,7 +176,7 @@
                                     </span>
                                 </a>
                             </li> --}}
-
+{{-- 
                             <li>
                                 <a href="#" class="has-arrow box-style aside">
                                     <i class="ri-user-line"></i>
@@ -201,7 +201,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
                     </nav>
                 </div>

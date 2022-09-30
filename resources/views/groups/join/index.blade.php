@@ -34,14 +34,14 @@
                     <div class="single-group-box">
                         <div class="group-img">
                             <img src="{{asset('pify/assets/images/group/group-1.jpg')}}" alt="Image">
-                            <span>8 hours ago</span>
+                            
                         </div>
 
                         <div class="group-content">
                             <div class="group-sub-img">
                                 <img src="{{asset('pify/assets/images/group/sub-1.jpg')}}" alt="Image">
                                 <h3>@{{item.group}}</h3>
-                                <span>Public group</span>
+                                
                             </div>
 
                             <ul class="d-flex justify-content-between">
@@ -70,6 +70,24 @@
 @push('scripts')
     <script>
         let id_user = {{Auth::id()}}
+         list_com_url = "\\api/community/show"
+         $("#side-community").remove();
+    </script>
+    <script>
+        $(document).ready(function () {
+            id_user = {{Auth::id()}}
+            $.get(list_com_url, {id_user:id_user},
+                function (rsp) {
+                    console.log(rsp);
+                    if (rsp.is > 0 && rsp.img[0] != null) {
+                        console.log(rsp.img[0]);
+                        
+                            $("#photo-user").attr("src", "\\storage/"+rsp.img[0]);
+                        
+                    }
+                },
+            );
+        });
     </script>
     <script>
         const vues = Vue.createApp({

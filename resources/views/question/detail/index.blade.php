@@ -17,13 +17,6 @@
                 </li>
             </ul>
             
-            <form class="aq-form">
-                <i class="ri-search-line"></i>
-                <input type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
-                <button class="aq-btn">
-                    Ask Question
-                </button>
-            </form>
             <div class="question-details-area">
 
                 @include('question.detail.quest')
@@ -49,21 +42,25 @@
             list_com_url = "\\api/community/show"
 
             $("#side-community").remove();
-
-        
-			$(document).ready(function () {
-				id_user = {{Auth::id()}}
-				$.get(list_com_url, {id_user:id_user},
-					function (rsp) {
-						if (rsp != null) {
-							$("#photo-user").attr("src", "\\storage/"+rsp[0]);
-						}
-					},
-				);
-			});
 		
 
         </script>
+                 <script>
+                    $(document).ready(function () {
+                        id_user = {{Auth::id()}}
+                        $.get(list_com_url, {id_user:id_user},
+                            function (rsp) {
+                                console.log(rsp);
+                                if (rsp.is > 0 && rsp.img[0] != null) {
+                                    console.log(rsp.img[0]);
+        
+                                        $("#photo-user").attr("src", "\\storage/"+rsp.img[0]);
+                                    
+                                }
+                            },
+                        );
+                    });
+                </script>
 {{-- scroll --}}
         <script>
             $(document).ready(function () {
@@ -95,8 +92,20 @@
                             data: {id_quest:id_quest,id_user:id_user},
                             success: function (rsp) {
                                 // alert(rsp.asnwer)
+                                console.log(rsp);
                                 vues.answer = rsp.answer
                             }
+                        });
+
+                        // addAsnwer
+                        $("#answer-form").submit(function (e) { 
+                            e.preventDefault();
+                            let text = $("#txtEditor").Editor("getText"); 
+                            $.post("\\api/answer/store", {text:text,id_quest:id_quest,id_user:id_user},
+                                function (rsp) {
+                                    vues.answer = rsp.answer
+                                },
+                            );
                         });
 
                         $("#reply-form").submit(function (e) { 
@@ -107,7 +116,10 @@
                                 {id_answer:id_answer,comment:data,id_quest:id_quest,id:id_user},
 
                                 function (rsp) {
+                                    console.log(rsp);
+                                    
                                     vues.comment = rsp
+
                                     $("#reply-form input").val(null);
                                 },
                             );
@@ -134,6 +146,7 @@
                     });
                 },methods: {
                     repLy(id){
+                        let id_quest = {{$id}}
                         id_answer = id
                         $.get("\\api/data/show/coment", {id_answer:id,id_quest:id_quest},
                             function (rsp) {
@@ -158,7 +171,7 @@
                                 data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
                                 dataType: "json",
                                 success: function (rsp) {
-                                    alert(rsp)
+                                    
                                 }
                             });
                         }else{
@@ -170,7 +183,7 @@
                                 data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
                                 dataType: "json",
                                 success: function (rsp) {
-                                    alert(rsp)
+                                    
                                 }
                             });
                         }
@@ -191,7 +204,7 @@
                                 data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
                                 dataType: "json",
                                 success: function (rsp) {
-                                    alert(rsp)
+                                    
                                 }
                             });
                         }else{
@@ -203,7 +216,7 @@
                                 data: {id_user:id_user,id_quest:id_quest,'type':type,'id_answer':id},
                                 dataType: "json",
                                 success: function (rsp) {
-                                    alert(rsp)
+                                    
                                 }
                             });
                         }
@@ -218,7 +231,6 @@
                 // load like
                 let id_quest = {{$id}}
                 let id_user = {{Auth::id()}}
-                alert(id_quest)
                 $.ajax({
                     type: "get",
                     data: {id:id_user,id_quest:id_quest},
@@ -240,11 +252,11 @@
                 });
                 // like n dislike
                 $(".quest-link.like-unlink-count").click(function () {
-                    alert()
+                    
                 let type = $(this).val();
 
                 if(!$(this).hasClass('active')) {
-                    alert(type)
+                    
                     $(".quest-link.like-unlink-count").removeClass("active");
                     $(this).addClass("active");
                     $.ajax({
@@ -253,12 +265,12 @@
                         data: {id:id_user,id_quest:id_quest,'type':type},
                         dataType: "json",
                         success: function (rsp) {
-                            alert(rsp)
+                            
                         }
                     });
                 }else{
                     type = type+'remove';
-                    alert(type)
+                    
                     $(".quest-link.like-unlink-count").removeClass("active");
                     $.ajax({
                         type: "post",
@@ -266,7 +278,7 @@
                         data: {id:id_user,id_quest:id_quest,'type':type},
                         dataType: "json",
                         success: function (rsp) {
-                            alert(rsp)
+                            
                         }
                     });
                 }
@@ -291,7 +303,7 @@
                         data: {id_quest:id_quest,id_user:id_user,type:type},
                         dataType: "json",
                         success: function (rsp) {
-                            alert(rsp.vote)
+                            
                         }
                     });
 
@@ -314,21 +326,6 @@
 
                 
 
-            });
-        </script>
-{{-- post answer --}}
-        <script>
-            let id_quest = {{$id}}
-            let id_user = {{Auth::id()}}
-            // addAsnwer
-            $("#answer-form").submit(function (e) { 
-                e.preventDefault();
-                let text = $("#txtEditor").Editor("getText"); 
-                $.post("\\api/answer/store", {text:text,id_quest:id_quest,id_user:id_user},
-                    function (rsp) {
-                        alert(rsp.answer)
-                    },
-                );
             });
         </script>
 @endauth

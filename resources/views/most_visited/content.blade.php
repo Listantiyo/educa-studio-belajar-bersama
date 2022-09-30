@@ -23,8 +23,11 @@
         <div v-for="item in quest" class="single-qa-box like-dislike">
             <div class="d-flex mid-content-quest-mv">
                 <div class="link-unlike flex-shrink-0">
-                    <a href="user.html">
-                        <img src="assets/images/user/user-1.jpg" alt="Image">
+                    <a v-if="item.user_detail === null" href="{{route('user-profile')}}">
+                        <img style="max-width: 55px; height:55px;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                    </a>
+                    <a v-else  href="{{route('user-profile')}}">
+                        <img style="max-width: 55px; height:55px;" class="mb-3 px-0" :src="'storage/'+item.user_detail.path_img" alt="oi">
                     </a>
                 </div>
 
@@ -32,9 +35,6 @@
                     <ul class="graphic-design">
                         <li>
                             <a href="user.html">@{{item.user.name}}</a>
-                        </li>
-                        <li>
-                            <span>Latest Answer: 14 hours ago</span>
                         </li>
                         <li>
                             <span>In : </span>
@@ -50,7 +50,7 @@
                     <div>
 
                         <h3>
-                            <a style="word-wrap:break-word"  href="queations-details.html">
+                            <a style="word-wrap:break-word"  href="" @click="toAnswer(item.id)">
                                 @{{item.title}}
                             </a>
                         </h3>
@@ -68,7 +68,7 @@
                         <ul class="anser-list">
                             <li>
                                 <a href="polls.html">
-                                    24 Vote
+                                    @{{item.votes_count}} Vote
                                 </a>
                             </li>
                             <li>
@@ -100,7 +100,7 @@
                             </li>
                         </ul>
 
-                        <a href="most-answered.html" class="default-btn bg-ea4335">
+                        <a href="" @click="toAnswer(item.id)" class="default-btn bg-ea4335">
                             Question
                         </a>
                     </div>

@@ -26,6 +26,11 @@ class QuestionController extends Controller
     public function detail($ids)
     {   
         if ($ids === "QD") {
+
+            $cek = Question::latest()->count();
+            if ($cek < 1) {
+                return redirect()->back();
+            }
             $question = Question::with('tag','user','community','user_detail')
             ->withCount('likes','dislikes','votes','answers')->latest()->first();
             $id = $question->latest()->limit(1)->pluck('id');
@@ -40,6 +45,10 @@ class QuestionController extends Controller
             return view('question.detail.index',compact('question','id'));
         }
         if ($ids === "MAD") {
+            $cek = Question::where('id_type',2)->latest()->count();
+            if ($cek < 1) {
+                return redirect()->back();
+            }
             $question = Question::where('id_type',2)->with('tag','user','community','user_detail')
             ->withCount('likes','dislikes','votes','answers')->latest()->first();
             $id = $question->where('id_type',2)->latest()->limit(1)->pluck('id');
@@ -55,11 +64,11 @@ class QuestionController extends Controller
         }
         if ($ids != "QD"||"MAD") {
             $id = $ids;
-            $question = Question::find($ids)->with('tag','user','community','user_detail')
+
+            $question = Question::where('id',$ids)->with('tag','user','community','user_detail')
             ->withCount('likes','dislikes','votes','answers')->first();
             $view = Question::find($ids)->pluck('views');
             $views = data_get($view,'0');
-            // return $question;
             $question->views = $views+1;
             $question->update();
             
@@ -231,8 +240,10 @@ class QuestionController extends Controller
             if ($like > 0) {
                 $disorlike = 'like';
             }
-            if ($dislike > 0) {
+            elseif ($dislike > 0) {
                 $disorlike = 'dislike';
+            }else{
+                $disorlike = null;
             }
             if ($vote > 0) {
                 $votes = 'vote';
@@ -432,6 +443,16 @@ class QuestionController extends Controller
         $voted = Question::has('votes')->with('tag','user','community','user_detail')
         ->withCount('likes','dislikes','votes','answers')->latest()->paginate(6); 
 
+        return response()->json([
+            'quest_voted' => $voted,
+        ]);
+    }
+
+    public function search_vote()
+    {
+        $voted = Question::has('votes')->with('tag','user','community','user_detail')
+        ->withCount('likes','dislikes','votes','answers')->latest()->paginate(6); 
+    
         return response()->json([
             'quest_voted' => $voted,
         ]);

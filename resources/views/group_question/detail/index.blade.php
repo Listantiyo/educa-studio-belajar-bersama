@@ -26,8 +26,8 @@
             </form>
             <div class="question-details-area">
 
-                @include('question.detail.quest')
-                @include('question.detail.answer')
+                @include('group_question.detail.quest')
+                @include('group_question.detail.answer')
                 <hr>
                 <form id="answer-form" class="your-answer-form">
                     <div class="form-group">
@@ -279,12 +279,22 @@
             });
             });
         </script>
-{{-- post answer
-        <script>
-            let id_quest = {{$id}}
-            let id_user = {{Auth::id()}}
-
-        </script> --}}
 @endauth
+<script>
+    $(document).ready(function () {
+        id_user = {{Auth::id()}}
+        $.get(list_com_url, {id_user:id_user},
+            function (rsp) {
+                console.log(rsp);
+                if (rsp.is > 0 && rsp.img[0] != null) {
+                    console.log(rsp.img[0]);
 
+                        $("#photo-user").attr("src", "null");
+                        $("#photo-user").attr("src", "\\storage/"+rsp.img[0]);
+                    
+                }
+            },
+        );
+    });
+</script>
 @endpush

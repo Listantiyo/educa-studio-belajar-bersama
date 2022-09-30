@@ -119,6 +119,15 @@
                     setTimeout(async()=>console.log(
                         await window.navigator.clipboard.writeText(urI)), 1000)
                 },
+                toAnswer(id){
+                    $(document).ready(function () {
+                        
+                        let url = "{{route('questions-details',':id')}}"
+                        url = url.replace(':id',id)
+                        alert(url)
+                        location.href = url;
+                    });
+                },
                 // pagginate button
                 pagginate(url){
                     console.log(url);
