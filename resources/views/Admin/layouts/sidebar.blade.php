@@ -1,7 +1,8 @@
 <style>
   .brand-link{
-    padding-left: 50px;
+    padding-left: 10px;
   }
+  
 </style>
 
 <aside class="main-sidebar sidebar-dark-light elevation-4">
@@ -49,7 +50,7 @@
             <i class="nav-icon fas fa-question"></i>
             <p>
               Question
-              <i class="right fas fa-angle-left"></i>
+              <i class="nav-icon right fas fa-angle-left"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
@@ -73,7 +74,7 @@
             <p>
               Answer
             </p>
-            <i class="right fas fa-angle-left"></i>
+            <i class="nav-icon right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
@@ -86,7 +87,7 @@
               <a href="{{route('answer-admin-pending')}}" class="nav-link">
                 <i class="nav-icon fa-solid fa-inbox"></i>
                 Answer Pending
-                <span class="badge badge-light"></span>
+                {{-- <span class="badge badge-light"></span>/ --}}
               </a>
             </li>
           </ul>
@@ -112,7 +113,7 @@
             <i class="nav-icon fas fa-users"></i>
             <p>
               Community
-              <i class="right fas fa-angle-left"></i>
+              <i class="nav-icon right fas fa-angle-left"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
@@ -126,11 +127,11 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="fa-solid fa-user-group"></i>
+            <i class="nav-icon fa-solid fa-user-group"></i>
             <p>
               Group
-              <i class="right fas fa-angle-left"></i>
             </p>
+            <i class="nav-icon right fas fa-angle-left"></i>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
@@ -144,7 +145,9 @@
         <li class="nav-item">
           <a href="{{ route('admin-contact') }}" class="nav-link">
             <i class="nav-icon fa-solid fa-address-book"></i>
-            Contact
+            <p>
+              Contact
+            </p>
           </a>
         </li>
         <li class="nav-item">
