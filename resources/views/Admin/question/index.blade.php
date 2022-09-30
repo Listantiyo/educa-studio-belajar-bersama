@@ -128,7 +128,12 @@
           // $("#vie").append("<img id='view' src=''>");
           $("#vie").text(data[0].views);
           // $("#gbr").append("<img id='gmbr' src=''>");
-          $("#gmbr").attr('src', 'storage/'+data[0].path_img);
+          if (data[0].path_img != null){
+            $("#gmbr").attr('src', 'storage/'+data[0].path_img);
+          } else {
+            $("#gmbr").hide();
+            $("#noimg").text("No Image");
+          }
           $("#like").text(data[0].like);
           $("#dislike").text(data[0].dislike);
           $("#vote").text(data[0].votes);

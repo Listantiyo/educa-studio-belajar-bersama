@@ -70,7 +70,7 @@
               {{-- <p id="tit"></p> --}}
           </div>
           <div>
-            <label>Image : </label>
+            <label>Image : <span class="font-weight-normal" id="noimg"></span></label>
             <img id='gmbr' src=''>
           </div>
           <div class="my-3">

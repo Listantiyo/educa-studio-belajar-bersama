@@ -116,6 +116,7 @@ class AdminQuestionController extends Controller
         ->leftjoin('users', 'tbl_questions.id_user_dil' , '=' ,'users.id')
         ->leftjoin('tbl_types', 'tbl_questions.id_type' , '=' ,'tbl_types.id')
         ->leftjoin('tbl_communities', 'tbl_questions.id_comunity' , '=' ,'tbl_communities.id')
+        // ->leftjoin('tbl_likes','tbl_questions.like','=','tbl_likes.')
         ->select('tbl_questions.*' , 'users.name', 'tbl_types.nama_type', 'tbl_communities.community')
         ->get();
         
