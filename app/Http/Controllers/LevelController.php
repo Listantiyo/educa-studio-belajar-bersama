@@ -11,7 +11,7 @@ class LevelController extends Controller
     {
         if (Auth::user()->level == 2) {
             
-            return view('Admin.dashboard.index');
+            return redirect(route('admindashboard'));
         }
         else{
             return view('home.index');
