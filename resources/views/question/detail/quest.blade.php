@@ -1,7 +1,7 @@
 <div class="question-details-content like-dislike">
     <div class="p-2 row">
         <div class="col-2 pe-md-0 pe-sm-3 link-unlike flex-shrink-0">
-            @if ($question->user_detail->path_img === null)
+            @if ($question->user_detail === null)
             <a style="margin-bottom: 110%;" href="user.html">
                 <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
             </a>

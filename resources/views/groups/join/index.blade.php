@@ -33,13 +33,13 @@
                 <div :id="'join'+item.id"  v-for="item in group" @click="goToGroup(item.id)" type="button"  class="col-xl-6 col-md-6">
                     <div class="single-group-box">
                         <div class="group-img">
-                            <img src="{{asset('pify/assets/images/group/group-1.jpg')}}" alt="Image">
+                            <img :src="'\\storage/'+item.path_img_bg" style="width: 400px; height: 200px; object-fit: cover;" alt="Image">
                             
                         </div>
 
                         <div class="group-content">
                             <div class="group-sub-img">
-                                <img src="{{asset('pify/assets/images/group/sub-1.jpg')}}" alt="Image">
+                                <img :src="'\\storage/'+item.path_img" style="width:35%;" alt="Image">
                                 <h3>@{{item.group}}</h3>
                                 
                             </div>
