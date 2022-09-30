@@ -138,7 +138,7 @@
                             </div>
     
                             <div class="row mb-4 px-3" style="max-width: 100%;">
-                                <a href="" v-for="tag in quest.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                                <a href="{{route('tags')}}" v-for="tag in quest.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
                                     <i class="">#@{{tag.tag}}</i>
                                 </a>
                             </div>

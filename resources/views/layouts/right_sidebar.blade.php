@@ -133,7 +133,7 @@
 
                 <ul>
                     <li v-for="item in trending_tags">
-                        <a href="tags.html">
+                        <a href="#">
                             @{{item.tag}}
                         </a>
                     </li>

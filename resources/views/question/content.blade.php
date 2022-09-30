@@ -72,7 +72,7 @@
                             </li> --}}
                             <li>
                                 <span>In : </span>
-                                <a v-if="quest.community === null" href="tags.html" class="graphic">
+                                <a v-if="quest.community === null" href="#" class="graphic">
                                     Public
                                 </a>
                                 <a v-else href class="graphic">
@@ -92,7 +92,7 @@
                         </div>
 
                         <div class="row mb-4 px-3" style="max-width: 100%;">
-                            <a href="" v-for="tag in quest.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                            <a href="{{route('tags')}}" type="text" v-for="tag in quest.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
                                 <i class="">#@{{tag.tag}}</i>
                             </a>
                         </div>
@@ -166,7 +166,7 @@
                             </li> --}}
                             <li>
                                 <span>In : </span>
-                                <a v-if="questmo.community === null" href="tags.html" class="graphic">
+                                <a v-if="questmo.community === null" href="#" class="graphic">
                                     Public
                                 </a>
                                 <a v-else href class="graphic">
@@ -186,7 +186,7 @@
                         </div>
 
                         <div class="row mb-4 px-3" style="max-width: 100%;">
-                            <a href="" v-for="tag in questmo.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                            <a href="{{route('tags')}}" type="text" v-for="tag in questmo.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
                                 <i class="">#@{{tag.tag}}</i>
                             </a>
                         </div>
@@ -275,7 +275,7 @@
                             </li> --}}
                             <li>
                                 <span>In : </span>
-                                <a v-if="questun.community === null" href="tags.html" class="graphic">
+                                <a v-if="questun.community === null" href="#" class="graphic">
                                     Public
                                 </a>
                                 <a v-else href class="graphic">
@@ -293,7 +293,7 @@
                         </div>
 
                         <div class="row mb-4 px-3" style="max-width: 100%;">
-                            <a href="" v-for="tag in questun.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                            <a href="{{route('tags')}}" type="text" v-for="tag in questun.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
                                 <i class="">#@{{tag.tag}}</i>
                             </a>
                         </div>
@@ -377,7 +377,7 @@
                             </li> --}}
                             <li>
                                 <span>In : </span>
-                                <a v-if="questfe.community === null" href="tags.html" class="graphic">
+                                <a v-if="questfe.community === null" href="#" class="graphic">
                                     Public
                                 </a>
                                 <a v-else href class="graphic">
@@ -397,7 +397,7 @@
                         </div>
                         
                         <div class="row mb-4 px-3" style="max-width: 100%;">
-                            <a href="" v-for="tag in questfe.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                            <a href="{{route('tags')}}" type="text" v-for="tag in questfe.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
                                 <i class="">#@{{tag.tag}}</i>
                             </a>
                         </div>

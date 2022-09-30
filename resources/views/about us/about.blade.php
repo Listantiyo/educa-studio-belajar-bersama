@@ -45,7 +45,7 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link active">
+                            <a href="{{ route('menu') }}" class="nav-link active">
                                 Home 
                             </a>
                         </li>
@@ -55,7 +55,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link dropdown-toggle">
                                 Blog  
                             </a>
@@ -68,13 +68,13 @@
                                     <a href="blog-details.html" class="nav-link">Blog Details</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item">
                             <a href="{{ route('contact-us') }}" class="nav-link">Contact Us</a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link dropdown-toggle">
                                 Pages 
                             </a>
@@ -90,7 +90,7 @@
                                     <a href="terms-conditions.html" class="nav-link">Terms & Conditions</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
 
                     <div class="others-options">

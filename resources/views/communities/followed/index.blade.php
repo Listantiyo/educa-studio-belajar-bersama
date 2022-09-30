@@ -10,7 +10,7 @@
     <div class="middull-content">
         <ul class="page-nish">
             <li>
-                <a href="index.html">
+                <a href="{{route('menu')}}">
                     <i class="ri-home-8-line"></i>
                     Home
                 </a>

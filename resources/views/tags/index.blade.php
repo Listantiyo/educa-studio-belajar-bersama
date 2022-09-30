@@ -1,10 +1,22 @@
 @extends('layouts.master')
 
 @section('content')
+
+<style>
+    .single-tags-box{
+        border: none;
+        padding: 0;
+    }
+
+    .tag-mark{
+        padding-left: 0;
+    }
+</style>
+
 <div class="middull-content">
     <ul class="page-nish">
         <li>
-            <a href="index.html">
+            <a href="{{route('menu')}}">
                 <i class="ri-home-8-line"></i>
                 Home
             </a>
@@ -14,29 +26,29 @@
         </li>
     </ul>
 
-    <form class="aq-form">
+    {{-- <form class="aq-form">
         <i class="ri-search-line"></i>
         <input type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
         <button class="aq-btn">
             Ask Question
         </button>
-    </form>
+    </form> --}}
 
     <div class="tag-content">
         <div class="row justify-content-center">
             <div v-for="tags in tags" class="col-lg-6 col-md-6">
                 <div class="single-tags-box">
-                    <ul class="tag-mark">
+                    <ul class="tag-mark" style="padding-left: 30px;">
                         <li>
                             <i class="ri-price-tag-3-line"></i>
                             <span>@{{tags.tag}}</span>
                         </li>
                         <li>
-                            1984 questions
+                            Public Tag
                         </li>
                     </ul>
-                    <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada.</p>
-                    <ul class="tag-btn d-flex justify-content-between">
+                    {{-- <p>Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada.</p> --}}
+                    {{-- <ul class="tag-btn d-flex justify-content-between">
                         <li>
                             <button class="default-btn">
                                 325 Followers
@@ -45,7 +57,7 @@
                         <li>
                     
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
             {{-- pagginate --}}

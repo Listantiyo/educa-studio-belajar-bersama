@@ -5,7 +5,7 @@
     <div class="middull-content">
         <ul class="page-nish">
             <li>
-                <a href="index.html">
+                <a href="{{route('menu')}}">
                     <i class="ri-home-8-line"></i>
                     Home
                 </a>
@@ -15,13 +15,13 @@
             </li>
         </ul>
 
-        <form class="aq-form">
+        {{-- <form class="aq-form">
             <i class="ri-search-line"></i>
             <input type="text" class="form-control" placeholder="Have a question? Ask or enter a search">
             <button class="aq-btn">
                 Ask Question
             </button>
-        </form>
+        </form> --}}
 
         <div class="accordion mb-0" id="accordionExample">
             <div class="accordion-item">

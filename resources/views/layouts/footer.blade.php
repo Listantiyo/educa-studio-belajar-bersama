@@ -7,7 +7,7 @@
                         <img src="{{asset('pify/assets/images/logo.png')}}" alt="Image">
                     </a>
 
-                    <p>Pify adalah website tanya dan menjawab untuk pengguna website online, pify menyediakan fitur bertanya untuk mengajukan pertanyaan dan fitur menjawab untuk menjawab pertanyaan</p>
+                    <p>Pify is a question and answer website for online website users, pify provides a ask feature to ask questions and an answer feature to answer questions</p>
                 </div>
             </div>
 
@@ -17,7 +17,7 @@
 
                     <ul class="import-link">
                         <li>
-                            <a href="about.html">About us</a>
+                            <a href="{{route('about-us')}}">About us</a>
                         </li>
                         <li>
                             <a href="{{ route('contact-us') }}">Contact us</a>

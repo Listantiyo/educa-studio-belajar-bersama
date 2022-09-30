@@ -6,7 +6,7 @@
     <div class="middull-content">
         <ul class="page-nish">
             <li>
-                <a href="index.html">
+                <a href="{{route('menu')}}">
                     <i class="ri-home-8-line"></i>
                     Home
                 </a>
@@ -60,7 +60,7 @@
                             </li>
                             <li>
                                 <span>In : </span>
-                                <a v-if="item.community === null" href="tags.html" class="graphic">
+                                <a v-if="item.community === null" href="#" class="graphic">
                                     Public
                                 </a>
                                 <a v-else href class="graphic">
@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="row mb-4 px-3" style="max-width: 100%;">
-                            <a href="" v-for="tag in item.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
+                            <a href="{{route('tags')}}" v-for="tag in item.tag" style="font-size: 90%; width: 50%;"  class="text-center border col mt-2 me-1  p-2">
                                 <i class="">#@{{tag.tag}}</i>
                             </a>
                         </div>

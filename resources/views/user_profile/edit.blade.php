@@ -3,14 +3,14 @@
 @section('content')  
 <div class="edit-profile-area">
         <div class="profile-content d-flex justify-content-between align-items-center">
-            <div class="profile-img">
+            {{-- <div class="profile-img">
                 <img src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
                 <h3>Rosemary Hamm</h3>
                 <span>Member since 1 years ago</span>
                 <span>Last seen this week</span>
                 <button class="followers-btn">45 Followers</button>
                 <button class="followers-btn">12 Following</button>
-            </div>
+            </div> --}}
 {{-- 
             <div class="edit-btn">
                 <a href="edit-profile.html" class="default-btn">Edit profile</a>
