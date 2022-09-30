@@ -28,8 +28,11 @@
             <div v-for="item in quest_voted" class="ps-2 single-qa-box like-dislike">
                 <div class="p-2 row">
                     <div class="col-2 pe-md-0 pe-sm-3 link-unlike flex-shrink-0">
-                        <a type="text">
-                            <img style="max-width: 55px; height:auto;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                        <a v-if="item.user_detail === null" href="{{route('user-profile')}}">
+                            <img style="max-width: 55px; height:55px;" src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
+                        </a>
+                        <a v-else  href="{{route('user-profile')}}">
+                            <img style="max-width: 55px; height:55px;" class="mb-3 px-0" :src="'storage/'+item.user_detail.path_img" alt="oi">
                         </a>
 
                         <div class="mt-md-2 mt-sm-4 donet-like-list">

@@ -50,6 +50,19 @@
 
             $("#side-community").remove();
 
+        
+			$(document).ready(function () {
+				id_user = {{Auth::id()}}
+				$.get(list_com_url, {id_user:id_user},
+					function (rsp) {
+						if (rsp != null) {
+							$("#photo-user").attr("src", "\\storage/"+rsp[0]);
+						}
+					},
+				);
+			});
+		
+
         </script>
 {{-- scroll --}}
         <script>

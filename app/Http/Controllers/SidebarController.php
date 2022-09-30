@@ -9,6 +9,7 @@ use App\Question;
 use App\User;
 use App\Tags;
 use App\Answer_Comment;
+use App\User_Detail;
 use Illuminate\Support\Facades\DB;
 
 class SidebarController extends Controller
@@ -52,6 +53,11 @@ class SidebarController extends Controller
      */
     public function show(Request $request)
     {   
+        if ($request->id_user != null) {
+            # code...
+            $img = User_Detail::where('id_user',$request->id_user)->pluck('path_img');
+            return $img;
+        }
 
         // AllCommunity
         $data = Communities::all();
@@ -96,9 +102,12 @@ class SidebarController extends Controller
         // Top Memeber
         $top_members = DB::select(
         'SELECT 
-        users.name ,COUNT(tbl_questions.question) AS total_qs
-        FROM users JOIN tbl_questions ON
+        users.name,tbl_user_details.path_img ,COUNT(tbl_questions.question) AS total_qs
+        FROM users 
+        JOIN tbl_questions ON
         tbl_questions.id_user_dil = users.id
+        JOIN tbl_user_details ON
+        tbl_user_details.id_user = users.id
         GROUP BY users.name LIMIT 5');
 
         // Most Popular Tags

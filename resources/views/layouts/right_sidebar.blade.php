@@ -97,8 +97,9 @@
 
                 <ul>
                     <li v-for="item in top_members">
-                        <a href="groups.html">
-                            <img src="{{asset('pify/assets/images/user/user.jpeg')}}" style="max-width:20%; max-height:100%;object-fit: fill;" alt="Image">
+
+                            <img v-if="item.path_img === null" src="{{asset('pify/assets/images/user/user.jpeg')}}" style="max-width:20%; max-height:100%;object-fit: fill;" alt="Image">
+                            <img v-else style="width:45px; height:45px;object-fit: fill; " :src="'\\storage/'+item.path_img" alt="oi">
                             <p>@{{item.name}}</p>
                             <span>@{{item.total_qs}} Questions</span>
                         </a>

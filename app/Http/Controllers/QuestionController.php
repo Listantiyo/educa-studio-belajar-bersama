@@ -26,7 +26,8 @@ class QuestionController extends Controller
     public function detail($ids)
     {   
         if ($ids === "QD") {
-            $question = Question::latest()->first();
+            $question = Question::with('tag','user','community','user_detail')
+            ->withCount('likes','dislikes','votes','answers')->latest()->first();
             $id = $question->latest()->limit(1)->pluck('id');
             $view = $question->latest()->limit(1)->pluck('views');
             $views = data_get($view,'0');
@@ -39,7 +40,8 @@ class QuestionController extends Controller
             return view('question.detail.index',compact('question','id'));
         }
         if ($ids === "MAD") {
-            $question = Question::where('id_type',2)->latest()->first();
+            $question = Question::where('id_type',2)->with('tag','user','community','user_detail')
+            ->withCount('likes','dislikes','votes','answers')->latest()->first();
             $id = $question->where('id_type',2)->latest()->limit(1)->pluck('id');
             $view = $question->where('id_type',2)->latest()->limit(1)->pluck('views');
             $views = data_get($view,'0');
@@ -53,10 +55,11 @@ class QuestionController extends Controller
         }
         if ($ids != "QD"||"MAD") {
             $id = $ids;
-            $question = Question::find($ids);
+            $question = Question::find($ids)->with('tag','user','community','user_detail')
+            ->withCount('likes','dislikes','votes','answers')->first();
             $view = Question::find($ids)->pluck('views');
             $views = data_get($view,'0');
-            
+            // return $question;
             $question->views = $views+1;
             $question->update();
             

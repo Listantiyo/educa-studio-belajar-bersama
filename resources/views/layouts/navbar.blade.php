@@ -33,7 +33,7 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link dropdown-toggle">
-                                Blog            
+                                Blog  
                             </a>
 
                             <ul class="dropdown-menu">
@@ -122,9 +122,10 @@
                                 <li>
                                     <div class="dropdown">
                                         <button type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <img src="{{asset('pify/assets/images/user/user.jpeg')}}" style="  width: 40px;object-fit: contain;" alt="Image">
+                                            <img id="photo-user" src="{{asset('pify/assets/images/user/user.jpeg')}}" style="  height:40px;width: 40px;" alt="Image">
                                             <span href="#">{{ Auth::user()->name }}</span>
                                         </button>
+                                        
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                                             <li>
                                                 <a href="{{route('user-profile')}}">

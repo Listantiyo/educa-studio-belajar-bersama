@@ -48,6 +48,6 @@ class Question extends Model
     }
     public function user_detail()
     {
-        return $this->hasOne(User_Detail::class,'id_user','id');
+        return $this->hasOne(User_Detail::class,'id_user','id_user_dil');
     }
 }
