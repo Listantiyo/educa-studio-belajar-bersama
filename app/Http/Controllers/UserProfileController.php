@@ -10,6 +10,7 @@ use App\Question;
 use App\Question_Tags;
 use App\Question_Votes;
 use App\User;
+use App\User_Detail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,11 @@ class UserProfileController extends Controller
         $user = User::with('user_detail')->withCount('community','groups')->where('id',$id)->get();
         $user_detail = $user->makeHidden('password_showed');
         // return $user_detail;
-        return view('user_profile.index',compact('user_detail'));
+        $quest = Question::where('id_user_dil',$id)->count();
+        $answer = Answer::where('id_user_dil',$id)->count();
+        $detail = User_Detail::where('id_user',$id)->get();
+        // return $quest;
+        return view('user_profile.index',compact('user_detail','quest','answer','detail'));
     }
     public function detail()
     {
@@ -119,8 +124,15 @@ class UserProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function shooow(Request $request)
     {
-        //
+        $datau = User::with('user_detail')->get();
+        $dataq = Question::where('id_user_dil',$request->id)->count();
+
+        return response()->json([
+            'datau' => $datau,
+            'dataq' => $dataq,
+
+        ]);
     }
 }

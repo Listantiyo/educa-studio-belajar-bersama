@@ -6,7 +6,7 @@
 @foreach ($user_detail as $item) 
         <div class="profile-content d-flex justify-content-between align-items-center" style="margin-bottom: 10%;">
             <div class="profile-img pt-5">
-                @if ($item->path_img === null)
+                @if ($item->user_detail === null)
                     <img src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
                 @elseif($item->user_detail->path_img === null)
                     <img src="{{asset('pify/assets/images/user/user.jpeg')}}" alt="Image">
@@ -29,28 +29,28 @@
         <div class="row">
             <div class="col-xl-3 col-sm-6">
                 <div class="single-achive">
-                    <h2>1984</h2>
+                    <h2>{{$answer}}</h2>
                     <span>Answers</span>
                 </div>
             </div>
 
             <div class="col-xl-3 col-sm-6">
                 <div class="single-achive">
-                    <h2>507</h2>
+                    <h2>{{$quest}}</h2>
                     <span>Question</span>
                 </div>
             </div>
 
-            <div class="col-xl-3 col-sm-6">
+            {{-- <div class="col-xl-3 col-sm-6">
                 <div class="single-achive">
                     <h2>124</h2>
                     <span>Best answers</span>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="col-xl-3 col-sm-6">
                 <div class="single-achive">
-                    <h2>2M</h2>
+                    <h2>{{$quest + $answer}}</h2>
                     <span>Reached</span>
                 </div>
             </div>
@@ -59,10 +59,10 @@
 
     <div class="about">
         <h3>About</h3>
-        <span>Hello</span>
-        <p>Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Cras ultricies ligula magna dictum porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit tortor eget felis porttitor volutpat faucibus orci luctus et ultrices posuere .</p>
-        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Nulla quis lorem ut libero malesuada feugiat. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Sed porttitor lectus nibh. Proin eget tortor risus blandit aliquet elit, eget tincidunt nibh.</p>
-    </div>
+        @foreach ($detail as $detail) 
+            <p>{{$detail->detail}}</p>
+        @endforeach
+     </div>
 
     {{-- <div class="badges">
         <h3>Badges</h3>

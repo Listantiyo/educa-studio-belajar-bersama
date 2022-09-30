@@ -74,7 +74,7 @@ Route::post('/contactus/store','ContactUsController@store');
 // Route::get('/data/search','XampleController@search');
 
 // API Profile
-
+Route::get('/data/user/detail/get', 'UserProfileController@shooow')->name('user');
 
 Route::get('/profile/detail','UserProfileController@detailUser');
 Route::get('/data/profile/question','ProfileController@showQuest');
