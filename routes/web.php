@@ -15,7 +15,7 @@
 Auth::routes();
 
 Route::get('/', function () {
-    return view('question.index');
+    return redirect(route('menu'));
 });
 
 Route::get('/oohome', function () {
