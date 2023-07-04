@@ -15,4 +15,12 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Starter
+## Instalation
+Open CLI inside program folder
+1. Run :
+    $ composer install
+    $ php artisan key:generate
+2. Create database
+3. 
+
+
