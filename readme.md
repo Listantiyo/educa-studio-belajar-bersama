@@ -17,10 +17,12 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Instalation
 Open CLI inside program folder
-1. Run :
-    $ composer install
-    $ php artisan key:generate
-2. Create database
-3. 
+1. Run : 
+    <br> $ composer install
+    <br> $ php artisan key:generate
+2. Rename copy.env to .env
+3. Create database (db_brainly)
+4. Run : $php artisan migrate
+5. Run seeder if you need data dummy
 
 
